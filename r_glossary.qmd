@@ -1,0 +1,464 @@
+---
+title: "Coding and R Glossary"
+author: "Joe Shaw"
+format: html
+---
+
+# Introduction
+
+This document is intended to be a central repository for my understanding of terms in data-science, computing, R and bioinformatics.
+
+# General Coding Terms
+
+**Absolute path:** the path to a node from the root of the entire directory.
+
+**Algorithm:** a set of defined steps written in a formal language to describe how to perform a certain task.
+
+**Anaconda:** a Python distribution.
+
+**Apache:** a free open-source web browser software. The name came from the Apache Native American tribe, as the open-source developers likened themselves to the Apache resisting the colonial empire (large private companies like Microsoft). The name is also a pun because Apache relies heavily on patches, hence is “a patchy” server.
+
+**Application programming interface (API):** APIs are connections between computers or computer programmes that can be used for the purposes of sharing data and developing software. APIs are different to “user interfaces”, which are the interfaces between a computer and a human user.
+
+**Argument:** an expression that appears between the brackets of a function call.
+
+**ASCII:** American Standard Code for Information Interchange - a standard of the different characters that can be used in computing. Wikipedia: first edition published in 1963, most recently updated in 1986. There are 128 ASCII characters, and only 96 of those are the ones we commonly use.
+
+**Assertion:** a conditional statement used in defensive programming. The assertion must be true at a specific point in order for the program to continue running.
+
+**Assignment statement:** a statement which assigns an expression to a particular variable via the equals sign (variable = expression).
+
+**Back end:** the aspects of software that the user does not directly interact with.
+
+**Bash:** a Unix shell and command language. “The shell's name is an acronym for Bourne-again shell, a pun on the name of the Bourne shell that it replaces” – Wikipedia
+
+**BASIC:** Beginners' All-purpose Symbolic Instruction Code. Bill Gates learned BASIC at school.
+
+**Bioconductor**: an online repository for packages relating to bioinformatics. Bioconductor is similar to CRAN, but smaller and more specific.
+
+**Binary file:** a file made up of 0s and 1s (binary). Binary files are sometimes called “executables” because they can be executed as programmes. Binary files aren’t human readable, unlike plain text files. In order to interpret the information encoded within all the 0s and 1s, you need specific software and hardware, such as the operating system and microprocessors of the computer.
+
+**Boolean algebra:** a form of algebra for expressing logical relationships. It was invented by George Boole, a nineteenth century teacher who never went to university. In the 1930s, Claude Shannon applied Boolean algebra to computing.
+
+**C:** a programming language originally developed at Bell Labs in 1973. Bell Labs was originally founded by Alexander Graham Bell after his invention of the telephone.
+
+**C#:** a modified version of the C programming language, which is pronounced “C sharp”. 
+
+**C++:** a modified version of the C programming language, pronounced "C plus plus". There is no "C+" because "++" is an operator in the C language, so "C++" means "C with stuff added to it", not "C version 3".
+
+**Command:** a directive to tell a computer to perform a specific task.
+
+**Command-line interface:** a method of interaction between a user and a computer involving text-based commands which are typed by the user. Command-line interfaces were the original method of interacting with computers, but have been mainly supplanted by graphical user interfaces in modern computing for casual or non-expert users. This is because graphical interfaces are more intuitive to use.
+
+**Commit:** “In version control systems, a commit adds the latest changes to [part of] the source code to the repository”.
+
+**Compile:** the process of a computer converting program source code (a high-level, human-readable language like Python or R) into a low-level, machine-readable code like assembly code. If you change the source code, then it must be compiled again (“recompiled”) for the computer to see the changes. There is also the reverse-compiling process of generating source code from an executable, which is “decompiling”.
+
+**Courier:** a typeface commonly used in programming and bioinformatics. The Courier typeface was designed in 1955 to emulate the font style of a typewriter. Courier is frequently used in computer programming because it is ‘monospaced’ – each individual character receives the same amount of horizontal space, unlike fonts such as Arial, which is crucial for keeping columns aligned. This is also vital for DNA and protein sequences.
+
+**CPU:** central processing unit
+
+**CSV file:** a comma-separated value file is a file type which tabulates data using commas to separate different fields. A CSV file can be opened in a text format or in Microsoft Excel as a spreadsheet.
+
+**Data analyst:** usually works with structured data within an organisation to answer questions relevant to the running of the organisation.
+
+**Data scientist:** generally considered a more advanced version of a data analyst. Deals more with the unknown by generating predictive models. Definitions from Coursera.
+
+**Defensive programming:** a style of programming which assumes that errors will occur, and aims to identify them when they do.
+
+**DevOps:** development and operations.
+
+**Distribution:** a shell that sits around the kernel of an operating system. Example: Ubuntu and Debian are shells that sit around the Linux kernel.
+
+**Django:** a web-framework based for building web databases (such as Gel2MDT) which is based on the Python programming language, and named after the musician, Django Reinhardt.
+
+**Edge case:** a bug in software engineering that lies at the extreme (“edge”) of a particular use and hence happens rarely. Edge cases require specific fail-safes adding to the source code to manage them.
+
+**Firefox:** a web browser. The name “firefox” came from changing the original name (“Phoenix”) to “Fire Bird”, which was then changed to “Firefox” because “Fire Bird” was already taken by another company. “Firefox” is another term for a red panda.
+
+**Floating point:** a numeric type with decimal places.
+
+**Formal language:** a language that has specific, consistent, logical rules. Computer programming languages are examples of formal languages. Formal languages are different to “natural languages”, which are the normal languages we think of (English, French, German etc) that have evolved from human usage, not from logic. “Natural language processing” is when computers try to process human speech or text. When a human programmer uses their brain to read a formal computer language, you could see that as “formal language processing”.
+
+**Fortran:** a programming language developed by IBM in the 1950s and still used today. The name derives from “formula translation”.
+
+**Front end:** the aspects of software that the user interacts with. A good example is a graphical user interface.
+
+**Function call:** evaluating a function - function_name (arguments).
+
+**Genome browser:** a graphical interface for visualising genomic data. Examples include Alamut, UCSC browser and Ensembl.
+
+**Git:** a version-control system which allows multiple users to work on development of the same files. The function of Git is to track the changes which have been made, and by whom, and to update the file so that everyone is working on the most recent version. Git was originally created by Linus Torvalds (also creator of Linux). Multiple origins of its name are given, including an acronym of ‘global information tracker’ and also ‘git’ in the common usage as an insult (i.e. you can see which git is changing your code).
+
+**Github:** an online public Git repository where members can work on open-source projects. Github is a private company that facilitates open-source usage of the Git version-control system.
+
+**Gitlab:** an online Git repository which provides a private environment for software development. The Genesis pipeline has its own Gitlab page where edits to the code can be viewed.
+
+**GNU:** a free open-source operating system. The recursive acronym “GNU’s Not Unix” can be used to explain the name, but the creator Richard Stallman also said he was referencing “The Gnu” song by Flanders and Swann. GNU is designed to be a completely open-source operating system which can be used on its own or with other systems. 
+
+**Graphical user interface (GUI):** a method of interaction between a user and a computer involving visual icons (also called a GUI).
+
+**Heap:** the section of computer memory which stores all the values which are created during function execution.
+
+**Heisenbug:** when an assertion creates a bug in the programme it is mean to be debugging.
+
+**Hello, World!:** a simple computer programme that display the message “Hello, World!”, as if the computer is waking up. This was first used in the C programming language in 1978, an has since become a recurring theme in programming. The “Hello, World!” programme for each language tells you a little bit about the language and how it works at a basic level. Example: in Python, you would run print("Hello, World!").
+
+**HTML:** Hypertext Markup Language. The markup language used for writing webpages. If you right-click on any webpage and select "View source" you can see the webpage source code written in HTML.
+
+**IDLE:** Integrated Development and Learning Environment (named after Eric Idle).
+
+**IP address:** ‘IP’ stands for ‘Internet Protocol’ and an IP address is a unique numerical identifier which is given to every device (such as a laptop, printer or computer) which accesses the internet. IP addresses are needed whenever you send information through a network, in order to identify the device sending the message and the intended recipient. IP addresses are made up of four numbers separated by decimal points. For example, the IP address of the Crick analysis server is 10.101.46.248. These four numbers are then transmitted as a 32-digit code of ones and zeroes (32-bit).
+
+**Java:** an object-oriented, general purpose programming language developed in the mid-1990s. The icon is a cup of coffee, because the name derives from Java coffee (i.e., coffee from the Indonesian country, Java).
+
+**Jupyter notebook:** a way of presenting Python code in a formatted document, similar to RMarkdown for R and Quarto.
+
+**JSON:** a language independent file format (JavaScript Object Notation).
+
+**Kernel:** the core of a computer’s operating system (i.e. ‘seed’).
+
+**Lazy evaluation:** when Python is given an ‘and’ statement, it evaluates the first condition before moving on to the second. This way, if the first condition evaluates to ‘False’, it can stop before it evaluates the second condition (because there is no point).
+
+**Linux:** a free, open-source operating system which was originally released in 1991. Its name derives from Linus Torvalds, the principle software engineer of the operating system.
+
+**LISP (Lisp):** one of the oldest high level programming languages after Fortran. Lisp stands for "List Processor" and has influenced many other computer languages.
+
+**Local variable:** a variable defined within a function, as opposed to a “global” variable which is defined in the global environment.
+
+**Low-level language:** a programming level with a low-level of abstraction from machine processes. Low-level languages can be “assembly languages”, and are used to assemble operating systems.
+
+**Markdown:** a light-weight markup language created in 2004. The idea behind markdown is that it should be easy to read in its source-code form. This is unlike HTML which can be hard to read as source code if you're not fluent in HTML.
+
+**Markup language:** a system for encoding how a document should be structured and presented. Examples of markup languages include HTML and Markdown.
+
+**Matrix:** a rectangular array of numbers.
+
+**Memory address:** a unique number assigned to a value as part of computer memory, which is prefixed by prefix “id”.
+
+**Mission creep:** when the scope of a project increases during its execution, usually due to early successes. Mission creep then results in the project having too many objectives that weren’t considered in the planning phase.
+
+**Mojibake:** the garbled text you get when text is decoded using the wrong character encoding. This is caused by the machine that wrote the characters and the machine that interprets the characters having different references for what characters a number should encode. For example, a “£” sign may be converted to "Â£". “Mojibake” is Japanese for “character transform”.
+
+**MS-DOS:** Microsoft Disk Operating System.
+
+**Object-oriented programming:** programming languages which are founded around defining objects, as opposed to imperative or procedural programming. R and Python are both object-oriented programming languages.
+
+**Ontology:** (Greek ‘onto’ – being) in information science, an ontology is a structured way of organising and linking entities based on their properties.
+
+**Operand:** the thing which is operated on.
+
+**Operating system:** a type of software which acts as an intermediary between the computer hardware and the programmes which are being run. Examples of operating systems include Windows, OS X (Apple) and Linux.
+
+**Operation:** a process which is executed on an operand. Numerical examples include addition, subtraction, division and multiplication, but there are also built-in operations within Python.
+
+**Operator precedence:** the standard order in which operations are performed (also known as BODMAS: Brackets, Orders, Division and Multiplication, Addition and Subtraction)
+
+**Operator:** the symbol used to signify an operation (example: ** to exponentiate).
+
+**Orthogonality:** if modules are “orthogonal”, this means they work independently of each other. This means a change to one module should not affect the functioning of another. Orthogonal systems in coding are advantageous because: you can test things easily; you can reuse code easily; when external things change, the impact on the code is limited (the system is more resilient); the code is easier to maintain; if one module goes bad, the damage is minimised.
+
+**Parse:** parse can be used in two main contexts. The first is to break down something into it’s constituent parts, as in “parsing a text string”. The second is the process of a computer reading source code before it is compiled.
+
+**Patch:** a change or update to code which aims to fix bugs or security issues. A patch may also be called a “bugfix”.
+
+**Portable:** (adjective) whether software can be run in a different environment.
+
+**Pothole case:** the naming convention of using lower case letters and underscores.
+
+**Problem domain:** an area of expertise that needs to be understood in order to solve a problem.
+
+**Prompt: three arrow symbols at the start of a line (>>>)**
+
+**Python:** a programming language created in the 1980s by Guido van Rossum, which can be used for many different purposes and on different operating systems. Van Rossum chose the name as a reference to the English comedy group Monty Python.
+
+**RAM:** random access memory.
+
+**Relative path:** the path to a file from the current position.
+
+**ROM:** read only memory.
+
+**S**: the precursor language to R. S was named to stand for "Statistics" and was developed at Bell Laboratories.
+
+**Script:** a programme which automates a defined series of tasks which could be performed by a human operator. For example, the Genesis pipeline scripts allow the automatic processing of data through several steps which could alternatively be performed by a human, although using a script is much more efficient. A corresponding principle in a laboratory environment would be using a liquid-handling robot to prepare a series of PCR reactions much faster than a single person could.
+
+**Semantics:** the meaning of a combination of symbols.
+
+**Server:** a machine or programme which ‘serves’ a client, by providing functionality for a specific task.
+
+**Shell:** a user interface for accessing a computer’s processes. Examples of different shell types include a graphical-user interface and a command-line interface. The name ‘shell’ refers to the way in which the interface is on the outside of the computer system, indicated by the use of peripheral components which are used to operate the shell, like a monitor screen, keyboard and mouse. Shell also refers to the way in which the interface is on the outside of the machine’s kernel. Different shells are used for different operating systems, so a Unix-like computer will be controlled using a Unix-like shell.
+
+**Source code:** the fundamental section of a program which declares how the program functions, which is written in a high-level, human-readable language.
+
+**Stack:** an abstract data type in which data elements are “stacked” on top of each other. What this means functionally is that elements can only be added or removed from the top (most recent) of the stack, like plates stacked in a kitchen. If the computer tries to write data to the stack but the space is running out (which can happen if you programme an infinite loop), then you get a “stack overflow”. Wikipedia: "also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to simply "the stack"."
+
+**Symlinking:** a “symlink” or “symbolic link” is a text string which provides a path to a specific file. Symlinking can be useful because it provides a way for the Genesis scripts to access FASTQ files stored on a separate directory without copying and pasting, which saves storage space.
+
+**Syntax:** the set of rules which specifies which combination of symbols are allowed.
+
+**Tab:** from ‘tabulator’ (i.e. ‘table’).
+
+**Test oracle:** a trusted source (human analyst, older programme) against which the results of a new programme can be compared.
+
+**Traceback:** the sequence of function calls that led to an error.
+
+**Type:** a set of values, plus the operations which can be performed on them (i.e. integer and floating point types).
+
+**Uniform Access Principle:** a principle designed to provide “uniform access” to something in an object-oriented programming language, regardless of whether the “something” is an object or is the result of a calculation by a function. The aim is to promote consistency in code and prevent massive changes to open-source software projects.
+
+**Unix:** an operating system originally developed in the 1970s by the AT&T Corporation (American Telephone and Telegraph). AT&T then licensed UNIX to be used by outside parties, meaning that a variety of Unix-like operating systems were then developed. The etymology of the name ‘Unix’ is convoluted, but originally it was a pun on the words ‘eunuchs’. The joke was that Unix was an ‘emasculated’ version of a previous, more cumbersome operating system called Multics.
+
+**Variable:** a named location in computer memory.
+
+**Variant Call Format (VCF):** a text based file format for compressing and storing information about DNA variation, originally created by the 100 Genomes Project.
+
+**Virtual machine:** software that emulates the hardware of a particular computer (i.e. a digital version of a physical computer). A single physical computer can then have multiple “virtual machines” hosted on it, each running a different operating system. Virtual machines are key to cloud computing, and you can even have virtual machines hosted on virtual machines.
+
+**Virtual Private Network (VPN):** a programme which allows you to access the internet in a secure, anonymised way.
+
+# Coding Terms Specific to R
+
+**Assignment**: the act of binding a name to a value.
+
+**Atomic vector**: a vector where all the elements are the same type.
+
+**Attribute**: metadata that is paired to an object. Class is an example of an attribute. 
+**Class:** a type of attribute. Examples include factor, POSIXct, date and data.frame.
+
+**Closure:** a type of function that encloses its environment. In R, functions tend to be closure functions so the terms "function" and "closure" are used interchangeably.
+
+**Copy on modify:** a behaviour of R which aims to reduce the amount of memory required to execute tasks. This is illustrated in the following code:
+
+```{r}
+#| include: TRUE
+#| label: copy-ond-modify
+
+x <- c(1, 2, 3)
+
+y <- x
+# x and y both are both bound to the same vector. We can tell this 
+# by checking the object address.
+
+lobstr::obj_addr(x) == lobstr::obj_addr(y)
+
+# Then we modify y
+y[[3]] <- 4
+
+# Because we've modified y, a new version of the vector is made 
+# (copied) so that x is not changed as well. In this way, the 
+# original vector is "immutable" - it cannot be changed without copying it.
+
+lobstr::obj_addr(x) == lobstr::obj_addr(y)
+
+print(x)
+print(y)
+
+```
+
+**CRAN**: the Comprehensive R Archive Network. CRAN is an online repository started in 1997. It includes all versions of R and R packages which have been contributed by developers and can be freely used.
+
+**data.frame**: a class of data in R. A dataframe is a list of atomic vectors (i.e. a vector of vectors).
+
+**Data wrangling:** the process of cleaning up data so it is ok to use. Also called "data munging".
+
+**Double:** a numeric non-integer data-type. Example 1.0. The name derives from the phrase "double-precision floating point type".
+
+**Evaluation (lazy):** function arguments in R are only evaluated if accessed.
+
+```{r}
+#| include: TRUE
+#| label: lazy-evaluation
+#| error: TRUE
+
+# In this function, x is specified as an input but doesn't appear
+# in the function body
+h01 <- function(x) {
+  10
+}
+
+# h01 is invoked without generating an error, because x doesn't get
+# used
+h01(x = stop("This is an error!"))
+
+```
+
+**Factor:** "A factor is a vector that can contain only predefined values." (Advanced R)
+
+**Function (anonymous):** a function without a name.
+
+**Function (primitive):** an R function which calls C code directly.
+
+**geom:** a geometrical object that is added as a layer to a plot to represent data.
+
+**Global string pool**: "each unique string is only stored in memory once, and every use of the string points to that representation." (R For Data Science).
+
+**Key**: the variable used to connect a pair of dataframes together in a join.
+
+**Key (primary)**: a variable or set of variables that uniquely identifies each observation (each row if the data is tidy) in the original table.
+
+**Key (foreign)**: a variable or set of variables that corresponds to a primary key in another table.
+
+**Key (compound)**: when there is more than one variable in a key.
+
+**Key (surrogate)**: a new variable added to act as a primary key (such as row number).
+
+**List:** a vector where the elements can be different types, including lists.
+
+**Posit**: a company, formerly called RStudio, which makes publicly available software for using R.
+
+**POSIX:** Portable Operating System Interface. A family of standards to maintain compatibility between operating systems.
+
+**POSIXct**: the time class in R for calendar time.
+
+**POSIXlt**: the time class in R for local time.
+
+**POSIXt**: a "super class" of ct and lt together.
+
+**Programming (declarative):** "you express higher-level goals or describe important constraints, and rely on someone else to decide how and/or when to translate that into action." (Mastering Shiny). Example: a Shiny app.
+
+**Programming (imperative):** "you issue a specific command and it’s carried out immediately." (Mastering Shiny) Example: an R script.
+
+**rlang:** "a low-level package that’s used by just about every other package in the tidyverse because it implements tidy evaluation (as well as many other useful tools)".
+
+**scaling:** the process of mapping aesthetic values (colour, shape, size) to variables in the data.
+
+**Scoping:** the act of finding a value associated with a name.
+
+**Scoping (dynamic):** when values are looked up in the calling stack rather than the enclosing environment.
+
+**Scoping (lexical):** a behaviour of R. Lexical scoping means R looks up values bound to names based on how a function is defined rather than how it is called. "“Lexical” here is not the English adjective that means relating to words or a vocabulary. It’s a technical computer science term that tells us that the scoping rules use a parse-time, rather than a run-time structure ... The basic principle of lexical scoping is that names defined inside a function mask names defined outside a function." (Advanced R). Another name could be "masked scoping".
+
+```{r}
+#| label: lexical-scoping
+#| include: TRUE
+
+# x and y are defined in the global environment
+x <- 10
+y <- 20
+
+# Function g02 defines x and y differently within the function
+# body
+g02 <- function() {
+  x <- 1
+  y <- 2
+  c(x, y)
+}
+
+# When g02 is called, lexical scoping means that it returns the 
+# values of x and y stored in the function body, not in the 
+# global environment.
+g02()
+
+```
+
+**stat:** an alternative way to build up layers on a plot, which adds new variables (count, density etc)
+
+**Tibble**: a version of the data.frame class developed as part of the tidyverse.
+
+**Tidy data:** each column is a variable, each row is an observation.
+
+**Tidy evaluation:** you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
+
+**Type coercion**: the behaviour in which R automatically converts multiple objects with different data types to have the same type. Logical coerces to integer, coerces to double, coerces to character, coerces to list.
+
+## To Add
+
+Pass by value
+
+bootstrapping
+
+Type
+
+Vector
+
+Object
+
+Function
+
+Environment
+
+Metaprogramming
+
+Functional programming
+
+# Timeline of R
+
+- 1976: S was a language built at Bell Laboratories (New Jersey, USA) - the S stood for "Statistics".
+
+- 1980: S distributed outside of Bell Laboratories.
+
+- 1988: the "new S language" S-PLUS released.
+
+- 1993: Ross Ihaka and Robert Gentleman develop R, based on S, to teach statistics at the University of Auckland (New Zealand).
+
+- 1997: R becomes a GNU project - free, publicly accessible and built by mass collaboration.
+
+- 2000: first official version (R v1.0) released.
+
+- 2018: release of the tidyverse
+
+# Bioinformatics Terms
+
+**Accession (number):** the process of ‘accession’ means to add a new record to an existing collection. New DNA and protein sequences are given unique ‘accession numbers’ when they are added to databases, in order to keep track of them.
+
+**Annotation:** the process of locating and labelling genes on genomic sequences. Annotation can be automated by bioinformatics pipelines which scan the sequence and predict genes, or can be performed manually by a team of researchers. Both methods have their advantages: automated annotation allows rapid location of gene positions in large datasets, whilst manual annotation has a greater degree of accuracy. Genome sequence databases like Ensembl use a combination of both manual and automated annotations.
+
+**BAM file:** a compressed, binary form of a SAM file.
+
+**BCL file:** the file which is initially generated by Illumina next-generation sequencing machines ('base call'). BCL files consist of the co-ordinates and intensities of fluorescence readings from the sequencing flow cell as it is photographed after each cycle.
+
+**Broad Institute:** a genomics research centre in Cambridge, Massachusetts, founded in 2004. The institute is named after Eli and Edythe Broad, who have invested $700 million since its formation. Many bioinformatics programmes and tools which are distributed freely, such as IGV, SAM Tools and GATK, were developed at the Broad Institute.
+
+**CCDS:** consensus coding sequence. CCD sequences are protein coding sequences which are annotated identically in the human and mouse reference genomes. The CCDS project is supported by the three main genome browsers. CCDS numbers update when the genomic sequence changes (they have ‘version’ numbers after the decimal point).
+
+**Entrez:** a search engine which is part of the National Institute for Biotechnology Information’s website (NCBI). Entrez (French for “come in”) enables the user to search all of NCBI’s different databases, such as PubMed, ClinVar and OMIM, with the same query. 
+
+**FASTA:** pronounced ‘Fast-A’; the standard format for presenting DNA and protein sequence in single letter code. The name comes from ‘FAST-All’, which was a programme for aligning biological sequences. FASTA can be used for both DNA and protein sequences, unlike earlier versions including FAST-N (nucleotide) and FAST-P (protein). A FASTA sequence begins with a ‘>’ and then the description of where the sequence comes from (accession number, species, type of molecule etc).
+
+**HAVANA:** stands for ‘Human and Vertebrate Analysis and Annotation’, a specific form of manually curated gene annotations performed by the Wellcome Trust Sanger Institute. Genes which have been annotated by HAVANA can also be viewed on the VEGA browser.
+
+**IGV:** Integrative Genomics Viewer, a free genome browser developed by the Broad Institute in 2011 for examining NGS reads.
+
+**InterPro:** a website which analyses protein sequences based on the presence of functional ‘signature’ sequences and domains. InterPro works by accessing data stored in a large number of different protein sequence databases, which together are referred to as the InterPro Consortium. InterPro is run by the European Molecular Biology Laboratory (EMBL).
+
+**Phred:** the original name of a base-calling software programme designed by Phill Green, which stands for ‘Phil’s Read Editor’, and was originally released in 1998. Phred became widely used because it was far more accurate than other case-call programmes and now is a standard quality metric for sequencing. 
+
+**Pipeline:** in bioinformatics, a ‘pipeline’ is a series of analysis tools which can be linked together in a defined way to process NGS data. In this respect, a pipeline is like an automated production line in a factory: there are a discrete number of modules in which specific tasks are performed, producing an output which is very different to the input.
+
+**RefSeq:** a database of DNA, RNA and protein reference sequences which is part of the National Institute for Biotechnology Information. Sequences are attained via either automated annotation of genomes or manual curation.
+
+**SAM file:** a “Sequence Alignment/Map” file. SAM files are used to store information when a generated DNA sequence is aligned to a reference sequence, for example when a new sequencing read is aligned to hg19 in Genesis. The SAM file format was created in 2009 at the Broad Institute by Heng Li. The SAM format has a sister format, BAM. BAM files are more compressed versions of SAM files, whilst SAM files can be read by a human.
+
+**Tile:** an image of the flow cell captured by the camera in an Illumina sequencer. A standard flow cell has 8 lanes, and each lane is imaged in 2 columns with 60 tiles in each column, giving 960 tiles per flow cell, per sequencing cycle.
+
+**VEGA:** stands for ‘Vertebrate and Genome Annotation’. The Vega browser is a browser for manual genome annotations, and is based on the Ensembl browser. As a result, it looks similar to Ensembl and can be used in the same way. Vega was launched by the Wellcome Trust Sanger Institute in 2004.
+
+# People
+
+Hadley Wickham
+
+Jenny Bryan
+
+Guido Van Rossum
+
+John Chambers
+
+Ross Ihaka
+
+Robert Gentleman
+
+# Questions
+
+**Are all programming languages based on English?**
+
+English is the common language of computing. Most of the early computers were built in English-speaking countries, and so languages developed to use Latin characters with English words. Even when non-English programmers develop software (Guido Van Rossum, Python, Dutch; Linus Torvalds, Linux, Finnish) they use English. So the majority of the world’s major programming languages use English as a base, but new non-English languages are being invented.
+
+# Publications
+
+"A Layered Grammar of Graphics" - Hadley Wickham
+
+"Tidy Data" - Hadley Wickham
+
+"R for Data Science" - Hadley Wickham
+
+"Data Organization in Spreadsheets" Broman and Woo
