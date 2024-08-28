@@ -1,0 +1,150 @@
+---
+title: "Chapter 7: Environments"
+author: "Joe Shaw"
+format: html
+---
+
+```{r}
+#| include: FALSE
+#| message: FALSE
+#| warning: FALSE
+
+library(rlang)
+
+```
+
+"Generally, an environment is similar to a **named list**, with four important exceptions:
+
+- Every name must be unique.
+
+- The names in an environment are not ordered.
+
+- An environment has a parent.
+
+- Environments are not copied when modified."
+
+"To create an environment, use rlang::env(). It works like list(), taking a set of name-value pairs".
+
+```{r}
+#| include: TRUE
+
+e1 <- env(
+  a = FALSE,
+  b = "a",
+  c = 2.3,
+  d = 1:3,
+)
+
+```
+
+"The job of an environment is to associate, or bind, a set of names to a set of values. You can think of an environment as a bag of names, with no implied order (i.e. it doesn’t make sense to ask which is the first element in an environment)."
+
+"Environments have reference semantics: unlike most R objects, when you modify them, you modify them in place, and don’t create a copy. One important implication is that **environments can contain themselves.**"
+
+You can view an environment using env_print(), which shows the objects in the environment and the memory address.
+
+```{r}
+#| include: TRUE
+
+env_print(e1)
+
+```
+
+"The global environment is sometimes called your “workspace”, as it’s where all interactive (i.e. outside of a function) computation takes place."
+
+"To compare environments, you need to use identical() and not ==. This is because == is a vectorised operator, and environments are not vectors."
+
+# Parents
+
+"The parent is what’s used to implement lexical scoping: if a name is not found in an environment, then R will look in its parent (and so on)."
+
+The parent environment is "above" the current environment. If a name is not found in the current environment, then R looks in the next layer up which is the parent environment.
+
+"Only one environment doesn’t have a parent: the empty environment."
+
+"The ancestors of the global environment include every attached package".
+
+# Super assignment <<-
+
+"Regular assignment, <-, always creates a variable in the current environment. Super assignment, <<-, never creates a variable in the current environment, but instead modifies an existing variable found in a parent environment."
+
+# Special environments
+
+"Each package attached by library() or require() becomes one of the parents of the global environment. The immediate parent of the global environment is the last package you attached."
+
+"If you follow all the parents back, you see the order in which every package has been attached. This is known as the search path because all objects in these environments can be found from the top-level interactive workspace."
+
+"The last two environments on the search path are always the same:
+
+- The Autoloads environment uses delayed bindings to save memory by only loading package objects (like big datasets) when needed.
+
+ - The base environment, package:base or sometimes just base, is the environment of the base package. It is special because it has to be able to bootstrap the loading of all other packages. You can access it directly with base_env()."
+
+# The function environment
+
+"A function binds the current environment when it is created. This is called the function environment, and is used for lexical scoping. Across computer languages, functions that capture (or enclose) their environments are called **closures**, which is why this term is often used interchangeably with function in R’s documentation."
+
+# Namespaces
+
+"In the diagram above, you saw that the parent environment of a package varies based on what other packages have been loaded. This seems worrying: doesn’t that mean that the package will find different functions if packages are loaded in a different order? The goal of namespaces is to make sure that this does not happen, and that every package works the same way regardless of what packages are attached by the user."
+
+"Every function in a package is associated with a pair of environments: the package environment, which you learned about earlier, and the namespace environment."
+
+"The **package environment** is the external interface to the package. It’s how you, the R user, find a function in an attached package or with ::. Its parent is determined by search path, i.e. the order in which packages have been attached."
+
+"The **namespace environment** is the internal interface to the package. The package environment controls how we find the function; the namespace controls how the function finds its variables."
+
+There's a complex explanation that I didn't understand. The bottom line is:
+
+"This ensures that package code always works the same way regardless of what packages have been attached by the user."
+
+"There’s no direct link between the package and namespace environments; the link is defined by the function environments."
+
+# Execution environments
+
+Execution environments are the environments in which a function call executes.
+
+"An execution environment is usually ephemeral; once the function has completed, the environment will be garbage collected."
+
+This is due to the "fresh start" principle described in the functions chapter.
+
+# Call Stacks
+
+"Each element of the call stack is a frame, also known as an evaluation context."
+
+"Looking up variables in the calling stack rather than in the enclosing environment is called **dynamic scoping**. Few languages implement dynamic scoping (Emacs Lisp is a notable exception.) This is because dynamic scoping makes it much harder to reason about how a function operates: not only do you need to know how it was defined, you also need to know the context in which it was called."
+
+```{r}
+#| label: call-stack
+#| include: TRUE
+#| error: TRUE
+
+# Three functions which call each other
+f <- function(x) {
+  g(x = 2)
+}
+
+g <- function(x) {
+  h(x = 3)
+}
+
+h <- function(x) {
+  lobstr::cst()
+  stop()
+}
+
+# Calling f calls g which calls h, which stops and throws an error
+f(x = 1)
+
+# If you didn't know how f, g and h were related, how would you investigate
+# the error?
+# One way is to use lobstr::cst (cst = call stack tree)
+
+h <- function(x) {
+  lobstr::cst()
+}
+
+# This prints the call stack showing the way each function called another.
+f(x = 1)
+
+```

@@ -1,0 +1,30 @@
+---
+title: "Functionals"
+author: "Joe Shaw"
+format: html
+---
+
+"R, at its heart, is a functional language. This means that it has certain technical properties, but more importantly that it lends itself to a style of problem solving centred on functions."
+
+"A functional style tends to create functions that can easily be analysed in isolation (i.e. using only local information), and hence is often much easier to automatically optimise or parallelise. The traditional weaknesses of functional languages, poorer performance and sometimes unpredictable memory usage, have been much reduced in recent years. Functional programming is complementary to object-oriented programming, which has been the dominant programming paradigm for the last several decades."
+
+"Strictly speaking, R isn’t a functional programming language because it doesn’t require that you write pure functions. However, you can certainly adopt a functional style in parts of your code: you don’t have to write pure functions, but you often should."
+
+# Pure Functions
+
+Pure functions have the following qualities:
+
+- "The output only depends on the inputs"
+
+- "The function has no side-effects, like changing the value of a global variable, writing to disk, or displaying to the screen."
+
+# Functional Style
+
+"It’s hard to describe exactly what a functional style is, but generally I think it means decomposing a big problem into smaller pieces, then solving each piece with a function or combination of functions."
+
+
+
+
+
+
+

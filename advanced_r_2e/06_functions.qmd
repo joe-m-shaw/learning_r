@@ -1,0 +1,576 @@
+---
+title: "Chapter 6: Functions"
+author: "Joe Shaw"
+format: html
+---
+
+```{r}
+#| include: FALSE
+#| warning: FALSE
+#| error: FALSE
+
+library(tidyverse)
+
+```
+
+# Fundamentals
+
+"To understand functions in R you need to internalise two important ideas:
+
+- Functions can be broken down into three components: arguments, body, and environment.
+
+- Functions are objects, just as vectors are objects."
+
+"A function has three parts:
+
+- The formals(), the list of arguments that control how you call the function.
+
+- The body(), the code inside the function.
+
+- The environment(), the data structure that determines how the function finds the values associated with the names."
+
+"While the formals and body are specified explicitly when you create a function, the environment is specified *implicitly*"
+
+"Like all objects in R, functions can also possess any number of additional attributes(). One attribute used by base R is srcref, short for source reference."
+
+Functions have the structure: function(argument) body
+
+```{r}
+#| include: TRUE
+
+# This doesn't throw an error
+function(x) x+1
+
+# Assign a name
+plus_one <- function(x) x+1
+
+# This calls the function
+plus_one(x = 1)
+
+# Same function written with curly brackets on multiple lines
+plus_one <- function(x) {
+  x+1 
+  }
+
+```
+
+# Primitive Functions
+
+"There is one exception to the rule that a function has three components. Primitive functions, like sum() and [, call C code directly."
+
+"Primitive functions are only found in the base package."
+
+# First-class functions
+
+"It’s very important to understand that R functions are objects in their own right, a language property often called “first-class functions”."
+
+"While you almost always create a function and then bind it to a name, the binding step is not compulsory. If you choose not to give a function a name, you get an **anonymous function**."
+
+```{r}
+#| include: TRUE
+
+# Applies a function to find the length of unique values in each column of mtcars
+# even though we didn't give the function a name
+lapply(mtcars, function(x) length(unique(x)))
+
+# Alternatively we could write the function out in full and give it a name
+
+find_unique <- function(x) {
+  
+  y <- length(unique(x))
+  
+  return(y)
+}
+
+# And then apply it to mtcars, which gives us the same result
+lapply(mtcars, find_unique)
+
+```
+
+# magrittr
+
+The magrittr package introduced the "pipe" %>% operator.
+
+It's called magrittr after Belgian artist René Magritte who did the famous "Ceci n'est pas une **pipe**" painting.
+
+Pipes are not a uniquely R thing. Many programming languages have them and they are always used as ways of passing information from one thing to another.
+
+```{r}
+#| include: TRUE
+
+library(magrittr)
+
+square <- function(x) x^2
+deviation <- function(x) x - mean(x)
+
+x <- runif(100)
+
+x %>%
+  deviation() %>%
+  square %>%
+  mean() %>%
+  sqrt()
+
+```
+
+- "x %>% f() is equivalent to f(x)
+
+- x %>% f(y) is equivalent to f(x, y). 
+
+The pipe allows you to focus on the high-level composition of functions rather than the low-level flow of data; the focus is on what’s being done (the verbs), rather than on what’s being modified (the nouns). This style is common in Haskell and F#, the main inspiration for magrittr"
+
+"Piping, x %>% f() %>% g(), allows you to read code in straightforward left-to-right fashion and doesn’t require you to name intermediate objects. But you can only use it with linear sequences of transformations of a single object. It also requires an additional third party package and assumes that the reader understands piping."
+
+# Lexical scoping
+
+Assignment: the act of binding a name to a value
+
+Scoping: the act of finding a value associated with a name
+
+"R uses lexical scoping: it looks up the values of names based on how a function is defined, not how it is called. “Lexical” here is not the English adjective that means relating to words or a vocabulary. It’s a technical CS term that tells us that the scoping rules use a parse-time, rather than a run-time structure."
+
+Name masking: "defined inside a function mask names defined outside a function."
+
+```{r}
+#| include: TRUE
+
+x <- 10
+
+y <- 20
+
+g02 <- function() {
+  x <- 1
+  y <- 2
+  c(x, y)
+}
+
+# Calling the g02 function returns x as 1 and y as 2
+g02()
+
+# But then calling x and y from the global environment returns 
+# 10 and 20
+
+x
+y
+
+```
+Functions have their own environments. The function will look inside its own environment first, and then in the global environment. Functions can also have multiple nested environments.
+
+```{r}
+#| include: TRUE
+
+# x defined in global environment
+x <- 1
+
+g04 <- function() {
+  
+  # y defined in first function environment
+  y <- 2
+  
+  i <- function() {
+    
+    # z defined in second function environment
+    z <- 3
+    
+    # Function searches in second, first and global
+    # environments for values
+    c(x, y, z)
+    
+  }
+  
+  i()
+  
+}
+
+g04()
+
+```
+```{r}
+#| include: TRUE
+
+# g07 defined as a function in the global environment
+g07 <- function(x) x + 1
+
+# Within g08, g07 is defined as a different function
+g08 <- function() {
+  
+  g07 <- function(x) x + 100
+  
+  g07(10)
+  
+}
+
+# When g08 is called, it uses the g07 defined in the
+# g08 internal function environment
+g08()
+
+# What if a function and a non-function object share the same name?
+
+# g09 defined as a function in the global environment
+g09 <- function(x) x + 100
+
+g10 <- function() {
+  
+  # g09 defined as a number within the g10 function
+  # environment
+  g09 <- 10
+  
+  # The g09 function (take x and add 100) is then
+  # applied to the g09 value (10)
+  # R initially ignores the g09 value and instead
+  # looks in the global environment for the g09
+  # function.
+  
+  g09(g09)
+  
+}
+
+g10()
+
+```
+# A fresh start
+
+```{r}
+#| include: TRUE
+
+g11 <- function() {
+  
+  if (!exists("a")) {
+    a <- 1
+  } else {
+    a <- a + 1
+  }
+  a
+}
+
+# g11 is called. a does not exists, so is created within the 
+# function environment, and then returned to the global environment
+# as 1
+g11()
+
+# The a value from the first g11 call isn't stored in the global
+# environment, so calling g11 again gives the same answer.
+g11()
+
+
+f <- function(x) {
+  
+  f <- function(x) {
+    
+    f <- function() {
+      
+      x ^ 2
+    }
+    
+    f() + 1
+  }
+  
+  f(x) * 2
+}
+
+```
+
+"This happens because every time a function is called a new environment is created to host its execution. This means that a function has no way to tell what happened the last time it was run; each invocation is completely independent."
+
+```{r}
+#| include: TRUE
+
+# Exercises
+
+# c is a value of 10
+c <- 10
+
+# c is used to define a vector. The vector contains a name "c" which is 
+# bound to the value of 10
+c(c = c)
+
+
+# f(10) is called. 
+# The lowest level f() returns 10 ^ 2 = 100
+# The second level f() function returns 100 + 1 = 101
+# The highest level f() function returns 101 * 2 = 202
+
+f(10)
+
+```
+
+# Lazy evaluation
+
+"Lazy evaluation is powered by a data structure called a promise, or (less commonly) a thunk. It’s one of the features that makes R such an interesting programming language"
+
+"A promise has three components:
+
+- An expression, like x + y, which gives rise to the delayed computation.
+
+- An environment where the expression should be evaluated, i.e. the environment where the function is called. 
+
+- A value, which is computed and cached the first time a promise is accessed when the expression is evaluated in the specified environment. This ensures that the promise is evaluated at most once."
+
+```{r}
+#| include: TRUE
+
+y <- 10
+
+h02 <- function(x) {
+  
+  # y is specified within the function environment, but not used
+  # in a further computation
+  y <- 100
+  
+  x + 1
+  
+}
+
+# h02 is called with the x argument specified as y (10)
+# h02 takes 10 and adds 1, returning 11
+h02(y)
+
+# h02 is called with y assigned as 1000
+# h02 takes 1000 as the input (x) and returns 1000 + 1
+h02(y <- 1000)
+
+# Then calling y in the global environment returns 1000
+y
+
+```
+```{r}
+#| include: TRUE
+
+double <- function(x) { 
+  
+  # The function prints "Calculating..."
+  message("Calculating...")
+  
+  # And returns x times 2
+  x * 2
+  
+}
+
+h03 <- function(x) {
+  
+  c(x, x)
+  
+}
+
+double(20)
+
+# h03 is called with the input as the output of double(20)
+# The output of double(20) shows "Calculating ..." as a message and 
+# then returns 40.
+# But when h03 is called on that output, only the 40 is shown twice
+h03(double(20))
+
+```
+"Promises are like a quantum state: any attempt to inspect them with R code will force an immediate evaluation, making the promise disappear."
+
+# Default arguments
+
+"Thanks to lazy evaluation, default values can be defined in terms of other arguments, or even in terms of variables defined later in the function:"
+
+```{r}
+#| include: TRUE
+
+# The function call includes references to other function call arguments 
+# (y = x *2) and references to within the function (z = a + b)
+h04 <- function(x = 1, y = x * 2, z = a + b) {
+  a <- 10
+  b <- 100
+  
+  c(x, y, z)
+}
+
+h04()
+
+```
+
+# Dot-dot-dot
+
+"Functions can have a special argument ... (pronounced dot-dot-dot). With it, a function can take any number of additional arguments. In other programming languages, this type of argument is often called varargs (short for variable arguments), and a function that uses it is said to be *variadic*."
+
+```{r}
+#| include: TRUE
+
+i01 <- function(y, z) {
+  list(y = y, z = z)
+}
+
+i02 <- function(x, ...) {
+  i01(...)
+}
+
+# i02 is called, including the y and z arguments which it doesn't need.
+# As 102 executes, it calls i01 within the function body.
+# i01 uses the y and z arguments given to i02, to return a list with 2 and 3.
+
+str(i02(x = 1, y = 2, z = 3))
+
+```
+
+# Exiting a function
+
+Functions either implicitly return the last evaluated expression, or use an explicit return statement.
+
+## Invisible values
+
+Functions can return invisibly.
+
+The assignment operator <- is a function in base R, called "assignOps".
+
+```{r}
+#| include: TRUE
+
+# When this code evaluates, nothing is returned in the console even
+# though a is bound to value 2 in the environment.
+a <- 2
+
+# But you can force the assignment operator function to show what it is doing.
+print(a<-2)
+
+# Then you can also daisy-chain assignments.
+a <- b <- c <- d <- 2
+
+# a, b, c and d all are bound to 2.
+a
+b
+c
+d
+
+```
+
+"If a function cannot complete its assigned task, it should throw an error with stop(), which immediately terminates the execution of the function."
+
+"An error indicates that something has gone wrong, and forces the user to deal with the problem. Some languages (like C, Go, and Rust) rely on special return values to indicate problems, but in R you should always throw an error."
+
+"Sometimes a function needs to make temporary changes to the global state. But having to cleanup those changes can be painful (what happens if there’s an error?). To ensure that these changes are undone and that the global state is restored no matter how a function exits, use on.exit() to set up an exit handler."
+
+Exit handlers are ways to stop a buggy or bad function from messing with the global environment.
+
+"Always set add = TRUE when using on.exit(). If you don’t, each call to on.exit() will overwrite the previous exit handler. Even when only registering a single handler, it’s good practice to set add = TRUE so that you won’t get any unpleasant surprises if you later add more exit handlers."
+
+# Function forms
+
+*"To understand computations in R, two slogans are helpful: Everything that exists is an object. Everything that happens is a function call."*
+
+John Chambers
+
+John Chamber was the creator of S and a core member of the R GNU project.
+
+"Function calls come in four varieties:
+
+- **prefix:** the function name comes before its arguments, like foofy(a, b, c). These constitute of the majority of function calls in R.
+
+- **infix:** the function name comes in between its arguments, like x + y. Infix forms are used for many mathematical operators, and for user-defined functions that begin and end with %.
+
+- **replacement:** functions that replace values by assignment, like names(df) <- c("a", "b", "c"). They actually look like prefix functions.
+
+- **special:** functions like [[, if, and for. While they don’t have a consistent structure, they play important roles in R’s syntax."
+
+You can rewrite functions from different forms into prefix form:
+
+```{r}
+#| include: TRUE
+
+x <- 1
+y <- 2
+
+# Infix form: the function add (+) is between the arguments
+x + y
+
+# Prefix form: the function is before the arguments
+`+`(x, y)
+
+df <- c(1, 2, 3)
+
+# Replacement form
+names(df) <- c("x", "y", "z")
+
+# Prefix form
+`names<-`(df, c("x", "y", "z"))
+
+# Special form
+for(i in 1:10) print(i)
+
+# Prefix form
+`for`(i, 1:10, print(i))
+
+```
+
+"If you’re ever feeling particularly evil, run the following code while a friend is away from their computer. It will introduce a fun bug: 10% of the time, it will add 1 to any numeric calculation inside the parentheses."
+
+```{r}
+#| include: TRUE
+
+# Function call identifying the left bracket as a function
+
+`(` <- function(e1) {
+  # 10% of the time the function will add 1 onto the input
+  if (is.numeric(e1) && runif(1) < 0.1) {
+    e1 + 1
+  } else {
+    e1
+  }
+}
+
+# Returns 3 50 times
+replicate(50, 3)
+
+# This time the bracket before 1 is read as a function call which is 
+# invoked 50 times.
+# 10% of the time the 1 becomes a 2, so 4 is returned from replicate 
+# instead of 3
+replicate(50, (1+2))
+
+# Get rid of the bracket function-bug
+rm("(")
+
+```
+
+# Partial matching
+
+"In general, use positional matching only for the first one or two arguments; they will be the most commonly used, and most readers will know what they are. Avoid using positional matching for less commonly used arguments, and never use partial matching."
+
+# Infix functions
+
+"Infix functions get their name from the fact the function name comes inbetween its arguments, and hence have two arguments. R comes with a number of built-in infix operators: :, ::, :::, $, @, ^, \*, /, +, -, >, >=, <, <=, ==, !=, !, &, &&, |, ||, ~, <-, and <<-. You can also create your own infix functions that start and end with %. Base R uses this pattern to define %%, %*%, %/%, %in%, %o%, and %x%."
+
+# Replacement functions
+
+"Replacement functions are used by placing the function call on the left side of <-"
+
+```{r}
+#| include: TRUE
+
+x <- 1:10
+
+# Define a replacement function
+`modify<-` <- function(x, position, value) {
+  
+  x[position] <- value
+  
+  x
+  
+}
+
+# Call the replacement function and use it to assign a value
+# "Modify position 1 of x and assign it the value 10"
+modify(x, 1) <- 10
+
+# Then when we call x, the first position is changed to 10
+x
+
+```
+
+# Special forms: the function function
+
+"Finally, there are a bunch of language features that are usually written in special ways, but also have prefix forms."
+
+The R "function" is in itself a function.
+
+"All special forms are implemented as primitive functions (i.e. in C)"
+
+```{r}
+#| include: TRUE
+
+# function(arg1, arg2) {body} (`function`(alist(arg1, arg2), body, env))
+
+```

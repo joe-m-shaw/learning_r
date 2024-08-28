@@ -1,0 +1,194 @@
+---
+title: "Chapter 5: Control Flow"
+author: "Joe Shaw"
+format: html
+---
+
+# If statements
+
+If statements can be summarised as follows:
+
+if (condition) true_action
+
+if (condition) true_action else false_action
+
+Usually if statements are presented with curly brackets when they span multiple lines of code, but you don't need the curly brackets for single lines.
+
+```{r}
+#| include: FALSE
+#| warning: FALSE
+#| error: FALSE
+
+library(tidyverse)
+
+```
+
+```{r}
+#| include: TRUE
+
+x <- 1
+
+# Without curly brackets on one line
+
+if (x == 1) print("X is 1") else print("X isnt' 1")
+
+x <- 2
+
+if (x == 1) print("X is 1") else print("X isnt' 1")
+
+# With curly brackets on one line
+
+if (x == 1) { print("X is 1") } else { print("X isnt' 1") }
+
+# With curly brackets on multiple lines
+
+if (x == 1) { 
+  print("X is 1") 
+  } else { 
+    print("X isnt' 1") 
+  }
+
+```
+
+"When you use the single argument form without an else statement, if invisibly (Section 6.7.2) returns NULL if the condition is FALSE."
+
+```{r}
+#| include: TRUE
+
+greet <- function(name, birthday = FALSE) {
+  
+  paste0(
+    "Hi ", name,
+    if (birthday) " and HAPPY BIRTHDAY"
+  )
+  
+}
+
+greet("Maria", FALSE)
+
+greet("Jaime", TRUE)
+
+```
+
+# Vectorised if
+
+ifelse is a vectorised version of if, which means you can use it on dataframes.
+
+```{r}
+#| include: TRUE
+#| error: TRUE
+
+x <- c(1, 2, 3)
+
+# This throws an error
+if (x == 1) print("X is 1") else print("X isnt' 1")
+
+# This doesn't
+x_df <- data.frame("col" = x) |> 
+  mutate(new_col = ifelse(x == 1, "X is 1", "X isn't 1"))
+
+x_df
+
+```
+
+"Another vectorised equivalent is the more general dplyr::case_when()."
+
+"Closely related to if is the switch()-statement. It’s a compact, special purpose equivalent"
+
+```{r}
+#| include: TRUE
+
+# This is a verbose way of writing the function
+x_option <- function(x) {
+  
+  if (x == "a") {
+    "option 1"
+  } else if (x == "b") {
+    "option 2" 
+  } else if (x == "c") {
+    "option 3"
+  } else {
+    stop("Invalid `x` value")
+  }
+  
+}
+
+# This is a more succinct way
+x_option <- function(x) {
+  switch(x,
+    a = "option 1",
+    b = "option 2",
+    c = "option 3",
+    stop("Invalid `x` value")
+  )
+}
+
+```
+
+"I recommend using switch() only with character inputs."
+
+# For loops
+
+For loops have the following structure:
+
+for (item in vector) perform_action
+
+"When iterating over a vector of indices, it’s conventional to use very short variable names like i, j, or k."
+
+"There are two ways to terminate a for loop early:
+
+- next exits the current iteration.
+
+- break exits the entire for loop."
+
+"First, if you’re generating data, make sure to preallocate the output container. Otherwise the loop will be very slow."
+
+```{r}
+#| include: TRUE
+#| error: TRUE
+
+means <- c(1, 50, 20)
+
+# Make a list of the same length as the "means" vector
+out <- vector(mode = "list", length = length(means))
+
+# Output list before running for loop
+out
+
+for (i in 1:length(means)) {
+  
+  out[[i]] <- rnorm(10, means[[i]])
+  
+}
+
+# Output list after running for loop
+out
+
+```
+
+Fun fact - the colon works with both increasing and decreasing sequences.
+
+```{r}
+#| include: TRUE
+#| error: TRUE
+
+1:2
+
+2:1
+
+# So if you have a vector with length 0, this can mess up a for loop.
+
+means <- c()
+
+out <- vector("list", length(means))
+
+out
+
+# This throws an error
+for (i in 1:length(means)) {
+  
+  out[[i]] <- rnorm(10, means[[i]])
+}
+
+```
+"R does not have an equivalent to the do {action} while (condition) syntax found in other languages."

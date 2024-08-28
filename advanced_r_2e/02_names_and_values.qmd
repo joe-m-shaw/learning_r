@@ -1,0 +1,166 @@
+---
+title: "Introduction, Chapter 1 and Chapter 2"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"The details of R's memory management are not documented in a single place. ... I figured out by reading the C source code".
+
+So some of R is written in C. Wikipedia: "It is written primarily in C, Fortran, and R itself."
+
+## Timeline
+
+https://en.wikipedia.org/wiki/S\_%28programming_language%29
+
+https://en.wikipedia.org/wiki/R\_(programming_language)
+
+-   1976: S was a language built at Bell Laboratories (New Jersey, USA) - the S stood for "Statistics".
+
+-   1980: S distributed outside of Bell Laboratories.
+
+-   1988: the "new S language" S-PLUS released.
+
+-   1993: Ross Ihaka and Robert Gentleman develop R, based on S, to teach statistics at the University of Auckland (New Zealand).
+
+-   1997: R becomes a GNU project - free, publicly accessible and built by mass collaboration.
+
+-   2000: first official version (R v1.0) released.
+
+So initially the language was devloped by a private company (Bell Labs) then modified at a public university, and then made freely available by the public-access GNU project.
+
+## Assignment
+
+```{r}
+#| include: TRUE
+
+x <- c(1, 2, 3)
+
+```
+
+Inaccurate translation into English: "create an object named 'x', containing the values 1, 2, and 3".
+
+More accurate translation into English: "create an object (vector of values with 1, 2 and 3), then **bind** that object to a name, which is x".
+
+The value doesn't have a name. The name has a value.
+
+So (annoyingly) the direction of binding is the opposite of the assignment operator "name \<- value". Because actually you're saying "this name has the following value", which would be easier to write as "name -\> value".
+
+*"The arrow points in opposite direction to the assignment arrow: \<- creates a binding from the name on the left-hand side to the object on the right-hand side."*
+
+"Thus, you can think of a name as a reference to a value. For example, if you run this code, you don't get another copy of the value c(1, 2, 3), you get another binding to the existing object:"
+
+```{r}
+#| include: TRUE
+
+x <- c(1, 2, 3)
+
+y <- x
+
+```
+
+There is still only one "version" of c(1, 2, 3) but now 2 names are being pointed at it.
+
+```{r}
+
+library(lobstr)
+
+lobstr::obj_addr(mean)
+lobstr::obj_addr(base::mean)
+lobstr::obj_addr(get("mean"))
+lobstr::obj_addr(evalq(mean))
+lobstr::obj_addr(match.fun("mean"))
+
+```
+
+## Syntactic Names
+
+Syntactic name: a name which includes characters that are syntactically valid - i.e. do not contain special characters, protected words like TRUE, or begin with a number.
+
+ASCII: American Standard Code for Information Interchange - a standard of the different characters that can be used in computing. Wikipedia: first edition published in 1963, most recently updated in 1986.
+
+There are 128 ASCII characters, and only 96 of those are the ones we commonly use.
+
+That means that the all of computer programming is the arrangement of 96 characters in different sequences.
+
+! " \# \$ % & ' ( ) \* + , - . / 0 1 2 3 4 5 6 7 8 9 : ; \< = \> ? \@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z \[   \] \^ \_ \` a b c d e f g h i j k l m n o p q r s t u v w x y z { \| } \~
+
+-   Lowercase alphabet letters 26
+
+-   Upper case alphabet letters 26
+
+-   Punctuation (!, space, :, ; , comma, full stop, &, ?, \`) 9
+
+-   Mathematical operators (+, \*, -, /, \^, =, %, \<, \>, \|) 10
+
+-   Brackets (two normal, two square, two curly) 6
+
+-   Other (#, \$, \_, \~) 4
+
+-   Backslash and forward slash 2
+
+## Copy on modify
+
+Copy on modify: best illustrated by the following code
+
+```{r}
+#| include: TRUE
+
+x <- c(1, 2, 3)
+
+y <- x
+# x and y both are both bound to the same vector. We can tell this 
+# by checking the object address.
+
+lobstr::obj_addr(x) == lobstr::obj_addr(y)
+
+# Then we modify y
+y[[3]] <- 4
+
+# Because we've modified y, a new version of the vector is made 
+# (copied) so that x is not changed as well. In this way, the 
+# original vector is "immutable" - it cannot be changed without copying it.
+
+lobstr::obj_addr(x) == lobstr::obj_addr(y)
+
+print(x)
+print(y)
+
+```
+
+"Like vectors, lists use copy-on-modify behaviour; the original list is left unchanged, and R creates a modified copy. This, however, is a shallow copy: the list object and its bindings are copied, but the values pointed to by the bindings are not."
+
+"Data frames are lists of vectors"
+
+Copy on modify is good for reducing the amount of computer memory required for computations.
+
+## Object Size
+
+"You can find out how much memory an object takes with lobstr::obj_size()"
+
+"Because R uses a **global string pool** character vectors take up less memory than you might expect: repeating a string 100 times does not make it take up 100 times as much memory."
+
+```{r}
+#| include: TRUE
+
+banana <- "bananas bananas bananas"
+
+obj_size(banana)
+
+obj_size(rep(banana, 100))
+
+```
+
+## Modify in Place
+
+If there's only one name bound to an object, and the object is modified, then R doesn't perform copy on modify. Instead it just modifies the object, which is called "modify in place".
+
+## Garbage Collector
+
+The garbage collector "frees up memory by deleting R objects that are no longer used, and by requesting more memory from the operating system if needed."
+
+"The garbage collector (GC) runs automatically whenever R needs more memory to create a new object. Looking from the outside, it's basically impossible to predict when the GC will run. In fact, you shouldn't even try."
+
+## Key point
+
+There are lots of diagrams included in the textbook for this chapter that are really helpful.

@@ -1,0 +1,70 @@
+---
+title: "Chapter 8: Conditions"
+author: "Joe Shaw"
+format: html
+---
+
+"The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it. The function author signals conditions with functions like stop() (for errors), warning() (for warnings), and message() (for messages), then the function user can handle them with functions like tryCatch() and withCallingHandlers(). Understanding the condition system is important because you’ll often need to play both roles: signalling conditions from the functions you create, and handle conditions signalled by the functions you call."
+
+```{r}
+#| label: library
+#| include: false
+
+library(rlang)
+
+```
+
+"There are three conditions that you can signal in code: errors, warnings, and messages.
+
+- Errors are the most severe; they indicate that there is no way for a function to continue and execution must stop.
+
+- Warnings fall somewhat in between errors and message, and typically indicate that something has gone wrong but the function has been able to at least partially recover.
+
+- Messages are the mildest; they are way of informing users that some action has been performed on their behalf."
+
+# Errors
+
+"The best error messages tell you what is wrong and point you in the right direction to fix the problem. Writing good error messages is hard because errors usually occur when the user has a flawed mental model of the function."
+
+# Warnings
+
+"Unlike errors, you can have multiple warnings from a single function call"
+
+"Warnings occupy a somewhat challenging place between messages (“you should know about this”) and errors (“you must fix this!”), and it’s hard to give precise advice on when to use them."
+
+# Conditions as objects
+
+"The easiest way to see a condition object is to catch one from a signalled condition. That’s the job of rlang::catch_cnd():"
+
+Conditions are lists with two elements:
+
+-"message, a length-1 character vector containing the text to display to a user."
+
+-"call, the call which triggered the condition."
+
+```{r}
+#| label: library
+#| include: true
+
+cnd <- catch_cnd(stop("An error"))
+
+str(cnd)
+
+```
+"Conditions also have a class attribute, which makes them S3 objects."
+
+"Every condition has default behaviour: errors stop execution and return to the top level, warnings are captured and displayed in aggregate, and messages are immediately displayed. **Condition handlers** allow us to temporarily override or supplement the default behaviour."
+
+# tryCatch()
+
+tryCatch allows you to override the default error behaviour.
+
+cnd creates a condition object.
+
+```{r}
+
+```
+
+
+
+

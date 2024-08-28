@@ -1,0 +1,69 @@
+---
+title: "Object-Oriented Programming"
+author: "Joe Shaw"
+format: html
+---
+
+# Introduction
+
+"Generally in R, functional programming is much more important than object-oriented programming, because you typically solve complex problems by decomposing them into simple functions, not simple objects."
+
+"To talk about objects and OOP in R we first need to clear up a fundamental confusion about two uses of the word “object”. So far in this book, we’ve used the word in the general sense captured by John Chambers’ pithy quote: “Everything that exists in R is an object”. However, while everything is an object, not everything is object-oriented. This confusion arises because the base objects come from S, and were developed before anyone thought that S might need an OOP system. The tools and nomenclature evolved organically over many years without a single guiding principle."
+
+"Most of the time, the distinction between objects and object-oriented objects is not important. But here we need to get into the nitty gritty details so we’ll use the terms base objects and OO objects to distinguish them."
+
+# Types of Object-Oriented Programming
+
+"S3 is R’s first OOP system"
+
+"S4 is a formal and rigorous rewrite of S3"
+
+"You might wonder if S1 and S2 exist. They don’t: S3 and S4 were named according to the versions of S that they accompanied. The first two versions of S didn’t have any OOP framework."
+
+"Overall, when picking an OO system, I recommend that you default to S3. S3 is simple, and widely used throughout base R and CRAN. While it’s far from perfect, its idiosyncrasies are well understood and there are known approaches to overcome most shortcomings."
+
+# Summary
+
+I've skim-read through chapters 12-16. The content is definitely beyond what I need at this stage but it's useful to be aware of. The diagram on Google Drive is the best summary of my understanding of types and classes.
+
+My basic understanding is that different systems for working with objects exist in R. The reason for this is that R is a language that developed from an older language, called S, which has been around since the 1970s. This has meant that new ways of coding have been developed, which have changed the kinds of objects and systems that people use.
+
+A very basic summary is:
+
+**Base objects** are in base R. They have types without a class attribute.
+
+```{r}
+#| label: base
+#| include: TRUE
+
+library(sloop)
+
+x <- 1
+
+typeof(x)
+
+attributes(x)
+
+sloop::otype(x)
+
+```
+
+**S3 objects** are a form of object-oriented programming. They exist in the base version of R, but also have class attributes.
+
+```{r}
+#| label: s3
+#| include: TRUE
+
+y <- as.Date("2024-08-28")
+
+# The type is still "double"
+typeof(y)
+
+# But because it's an S3 object, it has attributes
+attributes(y)
+
+sloop::otype(y)
+
+```
+
+Then there are other forms of object-oriented programming like S4 and R6. These are less commonly used and have their own specific advantages and disadvantages to S3.

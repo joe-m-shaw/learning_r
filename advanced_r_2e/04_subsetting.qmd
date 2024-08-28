@@ -1,0 +1,220 @@
+---
+title: "Chapter 4: Subsetting"
+author: "Joe Shaw"
+format: html
+---
+
+"Subsetting in R is easy to learn but hard to master because you need to internalise a number of interrelated concepts:
+
+- There are six ways to subset atomic vectors.
+
+- There are three subsetting operators, [[, [, and $.
+
+- Subsetting operators interact differently with different vector types (e.g., atomic vectors, lists, factors, matrices, and data frames).
+
+- Subsetting can be combined with assignment."
+
+# Selecting Multiple Elements
+
+You can supply number vectors within [] subsetting to select multiple atomic vector elements.
+
+**Positive integers return elements at the specified positions**
+
+```{r}
+#| include: TRUE
+
+x <- c(2.1, 4.2, 3.3, 5.4)
+
+# Select positions 3 and 1 from x
+x[c(3, 1)]
+
+# Select poisiton 1 twice
+x[c(1, 1)]
+
+# Real numbers are silently truncated to integers
+# So selecting position 2.1 and 2.9 returns position 2 twice
+# (there is no rounding up)
+x[c(2.1, 2.9)]
+
+```
+
+**Negative integers exclude elements at the specified positions**
+
+```{r}
+#| include: TRUE
+#| error: TRUE
+
+# Excludes positions 3 and 1
+x[-c(3, 1)]
+
+# Same result
+x[c(-3, -1)]
+
+# You can't mix positive and negative integers
+x[c(-1, 2)]
+
+
+```
+
+**Logical vectors select elements where the corresponding logical value is TRUE**
+
+```{r}
+#| include: TRUE
+
+# Selects the first two elements, but not the third and fourth
+x[c(TRUE, TRUE, FALSE, FALSE)]
+
+# Select elements which have a value above 3
+x[x > 3]
+
+```
+
+**Nothing returns the original vector. **
+
+```{r}
+#| include: TRUE
+
+x[]
+
+```
+
+**Zero returns a zero-length vector.**
+
+```{r}
+#| include: TRUE
+
+x[0]
+
+```
+
+# Matrices and Arrays
+
+You can subset lists by supplying a vector for each dimension.
+
+```{r}
+#| include: TRUE
+
+a <- matrix(1:9, nrow = 3)
+
+colnames(a) <- c("A", "B", "C")
+
+a
+
+# Select rows 1 and 2, and all columns
+a[1:2, ]
+
+# Select rows 1 and 3, and columns B and A
+a[c(TRUE, FALSE, TRUE), c("B", "A")]
+
+# Select 0 rows and columns A and C
+a[0, -2]
+
+```
+
+"Arrays in R are stored in column-major order"
+
+```{r}
+#| include: TRUE
+
+vals <- outer(1:5, 1:5, FUN = "paste", sep = ",")
+
+vals
+
+# Select element 4 and 15, which are identified by counting downwards from position
+# 1, 1
+vals[c(4, 15)]
+
+```
+
+# Data frames and tibbles
+
+When subsetting with a single index, data frames behave like lists.
+
+When subsetting with two indices, they behave like matrices.
+
+```{r}
+#| include: TRUE
+
+df <- data.frame(x = 1:3, y = 3:1, z = letters[1:3])
+
+df[df$x == 2, ]
+
+# Select rows 1 and 3
+df[c(1, 3), ]
+
+```
+
+"By default, subsetting a matrix or data frame with a single number, a single name, or a logical vector containing a single TRUE, will simplify the returned output, i.e. **it will return an object with lower dimensionality**. To preserve the original dimensionality, you must use drop = FALSE."
+
+"Data frames with a single column will return just the content of that column"
+
+```{r}
+#| include: TRUE
+
+df <- data.frame(a = 1:2, b = 1:2)
+
+str(df[, "a"])
+
+
+str(df[, "a", drop = FALSE])
+
+```
+
+"The default drop = TRUE behaviour is a common source of bugs in functions: you check your code with a data frame or matrix with multiple columns, and it works. Six months later, you (or someone else) uses it with a single column data frame and it fails with a mystifying error."
+
+
+
+```{r}
+#| include: TRUE
+
+# Exercises
+
+library(tidyverse)
+
+mtcars[mtcars$cyl == 4, ]
+
+mtcars[-c(1:4), ]
+
+mtcars[mtcars$cyl <= 5,]
+
+mtcars[mtcars$cyl %in% c(4, 6), ]
+
+```
+
+# Selecting a single element
+
+"[[ is used for extracting single items, while x$y is a useful shorthand for x[["y"]]."
+
+```{r}
+#| include: TRUE
+#| error: TRUE
+
+var <- "cyl"
+
+# Doesn't work - mtcars$var translated to mtcars[["var"]]
+mtcars$var
+
+# Instead use [[
+mtcars[[var]]
+
+```
+
+# Subassignment
+
+"All subsetting operators can be combined with assignment to modify selected values of an input vector: this is called subassignment."
+
+Logical subsetting
+
+```{r}
+#| include: TRUE
+
+mtcars[mtcars$gear == 5, ]
+
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+
+```
+
+De Morgan’s laws:
+
+- !(X & Y) is the same as !X | !Y
+- !(X | Y) is the same as !X & !Y
