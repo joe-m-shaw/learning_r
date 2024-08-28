@@ -1,0 +1,78 @@
+---
+title: "Base R"
+author: "Joe Shaw"
+date: "15/11/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+*"This is a good place to remind you that the tidyverse is not the only way to solve data science problems. We teach the tidyverse in this book because tidyverse packages share a common design philosophy, increasing the consistency across functions, and making each new function or package a little easier to learn and use. It’s not possible to use the tidyverse without using base R"*
+
+*"It’s 100% okay to write code that uses a mix of approaches, and don’t let anyone tell you otherwise!"*
+
+## Subsetting with []
+
+df[rows, cols]
+
+*"There’s an important difference between tibbles and data frames when it comes to [. In this book, we’ve mainly used tibbles, which are data frames, but they tweak some behaviors to make your life a little easier. In most places, you can use “tibble” and “data frame” interchangeably, so when we want to draw particular attention to R’s built-in data frame, we’ll write data.frame. If df is a data.frame, then df[, cols] will return a vector if col selects a single column and a data frame if it selects more than one column. If df is a tibble, then [ will always return a tibble."*
+
+Filter is the equivalent of subsetting using square brackets.
+
+```{r, include = TRUE}
+
+df <- tibble(
+  x = c(2, 3, 1, 1, NA), 
+  y = letters[1:5], 
+  z = runif(5)
+)
+
+df |> filter(x > 1)
+
+df[!is.na(df$x) & df$x > 1, ]
+
+```
+
+## Subsetting with [[]]
+
+*"[[ and $ can be used to extract columns out of a data frame. [[ can access by position or by name, and $ is specialized for access by name"*
+
+*"There are a couple of important differences between tibbles and base data.frames when it comes to $. Data frames match the prefix of any variable names (so-called partial matching) and don’t complain if a column doesn’t exist"*
+
+*"Tibbles are more strict: they only ever match variable names exactly and they will generate a warning if the column you are trying to access doesn’t exist"*
+
+## Lists
+
+*"The difference between [ and [[ is particularly important for lists because [[ drills down into the list while [ returns a new, smaller list."*
+
+*"This same principle applies when you use 1d [ with a data frame: df["x"] returns a one-column data frame and df[["x"]] returns a vector."*
+
+## Apply
+
+*"The most important member of this family is lapply(), which is very similar to purrr::map()"*
+
+## for loops
+
+*"Rather than making a list and saving the results as we go, a simpler approach is to build up the data frame piece-by-piece:"*
+
+```{r, include = TRUE}
+
+out <- NULL
+
+grow_results <- function() {
+  
+  for (path in paths) {
+    out <- rbind(out, readxl::read_excel(path))
+  }
+  
+}
+
+```
+
+*"We recommend avoiding this pattern because it can become very slow when the vector is very long. This is the source of the persistent canard that for loops are slow: they’re not, but iteratively growing a vector is."*
+
+Base R functions *"tend to have more of a “vector” flavor than a “data frame” flavor because base R functions tend to take individual vectors, rather than a data frame and some column specification."*

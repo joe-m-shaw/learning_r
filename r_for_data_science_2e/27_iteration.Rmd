@@ -1,0 +1,157 @@
+---
+title: "Iteration"
+author: "Joe Shaw"
+date: "2023-10-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+*"Iteration in R generally tends to look rather different from other programming languages because so much of it is implicit and we get it for free. For example, if you want to double a numeric vector x in R, you can just write 2 star x. In most other languages, you’d need to explicitly double each element of x using some sort of for loop."*
+
+## Modifying multiple columns
+
+You can use across to iterate the same function over multiple columns.
+
+```{r, include = TRUE}
+
+df <- tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10),
+  d = rnorm(10)
+)
+
+df |> summarize(
+  n = n(),
+  across(a:d, median),
+)
+
+
+```
+
+*"The first argument, .cols, specifies which columns you want to iterate over, and the second argument, .fns, specifies what to do with each column. You can use the .names argument when you need additional control over the names of output columns, which is particularly important when you use across() with mutate()."*
+
+Cols
+
+*"everything() is straightforward: it selects every (non-grouping) column:"*
+
+Function
+
+*"The second argument to across() defines how each column will be transformed. In simple cases, as above, this will be a single existing function. This is a pretty special feature of R: we’re passing one function (median, mean, str_flatten, …) to another function (across). This is one of the features that makes R a functional programming language."*
+
+*"It’s important to note that we’re passing this function to across(), so across() can call it; we’re not calling it ourselves. That means the function name should never be followed by (). If you forget, you’ll get an error"*
+
+## Anonymous Functions
+
+Problem: we want to calculate median for each column but there are NA values present. We could supply na.rm = TRUE to median() but then we'd be following median by brackets, which will throw an error.
+
+```{r, include = TRUE}
+
+rnorm_na <- function(n, n_na, mean = 0, sd = 1) {
+  sample(c(rnorm(n - n_na, mean = mean, sd = sd), rep(NA, n_na)))
+}
+
+df_miss <- tibble(
+  a = rnorm_na(5, 1),
+  b = rnorm_na(5, 1),
+  c = rnorm_na(5, 2),
+  d = rnorm(5)
+)
+
+# This crashes if you run it
+#df_miss |> 
+  #summarize(
+    #across(a:d, median(na.rm = TRUE)),
+    #n = n()
+  #)
+
+```
+
+One option is to add a new function which calls median within the argument.
+
+```{r, include = TRUE}
+
+df_miss |> 
+  summarize(
+    across(a:d, function(x) median(x, na.rm = TRUE)),
+    n = n()
+  )
+
+```
+
+That is quite verbose, so the short-cut is to use an **anonymous** function (one that isn't explicitly called).
+
+Instead of explicitly writing function(), you can implicitly add backslash x.
+
+```{r, include = TRUE}
+
+df_miss |> 
+  summarize(
+    across(a:d, \(x) median(x, na.rm = TRUE)),
+    n = n()
+  )
+
+
+```
+
+Multiple functions can be supplied to across using a list.
+
+You can replicate the results using across with a combination of pivot_longer, group_by and summarise.
+
+Usually this is just a more verbose way to get to the same result, but there are some random cases where pivotting is the only option.
+
+```{r, include = TRUE}
+
+# Example: we want to calculate a weighted mean
+
+df_paired <- tibble(
+  a_val = rnorm(10),
+  a_wts = runif(10),
+  b_val = rnorm(10),
+  b_wts = runif(10),
+  c_val = rnorm(10),
+  c_wts = runif(10),
+  d_val = rnorm(10),
+  d_wts = runif(10)
+)
+
+# You can't do this with across, so you need a combination of pivotting, grouping and mutating.
+
+df_long <- df_paired |> 
+  pivot_longer(
+    everything(), 
+    names_to = c("group", ".value"), 
+    names_sep = "_"
+  )
+
+df_long
+
+df_long |> 
+  group_by(group) |> 
+  summarize(mean = weighted.mean(val, wts))
+
+```
+
+# Reading Multiple Files
+
+dplyr::across() can be used to do the same thing to multiple columns.
+
+purrr::map() can be used to do the same thing to multiple files.
+
+*"There are three basic steps: use list.files() to list all the files in a directory, then use purrr::map() to read each of them into a list, then use purrr::list_rbind() to combine them into a single data frame."*
+
+*"map() is similar toacross(), but instead of doing something to each column in a data frame, it does something to each element of a vector."*
+
+*"Sometimes the structure of your data might be sufficiently wild that you can’t even read all the files with a single command. And then you’ll encounter one of the downsides of map(): it succeeds or fails as a whole. map() will either successfully read all of the files in a directory or fail with an error, reading zero files. This is annoying: why does one failure prevent you from accessing all the other successes?"*
+
+*"Luckily, purrr comes with a helper to tackle this problem: possibly(). possibly() is what’s known as a function operator: it takes a function and returns a function with modified behavior. In particular, possibly() changes a function from erroring to returning a value that you specify"*
+
+# Summary
+
+*"If you know much about iteration in other languages, you might be surprised that we didn’t discuss the for loop. That’s because R’s orientation towards data analysis changes how we iterate: in most cases you can rely on an existing idiom to do something to each columns or each group. And when you can’t, you can often use a functional programming tool like map() that does something to each element of a list."*

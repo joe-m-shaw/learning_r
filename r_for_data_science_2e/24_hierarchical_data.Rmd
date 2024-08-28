@@ -1,0 +1,15 @@
+---
+title: "Hierarchical data"
+author: "Joe Shaw"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*"In this chapter, you’ll learn the art of data rectangling: taking data that is fundamentally hierarchical, or tree-like, and converting it into a rectangular data frame made up of rows and columns."*
+
+*"JSON is short for javascript object notation and is the way that most web APIs return data."*
+

@@ -1,0 +1,67 @@
+---
+title: "Exploratory Data Analysis"
+author: "Joe Shaw"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+## Exploratory Data Analysis: EDA
+
+*"EDA is not a formal process with a strict set of rules. More than anything, EDA is a state of mind."*
+
+*"EDA is fundamentally a creative process. And like most creative processes, the key to asking quality questions is to generate a large quantity of questions. It is difficult to ask revealing questions at the start of your analysis because you do not know what insights can be gleaned from your dataset. On the other hand, each new question that you ask will expose you to a new aspect of your data and increase your chance of making a discovery."*
+
+You can use coord_cartesian() to zoom in on plots.
+
+```{r, include = FALSE}
+
+colnames(diamonds)
+
+typeof(diamonds$table)
+
+ggplot(diamonds, aes(x = fct_reorder(clarity, price, median), y = price)) +
+  geom_boxplot()
+
+ggplot(diamonds, aes(x = fct_reorder(cut, price, median), y = price)) +
+  geom_boxplot()
+
+typeof(diamonds$clarity)
+
+ggplot(diamonds, aes(x = price, y = after_stat(density))) + 
+  geom_freqpoly(aes(color = color))
+
+```
+
+## Two categorical variables
+
+```{r, include = TRUE}
+
+# You can use geom_count instead of grouping and bar-charting
+
+ggplot(diamonds, aes(x = cut, y = color)) +
+  geom_count()
+
+
+
+```
+
+Another good technique is to bin continous variables and then generate boxplots of the results.
+
+```{r, include = TRUE}
+
+smaller <- diamonds |> 
+  filter(carat < 3)
+
+ggplot(smaller, aes(x = carat, y = price)) + 
+  geom_boxplot(aes(group = cut_width(carat, 0.1)))
+
+```
+
+*"If you think of variation as a phenomenon that creates uncertainty, covariation is a phenomenon that reduces it."*

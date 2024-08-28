@@ -1,0 +1,84 @@
+---
+title: "Useful Notes"
+author: "Joe Shaw"
+date: "26/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This document is a summary of useful functions or tips from the entire textbook.
+
+## General Tips
+
+Use "na.rm" or "drop_na" within function calls, rather than executing the call and then adding a filter step with !is.na() afterwards.
+
+## Chapter 4
+
+Use dplyr::distinct() to remove duplicate rows, rather than base R !duplicate.
+
+dplyr::count() is a concise way to count catgeorical data, instead of using group_by and then summarise.
+
+You can use the .before arugment of mutate to add new variables to the left hand side of dataframes.
+
+select() can be used to rename variables.
+
+The .by argument can be used instead of group_by.
+
+You can use |> view() to see the dataframe you've just made.
+
+## Chapter 6
+
+**Useful notes:**
+
+Definition of a variable: a variable is whatever makes your analysis easiest.
+
+**Useful code:**
+
+Useful function for getting numbers out of strings.
+
+readr::parse_number
+
+Use function for making small data-frames manually
+
+dplyr::tribble
+
+In the names_to argument of pivot_longer, you can call ".value" when both variables and names are stored in the column name.
+
+## Chapter 8
+
+Supply a vector of filenames to a single read_csv argument: it will automatically read the files, concatenate them, and add a new column with the file name.
+
+This is much quicker than reading each file separately, using mutate to create a new column, and then using rbind to bind them together,
+
+## Chapter 9
+
+Reprex: reproducible example
+
+Most of the time, creating a reprex allows you to solve the problem yourself.
+
+*"You should also spend some time preparing yourself to solve problems before they occur. Investing a little time in learning R each day will pay off handsomely in the long run."*
+
+## Chapter 12
+
+You can specify specific colours for specific values, rather than having to reorder factor levels.
+
+## Chapter 15
+
+Use raw strings to make things easier to read.
+
+## Chapter 20
+
+You don't have to rename variables during joins, you can use join_by(x == y).
+
+## Chapter 26
+
+Use range rather than max and min.
+
+Data masking: R choses options in data over the environment when they are named identically.
+
+
+
+

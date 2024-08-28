@@ -1,0 +1,502 @@
+---
+title: "Data visualisation"
+author: "Joe Shaw"
+date: "18/10/2023"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Resources and Packages
+
+https://r4ds.hadley.nz/
+
+Data visualisation with ggplot2 cheatsheet
+
+https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf
+
+A Layered Grammar of Graphics
+
+http://vita.had.co.nz/papers/layered-grammar.pdf
+
+```{r , include = FALSE}
+
+library(tidyverse)
+library(palmerpenguins)
+library(ggthemes)
+library(hexbin)
+library(maps)
+
+```
+
+
+## Introduction
+
+Tidy data: each column is a variable, each row is an observation.
+
+Data analyst: usually works with structured data within an organisation to answer questions relevant to the running of the organisation.
+
+Data scientist: generally considered a more advanced version of a data analyst. Deals more with the unknown by generating predictive models. Definitions from Coursera.
+
+## 2: Data Visualisation
+
+ggplot is a function that creates a plot object from a dataframe, with the option to map aesthetic layers onto that object.
+
+geom: a genometrical object that is added as a layer to a plot to represent data.
+
+stat: an alternative way to build up layers on a plot, which adds new variables (count, density etc)
+
+scaling: the process of mapping aesthetic values (colour, shape, size) to variables in the data.
+
+The order that code is added to the ggplot object dictates the order that geoms are layered on top of each other.
+
+Aesthetic mapping in the "mapping" section of the first ggplot layer are considered the global mapping options which are inherited by subsequent geoms unless otherwise specified.
+
+```{r, include = TRUE}
+
+# Inherited plot
+ggplot(penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g,
+                               colour = species, shape = species)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_color_colorblind()
+
+# Define plot
+ggplot(penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(colour = species, shape = species)) +
+  geom_smooth(method = "lm") +
+  scale_color_colorblind()
+
+```
+
+Each geom can also have it's own data call.
+
+```{r }
+
+ggplot(
+  # Add a filter onto the initial data call
+  data = penguins %>% filter(species == "Gentoo" & flipper_length_mm > 210), 
+       mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(colour = species)) +
+  geom_point(data = penguins %>% filter(species == "Adelie"),
+             size = 5,
+             aes(colour = species))
+
+ggplot(data = penguins,
+       mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(data = penguins %>% filter(species == "Gentoo" & flipper_length_mm > 210), 
+             aes(colour = species)) +
+  geom_point(data = penguins %>% filter(species == "Adelie"),
+             size = 5,
+             aes(colour = species))
+
+
+```
+
+geom_smooth: the "se" value determines if you want confidence intervals
+
+```{r }
+
+ggplot(data = penguins, mapping = aes(x = species, y = bill_depth_mm)) +
+  geom_boxplot()
+
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(colour = bill_depth_mm)) +
+  geom_smooth()
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point() +
+  geom_smooth()
+
+ggplot() +
+  geom_point(
+    data = penguins,
+    mapping = aes(x = flipper_length_mm, y = body_mass_g)
+  ) +
+  geom_smooth(
+    data = penguins,
+    mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+
+```
+
+Remember you can specify aesthetic values explicitly or map them to a variable.
+
+```{r include = TRUE}
+
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(colour  = "blue"))
+
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(colour = "blue")
+
+```
+
+## ggplot2 Cheat Sheat
+
+# Other geom types.
+
+```{r, include = TRUE}
+
+plot_base <- ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g))
+
+plot_base + 
+  geom_path()
+
+plot_base +
+  geom_polygon()
+
+```
+
+
+# One continuous variable
+
+``` {r, include = TRUE}
+
+var1 <- ggplot(penguins, aes(flipper_length_mm))
+
+var1 + geom_area(stat = "bin")
+
+var1 + geom_density()
+
+var1 + geom_dotplot()
+
+var1 + geom_freqpoly()
+
+# qq: quartile quantile plot
+ggplot(penguins) +
+  geom_qq(aes(sample = flipper_length_mm))
+
+# Statistical functions
+
+var1 + stat_bin(binwidth = 1)
+
+var1 + stat_count()
+
+var1 + stat_density(adjust = 1, kernel = "gaussian")
+
+```
+
+# Using geom_histogram.
+
+```{r, include = TRUE}
+
+# Verbose way
+
+penguins %>%
+  group_by(flipper_length_mm) %>%
+  summarise(total = n()) %>%
+  ggplot(aes(x = flipper_length_mm, y = total)) +
+  geom_col(width = 1)
+
+# Concise way
+
+ggplot(penguins, aes(flipper_length_mm)) +
+  geom_histogram(binwidth = 1)
+
+# You can also use stat_bin
+
+ggplot(penguins, aes(flipper_length_mm)) +
+  stat_bin(binwidth = 1)
+
+```
+
+# One discrete variable
+
+```{r, include = TRUE}
+
+discrete <- ggplot(penguins, aes(x = species))
+
+discrete + geom_bar()
+
+```
+
+# Two continuous variables
+
+```{r, include = FALSE}
+
+both_continuous <- ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g))
+
+# geom_label and geom_text can give similar but distinct outputs.
+# geom_label adds a rectangle behind the text.
+both_continuous + geom_label(aes(label = flipper_length_mm))
+
+both_continuous + geom_text(aes(label = flipper_length_mm))
+
+# geom_quantile: fits a quantile regression the data
+both_continuous + geom_quantile()
+
+both_continuous + geom_rug()
+
+both_continuous + geom_smooth()
+
+# Statistical functions
+both_continuous + stat_bin2d()
+
+both_continuous + stat_binhex()
+
+both_continuous + stat_density2d()
+
+both_continuous + stat_ellipse(level = 0.95, segments = 51)
+
+```
+
+# One discrete variable, one continuous variable
+
+```{r, include = TRUE}
+
+dis_con <- ggplot(penguins, aes(species, flipper_length_mm))
+
+dis_con + geom_col()
+
+dis_con + geom_boxplot()
+
+dis_con + geom_dotplot(binaxis = "y", stackdir = "center")
+
+dis_con + geom_violin()
+
+```
+
+# Difference between geom_col and geom_bar
+
+```{r, include = TRUE}
+
+# geom_bar represents the number of cases in each group, geom_col represents values within the data
+
+# How many penguins of each species?
+
+# Verbose way (using geom_col)
+penguins %>%
+  group_by(species) %>%
+  summarise(total = n()) %>%
+  ggplot(aes(species, total)) +
+  geom_col()
+
+# Concise way (using geom_bar)
+ggplot(penguins, aes(species)) +
+  geom_bar()
+
+# Stats are an alternate way to build layers
+# These ggplots are both the same
+ggplot(penguins, aes(species)) +
+  geom_bar(stat = "count")
+
+ggplot(penguins, aes(species)) +
+  stat_count(geom = "bar")
+
+# This is a verbose way of getting to the same plot
+penguins %>%
+  group_by(species) %>%
+  summarise(total = n()) %>%
+  ggplot(aes(species, total)) +
+  stat_identity(geom = "col")
+
+```
+
+# Both variables are discrete
+
+```{r, include = TRUE}
+
+both_dis <- ggplot(penguins, aes(species, island))
+
+both_dis + geom_count()
+
+both_dis + geom_jitter()
+
+```
+
+# Continous bivariate distribution
+
+```{r, include = TRUE}
+
+both_continuous + geom_bin2d()
+
+both_continuous + geom_density_2d()
+
+both_continuous + geom_hex()
+
+
+```
+
+```{r, include = TRUE}
+
+i <- ggplot(penguins, aes(flipper_length_mm, body_mass_g))
+
+i + geom_area()
+
+i + geom_line()
+
+i + geom_step()
+
+```
+
+# Maps
+
+```{r, include = TRUE}
+
+data <- data.frame(murder = USArrests$Murder,
+                   state = tolower(rownames(USArrests)))
+
+# Dataframe of longitude and latitude data for US states
+map <- ggplot2::map_data("state")
+
+k <- ggplot(data, aes(fill = murder))
+
+k + geom_map(aes(map_id = state), map = map) +
+  expand_limits(x = map$long, y = map$lat)
+
+# How many longitude and latitute data points are there for each state?
+
+ggplot(data = map, aes(region)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(x = "")
+
+```
+
+# Three variables
+
+```{r, include = TRUE}
+
+seals$extra_var <- with(seals, sqrt(delta_long^2 + delta_lat^2))
+
+three_var <- ggplot(seals, aes(long, lat))
+
+three_var + geom_contour(aes(z = extra_var))
+
+three_var + geom_contour_filled(aes(z = extra_var))
+
+three_var + geom_raster(aes(fill = extra_var),
+                        hjust = -0.5, vjust = 0.5, interpolate = FALSE)
+
+three_var + geom_tile(aes(fill = extra_var))
+
+```
+
+## A Layered Grammar of Graphics
+
+gg: grammar of graphics
+
+*"A grammar of graphics is a tool that enables us to concisely describe the components of a graphic."*
+
+*"This article proposes an alternative parameterization of the grammar, based around the idea of building up a graphic from multiple layers of data."*
+
+*"x-position, y-position, and shape are examples of aesthetics, things that we can perceive on the graphic."*
+
+*"The next thing we need to do is to convert these numbers measured in data units to numbers measured in physical units, things that the computer can display. To do that we need to know that we are going to use linear scales and a Cartesian coordinate system."*
+
+Wikipedia: Cartesian coordinates are the system of expressing a location by a combination of numbers mapped to axes. For example, 2-dimensional Cartesian coordinates include values relevant to an x and a y axis, such as (2,4). Cartesian coordinates were invented by René Descartes ("I think, therefore I am").
+
+The data gets converted into Cartesian coordinates, which then get converted to aesthetic units (pixel coordinates to describe how to present the data point on a computer screen).
+
+A plot consists of a combination of graphical objects from 3 sources:
+1) the data, which is represented by a geom
+2) the scales and coordinate system, which create the axes and legends
+3) plot annotations such as the background and title
+
+A plot can contain multiple datasets, as long as the axes are consistent.
+
+*"Together, the data, mappings, statistical transformation, and geometric object form a layer. A plot may have multiple layers."*
+
+A layer has 5 parts:
+
+```{r, include = TRUE}
+
+ggplot() +
+  layer(
+    # Part 1 - data
+    data = penguins,
+    # Part 2 - aesthetic mapping
+    aes(x = flipper_length_mm, y = bill_length_mm, colour = species),
+    # Part 3 - a geometric object
+    geom = "line",
+    # Part 4 - a statistical transformation
+    stat = "smooth",
+    # Part 5 - a position adjustment
+    position = "identity")
+
+```
+
+*"A stat takes a dataset as input and returns a dataset as output, and so a stat can add new variables to the original dataset."*
+
+*"Every geom has a default statistic, and every statistic a default geom."*
+
+*"Scales are common across layers to ensure a consistent mapping from data to aesthetics."*
+
+*"The five major components of the layered grammar allow us to completely and explicitly describe a wide range of graphics. However, having to describe every component, every time, quickly becomes tiresome."*
+
+geom and stat are "wrappers" of the layer function.
+
+A "wrapper" is a function that calls another function, which makes programming more convenient.
+
+```{r, include = TRUE}
+
+# A geom is a version of the "layer" function with defaults.
+# geom_point is a layer which has "point" embedded as the default geom.
+
+ggplot() +
+  # First layer - the information in geom_point
+  layer(data = penguins, 
+        mapping = aes(flipper_length_mm, y = bill_length_mm),
+        geom = "point", 
+        stat = "identity", 
+        position = "identity") +
+  # Second layer - the information in stat_smooth
+  layer(data = penguins, 
+        mapping = aes(flipper_length_mm, y = bill_length_mm),
+        geom = "smooth", 
+        stat = "smooth", 
+        position = "identity")
+  
+# This is overly verbose as we have to specific the data and mapping for each layer. A simpler way is to use preset versions of "layer": geom and stat
+
+ggplot(penguins, aes(flipper_length_mm, y = bill_length_mm)) +
+  # geom_point specifies we want points
+  # The geom argument is immutably set to "point". You cannot change it otherwise it stops being
+  # geom_point. If you try to add and change the "geom" parameter, nothing happens because it isn't
+  # recognised or executed in the script.
+  geom_point(
+    geom = "line",
+    # data argument is inherited from the ggplot function above
+    data = NULL,
+    # mapping is also inherited
+    mapping = NULL,
+    # stat is default set to "identity"
+    stat = "identity",
+    # position is default set to "identity"
+    position = "identity")
+
+# This means we can use much less code to get to the same output.
+
+ggplot(penguins, aes(flipper_length_mm, y = bill_length_mm)) +
+  geom_point()
+
+# The same thing can be done for stat
+
+ggplot(penguins, aes(flipper_length_mm, y = bill_length_mm)) +
+  stat_smooth(
+    data = NULL,
+    mapping = NULL,
+    stat = "smooth",
+    position = "identity")
+
+# Concise version
+ggplot(penguins, aes(flipper_length_mm, y = bill_length_mm)) +
+  stat_smooth()
+
+# This means that to create a plot of penguins with points and a line using the layer function requires 243 characters of code, with lots of repeated code specifying the data and mapping.
+
+# Whereas using the wrapped geom and stat versions of layer, we can get the same plot by using only 91 characters of code. 
+
+ggplot(penguins, aes(flipper_length_mm, y = bill_length_mm)) +
+  geom_point() +
+  stat_smooth(se = FALSE)
+
+```
+
+ggplot2 combines wrapper functions of layers (such as geom and stat) together with a hierarchy of grammar (parameters like data and mapping are inherited unless specified) to make the code for plots more flexible and concise.

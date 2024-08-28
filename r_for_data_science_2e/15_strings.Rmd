@@ -1,0 +1,123 @@
+---
+title: "Strings"
+author: "Joe Shaw"
+date: "27/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(babynames)
+
+```
+
+All stringr functions start with str_
+
+*"Beware that the printed representation of a string is not the same as the string itself because the printed representation shows the escapes (in other words, when you print a string, you can copy and paste the output to recreate that string)."*
+
+```{r, include = TRUE}
+
+# String itself - contains two backslashes
+string <- "abcdef\\ghi"
+
+# Printed representation of a string (which they refer to as the "raw contents") which has only one backslash
+str_view(string)
+
+```
+
+```{r, include = TRUE}
+
+tricky <- "double_quote <- \"\\\"\" # or '\"'
+single_quote <- '\\'' # or \"'\""
+str_view(tricky)
+
+# Add a "raw string". You put r"()" around your string, or you can use r"{}" or r"[]".
+# This means you don't have to keep adding in backslashes which quickly make things unreadable.
+less_tricky <- r"(double_quote <- "\"" # or '"'
+single_quote <- '\'' # or "'")"
+str_view(less_tricky)
+
+# The printed representation is the same, but the raw string version is easier on your eyes when looking at the original string.
+str_view(tricky) == str_view(less_tricky)
+
+```
+*" You’ll also sometimes see strings containing Unicode escapes that start with \u or \U. This is a way of writing non-English characters that work on all systems."*
+
+```{r, include = TRUE}
+
+x <- c("one\ntwo", "one\ttwo", "\u00b5", "\U0001f604")
+
+x
+
+str_view(x)
+
+```
+
+## 15.2.4 Exercises
+
+```{r, include = TRUE}
+
+# Create strings that contain the following values:
+
+# He said "That's amazing!"
+x <- r"(He said "That's amazing!")"
+
+str_view(x)
+
+# \a\b\c\d
+y <- r"(\a\b\c\d)"
+
+str_view(y)
+
+#\\\\\\
+# 6 backslashes
+# Using raw string
+z <- r"(\\\\\\)"
+
+str_view(z)
+
+# Wihtout using raw string - you need 12 backslashes, which creates "leaning toothpick sydrome"
+z <- "\\\\\\\\\\\\"
+
+str_view(z)
+
+x <- "This\u00a0is\u00a0tricky"
+
+str_view(x)
+
+
+```
+
+## Creating many strings from data
+
+Concatenating strings with str_c, which is very similar to base::paste0
+
+```{r, include = TRUE}
+
+str_c("x", "y")
+
+str_c("x", "y", "z")
+
+str_c("Hello ", c("John", "Susan"))
+
+?sub()
+
+```
+
+str_flatten works in a similar way to base::paste with collapse 
+
+## Splitting long strings
+
+Useful functions for splitting long strings into rows or columns are:
+
+separate_longer_delim()
+
+separate_longer_position()
+
+separate_wider_delim()
+
+separate_wider_position()
+
+The rest of the chapter is useful for reference but not directly applicable to my work at the moment.

@@ -1,0 +1,526 @@
+---
+title: "Regular Expressions"
+author: "Joe Shaw"
+date: "25/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(babynames)
+
+```
+
+Letters and numbers are called "literal characters".
+
+Punctuation characters have special meaning and are called "metacharacters".
+
+Metacharacter options:
+- Quantifiers: how many times a pattern can match: ?, + and *
+- Character classes: defines sets of characters: []
+
+```{r, include = TRUE}
+
+str_view(fruit, "a...e")
+
+str_view(words, "[aeiou]x[aeiou]")
+
+```
+
+## Key functions
+
+*"Since str_detect() returns a logical vector of the same length as the initial vector, it pairs well with filter()."*
+
+```{r, include = TRUE}
+
+babynames |> 
+  filter(str_detect(name, "j")) |> 
+  count(name, wt = n, sort = TRUE)
+
+# str_detect can also be paired with summarise
+
+babynames |> 
+  group_by(year) |> 
+  summarise(prop_x = mean(str_detect(name, "x"))) |> 
+  ggplot(aes(x = year, y = prop_x)) +
+  geom_line()
+
+```
+
+Regex expressions don't overlap.
+
+
+```{r, include = TRUE}
+
+str_count("abababababa", "aba")
+
+str_view("abababababa", "aba")
+
+```
+
+*"This variety of approaches is pretty typical when working with strings — there are often multiple ways to reach your goal, either by making your pattern more complicated or by doing some preprocessing on your string. If you get stuck trying one approach, it can often be useful to switch gears and tackle the problem from a different perspective."*
+
+## Extracting variables from long strings
+
+The easiest way to do this for multiple variables is with the separate_wider_regex function.
+
+```{r, include = TRUE}
+
+df <- tribble(
+  ~str,
+  "<Sheryl>-F_34",
+  "<Kisha>-F_45", 
+  "<Brandon>-N_33",
+  "<Sharon>-F_38", 
+  "<Penny>-F_58",
+  "<Justin>-M_41", 
+  "<Patricia>-F_84", 
+)
+
+df |> 
+  separate_wider_regex(
+    str,
+    patterns = c(
+      "<", 
+      name = "[A-Za-z]+", 
+      ">-", 
+      gender = ".",
+      "_",
+      age = "[0-9]+"
+    )
+  )
+
+```
+
+## 16.3.5 Exercises
+
+```{r, include = TRUE}
+# What baby name has the most vowels? What name has the highest proportion of vowels? 
+names_vowels <- babynames |> 
+  count(name) |> 
+  mutate(
+    vowels = str_count(name, regex("[aeiou]", ignore_case = TRUE)),
+    prop_vowels = vowels / str_length(name)
+  ) |> 
+  arrange(desc(vowels))
+
+head(names_vowels)
+
+names_vowels |> 
+  arrange(desc(prop_vowels))
+
+```
+
+```{r, include = TRUE}
+
+#Replace all forward slashes in "a/b/c/d/e" with backslashes. What happens if you attempt to undo the transformation by replacing all backslashes with forward slashes? (We’ll discuss the problem very soon.)
+
+x <- "a/b/c/d/e"
+
+str_replace_all(x, "//", "\\")
+
+```
+
+```{r, include = TRUE}
+
+# Implement a simple version of str_to_lower() using str_replace_all().
+
+x = "JOE"
+
+str_to_lower(x)
+
+str_replace_all(x, pattern = LETTERS, replacement = letters)
+
+```
+
+## 16.4 Pattern Details
+# Escaping
+
+```{r, include = TRUE}
+
+# To create the regular expression \., we need to use \\.
+dot <- "\\."
+
+# But the expression itself only contains one \
+str_view(dot)
+
+# And this tells R to look for an explicit .
+str_view(c("abc", "a.c", "bef"), "a\\.c")
+
+```
+
+To write a backslash, you need to use two.
+
+To match a backslash, you need to use four.
+
+https://xkcd.com/1638/ 
+
+```{r, include = TRUE}
+
+# The character backlash as a string:                 \
+# The character backlash as a regular expression:     \\
+# The string of the regular expression:               \\\
+# The regular expression of that string:              \\\\
+
+# Write a backslash in a string
+x <- "a\\b"
+str_view(x)
+
+# Find the backlash in a string
+str_view(x, "\\\\")
+
+```
+
+```{r, include = TRUE}
+
+#"If you’re trying to match a literal ., $, |, *, +, ?, {, }, (, ), there’s an alternative to using a backslash escape: you can use a character class: [.], [$], [|], ... all match the literal values."
+
+```
+
+# Anchors
+
+```{r, include = TRUE}
+
+# ^ for start of string
+# $ for end of string
+
+str_view(fruit, "^a")
+
+str_view(fruit, "a$")
+
+# Putting the $ in front of the search term doesn't execute
+str_view(fruit, "$a")
+
+# You can use the "boundary" anchor \b to pull out a word on its own.
+
+x <- c("summary(x)", "summarize(df)", "rowsum(x)", "sum(x)")
+
+str_view(x, "sum")
+
+str_view(x, "\\bsum\\b")
+
+```
+
+# Character classes
+
+```{r, include = TRUE}
+
+
+# There are 3 characters that have special meaning inside of []:
+# ^ means the reverse. "[^abc]" matches any characters except a, b or c.
+# - defines a range, e.g., [a-z] matches any lower case letter and [0-9] matches any number.
+# \ escapes special characters, so [\^\-\]] matches ^, -, or ].
+
+x <- "abcd ABCD 12345 -!@#%."
+
+str_view(x, "a")
+
+# Add the plus indicates that the pattern repeats. So there is at least one of a, b or c, but there could be more. As it happens, there are one each of a, b and c.
+str_view(x, "[abc]+")
+
+y <- "aaaaa12345"
+
+# Adding the plus means more "a" characters are selected even though there aren't any "b" or "c" characters. 
+str_view(y, "[abc]+")
+
+# Only selects the first a
+str_view(x, "^[abc]")
+
+# Moving the ^ inside the square brackets changes it so that all characters except a, b or c are selected.
+str_view(x, "[^abc]")
+
+# Adding the plus tells string_view to find the start of the string which should be a, b or c and then the stuff after it which is a, b or c.
+str_view(x, "^[abc]+")
+
+# The - means "between" within the square brackets.
+# This selects all the lowercase letters individually.
+str_view(x, "[a-z]")
+
+# This selects them together
+str_view(x, "[a-z]+")
+
+# This selects all lowercase letters and numbers individually
+str_view(x, "[a-z0-9]")
+
+# This selects the inverse.
+str_view(x, "[^a-z0-9]")
+
+# This selects the inverse together
+str_view(x, "[^a-z0-9]+")
+
+```
+
+```{r, include = TRUE}
+
+x <- "abcd ABCD 012345 -!@#%."
+
+# \d: matches any digit (number)
+str_view(x, "\\d+")
+
+# \D: matches anything that isn't a digit (number)
+str_view(x, "\\D+")
+
+# \s: matches whitespace
+str_view(x, "\\s+")
+
+# \S: matches anything that isn't whitespace
+str_view(x, "\\S+")
+
+# \w: matches any letters and numbers
+str_view(x, "\\w+")
+
+# \W: matches anything that isn't a word or a letter
+str_view(x, "\\W+")
+
+```
+
+# Operator precedence
+
+*"Quantifiers have high precedence and alternation has low precedence"*
+
+```{r, include = TRUE}
+
+x <- "abbbbcccccabababab"
+
+# What does ab+ match? Does it match “a” followed by one or more “b”s, or does it match “ab” repeated any number of times? 
+str_view(x, "ab+")
+
+# Quantification has higher precedence than alteration, so the default method is as though brackets were used to select the quantification first.
+
+str_view(x, "a(b+)") == str_view(x, "ab+")
+
+# But we can force the precedence to be different.
+
+# The string of bs is no longer selected
+str_view(x, "(ab)+")
+
+# New example: this time anchoring seems to have a higher precedence than alternation
+v <- c("accccb", "bccccb", "acccca", "baccccb", "bacccba")
+
+# Matches string that have a at the start or b at the end
+str_view(v, "^a|b$")
+
+str_view(v, "^a|b$") == str_view(v, "(^a)|(b$)")
+
+# This selects strings with a or ba or b at the start or end
+str_view(v, "^a|ba|b$")
+
+str_view(v, "^a|ba|b$") == str_view(v, "(^a)|ba|(b$)")
+
+# This selects strings with a or b at the start or end
+str_view(v, "(^(a|b))|((a|b)$)")
+
+```
+
+
+# Grouping and capturing
+
+Brackets can override operator precedence and group characters together.
+
+```{r, include = TRUE}
+
+# You can reference groups within a regex.
+# The following pattern finds all fruits that have a repeated pair of letters.
+# It means, "find two characters next to each other and call them a group": (..)
+# "then look next to them and see if the same group is there: \\1
+str_view(fruit, "(..)\\1")
+
+# The power of this is its flexibility and concision.
+# In this context the \\1 isn't a shortcut for (..) - instead it references whatever string (..) pulls out.
+
+# As evidence, here's what happens if you just repeat (..)
+# It pulls out the first 4 characters of each word, regardless of whether they are duplicated.
+head(str_view(fruit, "(..)(..)"))
+
+```
+
+```{r, include = TRUE}
+
+str_view(words, "^(..).+\\1$")
+
+sentences |> 
+  str_replace("(\\w+) (\\w+) (\\w+)", "\\1 \\3 \\2") |> 
+  str_view()
+
+
+```
+
+## 16.4.7 Exercises
+
+```{r, include = TRUE}
+
+# How would you match "$^$"?
+
+test <- "abc$^$def"
+
+str_view(test, "\\$\\^\\$")
+
+# How would you match the literal string "'\? 
+
+# To create the string, each metacharacter gets one backslash
+test <- "abcd\"\'\\1234"
+
+print(test)
+
+# When viewed as a string, the escape backslahes are removed
+str_view(test)
+
+# To match the metacharacters, we need 3 backslashes per match
+str_view(test, "\\\"\\\'\\\\")
+
+```
+
+```{r, include = TRUE}
+
+# Find words in the words dataset which:
+
+# Start with “y”
+
+str_view(stringr::words, "^y")
+
+# Don’t start with “y”.
+
+no_y <- str_view(stringr::words, "^[^y]")
+
+tail(no_y)
+
+# End with “x”.
+
+str_view(words, "x$")
+
+# Are exactly three letters long. (Don’t cheat by using str_length()!)
+
+str_view(words, "\\b\\w{3}\\b")
+
+# Have seven letters or more.
+
+str_view(words, "\\w{7,}")
+
+# Contain a vowel-consonant pair.
+
+str_view(words, "[aeiou][^aeiou]")
+
+# Contain at least two vowel-consonant pairs in a row.
+str_view(words, "([aeiou][^aeiou])\\1+")
+
+# Answers for this chapter aren't ready yet so I haven't been able to find the correct way of doing it.
+
+```
+
+## Pattern control
+
+You can use comments = TRUE in combination with raw strings to make the regex much easier to understand. This is really useful if you're going to look back at the code much later, when you'll probably have forgotten what you were doing.
+
+```{r, include = TRUE}
+
+# Example from textbook
+
+phone_numbers <- c("514-791-8141", "(123) 456 7890", "123456")
+
+phone_number <- "514-791-8141"
+
+phone <- regex(
+  r"(
+    \(?     # optional opening parens
+    (\d{3}) # area code
+    [)\-]?  # optional closing parens or dash
+    \ ?     # optional space
+    (\d{3}) # another three numbers
+    [\ -]?  # optional space or dash
+    (\d{4}) # four more numbers
+  )", 
+  comments = TRUE
+)
+
+str_extract(phone_numbers, phone, group = 1)
+
+str_extract(phone_number, phone, group = 1)
+
+# Example with a more relevant example for the HRD project.
+
+original <- "This is a long string where I want to extract an NHS number: 123456789 with 625723567 regex"
+
+original_vector <- c("This is a long string where I want to extract an NHS number: 123456789 with regex",
+              "This is a another long string where I want to extract an NHS number: 234567890 with regex")
+
+standard_regex <- ".+NHS number: (\\d{9}).+"
+
+# This is the usual way I'd pull this information out
+sub(x = original, pattern = standard_regex, replacement = "\\1")
+
+# Here is the regex as a raw string. Fewer backslashes make it slightly easier to read.
+raw_string_regex <- regex(r"[NHS number: (\d{9})]")
+
+str_extract(string = original, pattern = raw_string_regex, group = 1)
+
+# Here is the regex formatted with regex and comments = TRUE, which allows you to comment on specific bits but have the comments and spaces be ignored.
+raw_string_regex_comments <- regex(
+  r"[
+  NHS\ number:\   # The NHS number - note the use of backslash to escape the spaces
+  (\d{9})         # The 9 digit string I want
+  ]",
+  comments = TRUE
+)
+
+str_extract(original, raw_string_regex_comments, group = 1)
+
+# Vectorised version
+str_extract(original_vector, raw_string_regex_comments, group = 1)
+
+```
+
+Figuring that last section out took me about an hour. The crucial bug was not realising I had to specify spaces with an escape backslash when the comments were turned on in the regex() modifier (and there is a space between NHS and number in "NHS number" which I completely forgot about.)
+
+This is because regex() with comments = TRUE ignores spaces and new lines. That's really useful for using spaces and new lines to add comments and format them nicely, but it also means any spaces in your regular expression have to be explicitly declared with a backslash escape.
+
+```{r, include = TRUE}
+
+# This works fine even though there are undeclared spaces between NHS and number and between the colon and the digits.
+standard_regex <- ".+NHS number: (\\d{9}).+"
+
+sub(x = original, pattern = standard_regex, replacement = "\\1")
+
+# You can also explicitly declare the spaces with \\s
+standard_regex_escape <- ".+NHS\\snumber:\\s(\\d{9}).+"
+
+sub(x = original, pattern = standard_regex_escape, replacement = "\\1")
+
+# Same with raw string. You don't have to explicitly declare spaces.
+raw_string_regex <- regex(r"[NHS number: (\d{9})]")
+
+str_extract(string = original, pattern = raw_string_regex, group = 1)
+
+# You can explicitly declare them if you want. But you only need one backslash (because it's a raw string, not standard regex)
+raw_string_regex_escape <- regex(r"[NHS\snumber:\s(\d{9})]")
+
+str_extract(string = original, pattern = raw_string_regex_escape, group = 1)
+
+# But with the regex modifier and comments = TRUE you have to explicitly declare them
+comments_escape <- regex(
+  r"[
+  NHS\ number:\   # The NHS number - note the use of backslash to escape the spaces
+  (\d{9})         # The 9 digit string I want
+  ]",
+  comments = TRUE
+)
+
+str_extract(original, comments_escape, group = 1)
+
+# If you don't, it will return NA
+comments_no_escape <- regex(
+  r"[
+  NHS number:   # The NHS number - note the use of backslash to escape the spaces
+  (\d{9})       # The 9 digit string I want
+  ]",
+  comments = TRUE
+)
+
+str_extract(original, comments_no_escape, group = 1)
+
+```
+
+
+
+

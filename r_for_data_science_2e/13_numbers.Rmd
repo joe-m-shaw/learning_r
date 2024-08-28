@@ -1,0 +1,170 @@
+---
+title: "Numbers"
+author: "Joe Shaw"
+date: "14/11/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(nycflights13)
+
+```
+
+*"readr provides two useful functions for parsing strings into numbers: parse_double() and parse_number(). Use parse_double() when you have numbers that have been written as strings. Use parse_number() when the string contains non-numeric text that you want to ignore."*
+
+*"n() is a special summary function that doesn’t take any arguments and instead accesses information about the “current” group. This means that it only works inside dplyr verbs"*
+
+```{r, include = TRUE}
+
+# Use n_disinct() to count distinct values of a variable
+
+flights |> 
+  group_by(dest) |> 
+  summarize(carriers = n_distinct(carrier)) |> 
+  arrange(desc(carriers))
+
+```
+
+## Weighted counts
+
+A weighted count is a sum. You group by one variable and then sum by another (weighted) variable.
+
+```{r, include = TRUE}
+
+# Example: how far has each plane flown?
+# Solution 1: group by tailnumber, then sum the distances
+
+method_1 <- flights |> 
+  group_by(tailnum) |> 
+  summarize(n = sum(distance))
+
+method_1
+
+# Solution 2: use the wt ("weight") argument in count()
+
+method_2 <- flights |> count(tailnum, wt = distance)
+
+method_2
+
+all.equal(method_1, method_2)
+
+```
+
+You can count missing values using sum() and is.na().
+
+This is a useful trick for when you are first getting to know a dataset.
+
+```{r, include = TRUE}
+
+flights |> 
+  group_by(dest) |> 
+  summarize(n_cancelled = sum(is.na(dep_time))) 
+
+```
+
+## Numeric Transformations
+
+*"R handles mismatched lengths by recycling, or repeating, the short vector."*
+
+```{r, include = TRUE}
+
+x <- c(1, 2, 10, 20)
+
+# There are four values on both sides of the /
+y1 <- x / c(5, 5, 5, 5)
+
+# There are four values on the left side of / and only one value on the right
+# So R recycles the number 5, to produce the same result as for y1
+y2 <- x / 5
+
+all.equal(y1, y2)
+
+y1
+
+```
+
+Using tidyverse is usually better than base R because tidyverse functions are designed to error frequently and prevent silent failures.
+
+The worst errors are the ones that the software doesn't flag, and that a human won't catch in the code review.
+
+One example: using == instead of %in% for finding rows.
+
+```{r, include = TRUE}
+
+flights |> 
+  filter(month == c(1, 2))
+
+```
+
+
+*"Because of the recycling rules it finds flights in odd numbered rows that departed in January and flights in even numbered rows that departed in February. And unfortunately there’s no warning because flights has an even number of rows. To protect you from this type of silent failure, most tidyverse functions use a stricter form of recycling that only recycles single values."*
+
+```{r, include = TRUE}
+
+# Using == pulls out even numbered rows that departed in February
+x1 <- flights |> 
+  filter(month == c(1, 2))
+
+# Using %in% gives the result we want
+x2 <- flights |> 
+  filter(month %in% c(1, 2))
+
+# The two outputs aren't the same
+all.equal(x1, x2)
+
+```
+
+## Modular arithmetic
+
+*"Modular arithmetic is the technical name for the type of math you did before you learned about decimal places, i.e. division that yields a whole number and a remainder. In R, %/% does integer division and %% computes the remainder"*
+
+## Rounding
+
+*"round() uses what’s known as “round half to even” or Banker’s rounding: if a number is half way between two integers, it will be rounded to the even integer. This is a good strategy because it keeps the rounding unbiased: half of all 0.5s are rounded up, and half are rounded down."*
+
+You can supply negative numbers to the digits argument of round and it rounds the number to the nearest 10, 100 etc.
+
+```{r, include = TRUE}
+
+round(123.456, 2)  # two digits
+
+round(123.456, 1)  # one digit
+
+round(123.456, -1) # round to nearest ten
+
+round(123.456, -2) # round to nearest hundred
+
+```
+
+*"round() is paired with floor() which always rounds down and ceiling() which always rounds up"*
+
+*"Use cut() to break up (aka bin) a numeric vector into discrete buckets"*
+
+## General Transformations
+
+If you want to calculate the distance between numbers in a column, you can use the lag function.
+
+
+```{r, include = TRUE}
+
+events <- tibble(
+  time = c(0, 1, 2, 3, 5, 10, 12, 15, 17, 19, 20, 27, 28, 30)
+)
+
+events <- events |> 
+  mutate(
+    diff = time - lag(time, default = first(time)),
+    has_gap = diff >= 5
+  )
+
+events
+
+
+```
+
+## Numeric Summaries
+
+quantile(), sd() and IQR() are useful functions.

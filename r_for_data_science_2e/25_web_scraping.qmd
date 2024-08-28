@@ -1,0 +1,39 @@
+---
+title: "Web Scraping"
+author: "Joe Shaw"
+format: html
+---
+
+# Introduction
+
+*"Web scraping is a very useful tool for extracting data from web pages."*
+
+*"As a brief example, in the US, lists of ingredients and instructions are not copyrightable, so copyright can not be used to protect a recipe. But if that list of recipes is accompanied by substantial novel literary content, that is copyrightable. This is why when you’re looking for a recipe on the internet there’s always so much content beforehand."*
+
+
+```{r}
+
+library(tidyverse)
+library(rvest)
+
+```
+
+# HTML
+
+*"HTML has a hierarchical structure formed by elements which consist of a start tag (e.g., <tag>), optional attributes (id='first'), an end tag4 (like </tag>), and contents (everything in between the start and end tag)."*
+
+CSS: Cascading Style Sheets
+
+*"CSS is short for cascading style sheets, and is a tool for defining the visual styling of HTML documents. CSS includes a miniature language for selecting elements on a page called CSS selectors. CSS selectors define patterns for locating HTML elements, and are useful for scraping because they provide a concise way of describing which elements you want to extract."*
+
+*"Figuring out the selector you need for your data is typically the hardest part of the problem. You’ll often need to do some experimenting to find a selector that is both specific (i.e. it doesn’t select things you don’t care about) and sensitive (i.e. it does select everything you care about). Lots of trial and error is a normal part of the process!"*
+
+```{r}
+
+html <- read_html("http://rvest.tidyverse.org/")
+html
+
+```
+
+The overall idea is that you can read HTML files into R, and then use CSS selectors to make specific elements of the HTML into columns of a dataframe. Then the data is in a format that you can analyse.
+

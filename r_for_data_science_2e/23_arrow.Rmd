@@ -1,0 +1,19 @@
+---
+title: "Arrow"
+author: "Joe Shaw"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*"At 9 GB, this file is large enough that we probably don’t want to load the whole thing into memory. A good rule of thumb is that you usually want at least twice as much memory as the size of the data, and many laptops top out at 16 GB."*
+
+*"Like CSV, parquet is used for rectangular data, but instead of being a text format that you can read with any file editor, it’s a custom binary format designed specifically for the needs of big data."*
+
+*"There’s one primary disadvantage to parquet files: they are no longer “human readable”, i.e. if you look at a parquet file using readr::read_file(), you’ll just see a bunch of gibberish."*
+
+*"Writing dplyr code for arrow data is conceptually similar to dbplyr, Chapter 21: you write dplyr code, which is automatically transformed into a query that the Apache Arrow C++ library understands, which is then executed when you call collect()."*
+

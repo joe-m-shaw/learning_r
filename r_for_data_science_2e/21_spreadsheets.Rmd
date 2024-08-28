@@ -1,0 +1,84 @@
+---
+title: "Spreadsheets"
+author: "Joe Shaw"
+date: "27/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+
+```
+
+## Excel
+
+xls:    binary file format, generally larger files
+xlsx:   XML file format, smaller files and more compatible with non-Microsoft programmes
+
+read_excel has a "na" option where you can specify what to consider an NA value
+
+*"It took us multiple steps and trial-and-error to load the data in exactly the format we want, and this is not unexpected. Data science is an iterative process, and the process of iteration can be even more tedious when reading data in from spreadsheets compared to other plain text, rectangular data files because humans tend to input data into spreadsheets and use them not just for data storage but also for sharing and communication."*
+
+*"An important feature that distinguishes spreadsheets from flat files is the notion of multiple sheets, called worksheets."*
+
+Use dim to find dimensions of a dataframe
+
+You can use dplyr::bind_rows instead of rbind.
+
+## Data Types
+
+Excel data can be four different data types:
+
+*"A boolean, like TRUE, FALSE, or NA."*
+
+*"A number, like “10” or “10.5”."*
+
+*"A datetime, which can also include time like “11/1/21” or “11/1/21 3:00 PM”."*
+
+*"A text string, like “ten”."*
+
+*"Excel has no notion of an integer. All numbers are stored as floating points, but you can choose to display the data with a customizable number of decimal points. Similarly, dates are actually stored as numbers, specifically the number of seconds since January 1, 1970."*
+
+I think this is now out of date - Excel now stores dates as the number of days since January 1, 1900.
+
+The frustrating thing with Excel is that data can be presented on the screen differently to how they are stored.
+
+*"These differences between how the underlying data are stored vs. how they’re displayed can cause surprises when the data are loaded into R."*
+
+
+```{r, include = TRUE}
+
+# Example: an Excel where I formatted the final two columns as "Date" and "Time" in Excel.
+test <- read_excel("C:/Users/joseph.shaw2/Documents/r_for_data_science_2e/data/illumina_flow_cells.xlsx")
+
+# The date column is a datetime class (both POSXct and POSXt in R)
+class(test$date)
+
+# The time column is also a datetime class
+class(test$time)
+
+# When you open the date column in R, it shows as dates formatted to the ISO standard: yyyy-mm-dd
+# This is weird, because in Excel I entered 27/10/2023 (dd/mm/yyy)
+# Excel changes the format of the data but doesn't tell you.
+test$date
+
+# You can also read the same Excel in and specify that you want the dates and times to be characters
+test <- read_excel("C:/Users/joseph.shaw2/Documents/r_for_data_science_2e/data/illumina_flow_cells.xlsx",
+           col_types = c("guess", "guess","guess","guess","guess","guess", "text", "text"))
+
+# The dates now appear as strings showing the number of days since 1st January 1990.
+# 45226 / 365 is 123.9 years
+test$date
+
+```
+
+## Writing to Excel
+
+*"You can write data back to disk as an Excel file using the write_xlsx() from the writexl package"*
+
+## Google Sheets
+
+You can use the googlesheets4 package to read Google Sheets.

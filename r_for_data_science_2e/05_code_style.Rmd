@@ -1,0 +1,85 @@
+---
+title: "Chapter 5: Code Style"
+author: "Joe Shaw"
+date: "25/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(nycflights13)
+
+```
+
+## Code Style Notes
+
+*"As a general rule of thumb, it’s better to prefer long, descriptive names that are easy to understand rather than concise names that are fast to type."*
+
+*"In general, if you have a bunch of variables that are a variation on a theme, you’re better off giving them a common prefix rather than a common suffix because autocomplete works best on the start of a variable."*
+
+- Pipes should be the last thing on a line
+
+*"Make sure ) is on its own line, and un-indented to match the horizontal position of the function name."*
+
+*"in our collective experience, it’s common for short snippets to grow longer, so you’ll usually save time in the long run by starting with all the vertical space you need."*
+
+*"Finally, be wary of writing very long pipes, say longer than 10-15 lines. Try to break them up into smaller sub-tasks, giving each task an informative name. The names will help cue the reader into what’s happening and makes it easier to check that intermediate results are as expected."*
+
+When using ggplot2, watch out for using a |> pipe instead of +. *"We wish this transition wasn’t necessary, but unfortunately, ggplot2 was written before the pipe was discovered."*
+
+
+```{r, include = TRUE}
+
+library(styler)
+
+# Here is some poorly formatted code
+
+flights|>filter(dest=="IAH")|>group_by(year,month,day)|>summarize(n=n(),
+delay=mean(arr_delay,na.rm=TRUE))|>filter(n>10)
+
+flights|>filter(carrier=="UA",dest%in%c("IAH","HOU"),sched_dep_time>
+0900,sched_arr_time<2000)|>group_by(flight)|>summarize(delay=mean(
+arr_delay,na.rm=TRUE),cancelled=sum(is.na(arr_delay)),n=n())|>filter(n>10)
+
+# Here is the same code transformed using the styler::tidyverse_style() function executed via the RStudio command palette (Ctrl+Shift+P)
+
+flights |>
+  filter(dest == "IAH") |>
+  group_by(year, month, day) |>
+  summarize(
+    n = n(),
+    delay = mean(arr_delay, na.rm = TRUE)
+  ) |>
+  filter(n > 10)
+
+flights |>
+  filter(carrier == "UA", dest %in% c("IAH", "HOU"), sched_dep_time >
+    0900, sched_arr_time < 2000) |>
+  group_by(flight) |>
+  summarize(delay = mean(
+    arr_delay,
+    na.rm = TRUE
+  ), cancelled = sum(is.na(arr_delay)), n = n()) |>
+  filter(n > 10)
+
+```
+
+## RStudio Settings
+
+You can change the settings to include rainbow colours for brackets (so that you don't get bracket errors) and to include vertical dashed lines to show tab alignment. This is helpful for reading code which is nicely formatted according to the standard tidyverse style.
+
+## Sections
+
+```{r, include = TRUE}
+
+# Use Ctrl+Shift+R to add section headers
+
+# This works in a standard R script but not in an RMarkdown code chunk.
+
+```
+
+
+
+

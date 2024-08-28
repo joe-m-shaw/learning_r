@@ -1,0 +1,87 @@
+---
+title: "Missing Values"
+author: "Joe Shaw"
+date: "15/11/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+## Explicit Missing Values
+
+tidyr::fill() can be used to fill in the gaps for data which has been manually collated. People often leave values bank if they are the same as in the previous row.
+
+```{r, include = TRUE}
+
+treatment <- tribble(
+  ~person,           ~treatment, ~response,
+  "Derrick Whitmore", 1,         7,
+  NA,                 2,         10,
+  NA,                 3,         NA,
+  "Katherine Burke",  1,         4
+)
+
+treatment |>
+  fill(everything())
+
+
+```
+
+You can use dplyr::coalesce() to replace NA with a known value.
+
+```{r, include = TRUE}
+
+x <- c(1, 3, 4, 5, NA, 35, NA, 1)
+
+coalesce(x, 0)
+
+```
+
+## NaN
+
+NaN: not a number
+
+Behaves like NA most of the time.
+
+*"You’ll generally encounter a NaN when you perform a mathematical operation that has an indeterminate result"*
+
+## Implicit Missing Values
+
+*"An explicit missing value is the presence of an absence."*
+
+*"An implicit missing value is the absence of a presence."*
+
+One way to make implicit missing values explicit is to using pivoting.
+
+Another option is to use tidyr::complete()
+
+Another way is to used anti-joins using dplyr::anti_join(x, y)
+
+## Factors
+
+Sometimes factor groups will dissapear if there aren't any observations of that group.
+
+To reveal this, set drop = FALSE in count.
+
+```{r, include = TRUE}
+
+health <- tibble(
+  name   = c("Ikaia", "Oletta", "Leriah", "Dashay", "Tresaun"),
+  smoker = factor(c("no", "no", "no", "no", "no"), levels = c("yes", "no")),
+  age    = c(34, 88, 75, 47, 56),
+)
+
+way1 <- health |>  count(smoker)
+
+way2 <- health |>  count(smoker, .drop = FALSE)
+
+way1
+
+way2
+
+```

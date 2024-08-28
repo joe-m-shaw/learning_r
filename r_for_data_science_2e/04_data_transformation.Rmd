@@ -1,0 +1,471 @@
+---
+title: "Data Transformation"
+author: "Joe Shaw"
+date: "19/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(nycflights13)
+library(tidyverse)
+
+```
+
+## Data Transformation
+
+The pipe is way of showing action.
+
+The first argument of any dplyr function is always the data that it will be acting on, which we don't normally state because we state the data first and then pipe into the function.
+
+```{r, include = TRUE}
+
+one_way <- flights |> filter(dest == "IAH")
+
+other_way <- filter(.data = flights, flights$dest == "IAH")
+
+all.equal(one_way, other_way)
+
+```
+
+Pipes are therefore a useful way of stringing function actions together in a way which is easy to read
+
+```{r, include = TRUE}
+
+# With pipes - easy to read
+with_pipes <- flights |> 
+                  filter(dest == "IAH") |> 
+                  mutate(speed = distance / air_time * 60) |> 
+                  select(year:day, dep_time, carrier, flight, speed) |> 
+                  arrange(desc(speed))
+
+# Without pipes - harder to read
+no_pipes <- arrange(
+                select(
+                  mutate(
+                    filter(
+                      flights, 
+                      dest == "IAH"
+                    ),
+                    speed = distance / air_time * 60
+                  ),
+                  year:day, dep_time, carrier, flight, speed
+                ),
+                desc(speed)
+              )
+
+all.equal(with_pipes, no_pipes)
+
+```
+
+*"For simple cases, |> and %>% behave identically. So why do we recommend the base pipe? Firstly, because it’s part of base R, it’s always available for you to use, even when you’re not using the tidyverse. Secondly, |> is quite a bit simpler than %>%: in the time between the invention of %>% in 2014 and the inclusion of |> in R 4.1.0 in 2021, we gained a better understanding of the pipe. This allowed the base implementation to jettison infrequently used and less important features."*
+
+Distinct can be used to remove duplicate rows.
+
+Count can be used to count catgegorical variables.
+
+```{r, include = TRUE}
+
+# Verbose way
+flights |> 
+  group_by(origin) %>%
+  summarise(n = n())
+
+# Concise way
+flights |> 
+  count(origin)
+
+```
+
+## 4.2.5 Exercises
+
+```{r, include = TRUE}
+
+
+flights |> 
+  filter(arr_delay > 120)
+
+flights |> 
+  filter(dest  %in% c("IAH", "HOU"))
+
+flights |> 
+  filter(carrier %in% c("UA", "AA", "DL"))
+  
+flights |> 
+  filter(month %in% c(7,8,9))
+
+flights |> 
+  filter(arr_delay > 120 & dep_delay <= 0)
+
+flights |> 
+  filter(dep_delay >= 60 & (dep_delay - arr_delay > 30))
+
+flights |> 
+  # There's actually no need to filter because all the data is from 2013.
+  filter(year == 2013) |> 
+  distinct(month, day)
+
+# Better way of doing it is this:
+flights |> 
+  distinct(year, month, day) |>
+  nrow()
+
+
+```
+
+```{r, include = TRUE}
+
+# Very large plots (take a while to render)
+
+#ggplot(flights, aes(dep_delay)) +
+  #geom_histogram(binwidth = 1)
+
+#ggplot(flights, aes(arr_delay, dep_delay)) +
+  #geom_point()
+
+```
+
+```{r, include = TRUE}
+
+flights |> 
+  arrange(desc(dep_delay))
+
+flights |> 
+  arrange(dep_time)
+
+flights |> 
+  arrange(distance / air_time)
+
+#ggplot(flights, aes(distance, air_time)) +
+  #geom_point(alpha = 0.5)
+
+#flights |> 
+  #mutate(speed_km_per_hour = (distance / air_time) * 60) |> 
+  #ggplot(aes(carrier, speed_km_per_hour)) +
+  #geom_boxplot() +
+  #ylim(0, 800)
+
+```
+
+## Mutate
+
+You can use the .before argument to add new variables to the left hand side of a dataframe, rather than using mutate and then select.
+
+
+```{r, include = TRUE}
+
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    # Specify column number to add new variable before
+    .before = 1
+  )
+
+```
+
+You can use the keep argument to only keep columns involved in mutate.
+
+```{r, include = TRUE}
+
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    hours = air_time / 60,
+    gain_per_hour = gain / hours,
+    .keep = "used"
+  )
+
+```   
+
+You can rename variables using select.
+
+```{r, include = TRUE}
+
+# Returns only one air_time column.
+flights |> 
+  select(air_time, air_time)
+
+variables <- c("year", "month", "day", "dep_delay", "arr_delay")
+
+flights |> 
+  select(any_of(variables))
+
+# Rename air_time and move to the left of the dataframe
+flights |> 
+  relocate(air_time_min = air_time, .before = 1)
+
+
+```
+
+The . is often used before arguments to make clear that they are function arguments not object. This is the same for .data in dplyr functions like mutate.
+
+
+## Groups
+
+```{r, include = TRUE}
+
+flights |> 
+  group_by(month) |> 
+  summarise(avg_delay = mean(dep_delay, na.rm = TRUE))
+
+```
+
+## Slice
+
+Slice allows you to slice out sections of a dataframe.
+
+slice_max: gets the rows with the maximum value for each group.
+
+```{r, include = TRUE}
+
+# Selects highest value for each group
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, n = 1) |> 
+  relocate(dest)
+
+# Selects the highest 20% for each group
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, prop = 0.2) |> 
+  relocate(dest)
+
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, n = 1,
+            # Specify only one row per group, even if there are two rows with the same
+            # max value for each group.
+            with_ties = FALSE)
+
+```
+
+## Grouping by Multiple Variables
+
+*"When you summarize a tibble grouped by more than one variable, each summary peels off the last group. In hindsight, this wasn’t a great way to make this function work, but it’s difficult to change without breaking existing code."*
+
+This means that the summarise function includes the final group in the process, but then it removes the group after it has finished.
+
+```{r, include = TRUE}
+
+daily <- flights |> 
+  group_by(year, month, day)
+
+daily_flights <- daily |> 
+  # Summarise function summarises the data by year, month and day, then takes off day to leave a dataframe of 365x4 with 2 groups
+  summarise(n = n(),
+            .groups = "drop_last")
+
+daily_flights_mod <- daily |> 
+  summarise(n = n(),
+            # Specify that you don't want to drop the last group (day) and this produces a dataframe of the same dimensions but with 3 groups, rather than 2.
+            .groups = "keep")
+
+str(daily_flights)
+
+str(daily_flights_mod)
+
+# The two dataframes produced are the same size (365 rows and 4 columns) but the attributes (groups) are different.
+
+groups(daily_flights)
+
+groups(daily_flights_mod)
+
+# Grouping by 2 columns creates tibble 12x3
+flights |>
+  group_by(year, month) |> 
+  summarise(n = n(), 
+            .groups = "keep")
+
+# Grouping by 3 columns creates tibble 365x4
+flights |>
+  group_by(year, month, day) |> 
+  summarise(n = n(),
+            .groups = "keep")
+
+```
+
+## Ungrouping
+
+```{r, include = TRUE}
+
+# Only one row is returned. If you don't supply any groups, it assumes that the entire dataframe is one group.
+
+daily |> 
+  ungroup() |> 
+  summarise(
+    avg_delay = mean(dep_delay, na.rm = TRUE),
+    flights = n()
+  )
+
+```
+
+# The .by argument
+
+*".by works with all verbs and has the advantage that you don’t need to use the .groups argument to suppress the grouping message or ungroup() when you’re done."*
+
+```{r, include = TRUE}
+
+use_by <- flights |> 
+  summarise(
+    delay = round(mean(dep_delay, na.rm = TRUE), 1),
+    n = n(),
+    .by = month
+  ) |> 
+  arrange(month)
+
+use_group <- flights |> 
+  group_by(month) |> 
+  summarise(
+    delay = round(mean(dep_delay, na.rm = TRUE), 1),
+    n = n()
+  ) |> 
+  arrange(month)
+
+# Note that all.equal won't work if you arrange the columns differently
+all.equal(use_group, use_by)
+
+all.equal(use_group |> 
+            arrange(desc(month)), use_by)
+
+# setdiff works because it looks at the dataframes as a whole, not row by row.
+setdiff(use_group |> 
+            arrange(desc(month)), use_by)
+
+```
+
+## 4.5.7 Exercises
+
+```{r, include = TRUE}
+
+# Which carrier has the worst average delays? 
+
+flights |> 
+  group_by(carrier) |> 
+  summarise(avg_delay = mean(arr_delay, na.rm = TRUE)) |> 
+  arrange(desc(avg_delay))
+
+# According to this approach, F9 is the worst carrier with an average of 21.9 minutes delayed arrival.
+
+# But F9 only had 685 flights, all of which were to one destination (DEN).
+delay_table <- flights |> 
+  count(carrier, dest) |> 
+  arrange(desc(n))
+
+# Challenge: can you disentangle the effects of bad airports vs. bad carriers? 
+
+# Get delays grouped by carrier and destination
+
+delays <- flights |> 
+  group_by(dest, carrier) |> 
+  summarise(avg_delay = mean(arr_delay, na.rm = TRUE),
+            total = n()) 
+
+# Plot results
+ggplot(delays, aes(reorder(dest, desc(total)), avg_delay)) +
+  geom_point(na.rm = TRUE) +
+  # Add line of average delay for EV
+  geom_hline(yintercept = 15.7, linetype = "dashed") +
+  facet_wrap(~carrier) +
+  theme(axis.text.x = element_blank())
+
+# EV seems to have consistently bad delays across all destinations.
+
+# Find the flights that are most delayed upon departure from each destination.
+flights |> 
+  group_by(origin) |> 
+  slice_max(dep_delay, n = 1) |> 
+  relocate(dep_delay, origin)
+
+# How do delays vary over the course of the day? Illustrate your answer with a plot.
+# Delays increase throughout the day
+ggplot(flights, aes(sched_dep_time, dep_delay)) +
+  # Take out geom_point because it takes a long time to render
+  #geom_point(alpha = 0.1, na.rm = TRUE) +
+  geom_smooth(method = lm, na.rm = TRUE)
+
+# I didn't realise that departure time was split into hours (I thought that field was hours of airtime)
+
+# Here is the solution from the answers page.
+
+flights |>
+  group_by(hour) |>
+  summarize(avg_dep_delay = mean(dep_delay, na.rm = TRUE)) |>
+  ggplot(aes(x = hour, y = avg_dep_delay)) + 
+  geom_smooth()
+
+```
+
+```{r, include = TRUE}
+
+# What happens if you supply a negative n to slice_min() and friends?
+# From slice_min help: "A negative value of n or prop will be subtracted from the group size. For example, n = -2 with a group of 5 rows will select 5 - 2 = 3 rows"
+flights |> 
+  group_by(origin) |> 
+  slice_min(dep_delay, n = -1) |> 
+  relocate(dep_delay, origin)
+
+# Explain what count() does in terms of the dplyr verbs you just learned. What does the sort argument to count() do?
+# Answer: count groups the data and then summarises the total observations (rows) for each group. The sort argument acts like the arrange function.
+flights |> 
+  group_by(origin) |> 
+  summarise(total = n())
+
+flights |> 
+  count(origin)
+
+df <- tibble(
+  x = 1:5,
+  y = c("a", "b", "a", "a", "b"),
+  z = c("K", "K", "L", "L", "K")
+)
+
+df |>
+  group_by(y)
+
+df |>
+  arrange(y)
+
+df |>
+  group_by(y) |>
+  summarize(mean_x = mean(x))
+
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x), .groups = "keep" )
+
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x))
+
+# Using mutate means that groups are not used to group the output into single observations per group. You get 5 rows instead of 3.
+df |>
+  group_by(y, z) |>
+  mutate(mean_x = mean(x))
+
+```
+
+## 4.6 Case Study
+
+*"Whenever you do any aggregation, it’s always a good idea to include a count (n()). That way, you can ensure that you’re not drawing conclusions based on very small amounts of data. We’ll demonstrate this with some baseball data from the Lahman package. Specifically, we will compare what proportion of times a player gets a hit (H) vs. the number of times they try to put the ball in play (AB):"*
+
+``` {r, include = TRUE}
+
+library(Lahman)
+
+batters <- Lahman::Batting |> 
+  group_by(playerID) |> 
+  summarise(
+    performance = sum(H, na.rm = TRUE) / sum(AB, na.rm = TRUE),
+    n = sum(AB, na.rm = TRUE)
+  )
+
+```
+
+## Learning Points
+
+You can use pipe with view to see the result of a manipulation, don't have to keep naming additional tables and then independently calling view.
+
+Mistakes I made:
+- I should have read the notes for "flights" dataframe to understand what each column meant.

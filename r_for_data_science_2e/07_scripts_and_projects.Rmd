@@ -1,0 +1,73 @@
+---
+title: "Scripts and Projects"
+author: "Joe Shaw"
+date: "26/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+
+```
+
+Shortcut: Ctrl+Shift+S
+
+This runs your entire script.
+
+*"You should never include install.packages() in a script you share. It’s inconsiderate to hand off a script that will change something on their computer if they’re not being careful!"*
+
+## Filenames
+
+*"Three important principles for file naming are as follows:"*
+
+*-"File names should be machine readable: avoid spaces, symbols, and special characters. Don’t rely on case sensitivity to distinguish files."*
+
+*-"File names should be human readable: use file names to describe what’s in the file.*
+
+*-"File names should play well with default ordering: start file names with numbers so that alphabetical sorting puts them in the order they get used."*
+
+## Projects
+
+# What is the source of truth?
+
+Your source of truth should be R scripts, not your environment.
+
+R scripts and data files can recreate the environment.
+
+*"we highly recommend that you instruct RStudio not to preserve your workspace between sessions."*
+
+Shortcut: Ctrl + Shift + F10 to restart R
+
+To make sure you are capturing truth in the editor, not the environment, you can restart R and then rerun the script.
+
+For this, use the shortcuts Ctrl + Shift + F10 then Ctrl + Shift + S.
+
+*"We collectively use this pattern hundreds of times a week."*
+
+# Where does your analysis live?
+
+*"You can set the working directory from within R but **we do not recommend it**:"*
+
+Better to set the working directory within a project file..
+
+Windows uses backslash within file paths, which is annoying because in R the backslash is an escape character.
+
+```{r, include = TRUE}
+
+# Windows filepath
+# "C:\Users\joseph.shaw2\Documents\r_for_data_science_2e\data\illumina_flow_cells.xlsx"
+
+# Windows filepath with backslash escapes
+path1 <- "C:\\Users\\joseph.shaw2\\Documents\\r_for_data_science_2e\\data\\illumina_flow_cells.xlsx"
+
+read_excel(path = path1)
+
+# Windows filepath with backslashes changed to forward slashes
+path2 <- "C:/Users/joseph.shaw2/Documents/r_for_data_science_2e/data/illumina_flow_cells.xlsx"
+
+read_excel(path2)
+
+```

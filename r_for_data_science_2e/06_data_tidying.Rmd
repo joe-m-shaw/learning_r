@@ -1,0 +1,227 @@
+---
+title: "Data Tidying"
+author: "Joe Shaw"
+date: "26/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+*"There are three interrelated rules that make a dataset tidy:*
+
+*- Each variable is a column; each column is a variable.*
+
+*- Each observation is a row; each row is an observation.*
+
+*- Each value is a cell; each cell is a single value."*
+
+## Lengthening Data
+
+There are two common reasons why data is untidy.
+
+*"Data is often organized to facilitate some goal other than analysis. For example, it’s common for data to be structured to make data entry, not analysis, easy."*
+
+*"Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a lot of time working with data."*
+
+```{r, include = TRUE}
+
+head(billboard)
+
+colnames(billboard)
+
+billboard_longer <- billboard |> 
+  pivot_longer(
+    # Specifies the original columns which need to be pivoted. I.e. the columns that aren't variables, but instead are values
+    # Uses same syntax as select
+    cols = starts_with("wk"), 
+    # What we want to call the variable of the values that are stored in the original column names
+    names_to = "week", 
+    # What we want to call the variable of the values that are stored in the original old columns
+    values_to = "rank",
+    #"These NAs don’t really represent unknown observations; they were forced to exist by the structure of the dataset"
+    values_drop_na = TRUE
+  )
+
+billboard_longer
+
+```
+
+```{r, include = TRUE}
+
+# Use parse_number() to extract numbers from strings.
+
+billboard_longer |> 
+  mutate(week = parse_number(week))
+
+# Plot results
+billboard_longer |> 
+  mutate(week = parse_number(week)) |> 
+  ggplot(aes(x = week, y = rank, group = track)) +
+  geom_line(alpha = 0.25) +
+  scale_y_reverse()
+
+```
+
+
+```{r, include = TRUE}
+
+# tribble() can be used to make small dataframes row by row
+
+df <- tribble(
+  ~id,  ~bp1, ~bp2,
+   "A",  100,  120,
+   "B",  140,  115,
+   "C",  120,  125
+)
+
+df1 <- data.frame(
+  
+  "id" =  c("A", "B", "C"),
+  "bp1" = c(100, 140, 120),
+  "bp2" = c(120, 115, 125)
+
+)
+
+all_equal(df1, df)
+
+df |> 
+  pivot_longer(
+    cols = bp1:bp2,
+    names_to = "measurement",
+    values_to = "value"
+  )
+
+```
+
+```{r, include = TRUE}
+
+head(who2)
+
+colnames(who2)
+
+who2 |> 
+  pivot_longer(
+    # Pivot all the columns except country and year
+    cols = !(country:year),
+    # New column names
+    names_to = c("diagnosis", "gender", "age"), 
+    # Separate the values in the old column names by the underscore
+    names_sep = "_",
+    # Values in old columns become the "count" column
+    values_to = "count"
+  )
+
+```
+
+```{r, include = TRUE}
+
+# This dataframe has child, dob and name all stored in column names, separated by underscores
+household
+
+colnames(household)
+
+# These column names have both variable names (dob, name) and values (child1, child2) stored in them.
+
+# So we need a way to separate them.
+
+household |> 
+  pivot_longer(
+    cols = !family, 
+    # The bits of the column to separate are separated by an underscore
+    names_sep = "_", 
+    # The ".value" bit is important
+    # The column name structure is the first bit which is a variable (dob or name), then an underscore, then a bit which we'll call "child".
+    names_to = c(".value", "child"), 
+    # There is no "values_to" argument
+    values_drop_na = TRUE
+  )
+
+```
+
+## Using pivot_wider
+
+```{r, include = TRUE}
+
+str(cms_patient_experience)
+
+cms_patient_experience |> 
+  distinct(measure_cd, measure_title)
+
+```
+
+*"pivot_wider() has the opposite interface to pivot_longer(): instead of choosing new column names, we need to provide the existing columns that define the values (values_from) and the column name (names_from)"*
+
+pivot_longer = names_to    values_to    cols
+pivot_wider =  names_from  values_from  id_cols
+
+```{r, include = TRUE}
+
+cms_patient_experience |> 
+  pivot_wider(
+    # Specify which columns have values that uniquely identify each row
+    id_cols = starts_with("org"),
+    names_from = measure_cd,
+    values_from = prf_rate
+  )
+
+```
+
+## How pivot_wider works
+
+pivot_wider performs the following steps:
+
+1. Gets the new column names from the unique values in the original column supplied to names_from argument of pivot_wider ("measurement" in the below example)
+2. Gets the new rows from the unique values in the original column(s) supplied to id_cols argument of pivot_wider ("id" in the below example)
+3. The new column names and new rows are combined to generate an empty data frame with NA values
+4. The missing values are then filled in using the values in the original column supplied to the values_from argument of pivot_wider ("number" in the example below).
+
+
+```{r, include = TRUE}
+
+df <- tribble(
+  ~id, ~measurement, ~number,
+  "A",        "bp1",    100,
+  "B",        "bp1",    140,
+  "B",        "bp2",    115, 
+  "A",        "bp2",    120,
+  "A",        "bp3",    105
+)
+
+df |> 
+  pivot_wider(
+    # Make new columns named bp1, bp2 etc
+    names_from = measurement,
+    values_from = number
+  )
+
+```
+
+The strange thing is that pivot_wider can therefore "create" missing values by inserting NAs into a dataset. For example, there is no third blood pressure value (bp3) for id B in the original dtatframe in the example above. But the structure of the wider version forces an NA to be inserted, making this more obvious.
+
+```{r, include = TRUE}
+
+way1 <- df |> 
+  distinct(measurement) |> 
+  # "pull" extracts a single column
+  pull()
+
+way2 <- unique(df$measurement)
+
+way1 == way2
+
+# Both ways give the same result, but distinct is from dplyr and therefore works with pipes, whereas unique is from base R.
+
+```
+
+*"Another challenge is that, for a given dataset, it can be impossible to label the longer or the wider version as the “tidy” one. This is partly a reflection of our definition of tidy data, where we said tidy data has one variable in each column, but we didn’t actually define what a variable is (and it’s surprisingly hard to do so). It’s totally fine to be pragmatic and to say a variable is whatever makes your analysis easiest. So if you’re stuck figuring out how to do some computation, consider switching up the organisation of your data; don’t be afraid to untidy, transform, and re-tidy as needed!"*
+
+## Diagrams
+
+Diagrams are saved on Dropbox int his folder:
+
+Dropbox/Documents/R projects/r_for_data_science_2e_images

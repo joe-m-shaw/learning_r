@@ -1,0 +1,21 @@
+---
+title: "Factors"
+author: "Joe Shaw"
+date: "2023-11-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+The tidyverse library for dealing with factors is forcats.
+
+forcats is an anagram of factors.
+
+Use forcats::fct() in tidyverse instead of factor() in base R because it will flag if something is not in the factor levels.
+
+There are several useful functions within forcats that it's useful to be aware of: fct_reorder, fct_infreq, fct_recode and fct_collapse.

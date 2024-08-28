@@ -1,0 +1,30 @@
+---
+title: "Workflow"
+author: "Joe Shaw"
+date: "18/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+## Shortcuts
+
+https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE
+
+Insert pipe operator 	          Ctrl+Shift+M
+Insert assignment operator 	    Alt+-  (this only works in R code chunks if you are in a markdown file)
+
+Alt + shift + K brings up all the keyboard shortcuts.
+
+Alt + tab allows you to move between windows easily on Windows machines.
+
+Windows key + up or down arrows allows you to minimise or maximise windows.
+
+## Pipe Operator
+
+The new pipe |> has been used in base R since v4.1.0

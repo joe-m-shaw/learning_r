@@ -1,0 +1,153 @@
+---
+title: "Logical Vectors"
+author: "Joe Shaw"
+date: "10/11/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(nycflights13)
+
+```
+
+*"So far, we’ve mostly created logical variables transiently within filter() — they are computed, used, and then thrown away."*
+
+Filtering is the equivalent of creating new TRUE/FALSE variables with mutate, but, unlike with mutate, the new variables aren't stored in the new dataframe (they're discarded after filtering).
+
+*"Missing values represent the unknown so they are “contagious”: almost any operation involving an unknown value will also be unknown:"*
+
+```{r, include = FALSE}
+
+# You'd expect this should be TRUE, but instead it returns NA
+NA == NA
+
+# Explanation
+# We don't know how old Mary is
+age_mary <- NA
+
+# We don't know how old John is
+age_john <- NA
+
+# Are Mary and John the same age?
+age_mary == age_john
+
+# Asking if two unknown values are the same means the answer is unknown.
+
+```
+
+## is.na()
+
+*"As well as & and |, R also has && and ||. Don’t use them in dplyr functions! These are called short-circuiting operators and only ever return a single TRUE or FALSE. They’re important for programming, not data science."*
+
+## Missing Values
+
+```{r, include = TRUE}
+
+df <- tibble(x = c(TRUE, FALSE, NA))
+
+df |> 
+  mutate(
+    and = x & NA,
+    # FALSE & NA produces FALSE
+    # NA & NA produces NA (unknown plus unknown is unknown)
+    or = x | NA
+    # 
+  )
+
+```
+
+Explanation
+
+In working this out, it's easier to think of NA as "unknown value".
+
+**TRUE & NA produces NA**
+
+The question asked is "Are both TRUE and the unknown value true?"
+
+The answer is "unknown" because we don't know if the unknown value is TRUE or not.
+
+**FALSE & NA produces FALSE**
+
+The question asked is "Are both FALSE and the unknown value true?"
+
+The answer is false, because FALSE is not true. It doesn't matter what the unknown value is, because asked if **both** values were true.
+
+**NA & NA produces NA**
+
+The question asked is "Are both unknown values true?"
+
+The answer has to be "it's unknown" (NA) because we don't know the value of either value.
+
+**TRUE | NA produces TRUE**
+
+The question asked is "Are either TRUE or the unknown value true?"
+
+Yes - TRUE is true.
+
+**FALSE | NA produces NA**
+
+The question asked is "Are either FALSE or the unknown value true?"
+
+The answer has to be "it's unknown" because of the unknown value.
+
+**NA | NA produces NA**
+
+"Are either of the unknown values true?"
+
+We don't know, so the answer has to be NA.
+
+## Summaries 
+
+*"There are two main logical summaries: any() and all(). any(x) is the equivalent of |; it’ll return TRUE if there are any TRUE’s in x. all(x) is equivalent of &; it’ll return TRUE only if all values of x are TRUE’s. "*
+
+*"When you use a logical vector in a numeric context, TRUE becomes 1 and FALSE becomes 0. This makes sum() and mean() very useful with logical vectors because sum(x) gives the number of TRUEs and mean(x) gives the proportion of TRUEs (because mean() is just sum() divided by length()."*
+
+## Conditional Transformations
+
+if_else and ifelse are different functions.
+
+if_else is from dplyr, whereas ifelse is base.
+
+case_when is in dplyr.
+
+*"dplyr’s case_when() is inspired by SQL’s CASE statement and provides a flexible way of performing different computations for different conditions."*
+
+*"Use .default if you want to create a “default”/catch all value"*
+
+The default value is a way to catch cases which aren't TRUE according to any of the statements you've provided.
+
+*"if multiple conditions match, only the first will be used"*
+
+```{r, include = TRUE}
+
+x <- c(0, 1, 2, 3, 4, 5, 6)
+
+# The way that I normally code things - with the TRUE ~"other" option that I got from
+# stack overflow
+way1 <- case_when(
+  x > 4 ~"big",
+  x < 2 ~"small",
+  TRUE ~"other"
+)
+
+way1
+
+# Recommended way with the .default argument
+way2 <- case_when(
+  x > 4 ~"big",
+  x < 2 ~"small",
+  .default  = "other"
+)
+
+way2
+
+way1 == way2
+
+```
+
+*"Note that both if_else() and case_when() require compatible types in the output."*
+
+This means you can't get a numeric if the statement is TRUE and a character is the statement is FALSE: they have to be the same type.

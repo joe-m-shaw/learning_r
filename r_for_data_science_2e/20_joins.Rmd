@@ -1,0 +1,151 @@
+---
+title: "Joins"
+author: "Joe Shaw"
+date: "30/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(nycflights13)
+
+```
+
+## Definitions
+
+*"**Mutating joins**, which add new variables to one data frame from matching observations in another."*
+
+*"**Filtering joins**, which filter observations from one data frame based on whether or not they match an observation in another."*
+
+**Natural join**: when all variables that appear in both data frames are used as the join key. This occurs when you don't specify the key with the join_by argument.
+
+**Equi join**: when the two foreign keys have the same name.
+
+**Semi join**: a type of filtering join which keeps all the rows in x that have a match in y.
+
+**Anti join**: the opposite of a semi join - all the rows in x that do not have a match in y are kept.
+
+**Key**: the variable used to connect a pair of dataframes together in a join.
+
+**Primary key**: a variable or set of variables that uniquely identifies each observation (each row if the data is tidy) in the original table.
+
+**Foreign key**: a variable or set of variables that corresponds to a primary key in another table.
+
+**Compound key**: when there is more than one variable in a key.
+
+**Surrogate key**: a new variable added to act as a primary key (such as row number).
+
+Note: foreign keys may not always have the same name as the corresponding primary key.
+
+A good way to check primary keys is to use count and make sure that n is never above 1 (i.e. the variable identifies rows uniquely).
+
+You should also check that they aren't any NA values in your primary key.
+
+## Basic Joins
+
+The six basic dplyr joins are:
+
+1. left_join
+
+2. inner_join
+
+3. right_join
+
+4. full_join
+
+5. semi_join
+
+6. anti_join
+
+*"A mutating join allows you to combine variables from two data frames: it first matches observations by their keys, then copies across variables from one data frame to the other."*
+
+*"The primary use of left_join() is to add in additional metadata."*
+
+```{r, include = TRUE}
+
+flights2 <- flights |> 
+  select(year, time_hour, origin, dest, tailnum, carrier)
+
+join_by_dest <- flights2 |> 
+  left_join(airports, join_by(dest == faa))
+
+join_by_origin <- flights2 |> 
+  left_join(airports, join_by(origin == faa))
+
+# The two joins produce different results
+all.equal(join_by_dest, join_by_origin) == TRUE
+
+
+```
+
+## Filtering Joins
+
+Anti-joins are useful for finding *implicit* missing values in datasets. An implicit missing value is one that is not in the dataset but does not have an NA value - it only exists as an absence, not as the presence of an NA.
+
+```{r, include = TRUE}
+
+# Which destinations in the flights2 dataset don't appear in the airports dataset?
+flights2 |> 
+  anti_join(airports, join_by(dest == faa)) |> 
+  distinct(dest)
+
+
+```
+
+## 20.3.4 Exercises
+
+```{r, include = TRUE}
+
+# Find the 48 hours (over the course of the whole year) that have the worst delays. Cross-reference it with the # weather data. Can you see any patterns?
+
+
+```
+
+## How Joins Work
+
+*"There is, however, one particularly dangerous case which can cause a combinatorial explosion of rows."*
+
+Rows in x match multiple rows in y.
+
+This is the "many-to-many" join, which dplyr will flag as a warning.
+
+*"Filtering joins never duplicate rows like mutating joins do."*
+
+## Non Equi Joins
+
+*"When we move away from equi joins we’ll always show the keys, because the key values will often be different."*
+
+*"dplyr’s join functions understand this distinction equi and non-equi joins so will always show both keys when you perform a non-equi join."*
+
+There are 4 types of non equi joins.
+
+*"Cross joins match every pair of rows."*
+
+*"Inequality joins use <, <=, >, and >= instead of =="*
+
+*"Rolling joins are similar to inequality joins but only find the closest match."*
+
+*"Overlap joins are a special type of inequality join designed to work with ranges."*
+
+Example with overlap joins: you have a series of parties in an office, and the birthdays of every employee. An overlap join allows you to work out which party should be used to celebrate an employee's birthday: you use a inner_join and the "between" helper.
+
+```{r, include = FALSE}
+
+employees <- tibble(
+  name = sample(babynames::babynames$name, 100),
+  birthday = ymd("2022-01-01") + (sample(365, 100, replace = TRUE) - 1)
+)
+
+parties <- tibble(
+  q = 1:4,
+  party = ymd(c("2022-01-10", "2022-04-04", "2022-07-11", "2022-10-03")),
+  start = ymd(c("2022-01-01", "2022-04-04", "2022-07-11", "2022-10-03")),
+  end = ymd(c("2022-04-03", "2022-07-10", "2022-10-02", "2022-12-31"))
+)
+
+employees |> 
+  inner_join(parties, join_by(between(birthday, start, end)), unmatched = "error")
+
+```

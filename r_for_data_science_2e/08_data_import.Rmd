@@ -1,0 +1,166 @@
+---
+title: "Data Import"
+author: "Joe Shaw"
+date: "27/10/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+
+```
+
+```{r, include = TRUE}
+
+students <- read_csv("https://pos.it/r4ds-students-csv")
+
+# Use the na argument to identify where someone has typed "N/A" instead of leaving a cell blank
+
+students <- read_csv("https://pos.it/r4ds-students-csv", na = c("N/A", ""))
+
+```
+
+## 8.2.4 Exercises
+
+```{r, include = TRUE}
+
+# What function would you use to read a file where fields were separated with “|”?
+
+# read_delim(delim = "|")
+
+# To read the following text into a data frame, what argument to read_csv() do you need to specify?
+
+x <- "x,y\n1,'a,b'"
+
+read_csv(x, quote = "\'")
+
+```
+
+```{r, include = TRUE}
+
+# Original - "\n" is used instead of newline
+read_csv("a,b\n1,2,3\n4,5,6")
+
+# Fixed
+read_csv("a,b, c\n1,2,3\n4,5,6")
+
+# Original
+read_csv("a,b,c\n1,2\n1,2,3,4")
+
+# Fixed
+read_csv("a,b,c\n1,2, 3\n1,2,3")
+
+# Original
+read_csv("a,b\n\"1")
+
+# Fixed
+read_csv("a,b\n\\,1")
+
+# Original - both columns have both number and letter so the data type is character
+read_csv("a,b\n1,2\na,b")
+
+# Original
+read_csv("a;b\n1;3")
+
+# Fixed
+read_csv2("a;b\n1;3")
+
+```
+
+```{r, include = TRUE}
+
+# Practice referring to non-syntactic names in the following data frame by:
+
+annoying <- tibble(
+  `1` = 1:10,
+  `2` = `1` * 2 + rnorm(length(`1`))
+)
+
+# Extracting the variable called 1.
+annoying$`1`
+
+# Plotting a scatterplot of 1 vs. 2.
+ggplot(annoying, aes(`1`, `2`)) +
+  geom_point()
+
+# Creating a new column called 3, which is 2 divided by 1.
+new <- annoying |> 
+  mutate(`3` = `2`/`1`)
+
+print(new)
+
+# Renaming the columns to one, two, and three.
+new |> 
+  rename(one = `1`,
+         two = `2`,
+         three = `3`)
+
+
+```
+
+## Controlling column types
+
+# Guessing types
+
+*"readr uses a heuristic to figure out the column types. For each column, it pulls the values of 1,0002 rows spaced evenly from the first row to the last, ignoring missing values. It then works through the following questions:"*
+
+*"Does it contain only F, T, FALSE, or TRUE (ignoring case)? If so, it’s a logical."*
+
+*"Does it contain only numbers (e.g., 1, -4.5, 5e6, Inf)? If so, it’s a number."*
+
+*"Does it match the ISO8601 standard? If so, it’s a date or date-time."*
+
+*"Otherwise, it must be a string."*
+
+# Specifying types
+
+You can use the col_types argument to explicitly state the data type in each column.
+
+There are nine column type options:
+
+1. col_logical()
+
+2. col_integer()
+
+3. col_character()
+
+4. col_factor()
+
+5. col_date()
+
+6. col_datetime()
+
+7. col_number()
+
+8. col_skip()
+
+9. col_double()
+
+You can also use cols_only() to only include the columns that you specify. This is simpler than reading in all columns and the using select(-c()) to remove some.
+
+## Reading data from multiple files
+
+You can read multiple files in using the same read_csv function call. An "id" column is automatically added which specifies the file the data comes from, and the data is automatically concatenated.
+
+```{r, include = TRUE}
+
+sales_files <- c(
+  "https://pos.it/r4ds-01-sales",
+  "https://pos.it/r4ds-02-sales",
+  "https://pos.it/r4ds-03-sales"
+)
+
+```
+
+## Writing files
+
+write_rds()
+
+read_rds()
+
+These two functions allow you to read and write files saved in the binary .RDS format which will include data classes.
+
+tribble: transposed tibble.
