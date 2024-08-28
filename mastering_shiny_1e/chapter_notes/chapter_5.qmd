@@ -1,0 +1,12 @@
+---
+title: "Chapter 5"
+author: "Joe Shaw"
+format: html
+---
+
+"The first way to reduce your iteration time is to avoid clicking on the “Run App” button, and instead learn the keyboard shortcut Cmd/Ctrl + Shift + Enter."
+
+"Run External opens the app in your usual web browser. It’s useful for larger apps and when you want to see what your app looks like in the context that most users will experience it."
+
+
+

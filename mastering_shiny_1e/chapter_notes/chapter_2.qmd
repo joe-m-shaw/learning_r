@@ -1,0 +1,19 @@
+---
+title: "Chapter 2"
+author: "Joe Shaw"
+format: html
+---
+
+# Inputs
+
+"All input functions have the same first argument: inputId. This is the identifier used to connect the front end with the back end: if your UI has an input with ID "name", the server function will access it with input$name."
+
+Input ID:
+
+- ID: must be unique and without special characters, like an R variable
+
+- Label: a human readable label
+
+- Value: the default value
+
+"Note that the {} are only required in render functions if need to run multiple lines of code."

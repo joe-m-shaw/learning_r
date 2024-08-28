@@ -1,0 +1,32 @@
+---
+title: "Chapter 3"
+author: "Joe Shaw"
+format: html
+---
+
+"The key idea of reactive programming is to specify a graph of dependencies so that when an input changes, all related outputs are automatically updated."
+
+"The ui is simple because every user gets the same HTML. The server is more complicated because every user needs to get an independent version of the app; when user A moves a slider, user B shouldn’t see their outputs change."
+
+"Unlike a typical list, input objects are read-only. If you attempt to modify an input inside the server function, you’ll get an error."
+
+"output is very similar to input: it’s also a list-like object named according to the output ID. The main difference is that you use it for sending output instead of receiving input."
+
+"The app works because the code doesn’t tell Shiny to create the string and send it to the browser, but instead, it informs Shiny how it could create the string if it needs to. It’s up to Shiny when (and even if!) the code should be run. It might be run as soon as the app launches, it might be quite a bit later; it might be run many times, or it might never be run! This isn’t to imply that Shiny is capricious, only that it’s Shiny’s responsibility to decide when code is executed, not yours. Think of your app as providing Shiny with recipes, not giving it commands."
+
+**Imperative programming**: "you issue a specific command and it’s carried out immediately." Example: an R script.
+
+**Declarative programming**: "you express higher-level goals or describe important constraints, and rely on someone else to decide how and/or when to translate that into action." Example: a Shiny app.
+
+"With imperative code you say “Make me a sandwich”8. With declarative code you say “Ensure there is a sandwich in the refrigerator whenever I look inside of it”. Imperative code is assertive; declarative code is passive-aggressive."
+
+"In most R code, you can understand the order of execution by reading the code from top to bottom. That doesn’t work in Shiny, because code is only run when needed. To understand the order of execution you need to instead look at the reactive graph, which describes how inputs and outputs are connected."
+
+"It’s important to understand that the order your code run is solely determined by the reactive graph. This is different from most R code where the execution order is determined by the order of lines."
+
+"This concept is very important and different to most other R code, so I’ll say it again: the order in which reactive code is run is determined only by the reactive graph, not by its layout in the server function."
+
+"reactiveTimer() is a reactive expression that has a dependency on a hidden input: the current time. You can use a reactiveTimer() when you want a reactive expression to invalidate itself more often than it otherwise would. For example, the following code uses an interval of 500 ms so that the plot will update twice a second. This is fast enough to remind you that you’re looking at a simulation, without dizzying you with rapid changes. "
+
+You can add a button that the user has to click in order to update the plots - very useful if the computations are time-consuming.
+
