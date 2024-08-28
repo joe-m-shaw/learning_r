@@ -1,0 +1,44 @@
+---
+title: "The Whole Game"
+author: "Joe Shaw"
+format: html
+---
+
+# Introduction
+
+"In R, the fundamental unit of shareable code is the package. A package bundles together code, data, documentation, and tests, and is easy to share with others."
+
+"But packages are useful even if you never share your code. As Hilary Parker says in her introduction to packages: “Seriously, it doesn’t have to be about sharing your code (although that is an added benefit!). It is about saving yourself time.”"
+
+# Paper: "Packaging data analytical work reproducibly using R (and friends)"
+
+“Packaging Data Analytical Work Reproducibly Using r (and Friends).” PeerJ Preprints 6 (March): e3192v2. https://doi.org/10.7287/peerj.preprints.3192v2. 
+
+"Virtually all researchers use computers as a central tool in their workflow. However, our
+formal education rarely includes any training in how to organise our computer files to make
+it easy to reproduce results and share our entire analysis pipeline with others."
+
+"Although the R packaging system is traditionally a method for sharing statistical
+methods, we claim that R packages are suitable for use as research compendia that can
+help improve computational reproducibility."
+
+Compendium: a short but complete summary.
+
+"Once you are ready to share your compendium, the best way is to archive a specific
+commit at a repository that issues persistent URLs, such as a Digital Object Identifier DOI), for file archives (e.g. osf.io, figshare.com or zenodo.org). DOIs are designed to be
+far more persistent than other URLs, which often break as web pages change over time."
+
+"While CRAN is one of the biggest and best-known systems for archiving and distributing
+R packages, we do not recommend it for research compendium packages. The main reason
+that CRAN is not suitable is that it is very strict about the directory structure and contents
+for the R packages that it accepts."
+
+This is really useful paper. The premise is that structuring scientific research projects as if they were R packages leads to more reproducible research. This also makes sense in the context of laboratory test validations: what I want is a clear structure to organise a project so that I can put the entire thing somewhere public and say "this is what I did". Their term for this is a "research compendium": the summary of the entire project.
+
+
+
+
+
+
+
+
