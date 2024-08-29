@@ -1,0 +1,13 @@
+---
+title: "Other components"
+author: "Joe Shaw"
+format: html
+---
+
+Other folders that can be included in packages:
+
+**src**: src stands for "source". This is to do with connecting R to C++, which is beyond my current skillset.
+
+**inst**: inst stands for "installed files". This folder is for "arbitrary additional files that you want to include in your package."
+
+**tools**: additional files needed during configuration.
