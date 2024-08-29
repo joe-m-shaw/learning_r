@@ -1,0 +1,22 @@
+---
+title: "Package structure and state"
+author: "Joe Shaw"
+format: html
+---
+
+Packages can be in 5 different states.
+
+**Source**: "A source package is just a directory of files with a specific structure." This is the form of the package that is worked on during development, and you can see the source form of a package on Github. For organising a research compendium (i.e. a validation project) the source state is probably the one I'm most interested in.
+
+**Bundled**: "A bundled package is a package that’s been compressed into a single file. ... While a bundle is not that useful on its own, it’s a platform-agnostic, transportation-friendly intermediary between a source package and an installed package." Bundled packages have file extensions of .tar.gz
+
+**Binary**: "The primary maker and distributor of binary packages is CRAN ... Like a package bundle, a binary package is a single file. Unlike a bundled package, a binary package is platform specific and there are two basic flavors: Windows and macOS." With the install.packages() function, a package can be downloaded in a binary state from CRAN and saved in a binary state onto the computer, then saved into an installed form in a library (i.e. local package directory).
+
+**Installed**: "an installed package is a binary package that’s been decompressed into a package library"
+
+**In-memory**: an installed package that is loaded into the computer's memory. When you use library() you load a package from an installed state into an in-memory state.
+
+"In R, a library is a directory containing installed packages, sort of like a library for books. Unfortunately, in the R world, you will frequently encounter confused usage of the words “library” and “package”. It’s common for someone to refer to dplyr, for example, as a library when it is actually a package. There are a few reasons for the confusion. First, R’s terminology arguably runs counter to broader programming conventions, where the usual meaning of “library” is closer to what we mean by “package”. The name of the library() function itself probably reinforces the wrong associations. Finally, this vocabulary error is often harmless, so it’s easy for R users to fall into the wrong habit and for people who point out this mistake to look like insufferable pedants."
+
+"It’s important to note that library() should NEVER be used inside a package. Packages and scripts rely on different mechanisms for declaring their dependencies and this is one of the biggest adjustments you need to make in your mental model and habits."
+
