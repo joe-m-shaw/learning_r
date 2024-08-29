@@ -1,0 +1,23 @@
+---
+title: "Development workflows"
+author: "Joe Shaw"
+format: html
+---
+
+"Where should you keep source packages? The main principle is that this location should be distinct from where installed packages live. In the absence of external considerations, a typical user should designate a directory inside their home directory for R (source) packages."
+
+"An RStudio Project, with a capital “P”, is a regular directory on your computer that includes some (mostly hidden) RStudio infrastructure to facilitate your work on one or more projects, with a lowercase “p”. A project might be an R package, a data analysis, a Shiny app, a book, a blog, etc."
+
+"Base R provides various command line tools and R CMD check is the official method for checking that an R package is valid. It is essential to pass R CMD check if you plan to submit your package to CRAN, but we highly recommend holding yourself to this standard even if you don’t intend to release your package on CRAN. R CMD check detects many common problems that you’d otherwise discover the hard way.
+
+Our recommended way to run R CMD check is in the R console via devtools: devtools::check()"
+
+"The upper limit of this approach is to run R CMD check every time you make a change. We don’t run check() manually quite that often, but when we’re actively working on a package, it’s typical to check() multiple times per day. Don’t tinker with your package for days, weeks, or months, waiting for some special milestone to finally run R CMD check."
+
+"The workflow for checking a package is simple, but tedious:
+
+1. Run devtools::check(), or press Ctrl/Cmd + Shift + E.
+
+2. Fix the first problem.
+
+3. Repeat until there are no more problems."
