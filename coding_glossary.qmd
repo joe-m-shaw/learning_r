@@ -294,6 +294,8 @@ h01(x = stop("This is an error!"))
 
 **geom:** a geometrical object that is added as a layer to a plot to represent data.
 
+**ggplot2**: a package for creating plots, which is part of the tidyverse. The name comes from "Grammar of Graphics". The extra 2 is apparently because Hadley Wickham wanted to change the ggplot package from using nested function calls to using the + symbol to add plot layers - this was such a dramatic change that he had to release an entirely new package, which he called ggplot2 (source - [this blogpost](https://www.njtierney.com/post/2018/06/20/naming-things/)).
+
 **Global string pool**: "each unique string is only stored in memory once, and every use of the string points to that representation." (R For Data Science).
 
 **Key**: the variable used to connect a pair of dataframes together in a join.
@@ -368,6 +370,8 @@ g02()
 **Tidy data:** each column is a variable, each row is an observation.
 
 **Tidy evaluation:** you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
+
+**tidyverse**: a meta-package containing loads of packages which can be used for data analysis. The tidyverse is an entire "universe" of tools organised along a the philosophy of "tidy" data.
 
 **Type coercion**: the behaviour in which R automatically converts multiple objects with different data types to have the same type. Logical coerces to integer, coerces to double, coerces to character, coerces to list.
 
