@@ -1,0 +1,30 @@
+---
+title: "R code"
+author: "Joe Shaw"
+format: html
+---
+
+"The only hard rule is that your package must store its function definitions in R scripts, i.e. files with extension .R, that live in the R/ directory. Unfortunately you can’t use subdirectories inside R/. The next best thing is to use a common prefix, e.g., abc-*.R, to signal that a group of files are related."
+
+"The file name should be meaningful and convey which functions are defined within. While you’re free to arrange functions into files as you wish, the two extremes are bad: don’t put all functions into one file and don’t put each function into its own separate file."
+
+"Another file you often see in the wild is R/utils.R. This is a common place to define small utilities that are used inside multiple package functions. Since they serve as helpers to multiple functions, placing them in R/utils.R makes them easier to re-discover when you return to your package after a long break."
+
+"Any R code outside of a function is suspicious and should be carefully reviewed."
+
+"Here is a typical sequence of calls when using devtools for package development:
+
+1. Edit one or more files below R/.
+
+2. document() (if you’ve made any changes that impact help files or NAMESPACE)
+
+3. load_all()
+    
+4. Run some examples interactively.
+
+5. test() (or test_active_file())
+
+6. check()"
+
+"Finding and fixing 5 bugs, one at a time, right after you created each one is much easier than troubleshooting all 5 at once (possibly interacting with each other), weeks or months after you last touched the code."
+
