@@ -1,0 +1,19 @@
+---
+title: "Data"
+author: "Joe Shaw"
+format: html
+---
+
+"Some packages exist solely for the purpose of distributing data, along with its documentation. These are sometimes called “data packages”. A data package can be a nice way to share example data across multiple packages."
+
+"If you want to store R objects for your own use as a developer, put them in R/sysdata.rda."
+
+"We have a confession to make: the origins of many of ggplot2’s example datasets have been lost in the sands of time. In the grand scheme of things, this is not a huge problem, but maintenance is certainly more pleasant when a package’s assets can be reconstructed de novo and easily updated as necessary."
+
+The "data" folders of packages can also contain R scripts. For example, the data folder of the nycflights13 package contains .rda files (R data files) of the datasets available in the package. Then, the raw-data folder contains the .csv files for each dataset, and an R script showing how the dataset was made, which includes the source of the data on the Bureau of Transportation Statistics website (https://www.transtats.bts.gov/).
+
+"Often, the data you include in data/ is a cleaned up version of raw data you’ve gathered from elsewhere. We highly recommend taking the time to include the code used to do this in the source version of your package. This makes it easy for you to update or reproduce your version of the data. This data-creating script is also a natural place to leave comments about important properties of the data, i.e. which features are important for downstream usage in package documentation.
+
+We suggest that you keep this code in one or more .R files below data-raw/."
+
+
