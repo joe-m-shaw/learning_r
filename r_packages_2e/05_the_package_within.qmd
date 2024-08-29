@@ -1,0 +1,19 @@
+---
+title: "The package within"
+author: "Joe Shaw"
+format: html
+---
+
+This chapter goes through how to convert a series of R scripts into a package, and common mistakes you can make during this process.
+
+Important take-home messages:
+
+- Qualify all function calls to external package with the specific package the function is from. Example, use dplyr::mutate rather than tidyverse::mutate.
+
+- Put data files in the data folder, not in the main directory.
+
+- Make any functions in the R folder available to the package by adding @export in the special roxygen comment.
+
+- Declare dependencies on other packages in the DESCRIPTION file, not by calling library().
+
+- Be careful about when you define variables. A key example is Sys.time(), which will differ depending on whether it is called when the package is built (and so will be fixed) or whether it is called every time the particular function is run. This is referred to as the "build time vs. run time" issue.
