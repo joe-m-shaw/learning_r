@@ -200,6 +200,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Tab:** from ‘tabulator’ (i.e. ‘table’).
 
+**.tar**: a file format which consists of multiple files collected into a single archive file. The name comes from "Tape ARchive" as very early computer programs had to be archived on magnetic tape. Often tar files are referred to as "tarballs". Tarballs are blobs of oil which wash up on beaches. Like an sticky oil tarball, .tar files collect lots of things together.
+
 **Test oracle:** a trusted source (human analyst, older programme) against which the results of a new programme can be compared.
 
 **Traceback:** the sequence of function calls that led to an error.
@@ -303,6 +305,8 @@ h01(x = stop("This is an error!"))
 **Key (compound)**: when there is more than one variable in a key.
 
 **Key (surrogate)**: a new variable added to act as a primary key (such as row number).
+
+**Library**: a directory containing installed packages.
 
 **List:** a vector where the elements can be different types, including lists.
 
