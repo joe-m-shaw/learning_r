@@ -72,3 +72,15 @@ that CRAN is not suitable is that it is very strict about the directory structur
 for the R packages that it accepts."
 
 This is really useful paper. The premise is that structuring scientific research projects as if they were R packages leads to more reproducible research. This also makes sense in the context of laboratory test validations: what I want is a clear structure to organise a project so that I can put the entire thing somewhere public and say "this is what I did". Their term for this is a "research compendium": the summary of the entire project.
+
+The paper also includes this Github template: https://github.com/cboettig/template
+
+The template is for how to structure an academic paper like an R package, with these folders:
+
+- **R**: contains all functions as .R files.
+
+- **man**: contains documentation for functions using roxygen2.
+
+- **tests**: contains all the tests run during package building.
+
+- **vignettes**: the place for the actual manuscript as a markdown files (RMarkdown, Quarto etc) - this means the manuscript and analysis are fused together as one.
