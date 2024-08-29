@@ -74,6 +74,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Edge case:** a bug in software engineering that lies at the extreme (“edge”) of a particular use and hence happens rarely. Edge cases require specific fail-safes adding to the source code to manage them.
 
+**Extension**: an extension is a software component that adds a specific functionality to an existing program. Extensions can also be called plug-ins or add-ons. An R package is an example of an extension. For example, the EndNote Word plug-in is an extension which adds a specific functionality (adding formatted references) to an existing piece of software (Microsoft Word).
+
 **Firefox:** a web browser. The name “firefox” came from changing the original name (“Phoenix”) to “Fire Bird”, which was then changed to “Firefox” because “Fire Bird” was already taken by another company. “Firefox” is another term for a red panda.
 
 **Floating point:** a numeric type with decimal places.
@@ -304,6 +306,8 @@ h01(x = stop("This is an error!"))
 
 **List:** a vector where the elements can be different types, including lists.
 
+**Package**: an R package is an extension to the R language. It contains code, data and documentation and acts as a series of additional tools that you can use in R. A useful methaphor is that R packages are like special tools that you can add to the main toolbox of R.
+
 **Posit**: a company, formerly called RStudio, which makes publicly available software for using R.
 
 **POSIX:** Portable Operating System Interface. A family of standards to maintain compatibility between operating systems.
@@ -319,6 +323,8 @@ h01(x = stop("This is an error!"))
 **Programming (imperative):** "you issue a specific command and it’s carried out immediately." (Mastering Shiny) Example: an R script.
 
 **rlang:** "a low-level package that’s used by just about every other package in the tidyverse because it implements tidy evaluation (as well as many other useful tools)".
+
+**roxygen2**: an R package which helps you write function documentation. roxygen2 was inspired by the Doxygen tool which was developed for C++. Doxygen gets its name from "documents generator" (docs-gen, docs-y-gen, doxygen).
 
 **scaling:** the process of mapping aesthetic values (colour, shape, size) to variables in the data.
 
