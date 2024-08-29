@@ -216,6 +216,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Variant Call Format (VCF):** a text based file format for compressing and storing information about DNA variation, originally created by the 100 Genomes Project.
 
+**Vignette**: a vignette is a long-form markdown document included within a package to show how the package works and describe its features. The term "vignette" normally refers to a brief literary narrative. "Vignette" actually comes from an old French word for "vine" because vignette was used to mean an illustration that ran around the border of a page, like a vine (according to [Merriam-Webster](https://www.merriam-webster.com/dictionary/vignette)).
+
 **Virtual machine:** software that emulates the hardware of a particular computer (i.e. a digital version of a physical computer). A single physical computer can then have multiple “virtual machines” hosted on it, each running a different operating system. Virtual machines are key to cloud computing, and you can even have virtual machines hosted on virtual machines.
 
 **Virtual Private Network (VPN):** a programme which allows you to access the internet in a secure, anonymised way.
