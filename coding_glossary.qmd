@@ -80,6 +80,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Floating point:** a numeric type with decimal places.
 
+**Foobar:** foo and bar are words used as place-holder names for demonstrating concepts when the variable names aren't important. There are various possible etymologies of foobar (see [Wikipedia](https://en.wikipedia.org/wiki/Foobar)), including the military acronym FUBAR ("Fucked Up Beyond All Recognition"), but in general foobar is widely used because of programming tradition and because it has no consistent meaning. Foobar is useful because it allows you to write code and focus on the structure and logic of the code, rather than domain-specific variable names.
+
 **Formal language:** a language that has specific, consistent, logical rules. Computer programming languages are examples of formal languages. Formal languages are different to “natural languages”, which are the normal languages we think of (English, French, German etc) that have evolved from human usage, not from logic. “Natural language processing” is when computers try to process human speech or text. When a human programmer uses their brain to read a formal computer language, you could see that as “formal language processing”.
 
 **Fortran:** a programming language developed by IBM in the 1950s and still used today. The name derives from “formula translation”.
@@ -99,6 +101,8 @@ This document is intended to be a central repository for my understanding of ter
 **GNU:** a free open-source operating system. The recursive acronym “GNU’s Not Unix” can be used to explain the name, but the creator Richard Stallman also said he was referencing “The Gnu” song by Flanders and Swann. GNU is designed to be a completely open-source operating system which can be used on its own or with other systems. 
 
 **Graphical user interface (GUI):** a method of interaction between a user and a computer involving visual icons (also called a GUI).
+
+**Happy Path:** a term for the intended normal path of execution of software - all the inputs are in the correct format, no errors or warnings are raised and everything behaves as expected. When designing software, it's better not to only have the happy path in mind. Instead, it is better to consider all the things that could go wrong. *"The Happy Path is the scenario where all the inputs make sense and are exactly how things “should be”. The Unhappy Path is everything else (objects of length or dimension zero, objects with missing data or dimensions or attributes, objects that don’t exist, etc.)"* (from [R packages](https://r-pkgs.org/dependencies-mindset-background.html#fn1)).
 
 **Heap:** the section of computer memory which stores all the values which are created during function execution.
 
@@ -137,6 +141,8 @@ This document is intended to be a central repository for my understanding of ter
 **Matrix:** a rectangular array of numbers.
 
 **Memory address:** a unique number assigned to a value as part of computer memory, which is prefixed by prefix “id”.
+
+**Metadata:** data that provides information about other data, but not the content of the other data itself.
 
 **Mission creep:** when the scope of a project increases during its execution, usually due to early successes. Mission creep then results in the project having too many objectives that weren’t considered in the planning phase.
 
@@ -229,6 +235,7 @@ This document is intended to be a central repository for my understanding of ter
 **Atomic vector**: a vector where all the elements are the same type.
 
 **Attribute**: metadata that is paired to an object. Class is an example of an attribute. 
+
 **Class:** a type of attribute. Examples include factor, POSIXct, date and data.frame.
 
 **Closure:** a type of function that encloses its environment. In R, functions tend to be closure functions so the terms "function" and "closure" are used interchangeably.
@@ -266,6 +273,10 @@ print(y)
 **data.frame**: a class of data in R. A dataframe is a list of atomic vectors (i.e. a vector of vectors).
 
 **Data wrangling:** the process of cleaning up data so it is ok to use. Also called "data munging".
+
+**Dependency:** a dependency is when one package uses a functionality from other package or external tool.
+
+**Dependency (recursive)**: a recursive dependency is a dependency on a package which depends on other packages.
 
 **Double:** a numeric non-integer data-type. Example 1.0. The name derives from the phrase "double-precision floating point type".
 
@@ -314,7 +325,9 @@ h01(x = stop("This is an error!"))
 
 **List:** a vector where the elements can be different types, including lists.
 
-**Package**: an R package is an extension to the R language. It contains code, data and documentation and acts as a series of additional tools that you can use in R. A useful methaphor is that R packages are like special tools that you can add to the main toolbox of R.
+**Package**: an R package is an extension to the R language. It contains code, data and documentation and acts as a series of additional tools that you can use in R. A useful metaphor is that R packages are like special tools that you can add to the main toolbox of R.
+
+**Package (meta):** a meta-package is a package composed of several other packages which can be installed as one for conveniences. Examples of meta-packages are tidyverse (which contains several packages including dplyr, ggplot2 and readr) and devtools (which contains several packages including roxygen2 and testthat).
 
 **Posit**: a company, formerly called RStudio, which makes publicly available software for using R.
 
