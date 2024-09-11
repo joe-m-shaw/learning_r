@@ -1,0 +1,75 @@
+---
+title: "Test suites"
+author: "Joe Shaw"
+format: html
+---
+
+# Test coverage
+
+"Another concrete way to direct your test writing efforts is to examine your test coverage. The covr package (https://covr.r-lib.org) can be used to determine which lines of your package’s source code are (or are not!) executed when the test suite is run. This is most often presented as a percentage. Generally speaking, the higher the better."
+
+# Principles for testing
+
+This section is quite detailed and goes into some areas that I might not need right now, but here are the key ideas
+
+- Test the external interface of your functins (what they return) rather than the internal interface (what exists within the function call)
+
+- Test each behaviour in one and only one test. Try not to have a behaviour tested by multiple tests, because then if the behaviour changes you have to update multiple tests.
+
+- Always write a test when you discover a bug.
+
+- Tests should be self-contained.
+
+- Test code should be written to make it clear, which might mean repeating things (see below)
+
+# Repetition is OK
+
+Always keep the reader in mind when writing tests. Write tests to be easily understandable to the future person who will be reading the test after it throws an error.
+
+Because of this, there may be instances where you repeat code within multiple tests. This feels wrong because it goes against the DRY principle (Don't Repeat Yourself) but actually it maintains better clarity of what each test does - tests should be isolated so that they can be examined in isolation.
+
+"We’re going to make the controversial recommendation that you tolerate a fair amount of duplication in test code, i.e. you can relax some of your DRY (“don’t repeat yourself”) tendencies."
+
+Here's an example where "useful_thing" is defined outside two tests which both use it (which is good practice according to DRY).
+
+```{r}
+#| label: without-repetition
+#| include: TRUE
+#| eval: FALSE
+
+useful_thing <- 3
+
+test_that("multiplication works", {
+  expect_equal(2 * useful_thing, 6)
+})
+
+#> Test passed
+
+test_that("subtraction works", {
+  expect_equal(5 - useful_thing, 2)
+})
+#> Test passed
+
+```
+
+But this format is actually better - "useful_thing" is defined separately in each test call, which makes it easier to see what each test is doing.
+
+```{r}
+#| label: with-repetition
+#| include: TRUE
+#| eval: FALSE
+
+test_that("multiplication works", {
+  useful_thing <- 3
+  expect_equal(2 * useful_thing, 6)
+})
+
+#> Test passed
+
+test_that("subtraction works", {
+  useful_thing <- 3
+  expect_equal(5 - useful_thing, 2)
+})
+#> Test passed
+
+```

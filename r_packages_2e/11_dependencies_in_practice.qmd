@@ -122,6 +122,8 @@ somefunction <- function(...) {
 
 If you looked at the NAMESPACE file in this case, I think it would just say "import(aaapkg)". That's ok, but it doesn't tell you which functions from aaapkg you are using, which might be confusing if you are looking at your pkg in future.
 
+There is more detail on why you shouldn't call packages with library() in Chapter 6.
+
 # Exporting
 
 "Export functions that you want other people to use. **Exported functions must be documented**, and you must be cautious when changing their interface — other people are using them!"

@@ -1,0 +1,58 @@
+---
+title: "Testing"
+author: "Joe Shaw"
+format: html
+---
+
+Most people "test" their code informally: at the time they write the code, they experiment with it in the console to make sure it does what they want it to.
+
+The problem with informal testing is that it's usually only done once, and requires you to know what the code should and shouldn't do.
+
+"The problem with this approach is that when you come back to this code in 3 months time to add a new feature, you’ve probably forgotten some of the informal tests you ran the first time around. This makes it very easy to break code that used to work."
+
+"While writing code or fixing bugs, we might perform some interactive tests to make sure the code we’re working on does what we want. But it’s easy to forget all the different use cases you need to check, if you don’t have a system for storing and re-running the tests."
+
+# Test files
+
+"As you define functions in your package, in the files below R/, you add the corresponding tests to .R files in tests/testthat/. We strongly recommend that the organisation of test files match the organisation of R/ files, discussed in Section 6.1: The foofy() function (and its friends and helpers) should be defined in R/foofy.R and their tests should live in tests/testthat/test-foofy.R."
+
+"Even if you have different conventions for file organisation and naming, note that testthat tests must live in files below tests/testthat/ and these file names must begin with test."
+
+## Test file contents
+
+Test files are R files with the following format:
+
+1. One or more test_that() tests
+
+2. Each test describes what it is testing
+
+3. Each test has one or more expectations of what the result of the test should be
+
+Example:
+
+```{r}
+#| label: test
+#| eval: FALSE
+#| include: TRUE
+
+test_that("multiplication works", {
+  expect_equal(2 * 2, 4)
+})
+
+```
+
+"Tests are organised hierarchically: expectations are grouped into tests which are organised in files"
+
+"A test groups together multiple expectations to test the output from a simple function, a range of possibilities for a single parameter from a more complicated function, or tightly related functionality from across multiple functions. This is why they are sometimes called **unit** tests. Each test should cover a single **unit** of functionality."
+
+Important point: as with files in the R folder, test files in the tests folder should not call packages using library().
+
+# Expectations
+
+Expectations have two main arguments: the actual result and what you expect.
+
+There are lots of different expectation functions which all begin with "expect_", like "expect_equal()" and expect_type()". "There are more than 40 expectations in the testthat package, which can be explored in testthat’s reference index."
+
+# Errors
+
+When testing for errors, you want to make sure you are getting the right error - otherwise there may be scenarios where a test passes when it shouldn't (i.e. there was an error that you didn't expect, but also didn't notice).
