@@ -1,0 +1,135 @@
+---
+title: "Dependencies"
+author: "Joe Shaw"
+format: html
+---
+
+"Software dependencies are a double-edged sword. On one hand, they let you take advantage of others’ work, giving your software new capabilities and making its behaviour and interface more consistent with other packages. By using a pre-existing solution, you avoid re-implementing functionality, which eliminates many opportunities for you to introduce bugs. On the other hand, your dependencies will likely change over time, which could require you to make changes to your package, potentially increasing your maintenance burden. Your dependencies can also increase the time and disk space needed when users install your package. These downsides have led some to suggest a ‘dependency zero’ mindset. We feel that this is bad advice for most projects, and is likely to lead to lower functionality, increased maintenance, and new bugs."
+
+Not all dependencies are equal
+
+Low cost:
+
+High cost: depending on a package from a non-CRAN repository (i.e. Github)
+
+Recursive dependencies: dependencies on packages which depend on other packages.
+
+"In programming, the Happy Path is the scenario where all the inputs make sense and are exactly how things “should be”. The Unhappy Path is everything else (objects of length or dimension zero, objects with missing data or dimensions or attributes, objects that don’t exist, etc.)."
+
+"Instead of striving for a minimal number of dependencies, we recommend a more holistic, balanced, and quantitative approach."
+
+"it is recommended that other packages should not depend on tidyverse3 or devtools (Section 2.2), i.e. these two packages should almost never appear in Imports. Instead, a package maintainer should identify and depend on the specific package that actually implements the desired functionality."
+
+
+# Namespace
+
+"As the name suggests, namespaces provide “spaces” for “names”. They provide a context for looking up the value of an object associated with a name."
+
+"Without knowing it, you’ve probably already used namespaces. Have you ever used the :: operator? It disambiguates functions with the same name. For example, both the lubridate and here packages provide a here() function. If you attach lubridate, then here, here() will refer to the here version, because the last package attached wins. But if you attach the packages in the opposite order, here() will refer to the lubridate version."
+
+There is a helpful example using the var() function from the stats package.
+
+If you create a new function with the same name as function required by a dependency package, R will use the dependency function first: it will look in the package namespace first, not in the global environment.
+
+```{r}
+#| label: trying-to-break-ggplot
+#| include: TRUE
+#| echo: TRUE
+#| message: TRUE
+#| error: TRUE
+
+# We make a new function called ggplot which adds 1 onto our input
+ggplot <- function(x) {
+  
+  y <- x + 1
+  
+  return(y)
+  
+}
+
+# If we call ggplot, we get a number
+ggplot(1)
+
+# The we load the ggplot2 package, which tells us that the ggplot function is masked by the function we just made.
+library(ggplot2)
+
+# So if we call ggplot(1) we still get 2 because R looks in the global environment first (see "Search Path" section)
+ggplot(1)
+
+# Different example. We load stringr.
+
+library(stringr)
+
+# We create a new "str_c" function
+str_c <- function(x, y) {
+  
+  z <- paste0(x, y, "bananas")
+  
+  return(z)
+  
+}
+
+# When we call str_c, R looks in the global environment and uses the function we just made
+str_c("I ", "eat ")
+
+# But we can still specify to use the version of str_c in the stringr package with the :: operator.
+stringr::str_c("I ", "eat ")
+
+```
+
+```{r}
+#| label: trying-to-break-var
+#| include: TRUE
+#| echo: TRUE
+#| message: TRUE
+#| error: TRUE
+
+# The sd() function is in the stats package, which is part of base R
+# It uses another function from the stats package, called var()
+# What happens if we create a new function called var()?
+
+var <- function(x) {
+  
+  y <- x + 5
+  
+  return(y)
+  
+}
+
+# We call var() and R uses the var() we just defined
+var(1:5)
+
+# We then call sd() and R executes it using the version of var() which is specified in the stats namespace file (i.e. not the version of var() that we just defined)
+sd(1:5)
+
+```
+
+## Namespace file
+
+"Each line contains a directive: S3method(), export(), importFrom(), and so on. Each directive describes an R object, and says whether it’s exported from this package to be used by others, or it’s imported from another package to be used internally."
+
+# Search paths
+
+"To call a function, R first has to find it. This search unfolds differently for user code than for package code and that is because of the namespace system."
+
+"The first place R looks for an object is the global environment. If R doesn’t find it there, it looks in the search path, the list of all the packages you have attached."
+
+Order in which R looks for things:
+
+1. The global environment
+
+2. Attached packages in the order of most recently to least recently attached.
+
+3. Autoloads (a special environment I haven't come across)
+
+4. The base environment (the automatically installed package environment of the base package)
+
+# Environments
+
+"The package environment is the external interface to the package." - this is the environment that is "visible" to the user when they load the package - i.e. the things that have been "exported". Example: calling the sd() function from the package environment of the base package.
+
+"The namespace environment is the internal interface of the package." - this is the environment within the package that contains exported objects (which are present in the package environment) and also non-exported objects which the package user can't access. Example: the sd() function is called by the user from the package environment, and during its execution it uses the var() function from the namespace environment of the base package (see sd() example above).
+
+"A user (or some package they are using) is free to define a function named var(). But when that user calls sd(), it will always call stats::var() because sd() searches in a sequence of environments determined by the stats package, not by the user. This is how the namespace system ensures that package code always works the same way, regardless of what’s been defined in the global environment or what’s been attached."
+
+It is worth noting that the "user" in these examples can be a person using R, or another package which has a dependency on the other package.

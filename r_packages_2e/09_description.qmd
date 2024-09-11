@@ -1,0 +1,11 @@
+---
+title: "DESCRIPTION"
+author: "Joe Shaw"
+format: html
+---
+
+DESCRIPTION file: "provides overall metadata about the package, such as the package name and which other packages it depends on"
+
+NAMESPACE file: "specifies which functions your package makes available for others to use and, optionally, imports functions from other packages."
+
+This chapter focusses on the different components of each metadata file, which will be more relevant if I want to submit a package to CRAN.
