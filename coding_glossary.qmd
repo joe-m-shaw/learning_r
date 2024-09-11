@@ -40,6 +40,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Boolean algebra:** a form of algebra for expressing logical relationships. It was invented by George Boole, a nineteenth century teacher who never went to university. In the 1930s, Claude Shannon applied Boolean algebra to computing.
 
+**Bug:** an error. There is no clear origin story for why "bug" is used rather than "error" or "glitch" or "problem", but there is a story from 1947 when a dead moth fell inside a computer and caused an error (see [Wikipedia](https://en.wikipedia.org/wiki/Bug_(engineering))). The joke was that they had "found a bug" - bug was already in common usage to mean an error, so it was funny to find a computer bug caused by an insect bug.
+
 **C:** a programming language originally developed at Bell Labs in 1973. Bell Labs was originally founded by Alexander Graham Bell after his invention of the telephone.
 
 **C#:** a modified version of the C programming language, which is pronounced “C sharp”. 
@@ -71,6 +73,8 @@ This document is intended to be a central repository for my understanding of ter
 **Distribution:** a shell that sits around the kernel of an operating system. Example: Ubuntu and Debian are shells that sit around the Linux kernel.
 
 **Django:** a web-framework based for building web databases (such as Gel2MDT) which is based on the Python programming language, and named after the musician, Django Reinhardt.
+
+**DRY:** Don't Repeat Yourself. Standard advice in coding which supports the creation of functions to repeat tasks, rather than repeating code which is harder to maintain and fix.
 
 **Edge case:** a bug in software engineering that lies at the extreme (“edge”) of a particular use and hence happens rarely. Edge cases require specific fail-safes adding to the source code to manage them.
 
@@ -208,6 +212,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **.tar**: a file format which consists of multiple files collected into a single archive file. The name comes from "Tape ARchive" as very early computer programs had to be archived on magnetic tape. Often tar files are referred to as "tarballs". Tarballs are blobs of oil which wash up on beaches. Like an sticky oil tarball, .tar files collect lots of things together.
 
+**Test coverage:** the percentage of a package's source code that is run when the package's test are run. A test coverage of 100% means all the source code is included in the tests.
+
 **Test oracle:** a trusted source (human analyst, older programme) against which the results of a new programme can be compared.
 
 **Traceback:** the sequence of function calls that led to an error.
@@ -215,6 +221,8 @@ This document is intended to be a central repository for my understanding of ter
 **Type:** a set of values, plus the operations which can be performed on them (i.e. integer and floating point types).
 
 **Uniform Access Principle:** a principle designed to provide “uniform access” to something in an object-oriented programming language, regardless of whether the “something” is an object or is the result of a calculation by a function. The aim is to promote consistency in code and prevent massive changes to open-source software projects.
+
+**Unit testing:** formalised automated testing of code, which may also be called "module testing".
 
 **Unix:** an operating system originally developed in the 1970s by the AT&T Corporation (American Telephone and Telegraph). AT&T then licensed UNIX to be used by outside parties, meaning that a variety of Unix-like operating systems were then developed. The etymology of the name ‘Unix’ is convoluted, but originally it was a pun on the words ‘eunuchs’. The joke was that Unix was an ‘emasculated’ version of a previous, more cumbersome operating system called Multics.
 
