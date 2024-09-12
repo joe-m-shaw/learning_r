@@ -1,0 +1,31 @@
+---
+title: "Function documentation"
+author: "Joe Shaw"
+format: html
+---
+
+"Use backticks to format a piece of text as code"
+
+"Enclose text like somefunction() and somepackage::somefunction() in square brackets to get an automatic link to that function’s documentation."
+
+You can use lists with asterisks to break up large blocks of text.
+
+# Documentation components
+
+Title: "should be written in sentence case, not end in a full stop, and be followed by a blank line."
+
+"The description is taken from the next paragraph. It’s shown at the top of documentation and should briefly describe the most important features of the function."
+
+"Additional details are anything after the description. Details are optional, but can be any length so are useful if you want to dig deep into some important aspect of the function."
+
+"If you want more than one paragraph, you must use an explicit @description tag to prevent the second (and subsequent) paragraphs from being turned into the @details."
+
+## Examples
+
+"Examples are not tests. Examples should be focused on the authentic and typical usage you’ve designed for and that you want to encourage. The test suite is the more appropriate place to exhaustively exercise all of the arguments and to explore weird, pathological edge cases."
+
+"An additional source of errors in examples is the use of external dependencies: you can only use packages in your examples that your package formally depends on (i.e. that appear in Imports or Suggests) [in the DESCRIPTION file]."
+
+# Multiple functions
+
+"By default, each function gets its own documentation topic, but if two functions are very closely connected, you can combine the documentation for multiple functions into a single topic."
