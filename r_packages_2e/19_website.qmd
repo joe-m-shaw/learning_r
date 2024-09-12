@@ -1,0 +1,11 @@
+---
+title: "Website"
+author: "Joe Shaw"
+format: html
+---
+
+pkgdown: a package to bundle all the documentation about a package (function documentation, dataset documentation, vignettes, articles, README and NEWS) together and present as a website.
+
+"It’s fun to have a package logo! In the R community, we have a strong tradition of hex stickers, so it can be nice to join in with a hex logo of your own ... The hexSticker package helps you make your logo from within the comfort of R."
+
+I don't intend to have a website for any packages I build, so I didn't make many notes for this chapter.

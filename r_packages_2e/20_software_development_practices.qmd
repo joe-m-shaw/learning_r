@@ -1,0 +1,13 @@
+---
+title: "Software development practices"
+author: "Joe Shaw"
+format: html
+---
+
+"Continuous integration and deployment, a.k.a. CI/CD (or even just CI). This terminology comes from the general software engineering world and can sound somewhat grandiose or intimidating when applied to your personal R package. All this really means is that you set up specific package development tasks to happen automatically when you push new work to your hosted repository."
+
+**Continuous integration:** the process of continually integrating the contributions of multiple collaborators, with development tasks automatically executed when certain events happen. For example, you can set things up so that every time you pull and push a change to an R package checksare automatically run to prevent your change breaking the package.
+
+"The easiest way to start using CI is to host your package on GitHub and use its companion service, GitHub Actions (GHA). Then you can use various functions from usethis to configure so-called GHA workflows."
+
+"If you only use CI for one thing, it should be to run R CMD check."
