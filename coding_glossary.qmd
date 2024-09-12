@@ -236,6 +236,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Virtual Private Network (VPN):** a programme which allows you to access the internet in a secure, anonymised way.
 
+**YAML:** Yet Another Markup Language
+
 # Coding Terms Specific to R
 
 **Assignment**: the act of binding a name to a value.

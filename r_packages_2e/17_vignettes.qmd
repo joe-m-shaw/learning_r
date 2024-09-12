@@ -1,0 +1,9 @@
+---
+title: "Vignettes"
+author: "Joe Shaw"
+format: html
+---
+
+The chapter focusses on RMarkdown, whereas I'm using Quarto for vignettes.
+
+"Any package used in a vignette must be a formal dependency, i.e. it must be listed in Imports or Suggests in DESCRIPTION. Similar to our stance in tests (Section 11.5.2), our policy is to write vignettes under the assumption that suggested packages will be installed in any context where the vignette is being built (Section 11.5.3)."
