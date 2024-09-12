@@ -76,6 +76,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **DRY:** Don't Repeat Yourself. Standard advice in coding which supports the creation of functions to repeat tasks, rather than repeating code which is harder to maintain and fix.
 
+**EDA:** Exploratory Data Analysis. EDA is exploring data in a systematic way using visualisation and transformation of the data (see [Chapter 10 in "R for Data Science"](https://r4ds.hadley.nz/eda) for more detail).
+
 **Edge case:** a bug in software engineering that lies at the extreme (“edge”) of a particular use and hence happens rarely. Edge cases require specific fail-safes adding to the source code to manage them.
 
 **Extension**: an extension is a software component that adds a specific functionality to an existing program. Extensions can also be called plug-ins or add-ons. An R package is an example of an extension. For example, the EndNote Word plug-in is an extension which adds a specific functionality (adding formatted references) to an existing piece of software (Microsoft Word).
@@ -116,7 +118,9 @@ This document is intended to be a central repository for my understanding of ter
 
 **HTML:** Hypertext Markup Language. The markup language used for writing webpages. If you right-click on any webpage and select "View source" you can see the webpage source code written in HTML.
 
-**IDLE:** Integrated Development and Learning Environment (named after Eric Idle).
+**IDE:*** Integrated Development Environment. A piece of software that makes it easier to interact with a programming language using a GUI. Examples of IDEs include RStudio, VSCode and IDLE.
+
+**IDLE:** Integrated Development and Learning Environment. An IDE for Python, jokingly named after Eric Idle (who was a member of Monty Python).
 
 **IP address:** ‘IP’ stands for ‘Internet Protocol’ and an IP address is a unique numerical identifier which is given to every device (such as a laptop, printer or computer) which accesses the internet. IP addresses are needed whenever you send information through a network, in order to identify the device sending the message and the intended recipient. IP addresses are made up of four numbers separated by decimal points. For example, the IP address of the Crick analysis server is 10.101.46.248. These four numbers are then transmitted as a 32-digit code of ones and zeroes (32-bit).
 
@@ -185,6 +189,8 @@ This document is intended to be a central repository for my understanding of ter
 **Python:** a programming language created in the 1980s by Guido van Rossum, which can be used for many different purposes and on different operating systems. Van Rossum chose the name as a reference to the English comedy group Monty Python.
 
 **RAM:** random access memory.
+
+**README:** a README is a form of documentation in software development which gives key information about the software, and is titled in capitals to make it more noticeable and prompt people to actually read it. According to Wikipedia, the practice of having a README file pre-dates personal computing.
 
 **Relative path:** the path to a file from the current position.
 
