@@ -1,0 +1,14 @@
+---
+title: "Other markdown files"
+author: "Joe Shaw"
+format: html
+---
+
+# README
+
+"Given that it’s best to include a couple of examples in README.md, ideally you would generate it with R Markdown. That is, it works well to have README.Rmd as the main source file, which you then render to README.md."
+
+# NEWS
+
+"The README is aimed at new users, whereas the NEWS file is aimed at existing users: it should list all the changes in each release that a user might notice or want to learn more about."
+
