@@ -30,6 +30,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Back end:** the aspects of software that the user does not directly interact with.
 
+**Backward compatibility:** the feature of software which means that new versions are compatible with older versions. 
+
 **Bash:** a Unix shell and command language. “The shell's name is an acronym for Bourne-again shell, a pun on the name of the Bourne shell that it replaces” – Wikipedia
 
 **BASIC:** Beginners' All-purpose Symbolic Instruction Code. Bill Gates learned BASIC at school.
@@ -55,6 +57,9 @@ This document is intended to be a central repository for my understanding of ter
 **Commit:** “In version control systems, a commit adds the latest changes to [part of] the source code to the repository”.
 
 **Compile:** the process of a computer converting program source code (a high-level, human-readable language like Python or R) into a low-level, machine-readable code like assembly code. If you change the source code, then it must be compiled again (“recompiled”) for the computer to see the changes. There is also the reverse-compiling process of generating source code from an executable, which is “decompiling”.
+
+**Copyleft:** copyleft is a concept developed by [Richard Stallman](https://www.gnu.org/gnu/thegnuproject.html) as part of the GNU open software project. Copyleft means that someone is allowed to use open source code to make some software of their own, but then that software has to also be open source. The idea of copyleft is to prevent private companies taking open-source code, modifying it and then selling it as proprietary software.
+Copyleft is a pun on "copyright" because the idea is to reverse the rights associated with the software.
 
 **Courier:** a typeface commonly used in programming and bioinformatics. The Courier typeface was designed in 1955 to emulate the font style of a typewriter. Courier is frequently used in computer programming because it is ‘monospaced’ – each individual character receives the same amount of horizontal space, unlike fonts such as Arial, which is crucial for keeping columns aligned. This is also vital for DNA and protein sequences.
 
@@ -153,6 +158,8 @@ This document is intended to be a central repository for my understanding of ter
 **Metadata:** data that provides information about other data, but not the content of the other data itself.
 
 **Mission creep:** when the scope of a project increases during its execution, usually due to early successes. Mission creep then results in the project having too many objectives that weren’t considered in the planning phase.
+
+**MIT licence:** a type of software licence which began at the Massachusetts Institute of Technology (MIT) in the 1980s (from [this article](https://opensource.com/article/19/4/history-mit-license)).
 
 **Mojibake:** the garbled text you get when text is decoded using the wrong character encoding. This is caused by the machine that wrote the characters and the machine that interprets the characters having different references for what characters a number should encode. For example, a “£” sign may be converted to "Â£". “Mojibake” is Japanese for “character transform”.
 

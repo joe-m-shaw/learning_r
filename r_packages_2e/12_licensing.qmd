@@ -1,0 +1,26 @@
+---
+title: "Licensing"
+author: "Joe Shaw"
+format: html
+---
+
+# Concepts
+
+Two important concepts:
+
+**Copyright:** the legal right of someone to copy intellectual property. Copyright has been a concept for hundreds of years.
+
+**Copyleft:** copyleft is a concept developed by Richard Stallman as part of the GNU open software project. Copyleft means that someone is allowed to use open source code to make some software of their own, but then that software has to also be open source. The idea of copyleft is to prevent private companies taking open-source code, modifying it and then selling it as proprietary software.
+Copyleft is a pun on "copyright" because the idea is to reverse the rights associated with the software.
+
+"The idea that the proprietary software social system—the system that says you are not allowed to share or change software—is antisocial, that it is unethical, that it is simply wrong, may come as a surprise to some readers. But what else could we say about a system based on dividing the public and keeping users helpless?" ([Richard Stallman](https://www.gnu.org/gnu/thegnuproject.html))
+
+# Licences
+
+This means that there are two major types of open source licences:
+
+- **Permissive licences:** "code with a permissive license can be freely copied, modified, and published, and the only restriction is that the license must be preserved." Example: MIT licence. This means people can take your code, modify it and then sell the modification. For example, ggplot2 has an MIT licence.
+
+- **Copyleft licenses:** people are allowed to modify your code only if their modifications are also open-source. Example: GPL (GNU General Public Licence).
+
+"If the code comes from Stack Overflow, it’s licensed with the Creative Common CC BY-SA license, which is only compatible with GPLv38 . This means that you need to take extra care when using Stack Overflow code in open source packages."

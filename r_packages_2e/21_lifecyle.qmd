@@ -1,0 +1,29 @@
+---
+title: "Lifecycle"
+author: "Joe Shaw"
+format: html
+---
+
+"How do you decide which type of release to make, i.e. which component(s) of the version should you increment? A key concept is whether the associated changes are **backward compatible**, meaning that pre-existing code will still “work” with the new version."
+
+"A change that is not backward compatible is often described as a breaking change."
+
+# Major minor patch version system
+
+The most common version system is to have the major version, minor versiona and patch version separated with dots. For example, major version 1, minor version 2, patch version 3: 1.2.3
+
+- **Patch release:** "you’ve fixed bugs, but you haven’t added any significant new features and there are no breaking changes."
+
+- **Minor release:** "can include bug fixes, new features, and changes that are backward compatible. This is the most common type of release. It’s perfectly fine to have so many minor releases that you need to use two (or even three!) digits, e.g. 1.17.0."
+
+- **Major release:** "the most appropriate time to make changes that are not backward compatible and that are likely to affect many users."
+
+# Breaking a package
+
+"The big difference between major and minor releases is whether or not the code is backward compatible. In the general software world, the idea is that a major release signals to users that it may contain breaking changes and they should only upgrade when they have the capacity to deal with any issues that emerge."
+
+"Breaking a package" (i.e. making changes that are not backward compatible) sounds bad but there are times when this is a good idea. "Extreme resistance to breaking change puts a significant drag on ongoing development and maintenance. Backward compatible code tends to be harder to work with because of the need to maintain multiple paths to support functionality from previous versions. The harder you strive to maintain backward compatibility, the harder it is to develop new features or fix old mistakes. This, in turn, can discourage adoption by new users and can make it harder to recruit new contributors. On the other hand, if you constantly make breaking changes, users will become very frustrated with your package and will decide they’re better off without it. Find a happy medium. Be concerned about backward compatibility, but don’t let it paralyze you."
+
+# Deprecation
+
+"Deprecation is a general term for the situation where something is explicitly discouraged, but it has not yet been removed."
