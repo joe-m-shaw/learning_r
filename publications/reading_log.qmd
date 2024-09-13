@@ -59,6 +59,18 @@ The template is for how to structure an academic paper like an R package, with t
 
 - **vignettes**: the place for the actual manuscript as a markdown files (RMarkdown, Quarto etc) - this means the manuscript and analysis are fused together as one.
 
+# "Welcome to the Tidyverse" [@wickham2019]
+
+"At a high level, the tidyverse is a language for solving data science challenges with R code. Its
+primary goal is to facilitate a conversation between a human and a computer about data."
+
+"Non-core packages are installed with install.packages("tidyverse"), but are not at-
+tached by library(tidyverse)." - this explains why you have to use library(lubdridate) - lubridate is technically in the tidyverse but is non-core.
+
+"There is one particularly important principle that we want to call out here: the tidyverse is fundamentally  human centred. That is, the tidyverse is designed to support the activities of a human data analyst, so to be effective tool builders, we must explicitly recognise and acknowledge the strengths and weaknesses of human cognition."
+
+"The tidyverse is not just the collection of packages — it is also the community of people who use them. We want the tidyverse to be a diverse, inclusive, and welcoming community."
+
 # References
 
 ::: {#refs}
