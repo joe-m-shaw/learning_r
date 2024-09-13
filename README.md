@@ -18,4 +18,6 @@ This repo is a centralised location for my learning resources for R and coding i
 
 **"Artificial Intelligence Bootcamp in R"** - Udemy - https://www.udemy.com/course/artificial-intelligence-bootcamp-in-r/
 
+## Publications
 
+Selected publications about R, the tidyverse and similar topics.
