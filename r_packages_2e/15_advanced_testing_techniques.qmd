@@ -1,0 +1,27 @@
+---
+title: "Advanced testing techniques"
+author: "Joe Shaw"
+format: html
+---
+
+Test fixture: "something used to consistently test some item, device, or piece of software" (Wikipedia)
+
+Normally, you want to make your tests completely self-sufficient (see previous chapter). But there are some cases in which that isn't possible.
+
+This means you need to use a test fixture. A test fixture is not a test, but instead is something that gets things ready for testing in a repeatable way. 
+
+Memoisation: a computing term for using a function to "remember" important stuff (i.e. create a "memorandum" or "memo" of the information). One way to do this is to put the information in a function and then call that function.
+
+# Helper functions
+
+Helper functions can help to reduce code repetition within tests, which is good for keeping things concise and easy to read (if things are easy to read then they are easy to debug). But the disadvantage of user a helper function is that you have to make sure the helper function works - it's a spiralling argument of how do you know if your tests are working correctly? You'd have to design tests for your tests, but then how do you know that those tests are testing correctly?
+
+"A helper like trunc() is yet another place where you can introduce a bug, so it’s best to keep such helpers extremely short and simple."
+
+"The practice known as mocking is when we replace something that’s complicated or unreliable or out of our control with something simpler, that’s fully within our control."
+
+"The classic application of mocking is in the context of a package that wraps an external API. In order to test your functions, technically you need to make a live call to that API to get a response, which you then process. But what if that API requires authentication or what if it’s somewhat flaky and has occasional downtime? It can be more productive to just pretend to call the API but, instead, to test the code under your control by processing a pre-recorded response from the actual API."
+
+"Mocking" means "pretending".
+
+"Our main advice about mocking is to avoid it if you can. This is not an indictment of mocking, but just a realistic assessment that mocking introduces new complexity that is not always justified by the payoffs."

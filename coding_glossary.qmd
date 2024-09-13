@@ -50,6 +50,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **C++:** a modified version of the C programming language, pronounced "C plus plus". There is no "C+" because "++" is an operator in the C language, so "C++" means "C with stuff added to it", not "C version 3".
 
+**CI:** Continuous Integration. Sometimes written as CI/CD for "Continuous Integration and Deployment". CI is the process of continually integrating the contributions of multiple collaborators on a software project, with development tasks automatically executed when certain events happen.
+
 **Command:** a directive to tell a computer to perform a specific task.
 
 **Command-line interface:** a method of interaction between a user and a computer involving text-based commands which are typed by the user. Command-line interfaces were the original method of interacting with computers, but have been mainly supplanted by graphical user interfaces in modern computing for casual or non-expert users. This is because graphical interfaces are more intuitive to use.
@@ -185,6 +187,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Patch:** a change or update to code which aims to fix bugs or security issues. A patch may also be called a “bugfix”.
 
+**Perl:** a programming language developed by Larry Wall in 1987 ([Wikiedia](https://en.wikipedia.org/wiki/Perl)). Originally called "pearl" as a reference to a Biblical quote about the kingdom of Heaven being like a precious pearl, Wall dropped the "a" because another language existed called PEARL. "Pearl" then became "Perl".
+
 **Portable:** (adjective) whether software can be run in a different environment.
 
 **Pothole case:** the naming convention of using lower case letters and underscores.
@@ -202,6 +206,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Relative path:** the path to a file from the current position.
 
 **ROM:** read only memory.
+
+**Ruby:** a programming language developed by Yukihiro Matsumoto in the 1990s. Two options for names were "coral" and "ruby". Matsumoto said ["I guess Ruby is cool"](http://blog.nicksieger.com/articles/2006/10/20/rubyconf-history-of-ruby/).
 
 **S**: the precursor language to R. S was named to stand for "Statistics" and was developed at Bell Laboratories.
 
