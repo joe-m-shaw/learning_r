@@ -1,0 +1,9 @@
+---
+title: "Releasing to CRAN"
+author: "Joe Shaw"
+format: html
+---
+
+This chapter is all about adding packages to CRAN, which I don't intend to do (yet) so I have made minimal notes.
+
+Reverse dependency: a package that depends on the package you are making.

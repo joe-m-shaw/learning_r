@@ -155,6 +155,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Matrix:** a rectangular array of numbers.
 
+**Memoisation:** a computing term for using a function to "remember" important stuff (i.e. create a "memorandum" or "memo" of the information). One way to do this is to put the information in a function and then call that function.
+
 **Memory address:** a unique number assigned to a value as part of computer memory, which is prefixed by prefix “id”.
 
 **Metadata:** data that provides information about other data, but not the content of the other data itself.
@@ -305,7 +307,9 @@ print(y)
 
 **Dependency:** a dependency is when one package uses a functionality from other package or external tool.
 
-**Dependency (recursive)**: a recursive dependency is a dependency on a package which depends on other packages.
+**Dependency (recursive)**: a recursive dependency is when your package depends on a package which itself depends on other packages.
+
+**Dependency (reverse):** a reverse dependency is a package that depends on your package.
 
 **Double:** a numeric non-integer data-type. Example 1.0. The name derives from the phrase "double-precision floating point type".
 
