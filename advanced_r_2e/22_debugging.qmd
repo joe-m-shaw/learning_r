@@ -1,0 +1,37 @@
+---
+title: "Debugging"
+author: "Joe Shaw"
+format: html
+---
+
+# Introduction
+
+"Tools to measure and improve performance are particularly important because R is not a fast language. This is not an accident: R was purposely designed to make interactive data analysis easier for humans, not to make computers as fast as possible. While R is slow compared to other programming languages, for most purposes, it’s fast enough."
+
+# Debugging
+
+To fix an error, first you need to find the error in the call stack.
+
+There are various different tools you can use to inspect the call stack to try to find a bug, the problem is that the tools don't show the call stack consistently.
+
+Some tools (like traceback) show the call stack from most recent to least recent, whilst others (like rlang functions) sow the call stack from least recent to most recent.
+
+Debugging options:
+
+- **traceback()**: in base R. One issue is that traceback linearises the call stack, which can cause issues if lazy evaluation is involved - it may locate the line of the last function call before the error, but not the line of the error itself.
+
+- **rlang::last_trace()**: the rlang package is not base R - it's a package that makes working with base R easier and is used across the tidyverse. 
+
+- **browser**: in base R. The browser function allows you to halt code as it is being executed and then examine the calls within an isolated environment *inside* the function.
+
+- **debug**: in base R. The debug function will insert a browser function within the first line of a function for you.
+
+# Types of debugging
+
+**Interactive debugging**: debugging within RStudio by directly interacting with the calls within a protected environment.
+
+**Non-interactive debugging**: a type of debugging you have to resort to when you can't interact with the calls directly. This is usually because the error comes from code that is being run automatically, or the error occurs on a different computer (but not yours).
+
+**Print debugging**: a type of non-interactive debugging where you insert print statements into the code, which allows you to check what is happening at each stage.
+
+"Print debugging is particularly useful for compiled code because it’s not uncommon for the compiler to modify your code to such an extent you can’t figure out the root problem even when inside an interactive debugger."

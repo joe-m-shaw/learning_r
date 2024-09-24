@@ -28,6 +28,8 @@ This document is intended to be a central repository for my understanding of ter
 
 **Assignment statement:** a statement which assigns an expression to a particular variable via the equals sign (variable = expression).
 
+**AST:** Abstract Syntax Tree. 
+
 **Back end:** the aspects of software that the user does not directly interact with.
 
 **Backward compatibility:** the feature of software which means that new versions are compatible with older versions. 
@@ -223,7 +225,7 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Source code:** the fundamental section of a program which declares how the program functions, which is written in a high-level, human-readable language.
 
-**Stack:** an abstract data type in which data elements are “stacked” on top of each other. What this means functionally is that elements can only be added or removed from the top (most recent) of the stack, like plates stacked in a kitchen. If the computer tries to write data to the stack but the space is running out (which can happen if you programme an infinite loop), then you get a “stack overflow”. Wikipedia: "also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to simply "the stack"."
+**Stack (call stack):** an abstract data type in which data elements are “stacked” on top of each other. What this means functionally is that elements can only be added or removed from the top (most recent) of the stack, like plates stacked in a kitchen. If the computer tries to write data to the stack but the space is running out (which can happen if you programme an infinite loop), then you get a “stack overflow”. Wikipedia: "also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to simply "the stack"."
 
 **Symlinking:** a “symlink” or “symbolic link” is a text string which provides a path to a specific file. Symlinking can be useful because it provides a way for the Genesis scripts to access FASTQ files stored on a separate directory without copying and pasting, which saves storage space.
 
@@ -332,6 +334,8 @@ h01(x = stop("This is an error!"))
 
 ```
 
+**Evaluation (tidy):** tidy evaluation means you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
+
 **Factor:** "A factor is a vector that can contain only predefined values." (Advanced R)
 
 **Function (anonymous):** a function without a name.
@@ -416,8 +420,6 @@ g02()
 **Tibble**: a version of the data.frame class developed as part of the tidyverse.
 
 **Tidy data:** each column is a variable, each row is an observation.
-
-**Tidy evaluation:** you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
 
 **tidyverse**: a meta-package containing loads of packages which can be used for data analysis. The tidyverse is an entire "universe" of tools organised along a the philosophy of "tidy" data.
 
