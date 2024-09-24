@@ -1,0 +1,19 @@
+---
+title: "Improving performance"
+author: "Joe Shaw"
+format: html
+---
+
+This chapter is probably beyond the types of issues I am currently facing, so I only made brief notes.
+
+# Do less
+
+"The easiest way to make a function faster is to let it do less work." This means being more specific with the inputs you provide - i.e. you do more work initially so the function has to do less work.
+
+Example: specify known column types with read.csv to speed it up (otherwise it takes time to guess the column types).
+
+# Avoid copies
+
+"A pernicious source of slow R code is growing an object with a loop. Whenever you use c(), append(), cbind(), rbind(), or paste() to create a bigger object, R must first allocate space for the new object and then copy the old object to its new home. If you’re repeating this many times, like in a for loop, this can be quite expensive."
+
+The textbook references ["The R Inferno"](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf): "You may wonder why growing objects is so slow. It is the computational equivalent of suburbanization. When a new size is required, there will not be enough room where the object is; so it needs to move to a more open space. Then that space will be too small, and it will need to move again. It takes a lot of time to move house."

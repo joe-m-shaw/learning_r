@@ -425,6 +425,8 @@ g02()
 
 **Type coercion**: the behaviour in which R automatically converts multiple objects with different data types to have the same type. Logical coerces to integer, coerces to double, coerces to character, coerces to list.
 
+**utils**: a package of useful functions for developing R packages.
+
 ## To Add
 
 Pass by value

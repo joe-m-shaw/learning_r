@@ -1,0 +1,17 @@
+---
+title: "Rewriting R code in C++"
+author: "Joe Shaw"
+format: html
+---
+
+This chapter is about rewriting R code in C++ to make it quicker, which is probably beyond my current needs, so I've only made brief notes.
+
+The chapter covers how to use the Rcpp package. Rcpp (R with C Plus Plus - you can't have + symbols in a package name) is a package that makes rewriting R in C++ much easier, just like devtools makes creating packages easier.
+
+If you look at R packages on Github, you can find that they include code from languages that aren't R. For example, 34% of the [github repo](https://github.com/r-lib/rlang) for the rlang package is written in C.
+
+# Specific notes
+
+You can use C++ to run loops which will be quicker than if you ran them in R.
+
+When rewriting R code in C++, you have to remember key differences between the two languages. One crucial difference is that in R vector indices start at 1, whereas in C++ they start at 0.
