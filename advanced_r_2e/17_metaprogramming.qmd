@@ -1,0 +1,30 @@
+---
+title: "Metaprogramming"
+author: "Joe Shaw"
+format: html
+---
+
+Meta-programming: just like meta-data is data about data, meta-programming is programming about programming.
+
+"The first big idea is that code is data: you can capture code and compute on it as you can with any other type of data."
+
+**Expression:** captured code. "An expression isn’t a single type of object, but is a collective term for any of four types (call, symbol, constant, or pairlist)"
+
+An expression returns exactly what you put in.
+
+```{r}
+
+library(rlang)
+library(lobstr)
+
+# The expr function returns what is entered as an argument, rather than evaluating it.
+# Example: this call does not return 1110 because the function doesn't evaluate the argument (10 + 100 + 1000) as a calculation
+
+expr(10 + 100 + 1000)
+
+```
+If you want to capture the inputs to an argument, you have to use enexpr() rather than expr(). enexpr() is like "enrich" (i.e. "to make something rich", "to make something an expression").
+
+# Code is a tree
+
+"Behind the scenes, almost every programming language represents code as a tree, often called the **abstract syntax tree**, or AST for short. R is unusual in that you can actually inspect and manipulate this tree."
