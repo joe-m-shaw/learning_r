@@ -141,6 +141,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Kernel:** the core of a computer’s operating system (i.e. ‘seed’).
 
+**Kubernetes:** a system for automating software development, initially developed by Google. "Kubernetes" comes from the Greek word for "helmsman" - i.e. Kubernetes steers the ship for you.
+
 **Lazy evaluation:** when Python is given an ‘and’ statement, it evaluates the first condition before moving on to the second. This way, if the first condition evaluates to ‘False’, it can stop before it evaluates the second condition (because there is no point).
 
 **Linux:** a free, open-source operating system which was originally released in 1991. Its name derives from Linus Torvalds, the principle software engineer of the operating system.

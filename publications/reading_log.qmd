@@ -71,6 +71,32 @@ tached by library(tidyverse)." - this explains why you have to use library(lubdr
 
 "The tidyverse is not just the collection of packages — it is also the community of people who use them. We want the tidyverse to be a diverse, inclusive, and welcoming community."
 
+# Novo Nordisk's Journey to an R based FDA Submission - [YouTube]()
+
+R packages are great, but they present issues for good practice when it comes to pharmaceutical submissions. This is because pharmaceutical submissions are usually submitted in SAS, and changing the format means learning for the submitter and the regulatory body reviewing the work.
+
+They set up a Shiny interface for people to request an R package to be made available within the company's R environment.
+
+### Acronyms and terms:
+
+**Novo Nordisk:** pharmaceutical company
+
+**GxP:** "good practice" (i.e GMP - Good Manufacturing Practice)
+
+**SAS:** statistical language normally used for pharmaceutical submissions (Statistical Analysis System).
+
+**Azure (Microsoft Azure):** cloud-computing service provided by Microsoft.
+
+**AWS:** Amazon Web Solutions.
+
+**Kubernetes:** a system for automating software development, initially developed by Google. "Kubernetes" comes from the Greek word for "helmsman" - i.e. Kubernetes steers the ship for you.
+
+**TFL:** Tables, Figures and Listings
+
+**SDTM:** Study Data Tabulation Model 
+
+**ADaM:** Analysis Data Model (see [this link](https://www.certara.com/blog/demystifying-cdisc-sdtm-and-adam/))
+
 # References
 
 ::: {#refs}
