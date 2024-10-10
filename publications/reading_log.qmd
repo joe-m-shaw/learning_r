@@ -97,6 +97,64 @@ They set up a Shiny interface for people to request an R package to be made avai
 
 **ADaM:** Analysis Data Model (see [this link](https://www.certara.com/blog/demystifying-cdisc-sdtm-and-adam/))
 
+# Jenny Bryan "Object of type ‘closure’ is not subsettable" - [Posit](https://posit.co/resources/videos/object-of-type-closure-is-not-subsettable/)
+
+```{r}
+#| label: object-type-closure-error
+#| error: TRUE
+#| include: TRUE
+#| warning: FALSE
+
+# You define "dat" as a data frame
+dat <- data.frame(x = 1, y = 2)
+
+# You forget that you named it "dat" and instead think you named it "df".
+# "df" is actually a function, so you're asking R to give you column x of a function (which it can't do)
+df$x
+
+```
+
+Rules for debugging errors.
+
+**Restart R regularly**
+
+Use the shortcut to restart R (Control+shift+F10), rather than using rm(list = ls()) - some things will still persist after running rm(list=ls()) because it only clears the environment.
+For example, library(dplyr) will mean that dplyr remains attached even after the environment is cleared.
+
+Restarting R works best when you have the options set to not save or reload the workspace.
+
+**Reprex**
+
+Create small reproducible examples (reprexes).
+
+The distinction between beginners and experts is how they respond to bugs. Experts run small experiments to pick apart problems.
+
+The problem usually lies in the difference between what you *think* you are doing, and what you are *actually* doing.
+
+"If you are trying to find a needle in a haystack, try looking in a smaller haystack" - make the reproducible example *minimal*.
+
+Define the data (in-line) rather than having private data that you run. Simplify the data to the minimum required to replicate the error message.
+
+Don't attach additional packages that aren't necessary to creating the error.
+
+Making a reprex is a way to help you solve your own problem.
+
+**Debug**
+
+Debugging really has 3 modes: traceback (the death certificate), options(error = recover) (the post-mortem) and browser() (resurrecting the dead to establish what happened).
+
+browser() allows you run the code line by line and watch how the environment changes. You can also change the identity of variables mid-way through, if you have a theory about why the error is occurring (if the error then dissapears, you've found the cause).
+
+Hit capital Q (cpaslock + q) to get out of the browser debugger.
+
+**Deter**
+
+After debugging, add an assertion to your code to catch the error in future.
+
+Write error messages for humans. "Object of type closure is not subsettable" is less understandable than "Can't subset a function".
+
+Build things in a way so that when they break it is clear why.
+
 # References
 
 ::: {#refs}
