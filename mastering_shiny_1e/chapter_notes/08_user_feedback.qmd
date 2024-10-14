@@ -1,0 +1,11 @@
+---
+title: "User Feedback"
+author: "Joe Shaw"
+format: html
+---
+
+This chapter goes through the various options for communicating to an app user: flagging when they have selected inappropriate inputs, notifications and progress bars.
+
+Useful tip: use req() to avoid throwing an error when nothing is entered. This prevents an error appearing when the app starts and there is nothing initially selected in a selection box.
+
+"To use a progress bar you need to be able to divide the big task into a known number of small pieces that each take roughly the same amount of time. This is often hard, particularly since the underlying code is often written in C and it has no way to communicate progress updates to you."

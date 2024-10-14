@@ -42,7 +42,11 @@ This document is intended to be a central repository for my understanding of ter
 
 **Binary file:** a file made up of 0s and 1s (binary). Binary files are sometimes called “executables” because they can be executed as programmes. Binary files aren’t human readable, unlike plain text files. In order to interpret the information encoded within all the 0s and 1s, you need specific software and hardware, such as the operating system and microprocessors of the computer.
 
-**Boolean algebra:** a form of algebra for expressing logical relationships. It was invented by George Boole, a nineteenth century teacher who never went to university. In the 1930s, Claude Shannon applied Boolean algebra to computing.
+**Boot:** to start a computer. By switching on a computer, this starts the software which activates subsequent software routines: the computer "pulls itself up by its own boostraps" (see "bootstrap" definition).
+
+**Bootstrap (verb):** bootstrapping refers to a process which progresses without additional external input. The term refers to a joke about being able to "pull yourself up by your own bootstraps" (see [Wikipedia](https://en.wikipedia.org/wiki/Bootstrapping)). Bootstraps are actually loops on the heel-side of walking boots (not boot laces). 
+
+**Bootstrap (noun):** a software toolkit for designing webpages, which is freely available on [Github](https://github.com/twbs/bootstrap).
 
 **Bug:** an error. There is no clear origin story for why "bug" is used rather than "error" or "glitch" or "problem", but there is a story from 1947 when a dead moth fell inside a computer and caused an error (see [Wikipedia](https://en.wikipedia.org/wiki/Bug_(engineering))). The joke was that they had "found a bug" - bug was already in common usage to mean an error, so it was funny to find a computer bug caused by an insect bug.
 
@@ -68,6 +72,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Courier:** a typeface commonly used in programming and bioinformatics. The Courier typeface was designed in 1955 to emulate the font style of a typewriter. Courier is frequently used in computer programming because it is ‘monospaced’ – each individual character receives the same amount of horizontal space, unlike fonts such as Arial, which is crucial for keeping columns aligned. This is also vital for DNA and protein sequences.
 
 **CPU:** central processing unit
+
+**CSS:** Cascading Style Sheets. CSS is "a tool for defining the visual styling of HTML documents. CSS includes a miniature language for selecting elements on a page called CSS selectors." ("R for Data Science 2nd edition, [chapter 24](https://r4ds.hadley.nz/webscraping)).
 
 **CSV file:** a comma-separated value file is a file type which tabulates data using commas to separate different fields. A CSV file can be opened in a text format or in Microsoft Excel as a spreadsheet.
 
@@ -219,6 +225,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Script:** a programme which automates a defined series of tasks which could be performed by a human operator. For example, the Genesis pipeline scripts allow the automatic processing of data through several steps which could alternatively be performed by a human, although using a script is much more efficient. A corresponding principle in a laboratory environment would be using a liquid-handling robot to prepare a series of PCR reactions much faster than a single person could.
 
+**Seed:** in pseudo-random number generator, the "seed" is a the number to initialise the pseudo-random number generator with. This allows reproducibility when sharing scripts that involve random number generation. In R, you can use set.seed() to specify the seed.
+
 **Semantics:** the meaning of a combination of symbols.
 
 **Server:** a machine or programme which ‘serves’ a client, by providing functionality for a specific task.
@@ -241,7 +249,7 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Test oracle:** a trusted source (human analyst, older programme) against which the results of a new programme can be compared.
 
-**Traceback:** the sequence of function calls that led to an error.
+**Traceback:** the sequence of function calls that led to an error (another word for "call stack").
 
 **Type:** a set of values, plus the operations which can be performed on them (i.e. integer and floating point types).
 
@@ -381,6 +389,8 @@ h01(x = stop("This is an error!"))
 **Programming (declarative):** "you express higher-level goals or describe important constraints, and rely on someone else to decide how and/or when to translate that into action." (Mastering Shiny). Example: a Shiny app.
 
 **Programming (imperative):** "you issue a specific command and it’s carried out immediately." (Mastering Shiny) Example: an R script.
+
+**reprex**: a *repr*oducible *ex*ample. A reprex is a minimal piece of code which serves to illustrate an error.
 
 **rlang:** "a low-level package that’s used by just about every other package in the tidyverse because it implements tidy evaluation (as well as many other useful tools)".
 

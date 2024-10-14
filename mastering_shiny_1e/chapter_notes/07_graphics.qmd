@@ -1,0 +1,17 @@
+---
+title: "Graphics"
+author: "Joe Shaw"
+format: html
+---
+
+"It’s important to understand the basic data flow in interactive plots in order to understand their limitations. The basic flow is something like this:
+
+1. JavaScript captures the mouse event.
+
+2. Shiny sends the mouse event data back to R, telling the app that the input is now out of date.
+
+3. All the downstream reactive consumers are recomputed.
+
+4. plotOutput() generates a new PNG and sends it to the browser."
+
+This chapter talks about the different ways in which you can make Shiny plots interactive, focussing on mouse clicks and "brushes" (drawing rectangles around data).
