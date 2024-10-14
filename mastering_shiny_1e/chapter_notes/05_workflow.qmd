@@ -1,0 +1,17 @@
+---
+title: "Workflows"
+author: "Joe Shaw"
+format: html
+---
+
+"The first way to reduce your iteration time is to avoid clicking on the “Run App” button, and instead learn the keyboard shortcut Cmd/Ctrl + Shift + Enter."
+
+"Run External opens the app in your usual web browser. It’s useful for larger apps and when you want to see what your app looks like in the context that most users will experience it."
+
+# Debugging
+
+"The cause of most bugs is a mismatch between your mental model of Shiny, and what Shiny actually does."
+
+"Debugging is the process of systematically comparing your expectations to reality until you find the mismatch."
+
+Creating a reprex is a debugging tool - it isn't just asking for someone else to fix your problem. There's a good worked example which shows that the process of making a minimal reprex forces you to hone in on the part of the code which is causing the problem: sequentially removing unnecessary code makes the example smaller and smaller which then means the underlying problem should be harder to spot.
