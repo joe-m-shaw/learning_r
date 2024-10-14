@@ -1,0 +1,15 @@
+---
+title: "Layout, themes, HTML"
+author: "Joe Shaw"
+format: html
+---
+
+"Layout functions provide the high-level visual structure of an app. Layouts are created by a hierarchy of function calls, where the hierarchy in R matches the hierarchy in the generated HTML."
+
+"Each row is made up of 12 columns and the first argument to column() gives how many of those columns to occupy."
+
+"The simple way to break up a page into pieces is to use tabsetPanel() and its close friend tabPanel()."
+
+"Bootstrap is a collection of HTML conventions, CSS styles, and JS snippets bundled up into a convenient form."
+
+"The most important thing to know is that there’s no magic behind all the input, output, and layout functions: they just generate HTML. You can see that HTML by executing UI functions directly in the console"
