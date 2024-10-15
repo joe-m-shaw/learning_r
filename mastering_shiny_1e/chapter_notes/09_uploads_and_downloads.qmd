@@ -1,0 +1,11 @@
+---
+title: "Uploads and downloads"
+author: "Joe Shaw"
+format: html
+---
+
+Users can upload and download data from Shiny apps.
+
+"I recommend using .tsv (tab separated value) instead of .csv (comma separated values) because many European countries use commas to separate the whole and fractional parts of a number (e.g. 1,23 vs 1.23)."
+
+Downloading reports can be done using paramaterised RMarkdown documents (similar to how I created automated reports for *RFC1* testing).

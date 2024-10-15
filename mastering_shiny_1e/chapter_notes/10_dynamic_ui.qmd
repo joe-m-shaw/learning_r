@@ -1,0 +1,21 @@
+---
+title: "Dynamic UI"
+author: "Joe Shaw"
+format: html
+---
+
+You can modify input after it has been created using the update family of functions.
+
+"Every input control, e.g. textInput(), is paired with an update function, e.g. updateTextInput(), that allows you to modify the control after it has been created."
+
+The "flicker" issue: "If you try out the live app at https://hadley.shinyapps.io/ms-freeze, you’ll notice that when you switch datasets the summary output will briefly flicker. That’s because updateSelectInput() only has an affect after all outputs and observers have run, so there’s temporarily a state where you have dataset B and a variable from dataset A, so that the output contains summary(NULL). You can resolve this problem by “freezing” the input with freezeReactiveValue(). This ensures that any reactives or outputs that use the input won’t be updated until the next full round of invalidation."
+
+Watch out for circular references that cause the app to over-react to input (i.e. the app does things the user didn't intend, based on the way the reactive inputs of the app are structured),
+
+Wizard: "a type of interface that makes it easier to collect a bunch of information by spreading it across multiple pages."
+
+# Dyanmic Filtering
+
+There's a good example of creating an app which allows the user to select which columns of a table they want to filter on, and then dyanmically updates the slider buttons and options dependent on the column selection.
+
+One way to code this would be to use lots of copy and pasting to specify the options for every possible column, but a better way is to use map() to functionalise the creation of new options.

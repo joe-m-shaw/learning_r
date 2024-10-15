@@ -139,7 +139,9 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **IP address:** ‘IP’ stands for ‘Internet Protocol’ and an IP address is a unique numerical identifier which is given to every device (such as a laptop, printer or computer) which accesses the internet. IP addresses are needed whenever you send information through a network, in order to identify the device sending the message and the intended recipient. IP addresses are made up of four numbers separated by decimal points. For example, the IP address of the Crick analysis server is 10.101.46.248. These four numbers are then transmitted as a 32-digit code of ones and zeroes (32-bit).
 
-**Java:** an object-oriented, general purpose programming language developed in the mid-1990s. The icon is a cup of coffee, because the name derives from Java coffee (i.e., coffee from the Indonesian country, Java).
+**Java:** an object-oriented, general purpose programming language which began being developed in 1991. The icon is a cup of coffee, because the name derives from Java coffee (i.e., coffee from the Indonesian country, Java).
+
+**JavaScript:** a programming language released in 1995 and based on Java, with the intention of being easier to use and better for creating dyanmic web pages. Java and Javascript are different languages and are both widely used: as of [2023](https://github.blog/news-insights/research/the-state-of-open-source-and-ai/), JavaScript is the most popular lanuage on Github, and Java is fourth.
 
 **Jupyter notebook:** a way of presenting Python code in a formatted document, similar to RMarkdown for R and Quarto.
 
@@ -268,6 +270,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Virtual machine:** software that emulates the hardware of a particular computer (i.e. a digital version of a physical computer). A single physical computer can then have multiple “virtual machines” hosted on it, each running a different operating system. Virtual machines are key to cloud computing, and you can even have virtual machines hosted on virtual machines.
 
 **Virtual Private Network (VPN):** a programme which allows you to access the internet in a secure, anonymised way.
+
+**Wizard:** a multi-step user interface that guides a user through a particular task by breaking it into small steps. Wizards were originally developed by Microsoft to show users how to do things. "Wizard" was apparently used in the same way as "hacker" (see [Wikpedia](https://en.wikipedia.org/wiki/Wizard_(software))) - when you command a computer to do something, you feel like a wizard invoking a magic spell.
 
 **YAML:** Yet Another Markup Language
 
