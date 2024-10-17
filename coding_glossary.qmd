@@ -431,6 +431,8 @@ g02()
 
 ```
 
+**Shiny:** a package for creating small applications (called "shiny apps") in R.
+
 **stat:** an alternative way to build up layers on a plot, which adds new variables (count, density etc)
 
 **Tibble**: a version of the data.frame class developed as part of the tidyverse.
@@ -446,8 +448,6 @@ g02()
 ## To Add
 
 Pass by value
-
-bootstrapping
 
 Type
 

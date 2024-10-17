@@ -155,6 +155,30 @@ Write error messages for humans. "Object of type closure is not subsettable" is 
 
 Build things in a way so that when they break it is clear why.
 
+# The Past and Future of Shiny - Joe Cheng [Posit](https://shiny.posit.co/blog/posts/the-past-and-future-of-shiny-joe-cheng/)
+
+manipulate function in RStudio was a precursor to Shiny: interactive plots within RStudio.
+
+Making user interfaces is hard. It's easier to give people tools. 
+
+The key decision was to use R to write the client and the server, rather than a combination of HTML and R (they didn't want people to have to learn HTML or JavaScript).
+
+Writing web-apps is very different to data analysis.
+
+In 2012, people were suspicious of RStudio - it's free, there's no premium version - what's the catch?
+
+## Why is R a good language for Shiny?
+
+Positional and named arguments: a positional argument is determined by it's position in the function call, whereas a named argument has a name.
+
+Example: f(data, input = 1)
+
+data is a positional argument (it is first) whereas input is a named argument.
+
+Python, Ruby and C# all take positional arguments before named arguments, but R can do both. This made R much better for building Shiny apps.
+
+"R is the best language for Shiny. Python is the second-best language for anything."
+
 # References
 
 ::: {#refs}
