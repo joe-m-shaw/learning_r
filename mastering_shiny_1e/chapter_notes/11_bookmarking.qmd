@@ -1,0 +1,8 @@
+---
+title: "Bookmarking"
+author: "Joe Shaw"
+format: html
+---
+
+Bookmarking: saving a snapshot of a Shiny app with specific inputs selected. This means that someone can modify the view of a Shiny app, then send the URL to someone else, and the other person will see the app in the same state that the first person did.
+

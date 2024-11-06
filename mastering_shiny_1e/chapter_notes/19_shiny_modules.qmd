@@ -1,0 +1,27 @@
+---
+title: "Shiny Modules"
+author: "Joe Shaw"
+format: html
+---
+
+"Functions work well for code that is either completely on the server side or completely on the client side. For code that spans both, i.e. whether the server code relies on specific structure in the UI, you’ll need a new technique: modules."
+
+"At the simplest level, **a module is a pair of UI and server functions**. The magic of modules comes because these functions are constructed in a special way that creates a “namespace”. So far, when writing an app, the names (ids) of the controls are global: all parts of your server function can see all parts of your UI. Modules give you the ability to create controls that can only be seen from within the module. This is called a namespace because it creates “spaces” of “names” that are isolated from the rest of the app."
+
+A namespace is a concept which appears in the R packages textbook.
+
+"A module is very similar to an app. Like an app, it’s composed of two pieces:
+
+- The module UI function that generates the ui specification.
+
+- The module server function that runs code inside the server function."
+
+## Namespacing
+
+"This two-part specification means that you, the module author, don’t need to worry about clashing with other UI components created by the user. You have your own “space” of names that you own, and can arrange to best meet your own needs."
+
+To "namespace" means to create a namespace - i.e. to separate parts of code so that names are defined within specific spaces.
+
+"Namespacing turns modules into black boxes. From outside of the module, you can’t see any of the inputs, outputs, or reactives inside of it."
+
+This chapter is quite detailed and beyond my skill-level at the moment, so I didn't make further notes.

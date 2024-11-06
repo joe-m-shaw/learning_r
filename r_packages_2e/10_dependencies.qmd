@@ -18,8 +18,7 @@ Recursive dependencies: dependencies on packages which depend on other packages.
 
 "Instead of striving for a minimal number of dependencies, we recommend a more holistic, balanced, and quantitative approach."
 
-"it is recommended that other packages should not depend on tidyverse3 or devtools (Section 2.2), i.e. these two packages should almost never appear in Imports. Instead, a package maintainer should identify and depend on the specific package that actually implements the desired functionality."
-
+"it is recommended that other packages should not depend on tidyverse or devtools (Section 2.2), i.e. these two packages should almost never appear in Imports. Instead, a package maintainer should identify and depend on the specific package that actually implements the desired functionality."
 
 # Namespace
 

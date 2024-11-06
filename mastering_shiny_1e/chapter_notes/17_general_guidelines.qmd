@@ -1,0 +1,19 @@
+---
+title: "General Guidelines"
+author: "Joe Shaw"
+format: html
+---
+
+## Dependencies
+
+"Another tool for managing dependencies is the config package. The config package doesn’t actually manage dependencies itself, but it does provide a convenient place for you to track and manage dependencies other than R packages. For instance, you might specify the *path to a CSV file that your application depends on*".
+
+## Code review
+
+"Typically, a code review involves someone other than you, but you can still benefit even if it’s only you. Most experienced developers will agree that taking a moment to review your own code often reveals some small flaw, particularly if you can let it sit for at least a few hours between writing and review."
+
+Resources for how to review code and communicate via comments:
+
+https://github.com/thoughtbot/guides/tree/main/code-review
+
+https://google.github.io/eng-practices/review/

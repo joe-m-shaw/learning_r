@@ -1,0 +1,14 @@
+---
+title: "Tidy Evaluation"
+author: "Joe Shaw"
+format: html
+---
+
+2 kinds of variables
+
+"- An env-variable (environment variable) is a “programming” variables that you create with <-. input$var is a env-variable.
+
+- A data-variable (data frame variables) is “statistical” variable that lives inside a data frame. carat is a data-variable."
+
+
+
