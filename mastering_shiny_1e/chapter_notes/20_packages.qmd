@@ -1,0 +1,11 @@
+---
+title: "Packages"
+author: "Joe Shaw"
+format: html
+---
+
+"It’s easy to think of packages as giant complicated things like Shiny, ggplot2, or dplyr. But packages can also be very simple. The core idea of a package is that it’s a set of conventions for organising your code and related artefacts: if you follow those conventions, you get a bunch of tools for free."
+
+"all a project needs to be a package is a directory of R files and a DESCRIPTION file. A package is just a lightweight set of conventions that unlock useful tools and workflows."
+
+Take-away message: you can convert a Shiny app into a package relatively easily, and for the same reasons that you would convert an R project into a package (better code conventions, automated testing etc).
