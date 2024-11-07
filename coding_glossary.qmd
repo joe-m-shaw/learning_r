@@ -111,8 +111,6 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Front end:** the aspects of software that the user interacts with. A good example is a graphical user interface.
 
-**Function call:** evaluating a function - function_name (arguments).
-
 **Genome browser:** a graphical interface for visualising genomic data. Examples include Alamut, UCSC browser and Ensembl.
 
 **Git:** a version-control system which allows multiple users to work on development of the same files. The function of Git is to track the changes which have been made, and by whom, and to update the file so that everyone is working on the most recent version. Git was originally created by Linus Torvalds (also creator of Linux). Multiple origins of its name are given, including an acronym of ‘global information tracker’ and also ‘git’ in the common usage as an insult (i.e. you can see which git is changing your code).
@@ -227,6 +225,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **S**: the precursor language to R. S was named to stand for "Statistics" and was developed at Bell Laboratories.
 
+**Scheme:** a dialect (version) of the LISP programming language. Scheme had a big influence on the development of R.
+
 **Script:** a programme which automates a defined series of tasks which could be performed by a human operator. For example, the Genesis pipeline scripts allow the automatic processing of data through several steps which could alternatively be performed by a human, although using a script is much more efficient. A corresponding principle in a laboratory environment would be using a liquid-handling robot to prepare a series of PCR reactions much faster than a single person could.
 
 **Seed:** in pseudo-random number generator, the "seed" is a the number to initialise the pseudo-random number generator with. This allows reproducibility when sharing scripts that involve random number generation. In R, you can use set.seed() to specify the seed.
@@ -331,6 +331,16 @@ print(y)
 
 **Double:** a numeric non-integer data-type. Example 1.0. The name derives from the phrase "double-precision floating point type".
 
+**Environment:** a non-ordered list of name-value pairs. An environment is the context in which code is evaluated - like a physical environment is the context in which events happen.
+
+**Environment (global):** the environment where all computation outside of functions takes place.
+
+**Environment (execution):** the new environment created each time a function is called which hosts the execution of that function.
+
+**Environment (function):** the functional environment is the current environment which is bound to a function when it is created. It determines where a function looks for variables, and can also be called the "enclosing" environment.
+
+**Environment (parent):** the environment "above" an environment, which the environment inherits from. "If a name is not found in the current environment, then R looks in the next layer up which is the parent environment" (["Advanced R" chapter 7](https://adv-r.hadley.nz/environments.html)).
+
 **Evaluation (lazy):** function arguments in R are only evaluated if accessed.
 
 ```{r}
@@ -350,13 +360,27 @@ h01(x = stop("This is an error!"))
 
 ```
 
+**Evaluation (eager):** an alternate to lazy evaluation. In eager evaluation, the arguments provided to a function call are evaluated before the function body is evaluated. The Scheme language uses eager evaluation, whilst the S language uses lazy evaluation. R inherited lazy evaluation from S [@ihaka1996].
+
 **Evaluation (tidy):** tidy evaluation means you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
 
 **Factor:** "A factor is a vector that can contain only predefined values." (Advanced R)
 
 **Function (anonymous):** a function without a name.
 
+**Function (first-class):** a first-class function is a function that behaves like any other data structure ([Advanced R chapter 9](https://adv-r.hadley.nz/fp.html)).
+
+**Function (higher-order):** a class of functions that includes functionals, function factories and function operators.
+
 **Function (primitive):** an R function which calls C code directly.
+
+**Function (pure):** a pure function is a function where the outputs depend only on the inputs, and the function has no side effects outside the function's internal environment ([Advanced R chapter 9](https://adv-r.hadley.nz/fp.html)).
+
+**Functional:** a functional (noun) is a function that takes a function as its input and returns a vector as its output. Examples include lapply() and purrr::map().
+
+**Function call:** evaluating a function - function_name (arguments).
+
+**Function factory:** a function that makes functions.
 
 **geom:** a geometrical object that is added as a layer to a plot to represent data.
 
@@ -461,8 +485,6 @@ Object
 
 Function
 
-Environment
-
 Metaprogramming
 
 Functional programming
@@ -538,13 +560,3 @@ Robert Gentleman
 **Are all programming languages based on English?**
 
 English is the common language of computing. Most of the early computers were built in English-speaking countries, and so languages developed to use Latin characters with English words. Even when non-English programmers develop software (Guido Van Rossum, Python, Dutch; Linus Torvalds, Linux, Finnish) they use English. So the majority of the world’s major programming languages use English as a base, but new non-English languages are being invented.
-
-# Publications
-
-"A Layered Grammar of Graphics" - Hadley Wickham
-
-"Tidy Data" - Hadley Wickham
-
-"R for Data Science" - Hadley Wickham
-
-"Data Organization in Spreadsheets" Broman and Woo
