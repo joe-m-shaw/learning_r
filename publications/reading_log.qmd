@@ -179,6 +179,46 @@ Python, Ruby and C# all take positional arguments before named arguments, but R 
 
 "R is the best language for Shiny. Python is the second-best language for anything."
 
+# R: A Language for Data Analysis and Graphics [@ihaka1996]
+
+"The work has been heavily influenced by two existing languages-Becker, Chambers, and Wilks' S (1985) and Steel and Sussman's Scheme (1975). We felt that there were strong points in each of these languages and that it would be interesting to see if the strengths could be combined. The resulting language is very similar in appearance to S, but the underlying implementation and semantics are derived from Scheme."
+
+"The development of the key portions of language took two years of part-time effort on our part."
+
+"We have named our language R-in part to acknowledge the influence of S and in part to celebrate our own efforts. Despite what has been a nearly all-consuming effort, we have managed to remain on the best of terms and retain our interest in computers and computing."
+
+"The language-that is, syntax and semantics-plus the tools are combined into what can be called the run-time environment.This environment is the typical user's view of the program.Users want a language that is not only flexible but also provides them with a variety of tools for performing computations"
+
+"an expression written in a computer language is not sufficient in itself to define the value to be returned by a computation.In addition,values must be associated with the symbols that appear in the expression. In both Scheme and S the association between symbols and values is provided by what we will call an *environment*. An environment consists of a list of environment frames, each of which can be thought of as a list of symbol/value pairs."
+
+The way in which R executes a function and looks for variables which aren't defined in the function body (scoping) is different to S. R instead uses an evaluation model from Scheme. This is a bit confusing but the simplest way to illustrate it is with an example:
+
+```{r}
+#| label: r-scoping
+#| include: TRUE
+
+y <- 123
+
+f <- function(x) {
+  
+  y <- x * x
+  
+  g <- function() print(y)
+  
+  g()
+  
+}
+
+# In R, this returns 100, because the function evaluates y <- x*x within 
+# the function call and uses this value when returning y.
+f(10)
+
+# In S, the same call returns 123.
+
+```
+
+Another difference is that Scheme uses *eager evaluation* whereas S uses *lazy evaluation*, and R inherits lazy evaluation from S. In eager evaluation, all the arguments to a function are evaluated before the main body of the function, whereas lazy evaluation only evaluates an argument if required by the function body.
+
 # References
 
 ::: {#refs}
