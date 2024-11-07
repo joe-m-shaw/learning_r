@@ -4,13 +4,15 @@ author: "Joe Shaw"
 format: html
 ---
 
+# Introduction
+
 "R, at its heart, is a functional language. This means that it has certain technical properties, but more importantly that it lends itself to a style of problem solving centred on functions."
 
 "A functional style tends to create functions that can easily be analysed in isolation (i.e. using only local information), and hence is often much easier to automatically optimise or parallelise. The traditional weaknesses of functional languages, poorer performance and sometimes unpredictable memory usage, have been much reduced in recent years. Functional programming is complementary to object-oriented programming, which has been the dominant programming paradigm for the last several decades."
 
 "Strictly speaking, R isn’t a functional programming language because it doesn’t require that you write pure functions. However, you can certainly adopt a functional style in parts of your code: you don’t have to write pure functions, but you often should."
 
-# Pure Functions
+## Pure Functions
 
 Pure functions have the following qualities:
 
@@ -18,13 +20,45 @@ Pure functions have the following qualities:
 
 - "The function has no side-effects, like changing the value of a global variable, writing to disk, or displaying to the screen."
 
-# Functional Style
+## Functional Style
 
 "It’s hard to describe exactly what a functional style is, but generally I think it means decomposing a big problem into smaller pieces, then solving each piece with a function or combination of functions."
 
+# Functionals
 
+"A functional is a function that takes a function as an input and returns a vector as output."
 
+Usually functionals are used to replace for loops when performing a task on multiple things - purrr:map() and lapply() are examples of functionals.
 
+Functionals are viewed as being better than for loops because they are quicker, use less memory, and also are clearer to understand. The issue with for loops is that it can hard to work out what's going on: it's clear that a task is iterating, but it might not be clear why.
 
+## map()
 
+"You might wonder why this function is called map(). What does it have to do with depicting physical features of land or sea? In fact, the meaning comes from mathematics where map refers to “an operation that associates each element of a given set with one or more elements of a second set”."
 
+You can use map with an "anonymous function" (i.e. you don't define the function outside of the map call).
+
+```{r}
+#| label: map
+#| include: TRUE
+
+library(tidyverse)
+
+# Using map_dbl with an anonymouse function
+map_dbl(mtcars, function(x) length(unique(x)))
+
+# Using ~ to run the same command but without having to explicitly specify that you are defining a function
+map_dbl(mtcars, ~ length(unique(.x)))
+
+```
+
+Brief notes:
+ - modify() always returns the same type of output as input. 
+ 
+ - map2 is vectorised over 2 arguments.
+ 
+ - pmap is vectorised over any number of arguments.
+
+The diagrams are very helpful for understanding what the functionals are doing to each section of the input.
+
+"A predicate is a function that returns a single TRUE or FALSE, like is.character()"
