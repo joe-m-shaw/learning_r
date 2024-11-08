@@ -85,6 +85,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Defensive programming:** a style of programming which assumes that errors will occur, and aims to identify them when they do.
 
+**Deprecate:** when a function or piece of software is "deprecated", it remains in the software but raises a warning to let the user know it is not supported any more and will be removed at some point. Deprecated means "you shouldn't use this, but you can for now", rather than "you can't use this".
+
 **DevOps:** development and operations.
 
 **Distribution:** a shell that sits around the kernel of an operating system. Example: Ubuntu and Debian are shells that sit around the Linux kernel.
@@ -382,11 +384,19 @@ h01(x = stop("This is an error!"))
 
 **Function factory:** a function that makes functions.
 
+**Function operator:** 
+
 **geom:** a geometrical object that is added as a layer to a plot to represent data.
 
 **ggplot2**: a package for creating plots, which is part of the tidyverse. The name comes from "Grammar of Graphics". The extra 2 is apparently because Hadley Wickham wanted to change the ggplot package from using nested function calls to using the + symbol to add plot layers - this was such a dramatic change that he had to release an entirely new package, which he called ggplot2 (source - [this blogpost](https://www.njtierney.com/post/2018/06/20/naming-things/)).
 
 **Global string pool**: "each unique string is only stored in memory once, and every use of the string points to that representation." (R For Data Science).
+
+**Handler (condition):** a function that allows you to run code and over-ride the default behaviour of conditions.
+
+**Handler (calling):** a type of condition handler used for handling non-error conditions like messages and warnings, where the code keeps running after the condition is detected.
+
+**Handler (exit):** a type of condition handler used for handling errors, where the code exits to the handler as soon as the condition is detected.
 
 **Key**: the variable used to connect a pair of dataframes together in a join.
 

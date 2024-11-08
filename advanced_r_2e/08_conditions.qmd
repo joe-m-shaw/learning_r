@@ -4,7 +4,7 @@ author: "Joe Shaw"
 format: html
 ---
 
-"The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it. The function author signals conditions with functions like stop() (for errors), warning() (for warnings), and message() (for messages), then the function user can handle them with functions like tryCatch() and withCallingHandlers(). Understanding the condition system is important because you’ll often need to play both roles: signalling conditions from the functions you create, and handle conditions signalled by the functions you call."
+"The condition system provides a paired set of tools that allow the author of a function to indicate that something unusual is happening, and the user of that function to deal with it. The function author signals conditions with functions like stop() (for errors), warning() (for warnings), and message() (for messages), then the function user can handle them with functions like `tryCatch()` and `withCallingHandlers()`. Understanding the condition system is important because you’ll often need to play both roles: signalling conditions from the functions you create, and handle conditions signalled by the functions you call."
 
 ```{r}
 #| label: library
@@ -26,15 +26,33 @@ library(rlang)
 
 "The best error messages tell you what is wrong and point you in the right direction to fix the problem. Writing good error messages is hard because errors usually occur when the user has a flawed mental model of the function."
 
+You can use stop() or rlang::abort() to create errors.
+
 # Warnings
 
 "Unlike errors, you can have multiple warnings from a single function call"
 
 "Warnings occupy a somewhat challenging place between messages (“you should know about this”) and errors (“you must fix this!”), and it’s hard to give precise advice on when to use them."
 
+You can use warning() or `rlang::warn()` to create warnings.
+
+# Messages
+
+Messages are printed instantly to the console. You can use `message()` or `cat()` to create messages.
+
+# Ignoring conditions
+
+"The simplest way of handling conditions in R is to simply ignore them:
+
+- Ignore errors with `try()`.
+
+- Ignore warnings with `suppressWarnings()`.
+
+- Ignore messages with `suppressMessages()`."
+
 # Conditions as objects
 
-"The easiest way to see a condition object is to catch one from a signalled condition. That’s the job of rlang::catch_cnd():"
+"The easiest way to see a condition object is to catch one from a signalled condition. That’s the job of `rlang::catch_cnd()`:"
 
 Conditions are lists with two elements:
 
@@ -43,28 +61,175 @@ Conditions are lists with two elements:
 -"call, the call which triggered the condition."
 
 ```{r}
-#| label: library
+#| label: catch_cnd
 #| include: true
 
-cnd <- catch_cnd(stop("An error"))
+x <- catch_cnd(stop("An error"))
 
-str(cnd)
+str(x)
 
 ```
+
 "Conditions also have a class attribute, which makes them S3 objects."
+
+# Condition Handlers
 
 "Every condition has default behaviour: errors stop execution and return to the top level, warnings are captured and displayed in aggregate, and messages are immediately displayed. **Condition handlers** allow us to temporarily override or supplement the default behaviour."
 
-# tryCatch()
+**Condition handler:** a function that allows you to run code and over-ride the default behaviour of conditions.
 
-tryCatch allows you to override the default error behaviour.
+You can make (or "register") condition handlers using `tryCatch()` and `withCallingHandlers()`. Both of these functions are in base R.
 
-cnd creates a condition object.
+`tryCatch()` allows you to create an **exit handler** for handling error conditions.
+
+`withCallingHandlers()` allows you to create a **calling handler** for handling message and warning conditions (non-error conditions).
+
+Here is an example of the general structure of a handler using `tryCatch`:
 
 ```{r}
+#| include: TRUE
+#| eval: FALSE
+
+tryCatch(
+  
+  # Handler function
+  # rlang::cnd() creates a condition object.
+  error = function(cnd) {
+    
+    # code to run when error is thrown
+    
+  },
+  {
+  # Code here is run whilst handlers are active
+  }
+)
 
 ```
 
+Here is an example of an actual exit handler. Nothing happens if an error is not detected.
 
+```{r}
+#| include: TRUE
 
+tryCatch(
+  
+  # The handler function is named as the condition
+  error = function(cnd) {
+    
+    "This is the error handler function"
+    
+  },
+  {
+  1 + 1
+  }
+)
+
+```
+
+Here is an example of an exit handler working:
+
+```{r}
+#| label: error-handler
+#| include: TRUE
+#| error: TRUE
+
+function1 <- function(x) {
+  
+  x * 2
+
+}
+
+# Calling the function with a non-numeric input throws an error
+function1("a")
+
+# Now we add an error handler to function1, creating function2
+function2 <- function(x) {
+  
+  tryCatch(
+    # Error handler
+    error = function(cnd) {
+      
+      "There was an error but I've suppressed it"
+      
+    },
+    {
+     x * 2
+    }
+  )
+}
+
+# Now we can call function2 with an inappropriate x input
+# Instead of throwing an error, it returns my error handler message
+function2("a")
+
+```
+
+They are called exit handlers because after the condition is found, the code exits (stops running). This means you as soon as the condition is found the code goes to the error handler.
+
+```{r}
+#| label: exit-handler
+#| include: TRUE
+#| error: TRUE
+
+function3 <- function(x) {
+  
+  tryCatch(
+
+    error = function(cnd) {
+      
+      "There was an error but I've suppressed it"
+      
+    },
+    {
+    x * 2
+    return("If there's an error you won't see this")
+      
+    }
+   
+  )
+}
+
+function3(2)
+
+function3("a")
+
+```
+
+Conversely, with a calling handler when the condition is detected, the code doesn't exit but keeps on going. In this way "exit handler" follows the pattern of  "find error and stop", whilst calling handler follows the pattern of "find message/warning and keep going".
+
+Here is an example of how `tryCatch` and `withCallingHandlers` differ.
+
+```{r}
+#| label: exit-and-calling-handler
+#| include: TRUE
+
+tryCatch(
+  message = function(cnd) {
+    
+    cat("Caught a message!\n")
+    
+    }, 
+  {
+    # These don't get run because of the exit handler
+    message("Message 1")
+    message("Message 2")
+  }
+)
+
+withCallingHandlers(
+  message = function(cnd) {
+    
+    cat("Caught a message!\n")
+    
+    }, 
+  {
+    # These do get run because of the calling handler
+    message("Message 1")
+    message("Message 2")
+  }
+)
+
+```
+
+I haven't included notes for the rest of the chapter because it feels a little above my current skill-level.
 
