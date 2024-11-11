@@ -187,6 +187,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 ## L
 
+**LaTeX:** pronounced "lay-tech". 
+
 **Lazy evaluation:** when Python is given an ‘and’ statement, it evaluates the first condition before moving on to the second. This way, if the first condition evaluates to ‘False’, it can stop before it evaluates the second condition (because there is no point).
 
 **Linux:** a free, open-source operating system which was originally released in 1991. Its name derives from Linus Torvalds, the principle software engineer of the operating system.
@@ -292,6 +294,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Shell:** a user interface for accessing a computer’s processes. Examples of different shell types include a graphical-user interface and a command-line interface. The name ‘shell’ refers to the way in which the interface is on the outside of the computer system, indicated by the use of peripheral components which are used to operate the shell, like a monitor screen, keyboard and mouse. Shell also refers to the way in which the interface is on the outside of the machine’s kernel. Different shells are used for different operating systems, so a Unix-like computer will be controlled using a Unix-like shell.
 
 **Source code:** the fundamental section of a program which declares how the program functions, which is written in a high-level, human-readable language.
+
+**SQL:** structured query language. A database language invented by IBM in the 1970s.
 
 **Stack (call stack):** an abstract data type in which data elements are “stacked” on top of each other. What this means functionally is that elements can only be added or removed from the top (most recent) of the stack, like plates stacked in a kitchen. If the computer tries to write data to the stack but the space is running out (which can happen if you programme an infinite loop), then you get a “stack overflow”. Wikipedia: "also known as an execution stack, program stack, control stack, run-time stack, or machine stack, and is often shortened to simply "the stack"."
 

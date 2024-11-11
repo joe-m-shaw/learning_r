@@ -1,0 +1,14 @@
+---
+title: "Translating R code"
+author: "Joe Shaw"
+format: html
+---
+
+This chapter is above my skill-set at the moment, so I haven't made notes.
+
+The general premise is that the concepts explored in the metaprogramming section allow you to write functions that translate R code into another language, such as SQL or LaTeX.
+
+My understanding is that all code is written with the same set of characters - the differences between languages are the different contexts within which characters are interpreted. For example, in R the typing of a pipe and a greater-than sign together, `|>`, is interpreted within the context of R as the pipe operator.
+
+Therefore, translating between languages requires the creation of functions which take in expressions from one language and then convert them to the contexts of a different language.
+

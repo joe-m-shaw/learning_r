@@ -219,6 +219,18 @@ f(10)
 
 Another difference is that Scheme uses *eager evaluation* whereas S uses *lazy evaluation*, and R inherits lazy evaluation from S. In eager evaluation, all the arguments to a function are evaluated before the main body of the function, whereas lazy evaluation only evaluates an argument if required by the function body.
 
+# "Facets of R" [@chambers2009]
+
+"We are seeing today a widespread, and welcome, tendency for non-computer-specialists among statisticians and others to write collections of R functions that organize and communicate their work. Along with the flood of software sometimes comes an attitude that one need only learn, or teach, a sort of basic how-to-write-the-function level of R programming, beyond which most of the detail is unimportant or can be absorbed without much discussion. **As delusions go, this one is not very objectionable if it encourages participation. Nevertheless, a delusion it is.**"
+
+"During the 1980s the topics of functional programming and object-oriented programming stimulated growing interest in the computer science literature."
+
+"The functional and object-oriented facets were combined in S and R, but they appear more frequently in separate, incompatible languages."
+
+"The larger module introduced by R is probably the most important for the system’s growing use, the package. As it has evolved, and continues to evolve, an R package is a module combining in most cases R functions, their documentation, and possibly data objects and/or code in other languages."
+
+"One is that, being an open-source system, R is generally able to incorporate other open-source software and does indeed do so in many areas. In contrast, proprietary systems are more likely to build extensions internally, either to maintain competitive advantage or to avoid the free distribution requirements of some open-source licenses. "
+
 # References
 
 ::: {#refs}
