@@ -253,6 +253,10 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Problem domain:** an area of expertise that needs to be understood in order to solve a problem.
 
+**Programming (functional):** a style of programming where complex problems are broken down into functions.
+
+**Programming (object-oriented):** a style of programming where complex problems are broken down into objects.
+
 **Prompt: three arrow symbols at the start of a line (>>>)**
 
 **Python:** a programming language created in the 1980s by Guido van Rossum, which can be used for many different purposes and on different operating systems. Van Rossum chose the name as a reference to the English comedy group Monty Python.
@@ -663,6 +667,8 @@ g02()
 
 ## V
 
+**Vector:** a list of items of the same type.
+
 ## W
 
 ## X
@@ -670,18 +676,6 @@ g02()
 ## Y
 
 ## Z
-
-## To Add
-
-Pass by value
-
-Type
-
-Vector
-
-Object
-
-Functional programming
 
 # Timeline of R
 
@@ -734,20 +728,6 @@ Functional programming
 **Tile:** an image of the flow cell captured by the camera in an Illumina sequencer. A standard flow cell has 8 lanes, and each lane is imaged in 2 columns with 60 tiles in each column, giving 960 tiles per flow cell, per sequencing cycle.
 
 **VEGA:** stands for ‘Vertebrate and Genome Annotation’. The Vega browser is a browser for manual genome annotations, and is based on the Ensembl browser. As a result, it looks similar to Ensembl and can be used in the same way. Vega was launched by the Wellcome Trust Sanger Institute in 2004.
-
-# People
-
-Hadley Wickham
-
-Jenny Bryan
-
-Guido Van Rossum
-
-John Chambers
-
-Ross Ihaka
-
-Robert Gentleman
 
 # Questions
 

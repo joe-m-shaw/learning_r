@@ -1,0 +1,11 @@
+---
+title: "Evaluation"
+author: "Joe Shaw"
+format: html
+---
+
+"Together, quasiquotation, quosures, and data masks form what we call tidy evaluation, or tidy eval for short. Tidy eval provides a principled approach to non-standard evaluation that makes it possible to use such functions both interactively and embedded with other functions."
+
+Data mask: an expression where a data frame and an environment are combined.
+
+This chapter is fairly detailed and above my current skill-level.
