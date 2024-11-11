@@ -1,0 +1,22 @@
+---
+title: "Expressions"
+author: "Joe Shaw"
+format: html
+---
+
+An expression is the description of the action, not the action itself. It is an abstraction.
+
+lobstr diagrams can be read top to bottom, without worrying about horizontal position.
+
+The abstract syntax tree has three different expression components: constants, symbols and call objects.
+
+**Constant:** "a constant is either NULL or a length-1 atomic vector". Constants are represented as black boxes with square corners in the diagrams.
+
+**Symbol:** "a symbol represents the name of an object". Symbols are represented as purple boxes with rounded corners in the diagrams.
+
+**Call object:** "A call object represents a captured function call." Calls are represented as orange boxes in the diagrams.
+
+"The process by which a computer language takes a string and constructs an expression is called parsing, and is governed by a set of rules known as a grammar."
+
+"The inverse of parsing is deparsing: given an expression, you want the string that would generate it."
+

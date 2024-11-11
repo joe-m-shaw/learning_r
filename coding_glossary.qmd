@@ -1,7 +1,9 @@
 ---
 title: "Coding and R Glossary"
 author: "Joe Shaw"
-format: html
+format: 
+  html:
+    toc: true
 ---
 
 ```{r}
@@ -17,6 +19,8 @@ library(tidyverse)
 This document is intended to be a central repository for my understanding of terms in data-science, computing, R and bioinformatics.
 
 # General Coding Terms
+
+## A
 
 **Absolute path:** the path to a node from the root of the entire directory.
 
@@ -37,6 +41,8 @@ This document is intended to be a central repository for my understanding of ter
 **Assignment statement:** a statement which assigns an expression to a particular variable via the equals sign (variable = expression).
 
 **Abstract Syntax Tree (AST):** a way of representing code as a tree.
+
+## B
 
 **Back end:** the aspects of software that the user does not directly interact with.
 
@@ -59,6 +65,8 @@ This document is intended to be a central repository for my understanding of ter
 **Bootstrap (noun):** a software toolkit for designing webpages, which is freely available on [Github](https://github.com/twbs/bootstrap).
 
 **Bug:** an error. There is no clear origin story for why "bug" is used rather than "error" or "glitch" or "problem", but there is a story from 1947 when a dead moth fell inside a computer and caused an error (see [Wikipedia](https://en.wikipedia.org/wiki/Bug_(engineering))). The joke was that they had "found a bug" - bug was already in common usage to mean an error, so it was funny to find a computer bug caused by an insect bug.
+
+## C
 
 **C:** a programming language originally developed at Bell Labs in 1973. Bell Labs was originally founded by Alexander Graham Bell after his invention of the telephone.
 
@@ -87,6 +95,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **CSV file:** a comma-separated value file is a file type which tabulates data using commas to separate different fields. A CSV file can be opened in a text format or in Microsoft Excel as a spreadsheet.
 
+## D
+
 **Data analyst:** usually works with structured data within an organisation to answer questions relevant to the running of the organisation.
 
 **Data scientist:** generally considered a more advanced version of a data analyst. Deals more with the unknown by generating predictive models. Definitions from Coursera.
@@ -103,11 +113,15 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **DRY:** Don't Repeat Yourself. Standard advice in coding which supports the creation of functions to repeat tasks, rather than repeating code which is harder to maintain and fix.
 
+## E
+
 **EDA:** Exploratory Data Analysis. EDA is exploring data in a systematic way using visualisation and transformation of the data (see [Chapter 10 in "R for Data Science"](https://r4ds.hadley.nz/eda) for more detail).
 
 **Edge case:** a bug in software engineering that lies at the extreme (“edge”) of a particular use and hence happens rarely. Edge cases require specific fail-safes adding to the source code to manage them.
 
 **Extension**: an extension is a software component that adds a specific functionality to an existing program. Extensions can also be called plug-ins or add-ons. An R package is an example of an extension. For example, the EndNote Word plug-in is an extension which adds a specific functionality (adding formatted references) to an existing piece of software (Microsoft Word).
+
+## F
 
 **Firefox:** a web browser. The name “firefox” came from changing the original name (“Phoenix”) to “Fire Bird”, which was then changed to “Firefox” because “Fire Bird” was already taken by another company. “Firefox” is another term for a red panda.
 
@@ -121,6 +135,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Front end:** the aspects of software that the user interacts with. A good example is a graphical user interface.
 
+## G
+
 **Genome browser:** a graphical interface for visualising genomic data. Examples include Alamut, UCSC browser and Ensembl.
 
 **Git:** a version-control system which allows multiple users to work on development of the same files. The function of Git is to track the changes which have been made, and by whom, and to update the file so that everyone is working on the most recent version. Git was originally created by Linus Torvalds (also creator of Linux). Multiple origins of its name are given, including an acronym of ‘global information tracker’ and also ‘git’ in the common usage as an insult (i.e. you can see which git is changing your code).
@@ -133,6 +149,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Graphical user interface (GUI):** a method of interaction between a user and a computer involving visual icons (also called a GUI).
 
+## H
+
 **Happy Path:** a term for the intended normal path of execution of software - all the inputs are in the correct format, no errors or warnings are raised and everything behaves as expected. When designing software, it's better not to only have the happy path in mind. Instead, it is better to consider all the things that could go wrong. *"The Happy Path is the scenario where all the inputs make sense and are exactly how things “should be”. The Unhappy Path is everything else (objects of length or dimension zero, objects with missing data or dimensions or attributes, objects that don’t exist, etc.)"* (from [R packages](https://r-pkgs.org/dependencies-mindset-background.html#fn1)).
 
 **Heap:** the section of computer memory which stores all the values which are created during function execution.
@@ -143,11 +161,15 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **HTML:** Hypertext Markup Language. The markup language used for writing webpages. If you right-click on any webpage and select "View source" you can see the webpage source code written in HTML.
 
+## I
+
 **IDE:*** Integrated Development Environment. A piece of software that makes it easier to interact with a programming language using a GUI. Examples of IDEs include RStudio, VSCode and IDLE.
 
 **IDLE:** Integrated Development and Learning Environment. An IDE for Python, jokingly named after Eric Idle (who was a member of Monty Python).
 
 **IP address:** ‘IP’ stands for ‘Internet Protocol’ and an IP address is a unique numerical identifier which is given to every device (such as a laptop, printer or computer) which accesses the internet. IP addresses are needed whenever you send information through a network, in order to identify the device sending the message and the intended recipient. IP addresses are made up of four numbers separated by decimal points. For example, the IP address of the Crick analysis server is 10.101.46.248. These four numbers are then transmitted as a 32-digit code of ones and zeroes (32-bit).
+
+## J
 
 **Java:** an object-oriented, general purpose programming language which began being developed in 1991. The icon is a cup of coffee, because the name derives from Java coffee (i.e., coffee from the Indonesian country, Java).
 
@@ -157,9 +179,13 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **JSON:** a language independent file format (JavaScript Object Notation).
 
+## K
+
 **Kernel:** the core of a computer’s operating system (i.e. ‘seed’).
 
 **Kubernetes:** a system for automating software development, initially developed by Google. "Kubernetes" comes from the Greek word for "helmsman" - i.e. Kubernetes steers the ship for you.
+
+## L
 
 **Lazy evaluation:** when Python is given an ‘and’ statement, it evaluates the first condition before moving on to the second. This way, if the first condition evaluates to ‘False’, it can stop before it evaluates the second condition (because there is no point).
 
@@ -170,6 +196,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Local variable:** a variable defined within a function, as opposed to a “global” variable which is defined in the global environment.
 
 **Low-level language:** a programming level with a low-level of abstraction from machine processes. Low-level languages can be “assembly languages”, and are used to assemble operating systems.
+
+## M
 
 **Markdown:** a light-weight markup language created in 2004. The idea behind markdown is that it should be easy to read in its source-code form. This is unlike HTML which can be hard to read as source code if you're not fluent in HTML.
 
@@ -191,6 +219,10 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **MS-DOS:** Microsoft Disk Operating System.
 
+## N
+
+## O
+
 **Object-oriented programming:** programming languages which are founded around defining objects, as opposed to imperative or procedural programming. R and Python are both object-oriented programming languages.
 
 **Ontology:** (Greek ‘onto’ – being) in information science, an ontology is a structured way of organising and linking entities based on their properties.
@@ -207,7 +239,9 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Orthogonality:** if modules are “orthogonal”, this means they work independently of each other. This means a change to one module should not affect the functioning of another. Orthogonal systems in coding are advantageous because: you can test things easily; you can reuse code easily; when external things change, the impact on the code is limited (the system is more resilient); the code is easier to maintain; if one module goes bad, the damage is minimised.
 
-**Parse:** parse can be used in two main contexts. The first is to break down something into it’s constituent parts, as in “parsing a text string”. The second is the process of a computer reading source code before it is compiled.
+## P
+
+**Parse:** parse can be used in two main contexts. The first is to break down something into it’s constituent parts, as in “parsing a text string”. The second is the process of a computer reading source code before it is compiled. Hadley Wickham defines parsing as the "process by which a computer language takes a string and constructs an expression" (["Advanced R" chapter 18(https://adv-r.hadley.nz/expressions.html)]).
 
 **Patch:** a change or update to code which aims to fix bugs or security issues. A patch may also be called a “bugfix”.
 
@@ -223,6 +257,10 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Python:** a programming language created in the 1980s by Guido van Rossum, which can be used for many different purposes and on different operating systems. Van Rossum chose the name as a reference to the English comedy group Monty Python.
 
+## Q
+
+## R
+
 **RAM:** random access memory.
 
 **README:** a README is a form of documentation in software development which gives key information about the software, and is titled in capitals to make it more noticeable and prompt people to actually read it. According to Wikipedia, the practice of having a README file pre-dates personal computing.
@@ -232,6 +270,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **ROM:** read only memory.
 
 **Ruby:** a programming language developed by Yukihiro Matsumoto in the 1990s. Two options for names were "coral" and "ruby". Matsumoto said ["I guess Ruby is cool"](http://blog.nicksieger.com/articles/2006/10/20/rubyconf-history-of-ruby/).
+
+## S
 
 **S**: the precursor language to R. S was named to stand for "Statistics" and was developed at Bell Laboratories.
 
@@ -255,6 +295,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Syntax:** the set of rules which specifies which combination of symbols are allowed.
 
+## T
+
 **Tab:** from ‘tabulator’ (i.e. ‘table’).
 
 **.tar**: a file format which consists of multiple files collected into a single archive file. The name comes from "Tape ARchive" as very early computer programs had to be archived on magnetic tape. Often tar files are referred to as "tarballs". Tarballs are blobs of oil which wash up on beaches. Like an sticky oil tarball, .tar files collect lots of things together.
@@ -267,11 +309,15 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Type:** a set of values, plus the operations which can be performed on them (i.e. integer and floating point types).
 
+## U
+
 **Uniform Access Principle:** a principle designed to provide “uniform access” to something in an object-oriented programming language, regardless of whether the “something” is an object or is the result of a calculation by a function. The aim is to promote consistency in code and prevent massive changes to open-source software projects.
 
 **Unit testing:** formalised automated testing of code, which may also be called "module testing".
 
 **Unix:** an operating system originally developed in the 1970s by the AT&T Corporation (American Telephone and Telegraph). AT&T then licensed UNIX to be used by outside parties, meaning that a variety of Unix-like operating systems were then developed. The etymology of the name ‘Unix’ is convoluted, but originally it was a pun on the words ‘eunuchs’. The joke was that Unix was an ‘emasculated’ version of a previous, more cumbersome operating system called Multics.
+
+## V
 
 **Variable:** a named location in computer memory.
 
@@ -283,19 +329,33 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Virtual Private Network (VPN):** a programme which allows you to access the internet in a secure, anonymised way.
 
+## W
+
 **Wizard:** a multi-step user interface that guides a user through a particular task by breaking it into small steps. Wizards were originally developed by Microsoft to show users how to do things. "Wizard" was apparently used in the same way as "hacker" (see [Wikpedia](https://en.wikipedia.org/wiki/Wizard_(software))) - when you command a computer to do something, you feel like a wizard invoking a magic spell.
 
+## X
+
+## Y
+
 **YAML:** Yet Another Markup Language
+
+## Z
 
 # Coding Terms Specific to R
 
 **!!:** the unquote operator, or injection operator, pronounced "bang-bang".
+
+## A
 
 **Assignment**: the act of binding a name to a value.
 
 **Atomic vector**: a vector where all the elements are the same type.
 
 **Attribute**: metadata that is paired to an object. Class is an example of an attribute. 
+
+## B
+
+## C
 
 **Class:** a type of attribute. Examples include factor, POSIXct, date and data.frame.
 
@@ -331,6 +391,8 @@ print(y)
 
 **CRAN**: the Comprehensive R Archive Network. CRAN is an online repository started in 1997. It includes all versions of R and R packages which have been contributed by developers and can be freely used.
 
+## D
+
 **data.frame**: a class of data in R. A dataframe is a list of atomic vectors (i.e. a vector of vectors).
 
 **Data masking:** "Data-masking is a distinctive feature of R whereby programming is performed directly on a data set, with columns defined as normal objects" ([R lang documentation](https://rlang.r-lib.org/reference/topic-data-mask.html)). Data masking is a feature of R, rather than a feature of just the tidyverse. Its name comes from the way the current environment is "masked" by a different environment specified by the user. Data masking is best explained with this example:
@@ -361,6 +423,8 @@ base::with(mtcars, mean(cyl + am))
 **Dependency (reverse):** a reverse dependency is a package that depends on your package.
 
 **Double:** a numeric non-integer data-type. Example 1.0. The name derives from the phrase "double-precision floating point type".
+
+## E
 
 **Environment:** a non-ordered list of name-value pairs. An environment is the context in which code is evaluated - like a physical environment is the context in which events happen.
 
@@ -395,11 +459,13 @@ h01(x = stop("This is an error!"))
 
 **Evaluation (eager):** an alternate to lazy evaluation. In eager evaluation, the arguments provided to a function call are evaluated before the function body is evaluated. The Scheme language uses eager evaluation, whilst the S language uses lazy evaluation. R inherited lazy evaluation from S [@ihaka1996].
 
-**Evaluation (non-standard):** 
+**Evaluation (tidy):** tidy evaluation is a specific type of evaluation developed in the rlang package for the tidyverse. Tidy evaluation was developed to allow users to refer to the names of values within dataframes without special treatment.
 
-**Evaluation (tidy):** tidy evaluation means you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
+## F
 
 **Factor:** "A factor is a vector that can contain only predefined values." (Advanced R)
+
+**Function:** my definition of a function is that it is a tool - a piece of code that you use to do something. The more formal definition is that a function is a "callable unit" of computation, with defined inputs and outputs that can be called multiple times (Wikipedia[https://en.wikipedia.org/wiki/Function_(computer_programming)]).
 
 **Function (anonymous):** a function without a name.
 
@@ -411,6 +477,8 @@ h01(x = stop("This is an error!"))
 
 **Function (pure):** a pure function is a function where the outputs depend only on the inputs, and the function has no side effects outside the function's internal environment ([Advanced R chapter 9](https://adv-r.hadley.nz/fp.html)).
 
+**Function (wrapper):** a wrapper function is a function whose purpose is to call another function. In this way the functions "wraps around" another function.
+
 **Functional:** a functional (noun) is a function that takes a function as its input and returns a vector as its output. Examples include lapply() and purrr::map().
 
 **Function call:** evaluating a function - function_name (arguments).
@@ -419,17 +487,27 @@ h01(x = stop("This is an error!"))
 
 **Function operator:** 
 
+## G
+
 **geom:** a geometrical object that is added as a layer to a plot to represent data.
 
 **ggplot2**: a package for creating plots, which is part of the tidyverse. The name comes from "Grammar of Graphics". The extra 2 is apparently because Hadley Wickham wanted to change the ggplot package from using nested function calls to using the + symbol to add plot layers - this was such a dramatic change that he had to release an entirely new package, which he called ggplot2 (source - [this blogpost](https://www.njtierney.com/post/2018/06/20/naming-things/)).
 
 **Global string pool**: "each unique string is only stored in memory once, and every use of the string points to that representation." (R For Data Science).
 
+## H
+
 **Handler (condition):** a function that allows you to run code and over-ride the default behaviour of conditions.
 
 **Handler (calling):** a type of condition handler used for handling non-error conditions like messages and warnings, where the code keeps running after the condition is detected.
 
 **Handler (exit):** a type of condition handler used for handling errors, where the code exits to the handler as soon as the condition is detected.
+
+## I
+
+## J
+
+## K
 
 **Key**: the variable used to connect a pair of dataframes together in a join.
 
@@ -441,13 +519,66 @@ h01(x = stop("This is an error!"))
 
 **Key (surrogate)**: a new variable added to act as a primary key (such as row number).
 
+## L
+
 **Library**: a directory containing installed packages.
 
 **List:** a vector where the elements can be different types, including lists.
 
+## M
+
 **Metaprogramming:** metaprogramming allows code to be inspected and manipulated porgrammatically. Just as meta-data is data about data, meta-programming is programming about programming.
 
+## N
+
 **Namespace:** a namespace is a context for values used when building R packages. When you enter a name to describe an object, a namespace is a way of linking the name to an object of a specific value *within a context*. A simple example is using the :: operator to lookup function names *within the context* of a package, such as lubridate::here(). This means R knows which thing you are referring to, and doesn't give you the here() function from the here package. There's a worked example of namespaces in my notes for ["R Packages" chapter 10](https://r-pkgs.org/dependencies-mindset-background.html).
+
+## O
+
+**Operator (assignment):** the assignment operator is a function which binds a name to a value. Example: `x <- 1`. The assignment operator is represented as `<-`.
+
+**Operator (infix):** an infix operator is an operator that is called in between the two things it operates on (operands). For example, in `1 + 2` the infix operator is `+`. Infix operators can also be called infix functions. R-specific examples of infix functions are `%in%` and `<-`.
+
+**Operator (prefix):** a prefix operator is an operator that is called before ("pre") its operands. The assignment operator `<-` is usually used as an infix operator, but can also be called as a prefix operator.
+
+```{r}
+#| label: prefix-operator
+#| include: TRUE
+
+x <- 5
+
+# Standard assignment to multiply by 10 with an infix 
+# operator would be:
+# y <- x * 10
+
+# Assignment can be performed with a prefix operator
+`<-`(y, `*`(x, 10))
+
+y
+
+```
+
+**Operator precedence:** the order in which mathematical operations are performed. In schools this is taught as "BODMAS": Brackets, Orders, Division or Multiplication, Addition or Subtraction.
+
+```{r}
+#| label: operator-precedence
+#| include: TRUE
+
+# Multiplication performed before division
+1 + 2 * 3
+
+# With brackets to show precedence
+1 + (2 * 3)
+
+# Order before multiplication, multiplication before subtraction
+1 - 2 * 3^4
+
+# With brackets to show precedence
+1 - (2 * (3^4))
+
+```
+
+## P
 
 **Package**: an R package is an extension to the R language. It contains code, data and documentation and acts as a series of additional tools that you can use in R. A useful metaphor is that R packages are like special tools that you can add to the main toolbox of R.
 
@@ -467,11 +598,19 @@ h01(x = stop("This is an error!"))
 
 **Programming (imperative):** "you issue a specific command and it’s carried out immediately." (Mastering Shiny) Example: an R script.
 
+## Q
+
+**Quosure:** a quosure is a data structure containing an expression and an environment for it to be evaluated in. Quosures were developed as part of tidy evaluation in rlang, and the word is a portmanteau of "closure" (i.e. function) and "quotation" ("Tidy evaluation in 5 minutes"[https://www.youtube.com/watch?v=nERXS3ssntw]).
+
+## R
+
 **reprex**: a *repr*oducible *ex*ample. A reprex is a minimal piece of code which serves to illustrate an error.
 
 **rlang:** "a low-level package that’s used by just about every other package in the tidyverse because it implements tidy evaluation (as well as many other useful tools)".
 
 **roxygen2**: an R package which helps you write function documentation. roxygen2 was inspired by the Doxygen tool which was developed for C++. Doxygen gets its name from "documents generator" (docs-gen, docs-y-gen, doxygen).
+
+## S
 
 **scaling:** the process of mapping aesthetic values (colour, shape, size) to variables in the data.
 
@@ -508,6 +647,8 @@ g02()
 
 **stat:** an alternative way to build up layers on a plot, which adds new variables (count, density etc)
 
+## T
+
 **Tibble**: a version of the data.frame class developed as part of the tidyverse.
 
 **Tidy data:** each column is a variable, each row is an observation.
@@ -516,7 +657,19 @@ g02()
 
 **Type coercion**: the behaviour in which R automatically converts multiple objects with different data types to have the same type. Logical coerces to integer, coerces to double, coerces to character, coerces to list.
 
+## U
+
 **utils**: a package of useful functions for developing R packages.
+
+## V
+
+## W
+
+## X
+
+## Y
+
+## Z
 
 ## To Add
 
@@ -527,8 +680,6 @@ Type
 Vector
 
 Object
-
-Function
 
 Functional programming
 
