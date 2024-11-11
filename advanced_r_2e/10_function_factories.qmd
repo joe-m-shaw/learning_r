@@ -1,0 +1,32 @@
+---
+title: "Function factories"
+author: "Joe Shaw"
+format: html
+---
+
+"Of the three main functional programming tools (functionals, function factories, and function operators), function factories are the least used. Generally, they don’t tend to reduce overall code complexity but instead partition complexity into more easily digested chunks."
+
+```{r}
+
+
+power1 <- function(exp) {
+  function(x) {
+    x ^ exp
+  }
+}
+
+square <- power1(2)
+
+cube <- power1(3)
+
+square(3)
+
+cube(3)
+
+```
+
+"The enclosing environment of the manufactured function is an execution environment of the function factory."
+
+My translation: the external environment surrounding the produced function is the internal environment of the function that produces it.
+
+"Whenever you create a function factory, make sure every argument is evaluated, using force() as necessary if the argument is only used by the manufactured function."

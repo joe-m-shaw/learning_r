@@ -4,6 +4,14 @@ author: "Joe Shaw"
 format: html
 ---
 
+```{r}
+#| label: packages
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
 # Introduction
 
 This document is intended to be a central repository for my understanding of terms in data-science, computing, R and bioinformatics.
@@ -28,7 +36,7 @@ This document is intended to be a central repository for my understanding of ter
 
 **Assignment statement:** a statement which assigns an expression to a particular variable via the equals sign (variable = expression).
 
-**AST:** Abstract Syntax Tree. 
+**Abstract Syntax Tree (AST):** a way of representing code as a tree.
 
 **Back end:** the aspects of software that the user does not directly interact with.
 
@@ -281,6 +289,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 # Coding Terms Specific to R
 
+**!!:** the unquote operator, or injection operator, pronounced "bang-bang".
+
 **Assignment**: the act of binding a name to a value.
 
 **Atomic vector**: a vector where all the elements are the same type.
@@ -323,6 +333,25 @@ print(y)
 
 **data.frame**: a class of data in R. A dataframe is a list of atomic vectors (i.e. a vector of vectors).
 
+**Data masking:** "Data-masking is a distinctive feature of R whereby programming is performed directly on a data set, with columns defined as normal objects" ([R lang documentation](https://rlang.r-lib.org/reference/topic-data-mask.html)). Data masking is a feature of R, rather than a feature of just the tidyverse. Its name comes from the way the current environment is "masked" by a different environment specified by the user. Data masking is best explained with this example:
+
+```{r}
+#| label: data-masking
+#| error: TRUE
+#| include: TRUE
+
+# Unmasked programming uses the dollar sign $ to specify the columns of a dataset.
+mean(mtcars$cyl + mtcars$am)
+
+# Referring to just the column names produces an error
+mean(cyl + am)
+
+# Using data masking means you can specify the dataset once, and then the column 
+# names get evaluated within that context.
+base::with(mtcars, mean(cyl + am))
+
+```
+
 **Data wrangling:** the process of cleaning up data so it is ok to use. Also called "data munging".
 
 **Dependency:** a dependency is when one package uses a functionality from other package or external tool.
@@ -342,6 +371,8 @@ print(y)
 **Environment (function):** the functional environment is the current environment which is bound to a function when it is created. It determines where a function looks for variables, and can also be called the "enclosing" environment.
 
 **Environment (parent):** the environment "above" an environment, which the environment inherits from. "If a name is not found in the current environment, then R looks in the next layer up which is the parent environment" (["Advanced R" chapter 7](https://adv-r.hadley.nz/environments.html)).
+
+**Evaluation:** another term to "execute" or "run" code.
 
 **Evaluation (lazy):** function arguments in R are only evaluated if accessed.
 
@@ -363,6 +394,8 @@ h01(x = stop("This is an error!"))
 ```
 
 **Evaluation (eager):** an alternate to lazy evaluation. In eager evaluation, the arguments provided to a function call are evaluated before the function body is evaluated. The Scheme language uses eager evaluation, whilst the S language uses lazy evaluation. R inherited lazy evaluation from S [@ihaka1996].
+
+**Evaluation (non-standard):** 
 
 **Evaluation (tidy):** tidy evaluation means you can refer to the names of values within dataframes without special treatment. This is a thing in the tidyverse.
 
@@ -411,6 +444,8 @@ h01(x = stop("This is an error!"))
 **Library**: a directory containing installed packages.
 
 **List:** a vector where the elements can be different types, including lists.
+
+**Metaprogramming:** metaprogramming allows code to be inspected and manipulated porgrammatically. Just as meta-data is data about data, meta-programming is programming about programming.
 
 **Namespace:** a namespace is a context for values used when building R packages. When you enter a name to describe an object, a namespace is a way of linking the name to an object of a specific value *within a context*. A simple example is using the :: operator to lookup function names *within the context* of a package, such as lubridate::here(). This means R knows which thing you are referring to, and doesn't give you the here() function from the here package. There's a worked example of namespaces in my notes for ["R Packages" chapter 10](https://r-pkgs.org/dependencies-mindset-background.html).
 
@@ -494,8 +529,6 @@ Vector
 Object
 
 Function
-
-Metaprogramming
 
 Functional programming
 

@@ -1,0 +1,11 @@
+---
+title: "Function operators"
+author: "Joe Shaw"
+format: html
+---
+
+"A function operator is a function that takes one (or more) functions as input and returns a function as output."
+
+"Function operators are closely related to function factories; indeed they’re just a function factory that takes a function as input."
+
+This chapter is a bit beyond my current skill-level, so I didn't make notes.
