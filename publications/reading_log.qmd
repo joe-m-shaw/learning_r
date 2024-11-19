@@ -231,6 +231,10 @@ Another difference is that Scheme uses *eager evaluation* whereas S uses *lazy e
 
 "One is that, being an open-source system, R is generally able to incorporate other open-source software and does indeed do so in many areas. In contrast, proprietary systems are more likely to build extensions internally, either to maintain competitive advantage or to avoid the free distribution requirements of some open-source licenses. "
 
+# Colin Gillespie: R Security [UseR Conference](https://www.youtube.com/watch?v=5odJxZj9LE4)
+
+The weakest point in any system is usually the human: people mis-type URLS and make passwords that are very easy to guess.
+
 # References
 
 ::: {#refs}

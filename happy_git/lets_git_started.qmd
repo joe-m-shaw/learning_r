@@ -1,0 +1,12 @@
+---
+title: "Let's Git Started"
+author: "Joe Shaw"
+format: html
+---
+
+"The use of Git/GitHub in data science has a slightly different vibe from that of pure software development, due to differences in the user’s context and objective."
+
+"Git has been re-purposed by the data science community. In addition to using it for source code, we use it to manage the motley collection of files that make up typical data analytical projects, which often consist of data, figures, reports, and, yes, source code."
+
+"Have you ever versioned a file by adding your initials or the date? That is effectively a commit, albeit only for a single file: it is a version that is significant to you and that you might want to inspect or revert to later."
+

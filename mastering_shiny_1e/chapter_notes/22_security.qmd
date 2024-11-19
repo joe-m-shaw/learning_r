@@ -1,0 +1,11 @@
+---
+title: "Security"
+author: "Joe Shaw"
+format: html
+---
+
+"You should never include passwords in the source code of your app. Instead either put them in environment variables, or if you have many use the config package."
+
+"In general, the combination of parse() and eval() is a big warning sign for any Shiny app66: they instantly make your app vulnerable." - don't give the user the opportunity to run any code that they want.
+
+Pasting together user input can be abused - someone could put an input that contains a malicious action (like "DROP TABLE" which will delete the table in an SQL database) which is then evaluated.
