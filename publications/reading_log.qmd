@@ -235,6 +235,30 @@ Another difference is that Scheme uses *eager evaluation* whereas S uses *lazy e
 
 The weakest point in any system is usually the human: people mis-type URLS and make passwords that are very easy to guess.
 
+# Joe Cheng: Shiny's Holy Grail - interactivity with reproducibility [useR! conference 2019](https://www.youtube.com/watch?v=5KByRC6eqC8)
+
+The problem is that specific uses of Shiny apps aren't reproducible - you have to perform the same manual actions as someone else.
+
+The goal therefore was to allow the user to interact with a Shiny app, find a view that they liked, then download a zip file which includes the Shiny code, a PDF of the app's view and any necessary data.
+
+The aim is to reverse-engineer Shiny. To make a Shiny app you take an R script, then add specific features to make it into an app. The aim now is to take Shiny app code and reverse it back into an R script.
+
+There are different ways of doing this, but the solution they picked was to write code that serves two purposes: Shiny execution AND exporting static code - this can be done using the shinymeta package.
+
+"Scientists build to learn, engineers learn to build."
+
+Reactive code needs to be made static - you are taking a snapshot of the app's use. You can use the bang-bang !! operator for this.
+
+The workflow is:
+
+- A coder writes a shiny app using the shinymeta package with special shinymeta functions
+
+- When the app is rendered the R code is converted into Javascript and HTML to render the app
+
+- A user interacts with the and changes the view or data or whatever
+
+- The user then hits a button, and the state of the app is frozen. The Shiny code is reversed back to a logical series of R code chunks which show anyone (who knows R) how to exactly recreate what the user was seeing when they hit the button.
+
 # References
 
 ::: {#refs}
