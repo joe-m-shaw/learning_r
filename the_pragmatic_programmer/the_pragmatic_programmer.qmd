@@ -1,0 +1,204 @@
+---
+title: "The Pragmatic Programmer"
+subtitle: "By David Thomas and Andrew Hunt: 20th Anniversary Edition"
+author: "Joe Shaw"
+format: html
+---
+
+# Chapter 1
+
+The whole book is really aimed at software developers working in American companies, not data scientists or academics, but I think there are still some good things to take from it.
+
+Knowledge is an expiring asset - it gets out of date quickly, particularly in computer science because things are always changing.
+
+It is good practice to develop a "knowledge portfolio" - a concentrated, evolving body of knowledge about programming that you can treat like a financial investment portfolio:
+
+- Payments into it should be regular
+
+- It should be diverse
+
+- There should be a mixture of risk - learning an unusual skill or language may turn out to never be useful, but if it is useful it will have a high pay-off (because you will be one of the few people with that skill, and can leverage higher pay for it).
+
+- The portfolio should be reviewed regularly
+
+- "Buy low, sell high" - get knowledge for free and then convert it into career capital (the authors don't use that phrase but it is what they are essentially saying).
+
+## Concepts
+
+**Software entropy**: also called "software rot" or "technical debt". Software entropy is the way in which software will slowly degrade over time if not maintained (bugs appear, versions change, things no longer work together, you find weird edge cases). Software entropy has to be combatted with consistent regular maintenance of source code.
+
+**Broken windows**: the "broken window" theory from sociology says that people's perceptions of an environment's worth impact how they treat the environment. The classic example is how an unmended broken window in a neighbourhood causes people to perceive that no-one cares about the neighbourhood and the place is a dump - this leads to vandalism, littering, graffiti etc and becomes a self-fulfilling prophecy. The idea with code is not to have any broken windows - if code looks poorly maintained or buggy then people won't invest resources in fixing it.
+
+**Start-up fatigue**: people are often unwilling to share their own resources, even when it would benefit them. The key example is in asking people to contribute to a shared project: the overall result will be much better if everyone contributes, but you have to overcome start-up fatigue to stop people hoarding their own resources. The "stone soup" fable is a good analogy for this.
+
+**Situational awareness**: you should be aware of the project surroundings so that code and projects can adapt to a changing environment.
+
+**Good enough software**: similar to Winnicott's idea of "good enough parenting", "good enough software" means focussing on making the software functional (and deliverable) rather than having a fantasy of perfect software which can never be achieved.
+
+**Feature bloat**: when software has been over-engineered with so many features that it actually becomes less useful.
+
+# Chapter 2
+
+## Avoid repetition
+
+Good design is Easy To Change (ETC)..
+
+DRY: Don't Repeat Yourself. This concept is easiest to see in terms of avoiding duplication of code, but it also applies to avoiding duplication of *knowledge*. Knowledge duplication occurs a lot in code documentation: if the documentation is too verbose, then it may not get changed when the code changes - the knowledge contained in the documentation is now out of sync with the code, and if the code was clear anyway, there is limited need for documentation.
+
+Another point is that two lines of code can be the same, but if the knowledge represented is different then it isn't duplication.
+
+Example: you are making an online wine ordering site. You have to check the user's age and how much wine they are ordering. Both values (age and number of bottles) should be integers above 0 (someone younger than birth cannot order -2 bottles of wine). So you create four functions:
+
+```{r}
+#| label: dry-example
+#| include: TRUE
+
+check_double <- function(value) {
+  
+  if(typeof(value) != "double"){
+    error("Value must be a double")
+  }
+  
+}
+
+check_above_zero <- function(value) {
+  
+  if(value <= 0){
+    error("Value must be above 0")
+  } 
+  
+}
+
+validate_age <- function(value) {
+  
+  check_double(value)
+  
+  check_above_zero(value)
+  
+}
+
+validate_quantity <- function(value) {
+  
+  check_double(value)
+  
+  check_above_zero(value)
+  
+}
+
+```
+
+This looks like duplication (because the bodies of validate_age and validate_quantity are the same), but it actually isn't. The two functions are checking two differnt things, and it is merely coincidence that the code is the same. No knowledge has been duplicated.
+
+## Orthogonality
+
+Orthogonality is a concept borrowed from geometry - it means two things are at right angles (you can change the value of one without changing the value of the other).
+
+"Orthogonal code" is therefore modular, independent and "decoupled". The idea is you can change one bit without it impacting loads of other bits.
+
+Code should not be like flying a helicopter. When you fly a helicopter, any change leads to other changes which lead to other changes (first and second-order effects).
+
+## Reversibility
+
+Your code should be flexible, which means it should be reversible if that is required. Things change, and code to suit the current situation may not suit a future situation.
+
+## Tracer bullets
+
+They discuss the concept of "tracer bullets" which I think means having a "minimum viable product": building something quickly so that you can see if it holds together, and then iterating and changing your aim based on the results. "Tracer bullets" effectively means iterative prototyping (although they do say that tracer bullets and prototyping are not identical).
+
+# Chapter 3
+
+Carpenters work with saws and lathes with wood as their base material. Programmers work with plain text and their base material is knowledge. They advise that the best "workbench" for programmers is the shell, not an IDE.
+
+"Rubber ducking" comes from the idea that the other person to not say anything and just nod their head to let you know they're listening (like a rubber duck bobbing in a bath).
+
+Your surprise at something not working is directly proportional to your faith that it cannot fail. It is better to accept debugging as a reality: don't waste any time thinking or saying "but that's impossible". It isn't impossible - it has happened, and clearly some of your assumptions about the situation are incorrect.
+
+# Chapter 4
+
+There is no such thing as perfect software.
+
+Defensive programming means defending against mistakes, including your own. Programming is about understanding that everyone (you included) makes mistakes and that you can never eliminate that: instead you can plan for it and make sure your code can adapt.
+
+**Design by contract**: this concept is about how it should be clear what code does, what it needs and what it will produce. For example, functions should be clear contracts - if the terms of input are violated then the function will not work, and the function should state clearly what it will deliver.
+
+Code should be lazy - it should only do the bare minimum, and should fail easily and crash early.
+
+# Chapter 5
+
+Building software is not the same as building bridges. Bridges need to be rigid and inflexible whereas software has to bend.
+
+You don't want your code to be a train wreck. In a train wreck all the carriages are joined together, so if one carriage goes off the rails it drags all the others with it. You don't want your codeo modules to be joined together in a way that makes them all fail if one fails.
+
+"Don't make dodo code": don't make code that can't adapt to new environments or conditions.
+
+Code should be configurable - it should adapt to the environment where it runs, rather than only being able to work on the specific set up on your computer. One way to do this is with config files to set filepaths.
+
+**The Law of Demeter**: a series of rules proposed by Ian Holland in 1987 when he was working on the "Demeter Project" (a project about "growing software" named after Demeter, the Greek goddess of agriculture). The law is really a series of rules about how software components should have limited awareness of each other: you only want components to talk to other components if absolutely necessary. This means that the system is flexible, rather than everything being attached to everything elsewhere in a giant, impenetrable web.
+
+The pipe operator ( |> ) actually originates from 1994 in a language called Isobelle, but then has been used in other languages since then. The pipe is really useful because it allows for "nested transformations": linking series of actions together. This is used a lot in the tidyverse.
+
+# Chapter 6
+
+This chapter is quite technical, but there is some useful stuff. The main concepts are the differences between *concurrency* and *parallelisation*: how do different modules of code interact? Do they run in parallel in the same "state" or do they run at the same time but on different "states".
+
+The best way to explain it is with the apple-pie scenario.
+
+## The apple-pie scenario
+
+Here's the scenario:
+
+- You are at a restauarant. You ask for a slice of apple pie. 
+
+- The waiter looks and sees one slice of apple pie left on the tray. They tell you that you can have apple pie and then go to get you some.
+
+- However, simultaneously on the other side of the restaurant, someone else orders a slice of apple pie from a different waiter. Their waiter looks and sees one slice of apple pie left, and promises it to them.
+
+- Both people think they're getting apple pie, but only one waiter can return with apple pie. What's the solution?
+
+The problem is that the two waiters (computer programmes) have different models of the same information: both see a slice of pie, but both also claim the slice of pie without informing the other.
+
+The solution is to have a plastic toy on the tray with the apple pie slice. The rule is that a waiter can only promise a slice of pie to a customer if they are holding the plastic toy. Now the waiter will not promise the slice of pie to the customer unless the slice has actually been reserved. If the other waiter looks and sees that the plastic toy is gone, they will know not to promise the remaining slice to the other customer.
+
+In code, this can be achieved using something called "semaphores". The technical details are beyond me at the moment, but the principle is the same: programmes need to have a shared perception of what is going on, which includes the actions of other programmes.
+
+# Chapter 7
+
+The authors warn against "programming by coincidence": people who write some code without fully understanding it, it seems to work so they assume everything is fine, then it gets released and immediately breaks. Turns out the only reason it worked in the development phase was coincidence. This is the penalty for not writing tests and fully understanding what you are doing.
+
+**Cargo cult code**: in the same way that cargo cults confuse form with meaning, cargo cult code *looks* like good code, but under the hood doesn't actually work. It's a result of people imitating coding practices that they've seen others use, but without understanding why they are important.
+
+Construction is not a good metaphor for coding (although for years it was used as a way to explain software development to clients). Instead, gardening is a better analogy. Gardens grow, they change, they need to be maintained, they can be altered as tastes and seasons change. Just as gardens need to be pruned, code has to be "refactored": updated and cleaned on a regular basis. You don't need to "prune" a concrete skyscraper.
+
+There is a debate about whether coding projects should be organised "top-down" (start with the overall vision and then break it down into smaller components) or "bottom-up" (start by building small modules of code and then build things up by linking them together). The authors suggest that both concepts are unhelpful: the better option is "end-to-end". In "end-to-end" you view the project as a changeable whole: a garden, not a building.
+
+"Security through obscurity" is a not a good rule to live by. There are so many bad actors out there trying to hack into different systems that you have to assume that they will find your system and try to break in.
+
+There's a good section on passwords - there are guidelines for setting passwords that many organisations don't follow. It's recommended not to limit users passwords to fewer than 250 characters, and to not limit or specify the types of characters they can use. It's also recommended to not tell people they have to keep changing their passwords, and you should allow paste functionality into the password box. If you don't do these things, people end up reusing passwords and making easy-to-guess passwords. The whole thing is now less secure because you've foisted the job of security onto the user's memory, which is unfair.
+
+Words are better for passwords than random letters and digits. There is the **Stroop effect**: people can read words far quicker than they can read the colours the words are printed in. 
+
+# Chapter 8
+
+The "requirements myth" is that projects should work with users stating their requirements at the start, then the software getting built. This is a myth because a) users don't know what they want until they see it and b) computing has changed since the 1960s.
+
+When computers were big, slow, expensive and difficult to programme, it made sense to be absolutely sure of the requirements of a project before coding commenced. But now computers are smaller, quicker, cheaper and easier to programme - requirements can be updated in real time.
+
+Asking questions about requirements is crucial. Never assume that someone has fully thought through what they are asking for.
+
+Be ware of **requirement bloat** or **requirement creep**: people keep adding more and more requirements which bogs down the project.
+
+Your unconscious brain is an amazing associative neural net - it's one of the best tools that humans have, even though we don't (by definition) have conscious control over how it works. So it's best to sometimes just step away from a problem, sleep on it or go for a walk. You unconscious brain will be working on the problem without you realising, and will probably give you the answer if you slow down.
+
+**Conway's Law**: the communication structures of organisations determine the types of systems that the organisation designs. If the communication structure is open, then the organisation will design open software.
+
+## Agile
+
+Agile is how you do things (an adverb), it is not a noun: you cannot just *be agile* or *do agile*, you have to work and react *with agility*. 
+
+The key principles of agile working are that you should work out where you are, make a small but meaningful change towards where you want to go, and then re-assess where you are.
+
+# Chapter 9
+
+Scheduling and predicting how long a project will take are hard tasks. "The Mythical Man-Month" is a book by Fred Brooks which argued that trying to measure human productivity in complex software projects is pointless. The idea that a single person works at a certain rate per month, and that you can do simple maths using that value (one person will complete the project in one month, two people will complete it in half a month) just isn't realistic. This led to **Brooks law**: increasing the number of developers on a delayed project delays the project even more.
+
+"First do no harm": you should always ask yourself "would I be happy to use this software that I am writing."

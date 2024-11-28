@@ -153,6 +153,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Happy Path:** a term for the intended normal path of execution of software - all the inputs are in the correct format, no errors or warnings are raised and everything behaves as expected. When designing software, it's better not to only have the happy path in mind. Instead, it is better to consider all the things that could go wrong. *"The Happy Path is the scenario where all the inputs make sense and are exactly how things “should be”. The Unhappy Path is everything else (objects of length or dimension zero, objects with missing data or dimensions or attributes, objects that don’t exist, etc.)"* (from [R packages](https://r-pkgs.org/dependencies-mindset-background.html#fn1)).
 
+**Haskell**: a programming language named after the mathematician Haskell Curry.
+
 **Heap:** the section of computer memory which stores all the values which are created during function execution.
 
 **Heisenbug:** when an assertion creates a bug in the programme it is mean to be debugging.
