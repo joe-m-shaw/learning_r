@@ -1,4 +1,4 @@
-# Learning R
+# Learning  to Code
 
 This repo is a centralised location for my learning resources for R and coding in general.
 
@@ -13,6 +13,8 @@ This repo is a centralised location for my learning resources for R and coding i
 **"Mastering Shiny" by Hadley Wickham** - 1st Edition - [https://mastering-shiny.org/](https://mastering-shiny.org/)
 
 **"The Pragmatic Programmer" by Andrew Hunt and David Thomas** - 2nd edition
+
+**"Think Python" by Allen B. Downey** - 3rd Edition - [https://allendowney.github.io/ThinkPython/index.html#](https://allendowney.github.io/ThinkPython/index.html#)
 
 ## Courses
 
