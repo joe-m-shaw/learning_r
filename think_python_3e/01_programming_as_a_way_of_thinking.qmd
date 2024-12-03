@@ -1,0 +1,149 @@
+---
+title: "Programming as a way of thinking"
+author: "Joe Shaw"
+format: html
+---
+
+
+"This way of thinking combines some of the best features of mathematics, engineering, and natural science. Like mathematicians, computer scientists use formal languages to denote ideas – specifically computations. Like engineers, they design things, assembling components into systems and evaluating trade-offs among alternatives. Like scientists, they observe the behavior of complex systems, form hypotheses, and test predictions."
+
+"Natural languages are the languages people speak, like English, Spanish, and French. They were not designed by people; they evolved naturally."
+
+"Formal languages are languages that are designed by people for specific applications."
+
+# Maths in Python and R
+
+You can do maths in Python, just like in R. You just need to be aware of when the languages are similar, and when they differ.
+
+## Exponents
+
+```{python}
+#| label: python-exponents
+#| include: TRUE
+
+# ** is exponent
+6 ** 2
+
+```
+
+```{r}
+#| label: r-exponents
+#| include: TRUE
+
+# ^ is exponent
+6 ^ 2
+
+```
+
+## Rounding
+
+```{python}
+#| label: python-rounding
+#| include: TRUE
+
+round(42.634, ndigits = 1)
+
+```
+
+```{r}
+#| label: r-rounding
+#| include: TRUE
+
+round(42.634, digits = 1)
+
+```
+
+## Getting help
+
+Finding help documentation is the same.
+
+```{python}
+#| label: python-help
+#| include: TRUE
+
+help(round)
+
+```
+
+```{r}
+#| label: r-help
+#| include: TRUE
+
+help(round)
+
+?round
+
+```
+
+## Absolute numbers
+
+```{python}
+#| label: python-abs
+#| include: TRUE
+
+abs(-42)
+
+```
+
+```{r}
+#| label: r-abs
+#| include: TRUE
+
+abs(-42)
+
+```
+
+## Strings
+
+In Python and R you can use single ' or double " quotation marks.
+
+```{python}
+#| label: python-strings
+#| include: TRUE
+
+"This is Python" + " code"
+
+'This is still' + ' python code'
+
+len("Joseph")
+
+```
+
+```{r}
+#| label: r-strings
+#| include: TRUE
+
+paste0("And this is R", " code")
+
+paste0('And this is still R', ' code')
+
+# length in R returns the length of the vector, not the string
+length("Joseph")
+
+stringr::str_length("Joseph")
+
+```
+
+## Types
+
+Python has floating-point numbers, whereas R refers to integers and floats as "doubles".
+
+```{python}
+#| label: python-types
+#| include: TRUE
+
+type(2)
+
+type(2.0)
+
+```
+
+```{r}
+#| label: r-types
+#| include: TRUE
+
+typeof(2)
+
+typeof(2.0)
+
+```

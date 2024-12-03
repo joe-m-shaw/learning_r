@@ -18,7 +18,7 @@ library(tidyverse)
 
 This document is intended to be a central repository for my understanding of terms in data-science, computing, R and bioinformatics.
 
-# General Coding Terms
+# General Terms
 
 ## A
 
@@ -75,6 +75,8 @@ This document is intended to be a central repository for my understanding of ter
 **C++:** a modified version of the C programming language, pronounced "C plus plus". There is no "C+" because "++" is an operator in the C language, so "C++" means "C with stuff added to it", not "C version 3".
 
 **CI:** Continuous Integration. Sometimes written as CI/CD for "Continuous Integration and Deployment". CI is the process of continually integrating the contributions of multiple collaborators on a software project, with development tasks automatically executed when certain events happen.
+
+**Colab:** a website which allows you to run Jupyter notebooks on the cloud, so you don't need to install software onto your computer. Colab is free and owned by Google.
 
 **Command:** a directive to tell a computer to perform a specific task.
 
@@ -177,6 +179,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **JavaScript:** a programming language released in 1995 and based on Java, with the intention of being easier to use and better for creating dyanmic web pages. Java and Javascript are different languages and are both widely used: as of [2023](https://github.blog/news-insights/research/the-state-of-open-source-and-ai/), JavaScript is the most popular lanuage on Github, and Java is fourth.
 
+**Jupyter:** "Project Jupyter" is an open-source software project, aimed at supporting Julia, Python and R (Ju+Pyt+R = Jupyter). The name is based on the 3 languages it initially supported, but the logo references the planet Jupiter with its orbiting moons. This is a reference to Galileo's notebooks where he first described the moons of Jupiter: the Jupyter Project aims to give scientists "digital notebooks" for communicating ideas.
+
 **Jupyter notebook:** a way of presenting Python code in a formatted document, similar to RMarkdown for R and Quarto.
 
 **JSON:** a language independent file format (JavaScript Object Notation).
@@ -253,6 +257,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **Portable:** (adjective) whether software can be run in a different environment.
 
+**Posit:** a company (formerly called RStudio) founded in 2009 which makes software for data science. The word "posit" more generally means to put an idea forward. Posit has made loads of free data science tools over the years, including RStudio, tidyverse, Shiny and Quarto.
+
 **Pothole case:** the naming convention of using lower case letters and underscores.
 
 **Problem domain:** an area of expertise that needs to be understood in order to solve a problem.
@@ -260,6 +266,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Programming (functional):** a style of programming where complex problems are broken down into functions.
 
 **Programming (object-oriented):** a style of programming where complex problems are broken down into objects.
+
+**Programming (literate):** a concept where a computer program gives an explanation of how it works in a natural language (like English). This means that anyone who speaks the natural language can understand what the program is doing, even if they don't understand the code underneath ([Wikipedia](https://en.wikipedia.org/wiki/Literate_programming)). RMarkdown, Quarto and Jupyter are examples of literate programming.
 
 **Prompt: three arrow symbols at the start of a line (>>>)**
 
@@ -351,7 +359,7 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 ## Z
 
-# Coding Terms Specific to R
+# R Terms
 
 **!!:** the unquote operator, or injection operator, pronounced "bang-bang".
 
@@ -683,21 +691,15 @@ g02()
 
 ## Z
 
-# Timeline of R
+# Python Terms
 
-- 1976: S was a language built at Bell Laboratories (New Jersey, USA) - the S stood for "Statistics".
+Colab
+Jupyter
 
-- 1980: S distributed outside of Bell Laboratories.
+Literate programming
 
-- 1988: the "new S language" S-PLUS released.
 
-- 1993: Ross Ihaka and Robert Gentleman develop R, based on S, to teach statistics at the University of Auckland (New Zealand).
 
-- 1997: R becomes a GNU project - free, publicly accessible and built by mass collaboration.
-
-- 2000: first official version (R v1.0) released.
-
-- 2018: release of the tidyverse
 
 # Bioinformatics Terms
 
@@ -734,6 +736,24 @@ g02()
 **Tile:** an image of the flow cell captured by the camera in an Illumina sequencer. A standard flow cell has 8 lanes, and each lane is imaged in 2 columns with 60 tiles in each column, giving 960 tiles per flow cell, per sequencing cycle.
 
 **VEGA:** stands for ‘Vertebrate and Genome Annotation’. The Vega browser is a browser for manual genome annotations, and is based on the Ensembl browser. As a result, it looks similar to Ensembl and can be used in the same way. Vega was launched by the Wellcome Trust Sanger Institute in 2004.
+
+# History
+
+## Timeline of R
+
+- 1976: S was a language built at Bell Laboratories (New Jersey, USA) - the S stood for "Statistics".
+
+- 1980: S distributed outside of Bell Laboratories.
+
+- 1988: the "new S language" S-PLUS released.
+
+- 1993: Ross Ihaka and Robert Gentleman develop R, based on S, to teach statistics at the University of Auckland (New Zealand).
+
+- 1997: R becomes a GNU project - free, publicly accessible and built by mass collaboration.
+
+- 2000: first official version (R v1.0) released.
+
+- 2018: release of the tidyverse
 
 # Questions
 
