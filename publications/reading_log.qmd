@@ -259,6 +259,98 @@ The workflow is:
 
 - The user then hits a button, and the state of the app is frozen. The Shiny code is reversed back to a logical series of R code chunks which show anyone (who knows R) how to exactly recreate what the user was seeing when they hit the button.
 
+# Primer on Python for R Users -[reticulate vignette](https://rstudio.github.io/reticulate/articles/python_primer.html)
+
+## Whitespace
+
+"Whitespace matters in Python. In R, expressions are grouped into a code block with {}. In Python, that is done by making the expressions share an indentation level."
+
+## Lists
+
+"In R, the list() is a container you can use to organize R objects. R’s list() is feature packed, and **there is no single direct equivalent in Python** that supports all the same features. Instead there are (at least) 4 different Python container types you need to be aware of: lists, dictionaries, tuples, and sets."
+
+"The most important thing to know about Python lists is that they are **modified in place**."
+
+This is in contrast to R which has "copy-on-modify" behaviour.
+
+```{python}
+#| label: python-modify-in-place
+#| include: TRUE
+
+# Python
+x = [1, 2, 3]
+
+# `y` and `x` now refer to the same list
+y = x
+
+# Add 4 onto x will also add 4 to y
+x.append(4)
+
+print(x)
+
+print(y)
+
+```
+
+```{r}
+#| label: r-copy-on-modify
+#| include: TRUE
+
+# R
+x <- list(1, 2, 3)
+
+# The list has now been copied to refer to y ("copy-on-modify" behaviour)
+y <- x
+
+# Adding 4 onto x doesn't change y
+x[4] <- 4
+
+x
+
+y
+
+```
+
+## Indexing
+
+Python indexing is 0-based, whereas R is 1-based.
+
+```{python}
+#| label: python-indexing
+#| include: TRUE
+
+# Python
+x = [1,2,3]
+
+x[0]
+
+```
+
+```{r}
+#| label: r-indexing
+#| include: TRUE
+
+# R
+x <- list(1, 2, 3)
+
+x[1]
+
+```
+
+## Dictionaries
+
+"Dictionaries are most similar to R environments. They are a container where you can retrieve items by name, though in Python the name (called a key in Python’s parlance) does not need to be a string like in R."
+
+## Functions
+
+"Unlike R functions, the last value in a function is not automatically returned. Python requires an explicit return statement."
+
+## Classes
+
+"One could argue that in R, the preeminent unit of composition for code is the function, and in Python, it’s the class."
+
+"Python typically indicates that something is special by wrapping the name in double underscores. A special double-underscore-wrapped token is commonly called a “dunder”."
+
 # References
 
 ::: {#refs}

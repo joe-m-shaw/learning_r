@@ -4,7 +4,6 @@ author: "Joe Shaw"
 format: html
 ---
 
-
 "This way of thinking combines some of the best features of mathematics, engineering, and natural science. Like mathematicians, computer scientists use formal languages to denote ideas – specifically computations. Like engineers, they design things, assembling components into systems and evaluating trade-offs among alternatives. Like scientists, they observe the behavior of complex systems, form hypotheses, and test predictions."
 
 "Natural languages are the languages people speak, like English, Spanish, and French. They were not designed by people; they evolved naturally."
@@ -21,7 +20,7 @@ You can do maths in Python, just like in R. You just need to be aware of when th
 #| label: python-exponents
 #| include: TRUE
 
-# ** is exponent
+# ** is exponent in Python
 6 ** 2
 
 ```
@@ -30,7 +29,7 @@ You can do maths in Python, just like in R. You just need to be aware of when th
 #| label: r-exponents
 #| include: TRUE
 
-# ^ is exponent
+# ^ is exponent in R
 6 ^ 2
 
 ```
@@ -41,6 +40,7 @@ You can do maths in Python, just like in R. You just need to be aware of when th
 #| label: python-rounding
 #| include: TRUE
 
+# Python
 round(42.634, ndigits = 1)
 
 ```
@@ -49,6 +49,7 @@ round(42.634, ndigits = 1)
 #| label: r-rounding
 #| include: TRUE
 
+# R
 round(42.634, digits = 1)
 
 ```
@@ -61,6 +62,7 @@ Finding help documentation is the same.
 #| label: python-help
 #| include: TRUE
 
+# Python
 help(round)
 
 ```
@@ -69,6 +71,7 @@ help(round)
 #| label: r-help
 #| include: TRUE
 
+# R
 help(round)
 
 ?round
@@ -81,6 +84,7 @@ help(round)
 #| label: python-abs
 #| include: TRUE
 
+# Python
 abs(-42)
 
 ```
@@ -89,6 +93,7 @@ abs(-42)
 #| label: r-abs
 #| include: TRUE
 
+# R
 abs(-42)
 
 ```
@@ -132,6 +137,7 @@ Python has floating-point numbers, whereas R refers to integers and floats as "d
 #| label: python-types
 #| include: TRUE
 
+# Python
 type(2)
 
 type(2.0)
@@ -142,6 +148,7 @@ type(2.0)
 #| label: r-types
 #| include: TRUE
 
+# R
 typeof(2)
 
 typeof(2.0)

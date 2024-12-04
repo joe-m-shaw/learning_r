@@ -693,12 +693,17 @@ g02()
 
 # Python Terms
 
-Module
+**reticulate:** an R package for translating R into Python and vice versa.
 
+**Module:** an 
 
+**Tuple:**
 
+**Dictionary:**
 
+**Dunder:** a double underscore __
 
+**Syntactic sugar:**
 
 # Bioinformatics Terms
 

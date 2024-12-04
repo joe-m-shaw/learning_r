@@ -4,27 +4,82 @@ author: "Joe Shaw"
 format: html
 ---
 
-## Assigment
+## Assignment
 
 ```{python} 
+#| label: python-assignment
+#| include: TRUE
 
+# Assigning a variable in Python with =
 n = 17
-
 
 ```
 
 ```{r}
+#| label: r-assignment
+#| include: TRUE
 
-n <- 17
-
+# Assigning a variable in R with <-
+n <- 18
 
 ```
 
 "a state diagram because it shows what state each of the variables is in (think of it as the variable’s state of mind)."
 
-Same syntax rules apply for naming in Python as in R.
+# Prompt
 
-Module
+The Python prompt is >>> whilst for R it's just >.
+
+# Variable Names
+
+The same syntax rules apply for naming in Python as in R: don't start with a number, try to not use uppercase letters, don't use punctuation other than underscore (_). 
+
+You also can't name things after **keywords**, which is also a thing in R.
+
+```{python}
+#| label: python-keywords
+#| include: TRUE
+#| error: TRUE
+
+class = "Self defence against fresh fruit"
+
+```
+
+```{r}
+#| label: r-keywords
+#| include: TRUE
+#| error: TRUE
+
+else <- "thing"
+
+```
+
+# Importing
+
+"A module is a collection of variables and functions."
+
+```{python}
+#| label: python-import
+#| include: TRUE
+
+import math
+
+math.pi
+
+math.sqrt(25)
+
+```
+
+For R, the equivalent is probably a package
+
+```{r}
+
+
+
+```
+
+
+
 
 
 # Arguments

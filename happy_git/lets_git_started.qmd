@@ -10,3 +10,15 @@ format: html
 
 "Have you ever versioned a file by adding your initials or the date? That is effectively a commit, albeit only for a single file: it is a version that is significant to you and that you might want to inspect or revert to later."
 
+# Versions
+
+"Concrete example: let’s say the released version of R is 4.7.1, which is totally fictional and well beyond the current version of R at the time of writing. It’s probably OK if you are still on 4.6.whatever, which is one minor version behind and is called “r-oldrel”. Being one minor version behind usually doesn’t cause trouble. Once you are 2 minor versions behind (4.5.whatever or earlier in this example), you will start to suffer. In particular, you can no longer install pre-built binary add-on packages from CRAN."
+
+# Operating Systems
+
+"Windows is not the ideal platform for scientific computing and software development. A lot of the functionality is going to feel janky and strapped on. Because it is."
+
+
+
+
+
