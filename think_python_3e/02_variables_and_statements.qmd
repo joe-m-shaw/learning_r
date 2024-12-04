@@ -1,0 +1,50 @@
+---
+title: "Variables and Statements"
+author: "Joe Shaw"
+format: html
+---
+
+## Assigment
+
+```{python} 
+
+n = 17
+
+
+```
+
+```{r}
+
+n <- 17
+
+
+```
+
+"a state diagram because it shows what state each of the variables is in (think of it as the variable’s state of mind)."
+
+Same syntax rules apply for naming in Python as in R.
+
+Module
+
+
+# Arguments
+
+"When you call a function, the expression in parenthesis is called an argument. Normally I would explain why, but in this case the technical meaning of a term has almost nothing to do with the common meaning of the word, so I won’t even try."
+
+# Comments
+
+Mark comments with a hash (#) just as you would do in R.
+
+```{python}
+
+# Comments can go here
+42 * 3 # Comments can also go here
+
+```
+
+```{r}
+
+42 * 3 # Comments can also go here
+
+```
+
