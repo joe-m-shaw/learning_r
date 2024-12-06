@@ -1,0 +1,29 @@
+---
+title: "Functions and Interfaces"
+author: "Joe Shaw"
+format: html
+---
+
+"Wrapping a piece of code up in a function is called encapsulation. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you re-use the code, it is more concise to call a function twice than to copy and paste the body!"
+
+"Adding a parameter to a function is called generalization because it makes the function more general"
+
+"In this example, we started with working code and reorganized it with different functions. **Changes like this, which improve the code without changing its behavior, are called refactoring.**"
+
+# Development plan
+
+"A development plan is a process for writing programs. The process we used in this chapter is “encapsulation and generalization”. The steps of this process are:
+
+- Start by writing a small program with no function definitions.
+
+- Once you get the program working, identify a coherent piece of it, encapsulate the piece in a function and give it a name.
+
+- Generalize the function by adding appropriate parameters.
+
+- Repeat Steps 1 to 3 until you have a set of working functions.
+
+- Look for opportunities to improve the program by refactoring. For example, if you have similar code in several places, consider factoring it into an appropriately general function."
+
+# Docstrings
+
+"By convention, docstrings are triple-quoted strings, also known as multiline strings because the triple quotes allow the string to span more than one line."
