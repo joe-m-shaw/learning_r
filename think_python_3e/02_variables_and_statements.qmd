@@ -70,17 +70,7 @@ math.sqrt(25)
 
 ```
 
-For R, the equivalent is probably a package
-
-```{r}
-
-
-
-```
-
-
-
-
+For R, the equivalent is probably a package.
 
 # Arguments
 
@@ -91,14 +81,20 @@ For R, the equivalent is probably a package
 Mark comments with a hash (#) just as you would do in R.
 
 ```{python}
+#| label: python-comments
+#| include: TRUE
 
+# Python
 # Comments can go here
 42 * 3 # Comments can also go here
 
 ```
 
 ```{r}
+#| label: r-comments
+#| include: TRUE
 
+# R
 42 * 3 # Comments can also go here
 
 ```

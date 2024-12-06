@@ -347,9 +347,17 @@ x[1]
 
 ## Classes
 
-"One could argue that in R, the preeminent unit of composition for code is the function, and in Python, it’s the class."
+"One could argue that **in R, the preeminent unit of composition for code is the function, and in Python, it’s the class**."
+
+"classes are typically CamelCase, and functions are typically snake_case."
 
 "Python typically indicates that something is special by wrapping the name in double underscores. A special double-underscore-wrapped token is commonly called a “dunder”."
+
+"Functions defined inside a class code block are called methods"
+
+"In R, authors can bundle their code into shareable extensions called R packages, and R users can access objects from R packages via library() or ::. In Python, authors bundle code into modules, and users access modules using import."
+
+"R users generally don’t need to be aware of the difference between integers and floating point numbers, but that’s not the case in Python."
 
 # References
 
