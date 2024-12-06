@@ -281,6 +281,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 
 **README:** a README is a form of documentation in software development which gives key information about the software, and is titled in capitals to make it more noticeable and prompt people to actually read it. According to Wikipedia, the practice of having a README file pre-dates personal computing.
 
+**Refactoring:** the process of improving code without changing its underlying behaviour (making it quicker or more flexible).
+
 **Relative path:** the path to a file from the current position.
 
 **ROM:** read only memory.
@@ -312,6 +314,8 @@ Copyleft is a pun on "copyright" because the idea is to reverse the rights assoc
 **Symlinking:** a “symlink” or “symbolic link” is a text string which provides a path to a specific file. Symlinking can be useful because it provides a way for the Genesis scripts to access FASTQ files stored on a separate directory without copying and pasting, which saves storage space.
 
 **Syntax:** the set of rules which specifies which combination of symbols are allowed.
+
+**Syntactic sugar:** syntax (ways of writing) in a computer programme that are aimed to make the code easier to read by humans.
 
 ## T
 
@@ -695,15 +699,19 @@ g02()
 
 **reticulate:** an R package for translating R into Python and vice versa.
 
-**Module:** an 
+**Module:** a Python script that can be called ("imported") for use in a session. Modules in Python are the loose equivalents of packages in R.
+
+**Dunder:** a double underscore __
+
+**Pythonista:** a loyal fan of Python.
+
+To add:
 
 **Tuple:**
 
 **Dictionary:**
 
-**Dunder:** a double underscore __
-
-**Syntactic sugar:**
+**Method:**
 
 # Bioinformatics Terms
 
@@ -757,7 +765,9 @@ g02()
 
 - 2000: first official version (R v1.0) released.
 
-- 2018: release of the tidyverse
+- 2009: Rstudio (now called Posit) founded.
+
+- 2018: release of the tidyverse.
 
 # Questions
 
