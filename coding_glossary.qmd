@@ -701,6 +701,14 @@ g02()
 
 **Module:** a Python script that can be called ("imported") for use in a session. Modules in Python are the loose equivalents of packages in R.
 
+**pandas:**
+
+**NumPy:**
+
+**matplotlib:**
+
+**PyPI:** Python Package Index
+
 **Dunder:** a double underscore __
 
 **Pythonista:** a loyal fan of Python.

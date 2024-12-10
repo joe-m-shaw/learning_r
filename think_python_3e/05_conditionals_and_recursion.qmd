@@ -1,0 +1,162 @@
+---
+title: "Conditionals and Recursion"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Boolean expressions
+
+Python has True and False. R has TRUE and FALSE.
+
+# Logical operators
+
+```{python}
+#| label: python-operators
+#| include: TRUE
+
+x = 5
+
+y = 7
+
+# In python, and statements use "and"
+x > 0 and x < 10
+
+# Python: not statements use "not"
+not x > y
+
+# Python: or statements use "or"
+x / 5 == 1 or x * 2 == 11
+
+```
+
+```{r}
+#| label: r-operators
+#| include: TRUE
+
+x <- 5
+
+y <- 7
+
+# In R: and statements use &
+x > 0 & x < 10
+
+# R: not statements use !
+!x > y
+
+# R: or statements use |
+x / 5 == 1 | x * 2 == 11
+
+x %% 2
+
+```
+
+# Operators
+
+```{python}
+#| label: python-division
+#| include: TRUE
+
+# Python: normal division
+5 / 2
+
+# Python: integer division
+# Divides by a number and then rounds down to an integer
+5 // 2
+
+# Python: modulus division
+# 2 goes into 5 twice, with remainder 1
+5 % 2
+
+```
+
+```{r}
+#| label: r-division
+#| include: TRUE
+
+# R: normal division
+5 / 2
+
+# R: integer division
+5 %/% 2
+
+# R: modulus division
+5 %% 2
+
+```
+
+# If statements
+
+"if is a Python keyword. if statements have the same structure as function definitions: a header followed by an indented statement or sequence of statements called a block."
+
+```{python}
+#| label: python-if
+#| include: TRUE
+
+# Python if statement
+
+if x % 2 == 0:
+    print('x is even')
+else:
+    print('x is odd')
+
+```
+
+```{r}
+#| label: r-if
+#| include: TRUE
+
+# R if statement
+
+if (x %% 2 == 0) {
+  
+  print("x is even")
+
+} else {
+  
+  print("x is odd")
+  
+}
+
+```
+
+# Chained conditionals
+
+Chained conditional: a conditional statement with more than two options. There are multiple options "chained" together.
+
+elif in Python is else if in R.
+
+```{python}
+#| label: python-elif
+#| include: TRUE
+
+if x < y:
+    print('x is less than y')
+elif x > y:
+    print('x is greater than y')
+else:
+    print('x and y are equal')
+
+```
+
+```{r}
+#| label: r-else-if
+#| include: TRUE
+
+if(x < y){
+  
+  print("x is less than y")
+  
+} else if (x > y) {
+  
+  print("x is greater than y")
+  
+} else {
+  
+  print("x and y are equal")
+  
+}
+
+```
+
+"If a recursion never reaches a base case, it goes on making recursive calls forever, and the program never terminates. This is known as infinite recursion, and it is generally not a good idea."
