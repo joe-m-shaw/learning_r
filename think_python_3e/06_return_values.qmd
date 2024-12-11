@@ -1,0 +1,120 @@
+---
+title: "Return Values"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Returns from functions
+
+You have to select the whole function to call it in Python. In R, you can just hit control enter when the cursor is on the first line of the function.
+
+```{python}
+#| label: python-return
+#| include: TRUE
+
+import math
+
+# Python function with no return statement
+def circle_area1(radius):
+  area = math.pi * radius**2
+
+# Python function with a return statement
+def circle_area2(radius):
+    area = math.pi * radius**2
+    return area
+
+# Returns no value
+circle_area1(4)
+
+# Returns the area
+circle_area2(4)
+
+```
+
+```{r}
+#| label: r-return
+#| include: TRUE
+
+# R function with no return statement
+circle_area1 <- function(radius) {
+  
+  area <- base::pi * radius^2
+  
+  # Don't need to use return
+  # In R, the function returns the last thing by default
+  area
+  
+}
+
+circle_area1(4)
+
+```
+
+"If a function doesn’t have a return statement, it returns None, which is a special value like True and False."
+
+# Dead Code
+
+"Code that can never run is called dead code. In general, dead code doesn’t do any harm, but it often indicates a misunderstanding, and it might be confusing to someone trying to understand the program."
+
+```{python}
+#| label: python-dead-code
+#| include: TRUE
+
+def absolute_value_extra_return(x):
+    if x < 0:
+        return -x
+    else:
+        return x
+    
+    # This return statement can never be run
+    return 'This code does not get run'
+
+absolute_value_extra_return(-1)
+
+absolute_value_extra_return(1)
+
+```
+
+# Incremental development
+
+"The print statements we wrote are useful for debugging, but once the function is working, we can remove them. Code like that is called scaffolding because it is helpful for building the program but is not part of the final product."
+
+"This example demonstrates incremental development. The key aspects of this process are:
+
+- Start with a working program, make small changes, and test after every change.
+
+- Use variables to hold intermediate values so you can display and check them.
+
+- Once the program is working, remove the scaffolding."
+
+# Recursion
+
+"Now that we can write functions with return values, we can write recursive functions with return values, and with that capability, we have passed an important threshold – the subset of Python we have is now **Turing complete**, which means that we can perform any computation that can be described by an algorithm."
+
+## Factorials
+
+A factorial is when you multiply all the numbers within a number.
+
+The factorial of 4 is 1 * 2 * 3 * 4 = 24
+
+Python can use recursion to calculate factorials.
+
+```{python}
+#| label: python-factorial
+#| include: TRUE
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        # This calls the function again and begins a spiral
+        # until n gets to 0, when the function exits
+        recurse = factorial(n-1)
+        return n * recurse
+
+factorial(3)
+
+```
+
+![Factorial stack diagram](images/factorial.jpg){#fig-factorial-jpg}
