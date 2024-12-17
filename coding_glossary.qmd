@@ -699,7 +699,9 @@ g02()
 
 **reticulate:** an R package for translating R into Python and vice versa.
 
-**Module:** a Python script that can be called ("imported") for use in a session. Modules in Python are the loose equivalents of packages in R.
+**Module:** a Python script that can be called ("imported") for use in a session. Modules in Python are the loose equivalents of packages in R. Examples of Python modules include matplotlib, numpy and pandas.
+
+**Method:** 
 
 **Dead code:** code that can never be run. An example is given in [chapter 6 of Think Python](https://allendowney.github.io/ThinkPython/chap06.html):
 
@@ -744,7 +746,7 @@ absolute_value_extra_return(1)
 
 **Dictionary:**
 
-**Method:**
+
 
 # Bioinformatics Terms
 

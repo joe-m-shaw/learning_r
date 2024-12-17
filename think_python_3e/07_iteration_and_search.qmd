@@ -1,0 +1,63 @@
+---
+title: "Iteration and Search"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Increments
+
+"Increasing the value of a variable is called an increment; decreasing the value is called a decrement. Because these operations are so common, Python provides augmented assignment operators that update a variable more concisely."
+
+```{python}
+#| label: python-increments
+#| include: TRUE
+
+z = 1
+
+# += operator means "add and assign to the same variable"
+z += 2
+
+z
+
+z *= 2
+
+z
+
+z -= 3
+
+z
+
+```
+
+# Methods
+
+In Python, a method is a function associated with an object.
+
+```{r}
+#| label: python-method
+#| include: TRUE
+
+# object
+name = "JOSEPH"
+
+# object.method
+name.lower()
+
+```
+
+The same execution in R uses the function name before adding the object name as an argument to the function:
+
+```{r}
+#| label: r-method
+#| include: TRUE
+
+name <- "JOSEPH"
+
+tolower(name)
+
+```
+
+# Docstrings
+
+You can write tests in the docstrings of Python functions and then run the tests.
