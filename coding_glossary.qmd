@@ -697,12 +697,6 @@ g02()
 
 # Python Terms
 
-**reticulate:** an R package for translating R into Python and vice versa.
-
-**Module:** a Python script that can be called ("imported") for use in a session. Modules in Python are the loose equivalents of packages in R. Examples of Python modules include matplotlib, numpy and pandas.
-
-**Method:** 
-
 **Dead code:** code that can never be run. An example is given in [chapter 6 of Think Python](https://allendowney.github.io/ThinkPython/chap06.html):
 
 ```{python}
@@ -724,29 +718,49 @@ absolute_value_extra_return(1)
 
 ```
 
-**Scaffolding:** code that is useful when building and testing a function (such as print statements to check intermediate variables) but which can be removed when the function is finished.
-
-**Turing complete:** "A language, or subset of a language, is Turing complete if it can perform any computation that can be described by an algorithm." ([Think Python chapter 6](https://allendowney.github.io/ThinkPython/chap06.html))
-
-**Package:**
-
-**pandas:**
-
-**NumPy:**
-
-**matplotlib:**
-
-**PyPI:** Python Package Index
+**Dictionary:**
 
 **Dunder:** a double underscore __
 
+**Method:** a function that is associated with an object, and separated by a full stop.
+
+```{r}
+#| label: python-method
+#| include: TRUE
+
+# object
+name = "JOSEPH"
+
+# object.method
+name.lower()
+
+```
+
+**Module:** a Python script that can be called ("imported") for use in a session. Modules in Python are the loose equivalents of packages in R. Examples of Python modules include matplotlib, numpy and pandas.
+
+**NumPy:** (Numerical Python) an open-source Python library for working with arrays, created in 2005 by Travis Oliphant.
+
+**MATLAB:** "MATrix LABoratory" - a proprietary programming language for data analysis. 
+
+**matplotlib:** a library for making plots in Python, originally developed in 2003 by John D. Hunter. The name is a portmanteau of "MATLAB plot library".
+
+**Package:**
+
+**pandas:** an open-source Python library for data analysis, developed by Wes McKinney in 2010. The name "pandas" is taken from "**pa**nel **da**ta".
+
+**Plotly:** a Canadian company that makes tools for different programming languages, including Python.
+
+**PyPI:** Python Package Index
+
 **Pythonista:** a loyal fan of Python.
+
+**reticulate:** an R package for translating R into Python and vice versa.
+
+**Scaffolding:** code that is useful when building and testing a function (such as print statements to check intermediate variables) but which can be removed when the function is finished.
 
 **Tuple:**
 
-**Dictionary:**
-
-
+**Turing complete:** "A language, or subset of a language, is Turing complete if it can perform any computation that can be described by an algorithm." ([Think Python chapter 6](https://allendowney.github.io/ThinkPython/chap06.html))
 
 # Bioinformatics Terms
 

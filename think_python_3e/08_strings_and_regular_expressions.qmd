@@ -1,0 +1,122 @@
+---
+title: "Strings and Regular Expressions"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Subsetting Strings
+
+Subsetting strings in Python is different to in R, mainly because Python starts counting at 0, not 1.
+
+```{python}
+#| label: python-subsetting
+#| include: TRUE
+
+# Subsetting in Python
+fruit = 'banana'
+
+# Subsetting at 0 returns b
+fruit[0]
+
+# Subsetting at 1 returns a
+fruit[1]
+
+# Subsetting from the end of the string
+fruit[-1]
+
+```
+
+```{r}
+#| label: r-subsetting
+#| include: TRUE
+
+# Subsetting in R
+fruit <- "banana"
+
+# Subsetting at 0 returns a 0 length string
+fruit[0]
+
+# Subsetting at 1 just returns the whole string
+fruit[1]
+
+substr(fruit, 1, 1)
+
+```
+
+# Regular Expressions
+
+```{python}
+#| label: python-regular-expressions
+#| include: TRUE
+
+# Load the re (regular expressions) module
+import re
+
+text = "Always look on the bright side of life"
+
+pattern = "look"
+
+result = re.search(pattern, text)
+
+# The result is not a string, but a Match object
+result
+
+# The input string
+result.string
+
+# Which part of the string matched the pattern
+result.group()
+
+# Where in the string the match appears
+result.span()
+
+text[7:11]
+
+```
+
+```{r}
+#| label: r-regular-expressions
+#| include: TRUE
+
+library(stringr)
+
+text <- "Always look on the bright side of life"
+
+pattern <- "look"
+
+grep(pattern = pattern, x = text, value = TRUE)
+
+str_extract(string = text, pattern = pattern)
+
+```
+
+Both R and Python use the same nomenclature for regular expressions, which is very helpful.
+
+Example: you want to pick out the A from the start of the pattern. You can use the ^ symbol to mean "at the start of the string".
+
+```{python}
+#| label: python-start-string
+#| include: TRUE
+
+# Python
+
+text2 = "Always look on the bright side of life, always look on the bright side of life."
+
+result2 = re.search("^A", text2)
+
+result2.group()
+
+```
+
+```{r}
+#| label: r-start-string
+#| include: TRUE
+
+# In R you can use the same regex
+
+text2 <- "Always look on the bright side of life, always look on the bright side of life."
+
+str_extract(string = text2, pattern = "^A")
+
+```
