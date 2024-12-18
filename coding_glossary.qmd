@@ -26,8 +26,6 @@ This document is intended to be a central repository for my understanding of ter
 
 **Algorithm:** a set of defined steps written in a formal language to describe how to perform a certain task.
 
-**Anaconda:** a Python distribution.
-
 **Apache:** a free open-source web browser software. The name came from the Apache Native American tribe, as the open-source developers likened themselves to the Apache resisting the colonial empire (large private companies like Microsoft). The name is also a pun because Apache relies heavily on patches, hence is “a patchy” server.
 
 **Application programming interface (API):** APIs are connections between computers or computer programmes that can be used for the purposes of sharing data and developing software. APIs are different to “user interfaces”, which are the interfaces between a computer and a human user.
@@ -697,6 +695,8 @@ g02()
 
 # Python Terms
 
+**Anaconda:** a distribution of Python that is designed for data analysis. By installing Anaconda, you get Python plus several useful data analysis packages such as NumPy, matplotlib and pandas.
+
 **Dead code:** code that can never be run. An example is given in [chapter 6 of Think Python](https://allendowney.github.io/ThinkPython/chap06.html):
 
 ```{python}
@@ -718,9 +718,23 @@ absolute_value_extra_return(1)
 
 ```
 
-**Dictionary:**
+**Dictionary:** a type of data structure used in Python (and other programming languages) which is composed of keys mapped to to values.
+
+```{python}
+#| label: python-dictionary
+#| include: TRUE
+
+# A Python list - a series of strings mapped to numeric elements
+number_list = ['zero', 'one', 'two']
+
+# A Python dictionary - a series of data values mapped to data keys
+number_dict = {'zero': 0, 'one': 1, 'two': 2}
+
+```
 
 **Dunder:** a double underscore __
+
+**Hash table:** the table which stores information in a Python dictionary. Hash tables require keys to be non-mutable, and are very useful because searching a hash table is very quick even when the table gets very large.
 
 **Method:** a function that is associated with an object, and separated by a full stop.
 

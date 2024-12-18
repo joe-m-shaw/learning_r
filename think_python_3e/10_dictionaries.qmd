@@ -1,0 +1,53 @@
+---
+title: "Dictionaries"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"A dictionary is like a list, but more general. In a list, the indices have to be integers; in a dictionary they can be (almost) any type."
+
+"We can use an integer as an index to get the corresponding word. But suppose we want to go in the other direction, and look up a word to get the corresponding integer. We can’t do that with a list, but we can with a dictionary."
+
+"In mathematical language, a dictionary represents a mapping from keys to values, so you can also say that each key “maps to” a value."
+
+My understanding is that it is easiest to think about Python dictionaries with the analogy of an actual dictionary.
+
+- The dictionary is made up of entries (**items** in Python)
+
+- Each item comprises of a **key** and a **value**
+
+- The **key** is the word that you look up, the **value** is the definition of that word.
+
+```{python}
+#| label: python-lists-dictionaries
+#| include: TRUE
+#| error: TRUE
+
+# A Python list - a series of strings mapped to numeric elements
+number_list = ['zero', 'one', 'two']
+
+# A Python dictionary - a series of data values mapped to data keys
+number_dict = {'zero': 0, 'one': 1, 'two': 2}
+
+# Search by index - works with lists
+number_list[0]
+
+# Search by index - doesn't work with dictionaries
+number_dict[0]
+
+# Search by value - doesn't work with lists
+number_list['zero']
+
+# Search by value - works with dictionaries
+number_dict['one']
+
+```
+
+"The items in a Python dictionary are stored in a **hash table**, which is a way of organizing data that has a remarkable property: the in operator takes about the same amount of time no matter how many items are in the dictionary. That makes it possible to write some remarkably efficient algorithms."
+
+"In general, the time it takes to find an element in a list is proportional to the length of the list. The time it takes to find a key in a dictionary is almost constant – regardless of the number of items."
+
+"A hash is a function that takes a value (of any kind) and returns an integer. Dictionaries use these integers, called hash values, to store and look up keys.
+
+"This system only works if a key is immutable, so its hash value is always the same. But if a key is mutable, its hash value could change, and the dictionary would not work. That’s why keys have to be hashable, and why mutable types like lists aren’t."
