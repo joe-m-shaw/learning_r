@@ -1,0 +1,50 @@
+---
+title: "Lists"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+```{python}
+#| label: python-list
+#| include: TRUE
+
+# Python
+numbers = [42, 123]
+
+```
+
+```{r}
+#| label: r-list
+#| include: TRUE
+
+# R
+numbers <- list(42, 123)
+
+```
+
+"Unlike strings, lists are mutable."
+
+```{python}
+#| label: python-mutable-list
+#| include: TRUE
+
+# In Python, this modifies the second element
+numbers[1] = 17
+
+numbers
+
+
+
+```
+
+```{r}
+#| label: r-mutable-list
+#| include: TRUE
+
+# In R, the first element gets modified
+numbers[1] <- 17
+
+numbers
+
+```
