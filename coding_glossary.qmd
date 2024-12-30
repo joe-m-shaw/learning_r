@@ -772,7 +772,15 @@ name.lower()
 
 **Scaffolding:** code that is useful when building and testing a function (such as print statements to check intermediate variables) but which can be removed when the function is finished.
 
-**Tuple:**
+**Tuple:** a data structure in Python, similar to a list but immutable. Tuple is a general term for a number of elements in a sequence (like "quintuple" - the fifth element).
+
+```{python}
+#| label: tuple
+#| include: TRUE
+
+python_tuple = (0, 1, 2)
+
+```
 
 **Turing complete:** "A language, or subset of a language, is Turing complete if it can perform any computation that can be described by an algorithm." ([Think Python chapter 6](https://allendowney.github.io/ThinkPython/chap06.html))
 
