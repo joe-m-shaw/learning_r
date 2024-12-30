@@ -1,0 +1,34 @@
+---
+title: "Files and Databases"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+```{python}
+#| label: python-filepath
+#| include: TRUE
+
+# Finding the working directory in Python.
+
+import os
+
+os.getcwd()
+
+os.listdir(os.getcwd())
+
+```
+
+```{r}
+#| label: r-filepath
+#| include: TRUE
+
+# Finding the working directory in R
+
+getwd()
+
+list.files(path = getwd())
+
+```
+
+"One challenge of working with paths is that they look different on different operating systems. On macOS and UNIX systems like Linux, the directory and file names in a path are separated by a forward slash, /. Windows uses a backward slash. So, if you you run these examples on Windows, you will see backward slashes in the paths, and you’ll have to replace the forward slashes in the examples."

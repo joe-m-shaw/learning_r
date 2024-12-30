@@ -1,0 +1,15 @@
+---
+title: "Text Analysis and Generation"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+This chapter focuses on text generation, which is interesting to know about but
+not that relevant to my work at the moment. I skim-read it and made brief notes.
+
+"Characters in Python strings are in Unicode, which is an international standard used to represent letters in nearly every alphabet, numbers, symbols, punctuation marks, and more."
+
+"Given the same inputs, most computer programs are deterministic, which means they generate the same outputs every time. Determinism is usually a good thing, since we expect the same calculation to yield the same result."
+
+"Instead of looking at one word at a time, now we’ll look at sequences of two words, which are called bigrams. A sequence of three words is called a trigram, and a sequence with some unspecified number of words is called an n-gram."
