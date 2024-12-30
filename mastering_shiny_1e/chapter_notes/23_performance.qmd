@@ -1,0 +1,24 @@
+---
+title: "Performance"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"When considering performance, it’s useful to think of a Shiny app as a restaurant. Each customer (user) comes into the restaurant (the server) and makes an order (a request), which is then prepared by a chef (the R process). This metaphor is useful because like a restaurant, one R process can serve multiple users at the same time, and there similar ways to dealing with increasing demand."
+
+"There’s one major place where the metaphor breaks down: a normal chef can make multiple dishes at the same time, carefully interweaving the steps to take advantage of downtime in one recipe to work on another. R, however, is single-threaded, which means that can’t do multiple things at the same time."
+
+Vertical scaling (scaling up): add more memory cores to a server
+
+Horizontal scaling (scaling out): add more servers
+
+This chapter goes through ways to make a Shiny app faster, especially if it is being used by many people.
+
+One good way is to use the shinyloadtest package which simulates a variable number of users interacting with your app.
+
+You can also create a "flame graph" which shows the visualisation of how long each step of the app is taking. This makes it easier to identify if there is a single slow step that is slowing the entire app down.
+
+Caching is another trick: save requested results in the app's memory so that they can be quickly re-accessed if necessary. Otherwise, if two users request a huge amount  of data one after the other, the app will perform a computationally intense process twice over. Instead, you could have the app perform the task once, cache the results, and then provide the results to the second user.
+
+"If you have a flat file, try data.table::fread() or vroom::vroom() instead of read.csv() or read.table()."
