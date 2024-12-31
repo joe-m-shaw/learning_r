@@ -1,0 +1,28 @@
+---
+title: "The Reactive Graph"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Reactivity is about establishing relationships.
+
+This chapter uses diagrams to show how a Shiny app executes. My understanding is:
+
+- The Shiny app grows a bit like a tree growing downwards from it's tallest 
+branch: Shiny does not start with inputs, it starts by assessing the outputs.
+
+- By assessing a randomly selected output, Shiny finds that it depends on an
+input, which causes Shiny to evaluate that input. Shiny may find that input 
+relies on another input, and so on and so on until you get to the original inputs
+(specified by the user).
+
+- Once the entire "tree" is complete, the whole app works.
+
+- Then, if the user changes an input, all the branches (relationships) between
+each component get removed. Instead of working back up the tree from roots to
+branches, Shiny burns the whole tree and starts again with randomly selected
+outputs (tallest branches). The process of an input being invalid and removing 
+relationships with other components is called **invalidation**.
+
+"Let’s stop here for a moment and think about what we’ve done. We’ve read some inputs, calculated some values, and generated some outputs. But more importantly we also discovered the relationships between the reactive objects. When a reactive input changes we know exactly which reactives we need to update."

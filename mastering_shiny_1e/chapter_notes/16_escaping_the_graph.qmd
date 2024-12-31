@@ -1,0 +1,15 @@
+---
+title: "Escaping the graph"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Shiny’s reactive programming framework is incredibly useful because it automatically determines the minimal set of computations needed to update all outputs when an input changes. But this framework is deliberately constraining, and sometimes you need to break free to do something risky but necessary."
+
+"These techniques are powerful because they give you manual control over parts of the graph. But they’re also dangerous because they allow your app to do unnecessary work. Most importantly, you can now create infinite loops where your app gets stuck in a cycle of updates that never ends."
+
+This chapter deals with techniques that I don't think I need to use at the moment.
+The important point is that you want to design your Shiny apps to be interconnected,
+rather than having isolated components which may not update when you need them to.
+The best way to visualise the reactive graph of an app is with the reactlog package.

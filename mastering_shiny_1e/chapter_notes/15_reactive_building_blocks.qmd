@@ -1,0 +1,16 @@
+---
+title: "Reactive building blocks"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"There are three fundamental building blocks of reactive programming: reactive values, reactive expressions, and observers."
+
+"Recall that a reactive has two important properties: it’s lazy and cached. This means that it only does work when it’s actually needed, and if called twice in a row, it returns the previous value."
+
+"Observers and outputs are terminal nodes in the reactive graph. They differ from reactive expressions in two important ways:
+
+- They are eager and forgetful — they run as soon as they possibly can and they don’t remember their previous action. This eagerness is “infectious” because if they use a reactive expression, that reactive expression will also be evaluated.
+
+- The value returned by an observer is ignored because they are designed to work with functions called for their side-effects, like cat() or write.csv()."

@@ -1,0 +1,32 @@
+---
+title: "Why reactivity?"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Fortunately, Shiny is “good” magic. As Tom Dale said of his Ember.js JavaScript framework: “We do a lot of magic, but it’s good magic, which means it decomposes 
+into sane primitives.”"
+
+The problem is that making an interactive app is different to writing a standard
+R script:
+
+1) Variables change over time, and need to be automatically updated
+
+2) If you have a system where everything is constantly refreshing and updating,
+this is very computationally expensive.
+
+The aim was therefore to have a system where things update automatically (solving
+problem 1) but also only update when the inputs change (solving problem 2).
+
+The solution is "reactive programming".  Reactive expressions automatically 
+track their dependencies
+
+"A reactive expression has two important properties:
+
+-It’s lazy: it doesn’t do any work until it’s called.
+
+- It’s cached: it doesn’t do any work the second and subsequent times it’s called because it caches the previous result.
+"
+
+"It wasn’t until the 2010s that reactive programming roared into the programming mainstream through the fast-paced world of JavaScript UI frameworks. Pioneering frameworks like Knockout, Ember, and Meteor (Joe Cheng’s personal inspiration for Shiny) demonstrated that reactive programming could make UI programming dramatically easier."
