@@ -4,11 +4,44 @@ author: "Joe Shaw"
 format: html
 ---
 
-2 kinds of variables
+# The Problem
 
-"- An env-variable (environment variable) is a “programming” variables that you create with <-. input$var is a env-variable.
+This chapter focusses on the challenge of letting users select which variables
+they want a Shiny app to use.
 
-- A data-variable (data frame variables) is “statistical” variable that lives inside a data frame. carat is a data-variable."
+This seems simple in theory, but you quickly run into the **indirection 
+problem**: referring to variables indirectly can confuse R because it isn't clear
+where R should look for the variables.
 
+There are different ways to solve this problem using tidy evaluation.
 
+1. Use .data, .env and [[]]
 
+This method allows you to use tidyverse functions but then uses double brackets
+to specify the column, rather than using the $ sign which you would normally
+use.
+
+2. Use a switch statement
+
+This method works for allowing users to specify what kind geoms they want to
+see on a ggplot object. It's a little clunky though, because you have to specify
+each option and how it maps onto a geom.
+
+Example:  
+
+```{r}
+#| eval: FALSE
+#| include: TRUE
+
+switch(input$geom,
+      point = geom_point(),
+      smooth = geom_smooth(se = FALSE),
+      jitter = geom_jitter()
+    )
+
+```
+
+"As you provide more control, you’ll find your code gets more and more 
+complicated, and it becomes harder and harder to create a user interface that is
+both comprehensive and user friendly. This is why I’ve always focussed on code 
+tools for data analysis: creating good UIs is really really hard!"

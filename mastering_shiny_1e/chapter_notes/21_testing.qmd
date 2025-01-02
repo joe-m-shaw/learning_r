@@ -1,0 +1,29 @@
+---
+title: "Testing"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+This chapter includes concepts like test structure and coverage which are also
+included in the "R Packages" textbook.
+
+# Testing file loading
+
+You can use base::tempfile() to simulate a file to test a function.
+
+# Testing JavaScript
+
+One way to test a Shiny app is to check that the things in your user interface
+create the appropriate HTML. You could do this using expect_equal() but then 
+you have to put in the HTML as a very long string which isn't concise or 
+readable.
+
+The solution is to use snapshot tests, which store the HTML in a separate file 
+and then compare the Shiny app to that file.
+
+"The key idea of snapshot tests is to store the expected results in a separate file: that keeps bulky data out of your test code, and means that you don’t need to worry about escaping special values in a string."
+
+# Testing visuals
+
+"The primary downside of testing using screenshots is that even the tiniest of changes requires a human confirm that it’s OK. This is a problem because it’s hard to get different computers to generate pixel-reproducible screenshots. Differences in operating system, browser version, and even font versions, can lead to screenshots that look the same to a human, but are very slightly different. "
