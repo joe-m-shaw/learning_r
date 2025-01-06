@@ -1,0 +1,137 @@
+---
+title: "Classes and functions"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Type - the classification of an object. It tells Python what you're working with 
+and what you can do with it.
+
+Type has the same meaning in Python as R, but Python has types that R doesn't
+have: tuples and dictionary.
+
+Another big difference between Python and R is that in Python you can define
+new types.
+
+"A programmer-defined type is also called a class."
+
+"Creating a new object is called **instantiation**, and the object is an 
+instance of the class."
+
+# Time example
+
+This chapter works through an example problem where we want to work with times - 
+using the example of the times a movie starts and finishes.
+
+The approach uses **object-oriented programming**: the problem is broken down
+into objects, rather than functions.
+
+If I was to solve the same problem using R, I would use a **functional programming**
+approach.
+
+```{python}
+#| include: TRUE
+#| label: time-class
+
+from copy import copy
+
+# class defines a class object
+class Time:
+  """Represents a time of day."""
+
+# type asks what type the class object is
+type(Time)
+
+# lunch is an instance of the Time class
+lunch = Time()
+
+type(lunch)
+
+print(lunch)
+
+# Create an attribute, called hour, of the instance lunch
+lunch.hour = 11
+lunch.minute = 59
+lunch.second = 1
+
+```
+
+We can create functions that work with the class Time that we have defined.
+
+```{python}
+#| label: time-functions
+#| include: TRUE
+
+# This functions takes arguments and then returns them as an object
+# with those arguments at attributes
+def make_time(hour, minute, second):
+  time = Time()
+  # The attribute is named the same thing as the function argument
+  # This is standard practice
+  time.hour = hour
+  time.minute = minute
+  time.second = second
+  return time
+
+# This creates an object but doesn't print it
+# __main__. is the module (i.e. the main environment) where the class object 
+# Time is defined
+time = make_time(11, 59, 1)
+
+time
+
+def print_time(time):
+  # This creates an f-string of the time
+  s = f'{time.hour:02d}:{time.minute:02d}:{time.second:02d}'
+  print(s)
+
+# This prints the time object
+print_time(time)
+
+def increment_time(time, hours, minutes, seconds):
+  # The += operator adds on to the hour attribute and updates the value
+  time.hour += hours
+  time.minute += minutes
+  time.second += seconds
+
+def add_time(time, hours, minutes, seconds):
+  # Copy the input time object so that the input remains
+  # the same after the function has run. This makes it a 
+  # pure function.
+  total = copy(time)
+  increment_time(total, hours, minutes, seconds)
+  return total
+
+```
+
+Now we can put it all together and solve the problem.
+
+Let's say we have a movie that starts at 9:40 and lasts for 1 hour 32 minutes:
+when does it end?
+
+```{python}
+#| label: time-calculations
+#| include: TRUE
+
+# Define a start time object using make_time
+start = make_time(9, 20, 0)
+
+print_time(start)
+
+# add_time calls increment_time and returns a new updated time object
+end = add_time(start, 1, 32, 0)
+
+print_time(end)
+
+```
+
+There are several modifications that can be made to the functions to make them
+better and work for different cases, but this example gives the overall idea.
+
+"Anything that can be done with impure functions can also be done with pure functions."
+
+"This section demonstrates a program development plan I call prototype and patch. We started with a simple prototype that worked correctly for the first example. Then we tested it with more difficult examples – when we found an error, we modified the program to fix it, like putting a patch on tire with a puncture."
+
+"Ironically, sometimes making a problem harder – or more general – makes it easier, because there are fewer special cases and fewer opportunities for error."
+
