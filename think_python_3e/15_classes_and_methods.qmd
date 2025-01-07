@@ -1,0 +1,121 @@
+---
+title: "Classes and methods"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Python is an object-oriented language – that is, it provides features that support object-oriented programming, which has these defining characteristics:
+
+- Most of the computation is expressed in terms of operations on objects.
+
+- Objects often represent things in the real world, and methods often correspond to the ways things in the real world interact.
+
+- Programs include class and method definitions."
+
+A method: a function that is defined inside a class definition.
+
+```{python}
+#| label: methods
+#| include: TRUE
+
+class Time:
+  """Represents the time of day."""    
+  
+  # Function as a method - within a class object
+  # The time argument is changed to self by convention
+  # Also called an "instance method"
+  def print_time(self):
+      s = f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
+      print(s)
+  
+  # Another function which converts a time to an integer
+  def time_to_int(self):
+      minutes = self.hour * 60 + self.minute
+      seconds = minutes * 60 + self.second
+      return seconds
+  
+  # A "static method" - a method which does not require an instance
+  # of the class to be invoked
+  # It does not have "self" as an argument
+  def int_to_time(seconds):
+      minute, second = divmod(seconds, 60)
+      hour, minute = divmod(minute, 60)
+      return make_time(hour, minute, second)
+  
+  def add_time(self, hours, minutes, seconds):
+      duration = make_time(hours, minutes, seconds)
+      seconds = time_to_int(self) + time_to_int(duration)
+      return Time.int_to_time(seconds)
+  
+  # __str__ is a "special method" - Python uses it to convert
+  # an object into a string
+  def __str__(self):
+      s = f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
+      return s
+    
+  # __int__ is another special method - it initialises the
+  # attributes of a new object
+  def __init__(self, hour=0, minute=0, second=0):
+      self.hour = hour
+      self.minute = minute
+      self.second = second
+      
+  # __add__ is another special method which means you can use
+  # the + operator to call it on class objects
+  def __add__(self, other):
+    seconds = self.time_to_int() + other.time_to_int()
+    return Time.int_to_time(seconds)
+
+def make_time(hour, minute, second):
+    time = Time()
+    time.hour = hour
+    time.minute = minute
+    time.second = second
+    return time
+
+# start is an instance of the class Time
+start = make_time(9, 40, 0)
+
+# This is the attribute "hour" of the instance "start"
+start.hour
+
+# This invokes the method "print_time" on the instance "start"
+# start is the "receiver" object for the method "print_time"
+start.print_time()
+
+# This gives the properties of the result without the value
+start.print_time
+
+# This invokes the static method "int_to_time" on the class
+# object "Time"
+
+new_start = Time.int_to_time(34900)
+
+new_start.print_time()
+
+start.__str__()
+
+# The __init__ method means you can initialise an instance
+# of a class object with the default attributes
+default_time = Time()
+
+# The default_time instance has the default attribute 0
+# for hour because this was specified in the method
+# definition above
+default_time.hour
+
+# Initialising a Time object uses the default values from __int__
+duration = Time(1, 32)
+
+# Using the + operator invokes the __add__ method
+end = start + duration
+
+# Using "print" invokes the __str__ method
+print(end)
+
+```
+
+"When you write a method, you can choose almost any name you want. However, some names have special meanings. For example, if an object has a method named __str__, Python uses that method to convert the object to a string."
+
+"Changing the behavior of an operator so that it works with programmer-defined types is called operator overloading. For every operator, like +, there is a corresponding special method, like __add__."
