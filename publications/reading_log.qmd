@@ -359,6 +359,32 @@ x[1]
 
 "R users generally don’t need to be aware of the difference between integers and floating point numbers, but that’s not the case in Python."
 
+# [A History of the GUI](https://arstechnica.com/features/2005/05/gui/)
+
+1968: Douglas Engelbart demos the first computer with a GUI and mouse
+
+1973: Xerox PARC makes the Xerox Alto. This included many of the standards of 
+personal computing: a mouse as an arrowhead, different overlapping windows that 
+could be selected, icons etc. Xerox never sold the Xerox Alto though - madness.
+
+1976: Steve Jobs begins Apple.
+
+1981: Xerox start selling the Xerox Star 8010.
+
+1983: Apple Lisa: trash can icon, greying out things you can’t select, double 
+clicking, drag and drop.
+
+1984: Apple Maccintosh.
+
+1985: Microsoft Windows released. Steve Jobs leaves Apple.
+
+1987: Microsoft releases Windows 2.0 and Apple (unsuccessfully) tries to sue 
+them for copying many aspects of Apple GUIs.
+
+“As the 90s began, other personal computing platforms fell off sharply in 
+popularity, leaving only Windows and the Macintosh as the survivors of the 
+GUI wars.”
+
 # References
 
 ::: {#refs}

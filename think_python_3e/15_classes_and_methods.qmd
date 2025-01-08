@@ -116,6 +116,10 @@ print(end)
 
 ```
 
-"When you write a method, you can choose almost any name you want. However, some names have special meanings. For example, if an object has a method named __str__, Python uses that method to convert the object to a string."
+"When you write a method, you can choose almost any name you want. However, 
+some names have special meanings. For example, if an object has a method 
+named __str__, Python uses that method to convert the object to a string."
 
-"Changing the behavior of an operator so that it works with programmer-defined types is called operator overloading. For every operator, like +, there is a corresponding special method, like __add__."
+"Changing the behavior of an operator so that it works with programmer-defined
+types is called operator overloading. For every operator, like +, there is
+a corresponding special method, like __add__."

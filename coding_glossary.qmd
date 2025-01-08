@@ -1219,6 +1219,11 @@ integer, coerces to double, coerces to character, coerces to list.
 installing Anaconda, you get Python plus several useful data analysis packages 
 such as NumPy, matplotlib and pandas.
 
+**Copy (shallow):** when you copy an object, but not the objects it contains.
+
+**Copy (deep):** when you copy and object, and also copy the objects that the
+object refers to.
+
 **Dead code:** code that can never be run. An example is given in 
 [chapter 6 of Think Python](https://allendowney.github.io/ThinkPython/chap06.html):
 
@@ -1297,6 +1302,11 @@ McKinney in 2010. The name "pandas" is taken from "**pa**nel **da**ta".
 
 **Plotly:** a Canadian company that makes tools for different programming 
 languages, including Python.
+
+**Polymorphism:** the ability of different types to provide methods of the same
+name. See 
+[Think Python chapter 16](https://allendowney.github.io/ThinkPython/chap16.html#polymorphism) 
+for details.
 
 **PyPI:** Python Package Index
 

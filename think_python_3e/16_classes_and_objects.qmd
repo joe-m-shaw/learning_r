@@ -1,0 +1,167 @@
+---
+title: "Classes and objects"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+This chapter covers more object oriented programming using the jupyturtle
+package. I've made brief notes. The main takeaway is that objects can be
+used to create other objects, so you end up with objects within objects.
+
+## Objects within objects
+
+```{python}
+
+from copy import copy
+
+# We start by creating a class called Point, with some methods
+
+class Point:
+    """Represents a point in 2-D space."""
+    
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def __str__(self):
+        return f'Point({self.x}, {self.y})'
+    
+    # Function to use if we want to modify the existing point
+    def translate(self, dx, dy):
+      self.x += dx
+      self.y += dy
+    
+    # Function use if we don't want to modify the existing point
+    def translated(self, dx=0, dy=0):
+      point = copy(self)
+      point.translate(dx, dy)
+      return point
+
+start = Point(0, 0)
+
+# Using print invokes __str__ on the start instance of Point
+print(start)
+
+end = start.translated(0, 150)
+
+print(end)
+
+# We then make a class called Line
+class Line:
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
+        
+    def __str__(self):
+        return f'Line({self.p1}, {self.p2})'
+
+# We can then create a Line object and supply existing Point objects
+# as arguments
+line1 = Line(start, end)
+
+print(line1)
+
+# This means that we now have objects within objects.
+# The start and end object instances of the Point class are also
+# the p1 and p2 attributes of the line1 instance of the Line class.
+
+print(line1.p1)
+
+print(line1.p2)
+
+print(line1.p1) == print(start)
+
+print(line1.p2) == print(end)
+
+```
+
+"What copy does is called a shallow copy because it copies the object but not 
+the objects it contains."
+
+"Fortunately, the copy module provides another function, called deepcopy, that 
+copies not only the object but also the objects it refers to, and the objects 
+they refer to, and so on. This operation is called a deep copy."
+
+# Polymorphism
+
+```{python}
+#| label: polymorphism
+#| eval: FALSE
+#| include: TRUE
+
+# This example uses the jupyturtle package
+# I'm not sure if this will work in outside a Jupyter notebook, so I am just
+# including the code and not evaluating it
+from jupyturtle import make_turtle, jumpto, moveto
+
+# Start with the same Line class as before, but we add a draw method
+class Line:
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
+        
+    def __str__(self):
+        return f'Line({self.p1}, {self.p2})'
+      
+    def draw(self):
+      jumpto(self.p1.x, self.p1.y)
+      moveto(self.p2.x, self.p2.y)
+
+# Then we make a class called Rectangle, which refers to the existing
+# Line and Point classes.
+
+class Rectangle:
+    """Represents a rectangle. 
+
+    attributes: width, height, corner.
+    """
+    def __init__(self, width, height, corner):
+        self.width = width
+        self.height = height
+        self.corner = corner
+        
+    def __str__(self):
+        return f'Rectangle({self.width}, {self.height}, {self.corner})'
+      
+      def make_points(self):
+        p1 = self.corner
+        p2 = p1.translated(self.width, 0)
+        p3 = p2.translated(0, self.height)
+        p4 = p3.translated(-self.width, 0)
+        return p1, p2, p3, p4
+      
+      def make_lines(self):
+        p1, p2, p3, p4 = self.make_points()
+        return Line(p1, p2), Line(p2, p3), Line(p3, p4), Line(p4, p1)
+      
+      def draw(self):
+        lines = self.make_lines()
+        for line in lines:
+            line.draw()
+
+# This then allows us to use a trick called "polymorphism"
+
+# Imagine we have defined different line and box instances of the 
+# Line and Rectangle classes:
+
+# We put these instance objects in a list
+shapes = [line1, line2, box3, box4]
+
+# We then use a for loop to iterate over the elements of the shapes
+# list, invoking the draw method on each instance
+for shape in shapes:
+    shape.draw()
+
+# The key thing is that the Line and Rectangle classes both define 
+# a method called draw.
+
+# That means that when draw is called on an element of the list shapes,
+# the version of draw that is invoked is the version from the relevant
+# class of the object instance.
+
+# Basically, if we invoke draw on line1, Python knows to use Line.draw(),
+# and if we invoke draw on box3, Python knows to use Rectangle.draw().
+
+```
+
