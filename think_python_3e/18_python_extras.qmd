@@ -1,0 +1,43 @@
+---
+title: "Python Extras"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+This chapter covers several extra features of Python. Most were above my 
+current level but the part on conditional expressions was useful.
+Other classes: sets and counters
+
+# Conditional expressions
+
+```{python}
+#| include: TRUE
+
+x  = 1
+
+# Verbose form
+if x > 0:
+    y = math.log(x)
+else:
+    y = float('nan')
+
+# Concise form
+y = math.log(x) if x > 0 else float('nan')
+
+y
+
+# Verbose form with a conditional statement
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+# Concise form with a conditional expression
+def factorial(n):
+    return 1 if n == 0 else n * factorial(n-1)
+
+factorial(5)
+
+```
