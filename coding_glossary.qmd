@@ -57,6 +57,11 @@ particular variable via the equals sign (variable = expression).
 
 ## B
 
+**B corporation:** a B (benefit) corporation, or B-corp, is a company that 
+operates for the public benefit, as assessed by a company called B-Lab. A B-corp
+is similar, but legally different, to a public benefit corporation (PBC). PBC 
+status is granted by US state law, not by B-Lab.
+
 **Back end:** the aspects of software that the user does not directly interact
 with.
 
@@ -455,7 +460,6 @@ things change, the impact on the code is limited (the system is more resilient);
 the code is easier to maintain; if one module goes bad, the damage is minimised.
 
 ## P
-
 **Parse:** parse can be used in two main contexts. The first is to break down 
 something into it’s constituent parts, as in “parsing a text string”. The second
 is the process of a computer reading source code before it is compiled. Hadley 
@@ -472,10 +476,14 @@ pearl, Wall dropped the "a" because another language existed called PEARL.
 
 **Portable:** (adjective) whether software can be run in a different environment.
 
-**Posit:** a company (formerly called RStudio) founded in 2009 which makes 
-software for data science. The word "posit" more generally means to put an idea 
-forward. Posit has made loads of free data science tools over the years, 
-including RStudio, tidyverse, Shiny and Quarto.
+**Posit:** a company (formerly called RStudio), founded in 2009 by J.J Allaire,
+which makes  software for data science. The word "posit" more generally means 
+to put an idea forward. Posit has made loads of free data science tools over the
+years, including RStudio, tidyverse, Shiny and Quarto. Posit is a certified
+B-corporation and a Public Benefit Corporation, and they provide open-source
+tools for free. They make money from selling versions of some tools to 
+businesses, but then reinvest the money in products that are given away for free.
+
 
 **Pothole case:** the naming convention of using lower case letters and 
 underscores.
@@ -498,6 +506,10 @@ Quarto and Jupyter are examples of literate programming.
 **Programming (reactive):** 
 
 **Prompt: three arrow symbols at the start of a line (>>>)**
+
+**Public Benefit Corporation (PBC):** a for-profit company which has public
+benefit as its main aim. PBC status is granted by US states, such as Delaware
+which granted PBC status to Posit (the makers of RStudio).
 
 **Python:** a programming language created in the 1980s by Guido van Rossum, 
 which can be used for many different purposes and on different operating systems.

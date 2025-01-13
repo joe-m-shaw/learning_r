@@ -1,0 +1,229 @@
+---
+title: "Inheritance"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+This chapter is about how you can create new classes by modifying existing ones,
+which is known as **inheritance**. A **child** class inherits methods and
+attributes from a **parent** class.
+
+If you take a class and modify it using inheritance for a more specific purpose,
+this is called **specialisation**.
+
+# Poker Example
+
+This example using playing cards to explain inheritance. If you wanted to simulate
+a poker game with Python, you would need the following classes:
+
+- Card: the actual playing cards including the suit and rank of the card
+
+- Deck: the total cards available for the game
+
+- Hand: the combination of cards available to each player
+
+# Cards
+
+```{python}
+#| label: define-cards
+#| include: TRUE
+
+class Card:
+    """Represents a standard playing card."""
+
+    suit_names = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+    rank_names = [None, 'Ace', '2', '3', '4', '5', '6', '7', 
+                  '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+                  
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    
+    # Define __str__ so we can always print a string of the values
+    # held by the class object
+    def __str__(self):
+        rank_name = Card.rank_names[self.rank]
+        suit_name = Card.suit_names[self.suit]
+        return f'{rank_name} of {suit_name}' 
+    
+    # Special method - "equal to" - which allows us to compare
+    # Card class objects together
+    def __eq__(self, other):
+      return self.suit == other.suit and self.rank == other.rank
+    
+    # Convert Class object to a tuple for later comparison
+    def to_tuple(self):
+        return (self.suit, self.rank)
+    
+    # Define "less than" - special method for comparing numeric
+    # values
+    def __lt__(self, other):
+        return self.to_tuple() < other.to_tuple()
+    
+    # Define "less than or euqal to"
+    def __le__(self, other):
+      return self.to_tuple() <= other.to_tuple()
+
+# Define an instance of the Card class, called queen
+queen = Card(1, 12)
+
+# Access queen attributes
+queen.suit
+queen.rank
+
+# Access the "class variables" (different to attributes)
+# I.e. the options that suits can take
+queen.suit_names
+
+# Access the __eq__ method
+queen == king
+
+# Do the same for ranks
+queen.rank_names
+
+# Access the __str__ method
+print(queen)
+
+king = Card(1, 13)
+
+print(king)
+
+# Access the __lt__ method
+queen < king
+
+```
+
+# Decks
+
+```{python}
+#| label: define-decks
+#| include: TRUE
+
+# Import random module for shuffling method
+import random
+
+class Deck:
+
+    def __init__(self, cards):
+        self.cards = cards
+    
+    # Make a list of standard cards using a static method
+    def make_cards():
+        cards = []
+        for suit in range(4):
+            for rank in range(2, 15):
+                card = Card(suit, rank)
+                cards.append(card)
+        return cards
+      
+    def __str__(self):
+        res = []
+        for card in self.cards:
+            res.append(str(card))
+        return '\n'.join(res)
+    
+    def put_card(self, card):
+        self.cards.append(card)
+    
+    # A method for randomly shuffling the order of cards
+    # in the deck
+    def shuffle(self):
+        random.shuffle(self.cards)
+          
+    def sort(self):
+        self.cards.sort()
+        
+    def move_cards(self, other, num):
+        for i in range(num):
+            card = self.take_card()
+            other.put_card(card)
+            
+    def take_card(self):
+        return self.cards.pop()
+
+# Make a card list
+cards = Deck.make_cards()
+
+# Assign the card list to deck
+deck = Deck(cards)
+
+len(cards)
+
+# The cards are in order
+for card in deck.cards[:4]:
+    print(card)
+
+# Then we shuffle them
+deck.shuffle()
+
+# Now they are in a random order
+for card in deck.cards[:4]:
+    print(card)
+
+```
+
+# Hands - inheritance
+
+We know want to define a class called a hand. 
+
+Hands are similar to decks in that they are collections of cards. But they are
+different in other ways - you compare hands to see which one wins the game.
+
+To base a class called Hand on the existing class called Deck, we can use
+**inheritance**.
+
+This means that the new "child" class will inherit the methods from the 
+"parent" class, whilst also offering the possibility to add new methods
+(specialisation).
+
+```{python}
+#| label: define-hands
+#| include: TRUE
+
+# Hands inherits from Deck
+class Hand(Deck):
+    """Represents a hand of playing cards."""
+    
+    # Add a label to the hand so we can keep track of who's
+    # hand it is
+    def __init__(self, label=''):
+        self.label = label
+        self.cards = []
+    
+hand = Hand('player 1')
+
+hand.label
+  
+deck = Deck(cards)
+
+# Take a card at random out of the deck
+card = deck.take_card()
+
+print(card)
+
+# Assign it in the hand using the put_card method which hand
+# inherits from deck
+hand.put_card(card)
+
+# The hand now has one card in
+print(hand)
+
+len(deck.cards)    
+
+```
+
+# Liskov Subsitution Principle
+
+"The language feature most often associated with object-oriented programming is 
+inheritance. Inheritance is the ability to define a new class that is a modified 
+version of an existing class."
+
+"If a child class overrides a method from the parent class, the new method 
+should take the same parameters and return a compatible result."
+
+"This set of rules is called the “Liskov substitution principle” after 
+computer scientist Barbara Liskov."
+
+"If you violate these rules, your code will collapse like a house of cards 
+(sorry)."
