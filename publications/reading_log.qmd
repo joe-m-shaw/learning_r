@@ -385,6 +385,48 @@ them for copying many aspects of Apple GUIs.
 popularity, leaving only Windows and the Macintosh as the survivors of the 
 GUI wars.”
 
+# Joe Cheng - [Shiny x AI](https://posit.co/blog/five-highlights-from-posit-conf-2024/)
+
+You can have a Shiny dashboard with a chatbot - the user types in what they
+want and the chatbot writes SQL to answer the question.
+
+SQL is easy for large language models to write.
+
+Just being a user of LLMs like ChatGPT is not enough to have an informed opinion
+about them - you have to code with them.
+
+The view of LLMs as "stochastic parrots" may be true, but it isn't helpful
+when it comes to using and working with them.
+
+# "The Future of Interactive Graphics in R" - Hadley Wickham [Google talks 2011](https://youtu.be/iSXNfZESR5I)
+
+Hadley Wickham started working in the lattice package to make plots, and made
+ggplot2 because he got frustrated.
+
+The grammar of graphics already existed as a concept, in a textbook.
+
+ggplot development started in 2005, ggplot2 released in 2007.
+
+RStudio was founded in 2011. In 2011 Wickham was working as an assistant professor at
+Rice University, Texas.
+
+Before, in 2008, he submitted his PhD at Iowa State University. ggplot2 was 
+submitted as part of his PhD thesis:
+https://dr.lib.iastate.edu/entities/publication/9210139e-102e-4537-8b6e-7d8197e2f3d8
+
+Then he supervised Garrett Grolemund's PhD (Grolemund co-authored "R for 
+Data Science").
+
+Speed and memory have increased in personal computing, but the screen is basically
+the same size - so the number of pixels at our disposal are limited.
+
+Pixels are limited, so we need to use interactivity. The stuff he talks about
+is very similar to the philosophy under Shiny.
+
+Legends are the hardest part of any graphics system to write.
+
+If graphics take ages to make, then people are unwilling to change them.
+
 # References
 
 ::: {#refs}
