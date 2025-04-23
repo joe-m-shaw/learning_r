@@ -411,8 +411,7 @@ RStudio was founded in 2011. In 2011 Wickham was working as an assistant profess
 Rice University, Texas.
 
 Before, in 2008, he submitted his PhD at Iowa State University. ggplot2 was 
-submitted as part of his PhD thesis:
-https://dr.lib.iastate.edu/entities/publication/9210139e-102e-4537-8b6e-7d8197e2f3d8
+submitted as part of his PhD thesis.
 
 Then he supervised Garrett Grolemund's PhD (Grolemund co-authored "R for 
 Data Science").
@@ -426,6 +425,54 @@ is very similar to the philosophy under Shiny.
 Legends are the hardest part of any graphics system to write.
 
 If graphics take ages to make, then people are unwilling to change them.
+
+# "Practical Tools for Exploring Data and Models" - [Hadley Wickham's PhD - 2008](https://dr.lib.iastate.edu/entities/publication/9210139e-102e-4537-8b6e-7d8197e2f3d8)
+
+"The tools developed in this thesis are firmly based in the philosophy of exploratory data
+analysis (Tukey, 1977). With every view of the data, we strive to be both curious and sceptical.
+We keep an open mind towards alternative explanations, never believing we have found the
+best model"
+
+"As Tukey once said: “numerical quantities focus on
+expected values, graphical summaries on unexpected values.”"
+
+Before ggplot2 there was base R and lattice, which both had problems.
+
+He developed reshape as well, then made reshape2, but then that's been 
+replaced by tidyr. "reshape2 is superseded: only changes necessary to keep 
+it on CRAN will be made. We recommend using tidyr instead" (reshape2 github page").
+
+"This material is based upon work supported by the National Science Foundation 
+under Grant No. 0706949."
+
+###Chapter 3: A Layered Grammar of Graphics
+
+"A regular bar chart converted into polar coordinates produces 
+another type of graphic: the coxcomb plot, popularised by 
+Florence Nightingale (Nightingale, 1857)."
+
+Specific design choices that he made for the default settings of ggplot2:
+
+- Grey background with white gridlines
+- "Data points are not plotted next to the margins of the plot."
+
+"What would a poetry of graphics look like?"
+
+I didn't read chapter 4.
+
+### Chapter 5: Conclusions
+
+"The process of data analysis is not a straight line from point A to B, but 
+involves much circling back, and looking at the map to see we’ve been and 
+where we should go next."
+
+"It is difficult to judge the impact of your work. Unfortunately, because of 
+the way that CRAN is
+set up, it is not possible to know exactly how many times my packages 
+have been downloaded.
+However, last month around 1,600 people viewed package related 
+pages on my website and 18
+people emailed me a question about one of my packages"
 
 # References
 
