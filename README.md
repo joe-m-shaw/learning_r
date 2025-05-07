@@ -16,6 +16,8 @@ This repo is a centralised location for my learning resources for R and coding i
 
 **"Think Python" by Allen B. Downey** - 3rd Edition - [https://allendowney.github.io/ThinkPython/index.html#](https://allendowney.github.io/ThinkPython/index.html#)
 
+**The Turing Way** 
+
 ## Courses
 
 **"Artificial Intelligence Bootcamp in R"** - Udemy - https://www.udemy.com/course/artificial-intelligence-bootcamp-in-r/
