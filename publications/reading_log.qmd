@@ -474,6 +474,21 @@ However, last month around 1,600 people viewed package related
 pages on my website and 18
 people emailed me a question about one of my packages"
 
+# Jenny Bryan [How to name files](https://www.youtube.com/watch?v=ES1LTlnpLMk)
+
+Pick a convention - it doesn't matter which one, just **pick one**.
+
+Filenames should be machine readable, human readable and sortable.
+
+"Thou shalt get only as creative with file naming as thine skill with 
+regular expressions."
+
+Embrace the slug: "slugs" are the last section of a URL which give you an 
+idea of what the page shows. Slugs are good for telling people, not computers,
+what code does.
+
+For dates **use ISO 8601**. 
+
 # References
 
 ::: {#refs}
