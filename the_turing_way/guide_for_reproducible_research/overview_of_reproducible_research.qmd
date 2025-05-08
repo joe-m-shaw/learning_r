@@ -1,0 +1,32 @@
+---
+title: "Overview of Reproducible Research"
+format: html
+editor: visual
+---
+
+"Reproducible: A result is reproducible when the same analysis steps 
+performed on the same dataset consistently produces the same answer.
+
+Replicable: A result is replicable when the same analysis performed on 
+different datasets produces qualitatively similar answers."
+
+"Reproducible research must contain a complete history and narrative 
+(also known as Provenance) of the project planning and development process."
+
+"The best-known analyses of scientific literature in psychology Begley & 
+Ellis, 2012 and cancer biology Open Science Collaboration, 2015 found 
+the reproducibility rates of their research output of around 40% and 
+10%, respectively."
+
+"John Ioannidis published an influential paper in 2005 titled “Why Most 
+Published Research Findings Are False” Ioannidis, 2005 which discusses 
+the many factors that contribute to publication bias."
+
+The current system incentivises individuality, not collaboration. One key
+example is the Nobel Prizes: why aren't they awarded to teams?
+
+Good article in [the Atlantic](https://www.theatlantic.com/science/archive/2017/10/the-absurdity-of-the-nobel-prizes-in-science/541863/).
+
+"Rubin and Franklin point to another longstanding issue with the Nobels. 
+In as much as they propagate the myth of the lone genius, that lone genius 
+is almost always white and male. "

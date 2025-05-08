@@ -4,6 +4,8 @@ format: html
 editor: visual
 ---
 
+# Emergence as the Turing Way's Strategy
+
 "Together, we are trying to change the world. Change research culture, make 
 data more accessible, democratise access to knowledge, and ensure that 
 artificial intelligence is harnessed for a public, global good. We need 
@@ -19,5 +21,18 @@ contributions. It seems very people-focussed. Rather than forcing a structure or
 plan on people, the project grows organically based on people's concerns and
 expertise.
 
-Read up to "Embracing the principles of Digital Commons"
+# Embracing the principles of Digital Commons
 
+"My commitment to open knowledge and collaboration is deeply rooted in 
+my appreciation for Ostrom’s Governing the Commons Ostrom (1990) and 
+understanding of the theory and practices of “knowledge commons” as applied 
+to digital commons Hess & Ostrom (2006)."
+
+"Knowledge Commons: Knowledge Commons refers to collectively owned and 
+managed knowledge, like data, content, and software. Unlike physical 
+resources, this knowledge, once shared, can be used by countless people 
+simultaneously without any depletion."
+
+"The Turing Way is also aligned with the principles of Digital Public Goods 
+(DPG) -- digital assets that provide value to society and contribute to 
+the public good."
