@@ -484,7 +484,6 @@ B-corporation and a Public Benefit Corporation, and they provide open-source
 tools for free. They make money from selling versions of some tools to 
 businesses, but then reinvest the money in products that are given away for free.
 
-
 **Pothole case:** the naming convention of using lower case letters and 
 underscores.
 
@@ -506,6 +505,11 @@ Quarto and Jupyter are examples of literate programming.
 **Programming (reactive):** 
 
 **Prompt: three arrow symbols at the start of a line (>>>)**
+
+**Provenance (data):** a way of describing the source and history of data used
+in an analysis. Provenance can be thought of like version control: which 
+dataset was used to perform the analysis? Where was it from? How has it changed
+over time?
 
 **Public Benefit Corporation (PBC):** a for-profit company which has public
 benefit as its main aim. PBC status is granted by US states, such as Delaware

@@ -4,4 +4,54 @@ format: html
 editor: visual
 ---
 
+"Git is not magic and it is good to know about its limitations. Especially,
+Git works best with small text files. Git starts to be impracticable when 
+too many files are present, or when the repository becomes too big (1 TB 
+is about the limit)."
 
+"Briefly, in order to use Git when there are lots or large files, one 
+needs to split the data in different repositories, and have these repositories 
+use the git-annex technology."
+
+"Creating insightful and descriptive commit messages is one of the best 
+things you can do to get the most out of version control."
+
+"The number one rule is: make it meaningful. A commit message like “Fixed
+a bug” leaves it entirely up to the person to understand what that means 
+(again, this person may very well be you a few months in the future when 
+you have forgotten what you were doing). "
+
+"Summarise the changes your commit contains. This should be written in 
+the first line (in 50 characters maximum), then leave a blank line before 
+you continue with the description or body of the message."
+
+"It is also a good practice to use the imperative present tense in 
+these messages."
+
+"Commits should be ‘atomic’, meaning that they should do one simple 
+thing and they should do it completely."
+
+"you do not necessarily need to do per-file commits when working on 
+multiple files, but for one single problem."
+
+"Branches should be used to keep the main branch clean. That is, the 
+main should only contain work which is complete, tested, and rightfully 
+belongs in the main version of the project. Similarly, you should try to 
+keep individual branches as clean as possible by only adding one new 
+feature per branch."
+
+# Version control for data
+
+"In this chapter, we discuss why and how to do data versioning, 
+especially why Git is not well suited for data versioning and what 
+we can be done about it."
+
+"We should not hold the notion that the data used for analysis is static; 
+once it is acquired, it does not change and serves as input for a given 
+analysis and the backbone of our scientific results. The reality is that 
+data is only rarely invariant."
+
+"The git-annex tool is a distributed system that can manage and share 
+large files independent from a central service or server. git-annex 
+manages all file content in a separate directory in the repository (.git/annex/objects, the so-called annex) and only places file names 
+with some metadata into version control by Git."

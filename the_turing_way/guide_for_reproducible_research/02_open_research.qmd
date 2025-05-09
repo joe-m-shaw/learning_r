@@ -6,21 +6,14 @@ editor: visual
 
 # Open Research
 
-Open research: the outputs of publicly funded research should be 
-publicly accessible.
+Open research: the outputs of publicly funded research should be publicly accessible.
 
-"Citizen science: The inclusion of members of the public 
-in scientific research."
+"Citizen science: The inclusion of members of the public in scientific research."
 
 # Open Data
 
-"The first preprint server called arXiv was established in 1991 for 
-physical sciences. Likely due to the inefficiency of traditional 
-journals, preprint servers for other disciplines have grown hugely 
-in popularity over the last 5 years, with the emergence of bioRxiv, 
-medRxiv, ChemRxiv, SocArXiv and many more. "
+"The first preprint server called arXiv was established in 1991 for physical sciences. Likely due to the inefficiency of traditional journals, preprint servers for other disciplines have grown hugely in popularity over the last 5 years, with the emergence of bioRxiv, medRxiv, ChemRxiv, SocArXiv and many more. "
 
 # Open Notebooks
 
-"Open notebook [def] research is simply the practice of making 
-such notebooks openly available, usually online."
+"Open notebook \[def\] research is simply the practice of making such notebooks openly available, usually online."
