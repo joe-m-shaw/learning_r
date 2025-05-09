@@ -1,0 +1,14 @@
+---
+title: "Naming things"
+format: html
+editor: visual
+---
+
+This chapter gives the same advice as Jenny Bryan: file names should be
+readable by machines and humans, and sort well.
+
+"Computers like names to have no spaces, deliberate use of delimiters, 
+and no special or accented characters."
+
+The bottom line is pick a convention, stick to it and make sure any 
+collaborator's are aware of the convention.

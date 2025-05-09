@@ -1,0 +1,12 @@
+---
+title: "Overview of project design"
+format: html
+editor: visual
+---
+
+"Before starting a project, researchers must define the project’s scope."
+
+"Everyone applies various design concepts to their project formally or
+informally. However, often we think about these concepts retrospectively, 
+when the project is over and we gain a better understanding of design 
+mistakes that could have been avoided with better planning and organisation."

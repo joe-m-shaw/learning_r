@@ -146,6 +146,13 @@ intuitive to use.
 **Commit:** “In version control systems, a commit adds the latest changes to 
 [part of] the source code to the repository”.
 
+**Compendium:** from Latin "that which is weighed together". A summary. A 
+research compendium is "a collection of all digital parts of a 
+research project including data, code, texts (protocols, 
+reports, questionnaires, metadata). The collection is 
+created in such a way that reproducing all results is 
+straight forward" ([The Turing Way](https://book.the-turing-way.org/afterword/glossary#term-research-compendia)).
+
 **Compile:** the process of a computer converting program source code (a 
 high-level, human-readable language like Python or R) into a low-level, 
 machine-readable code like assembly code. If you change the source code, then 

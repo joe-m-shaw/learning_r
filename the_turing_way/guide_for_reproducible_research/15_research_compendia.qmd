@@ -1,0 +1,20 @@
+---
+title: "Research compendia"
+format: html
+editor: visual
+---
+
+"A research compendium [def] combines all elements of your project, 
+allowing others to reproduce your work, and should be the final product 
+of your research project."
+
+The three main types of objects in a research compendia are:
+
+- Read only: raw data (the inputs to the compendia)
+
+- Human-generated: code (i.e scripts), manuscripts (MarkDown documents, 
+Quarto etc), documentation (README, other documentation).
+
+- Project-generated: cleaned data (i.e. data cleaned by a human-generated
+script), figures and other output
+

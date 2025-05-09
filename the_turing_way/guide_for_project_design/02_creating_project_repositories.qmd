@@ -1,0 +1,13 @@
+---
+title: "Creating project repositories"
+format: html
+editor: visual
+---
+
+"One of the most important documents for your project is a license."
+
+This chapter focuses on how to set up repos for open source projects with 
+multiple contributors - so less relevant to single-contributor projects with 
+sensitive data (like the stuff I work on).
+
+There are some good resources for project structure.
