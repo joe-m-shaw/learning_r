@@ -489,6 +489,20 @@ what code does.
 
 For dates **use ISO 8601**. 
 
+# "Hadley Wickham, the Man Who Revolutionized R" - [online](https://priceonomics.com/hadley-wickham-the-man-who-revolutionized-r/)
+
+"In Wickham’s words, making a package entails writing “some code 
+that helps people solve problems — and then you have to document it, 
+so others can understand how to use it.”"
+
+"Although he didn’t know it at the time, he believes it was then that he
+“internalized” the concept of Third Normal Form, a database design concept 
+that would become central to his future work."
+
+"“There are definitely some academic statisticians who just don’t 
+understand why what I do is statistics, but basically I think they 
+are all wrong . What I do is fundamentally statistics."
+
 # References
 
 ::: {#refs}

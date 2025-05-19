@@ -1,0 +1,76 @@
+---
+title: "Research Data Management"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"A Data Management Plan (DMP), or Output Management Plan, is a 
+document that describes how your research outputs will be generated,
+stored, used and shared within your project."
+
+The FAIR framework:
+- Findability
+- Accessibility
+- Interoperability
+- Reusability
+
+"The capacity of computational systems to find, access, interoperate, 
+and reuse data, with none or minimal human intervention, is essential 
+in today’s data-driven era"
+
+"FAIR practices can result in highly efficient code implementations, 
+reduce the need to retrain models, and reduce unnecessary data 
+generation/storage, thus reducing the overall carbon footprint."
+
+"As a test for your spreadsheet compatibility with reproducible research, 
+export your data from the spreadsheet to the CSV format and reopen it. 
+If you can still get all the information that you stored in your sheet,
+then your data is fine."
+
+"you should also be aware of the default behaviour of your spreadsheet 
+program, as it may be different for different programs, and different 
+versions of the same program. For instance, the decimal is usually 
+indicated with a comma in the French or German versions of Excel."
+
+## Electronic lab notebooks
+
+"Proprietary solutions are incentivised to attempt to lock-in their customers 
+so that the cost of switching to a competitor is high - so be especially wary 
+of poor export options."
+
+"Note that this tends to change over time. New providers are focused on user
+acquisition so data portability is often good at first but tends to decline 
+after a certain point in time. Firms tends to follow a pattern of shifting 
+from a user acquisition phase with favourable terms, to a user retention phase
+with less favourable ones. Mendeley for example began encrypting their local
+database. This made it impossible to migrate your local library to different
+reference managers without going through the Mendeley online library feature.
+This occurred after they had reached a high degree of market penetration and
+had been acquired by Elsevier."
+
+## Data Repositories
+
+"Long-term archiving repositories are designed for secure and permanent 
+storage of data, ensuring data preservation over extended periods. This 
+differs from platforms like GitHub and GitLab which primarily serve as
+collaborative development tools, facilitating version control and project 
+management in a more dynamic and transient environment. Platforms such as 
+GitHub and GitLab do not assign persistent identifiers to repositories, and 
+their preservation policies are more flexible compared to those of data
+repositories."
+
+"Supplemental materials are not following the FAIR principles - as 
+there is no separate DOI assigned to the supplemental materials which
+makes it difficult to retrieve these materials. "
+
+## Resources
+
+European Spreadsheet Risk Interest Group:
+https://eusprig.org/research-info/horror-stories/
+
+https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7 
+"A programmatic scan of leading genomics journals reveals that 
+approximately one-fifth of papers with supplementary Excel gene 
+lists contain erroneous gene name conversions."
+
