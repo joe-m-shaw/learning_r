@@ -1,0 +1,41 @@
+---
+title: "Code Testing"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Researcher-written code now forms a part of a huge portion of research, 
+and if there are mistakes in the code the results may be partly or 
+entirely unreliable."
+
+"You should not skip writing tests because you are short on time, you 
+should write tests because you are short on time."
+
+"Another benefit of writing tests is that it typically forces a researcher 
+to write cleaner, more modular code as such code is far easier to write tests 
+for, leading to an improvement in code quality."
+
+## Types of test
+
+Positive test: check something works
+
+Negative test: check something doesn't work
+
+Unit test: a discrete test of a small unit of code
+
+"A unit is the smallest testable part of any software."
+
+"The other major benefit of unit testing is that it strongly 
+incentivises researchers to write modular code because modular 
+code is far easier to write unit tests for."
+
+Integration test: a test that multiple separate units work together
+
+"A famous example of this is a multi-million dollar satellite which 
+crashed because one piece of code outputted distance data in feet, 
+while another assumed data in meters. This is another example of an 
+integration issue."
+
+Runtime tests: "Runtime tests are tests that run as part 
+of the program itself."
