@@ -1,0 +1,20 @@
+---
+title: "Code Quality"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Static code analysis: "Static code analysis is a method that examines 
+code and detects software vulnerabilities before your code is executed
+or the project is built and deployed."
+
+A 3 stage process to writing higher quality code:
+
+1. Describe the assumptions your code makes (i.e. it assumes the input
+is type double)
+
+2. Assert your assumptions 
+
+3. Deal with unmet assumptions. What should happen when your assertion is
+not true? Should there be a warning or should the code stop running?

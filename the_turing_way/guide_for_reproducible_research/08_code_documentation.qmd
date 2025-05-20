@@ -1,0 +1,23 @@
+---
+title: "Code Documentation"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Programs must be written for people to read and only 
+incidentally for machines to execute." - Hal Abelson
+
+This is often changed to: "write code for humans, not computers".
+
+There are 4 kinds of documentation:
+
+- Tutorials: learning oriented
+- How-to guides: problem oriented
+- Explanations: understanding oriented
+- Reference guides: information oriented
+
+Documentation can be split into whether it is intended to be useful
+for developers or for end users.
+
+Good website: https://github.com/dwmkerr/hacker-laws
