@@ -1,0 +1,23 @@
+---
+title: "Reusable Code"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Reusing code can take different forms
+
+Repeatable: can you rerun the same code with the same data?
+
+Rerunnable: can you rerun the same code with different data?
+
+A general checklist of areas to think about:
+
+- Version control
+- Code stored publicly (i.e. on the internet)
+- Documentation
+- Description of the computing environment required
+- Location of the data
+- No reliance on steps performed by humans
+- License
+- Readable code: consistent nomenclature, consistent style

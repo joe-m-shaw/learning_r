@@ -1,0 +1,15 @@
+---
+title: "Code reviewing"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+This chapter covers how to do code reviews, which is less relevant to me
+as there is no-one in my team who codes in R, but still good to know about.
+
+"Don’t review for more than an hour at a time, after that the success 
+rate drops quite quickly."
+
+"Don’t review more than 400 lines of code (LOC) at a time, less than 
+200 LOC is better. Don’t review more than 500 LOC/hour."
