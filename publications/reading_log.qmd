@@ -503,6 +503,52 @@ that would become central to his future work."
 understand why what I do is statistics, but basically I think they 
 are all wrong . What I do is fundamentally statistics."
 
+# [Docker](https://docs.docker.com/get-started/docker-overview/)
+
+A docker container is a contained process. The appeal of containers is that 
+they run consistently across different computers and operating sytems,
+and all the software versions
+are the same. This means Docker containers can be run on a Mac, Linux or 
+Windows machine and it shold be fine.
+
+Ultimately, docker containers are a way to solve the "It worked on my 
+machine" problem.
+
+A docker container image (usually shortened to Docker image) is a standardised
+package which contains everything needed to run a specific environment. For 
+example, there is a standard Docker image for running R.
+
+Images are immutable (you can't change them), but you can make changes by
+adding layers. You can build on top of a base image with layers specific to your
+project. For example, you can start with a base R Docker image, and then add
+specific environment layers on top of it.
+
+# ["An Introduction to Rocker: Docker Containers for R"](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) by Carl Boettiger and Dirk Eddelbuette
+
+"he term “container” refers to an isolated software environment
+on a computer. R users can think of running a container as analogous to 
+loading an R package; a
+container is an active instance of a static Docker image. A Docker “image” 
+is a binary archive of that
+software, analogous to an R binary package: a given version is downloaded 
+only once, and can then
+be “run” to create a container whenever it is needed. A “Dockerfile” is a 
+recipe, the source-code, to
+create a Docker image. Pre-built Docker images are publicly available 
+through Docker Hub, which
+plays a role for central distribution similar to CRAN in our analogy. "
+
+"a user can run R code requiring the most recent versions of R and related 
+packages inside a
+Rocker container without having to upgrade their local installations first."
+
+"The Rocker project consists of a suite of images built automatically by 
+and hosted on the Docker
+Hub, https://hub.docker.com/r/rocker."
+
+
+
+
 # References
 
 ::: {#refs}
