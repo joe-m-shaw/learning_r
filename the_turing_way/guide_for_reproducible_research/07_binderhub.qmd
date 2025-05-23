@@ -1,0 +1,20 @@
+---
+title: "Binder"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+BinderHub: an open source tool for bringing together (i.e "binding") different
+computer environments.
+
+https://mybinder.readthedocs.io/en/latest/about/team.html
+"The Binder Project is a sub-project of Project Jupyter, which is a 
+fiscally-sponsored project of NumFocus, a 501c3 non-profit."
+
+https://proceedings.scipy.org/articles/Majora-4af1f417-011
+"Binder is an open source web service that lets users create sharable, 
+interactive, reproducible environments in the cloud. "
+
+Binder seems like a useful tool for large collaborative projects, but probably
+not relevant to my work at the moment.
