@@ -190,9 +190,18 @@ format or in Microsoft Excel as a spreadsheet.
 **Data analyst:** usually works with structured data within an organisation to 
 answer questions relevant to the running of the organisation.
 
+**Data engineer:** builds and maintains systems for data storage and processing. 
+Generally, data engineers create infrastructure that produces formatted data which is then analysed by data analysts or data scientists.
+
+**Data lake:** a repository of data stored in its raw format.
+
+**Data mart:** a specific subset of a data warehouse.
+
 **Data scientist:** generally considered a more advanced version of a data 
 analyst. Deals more with the unknown by generating predictive models. 
 Definitions from Coursera.
+
+**Data warehouse:** a centralised repository of data collated from many sources, optimised to run queries.
 
 **Debian:** a distribution of Linux, first developed by Ian Murdock. He named
 it by mixing his first name and his girlfriend's first name, Debra, together.
@@ -256,6 +265,8 @@ for more detail).
 **Edge case:** a bug in software engineering that lies at the extreme (“edge”) 
 of a particular use and hence happens rarely. Edge cases require specific 
 fail-safes adding to the source code to manage them.
+
+**ETL:** Extract, Transform, Load. An acronym used to describe data engineering pipelines.
 
 **Extension**: an extension is a software component that adds a specific 
 functionality to an existing program. Extensions can also be called plug-ins or 
@@ -326,6 +337,9 @@ with other systems.
 a computer involving visual icons (also called a GUI).
 
 ## H
+
+**Hadoop:** open-source software for storage and processing of big data, originally developed by Doug Cutting and Mike Cafarella.
+Hadoop was the name of Doug Cutting's son's favourite elephant toy.
 
 **Happy Path:** a term for the intended normal path of execution of software - 
 all the inputs are in the correct format, no errors or warnings are raised and 
@@ -506,6 +520,8 @@ string and constructs an expression" (["Advanced R" chapter 18(https://adv-r.had
 
 **Patch:** a change or update to code which aims to fix bugs or security issues.
 A patch may also be called a “bugfix”.
+
+**Pandoc:** a free piece of software for converting files from one format to another.
 
 **Perl:** a programming language developed by Larry Wall in 1987 ([Wikipedia](https://en.wikipedia.org/wiki/Perl)). Originally called "pearl" as a
 reference to a Biblical quote about the kingdom of Heaven being like a precious 
@@ -1153,6 +1169,8 @@ environment for it to be evaluated in. Quosures were developed as part of tidy
 evaluation in rlang, and the word is a portmanteau of "closure" (i.e. function)
 and "quotation" 
 ("Tidy evaluation in 5 minutes"[https://www.youtube.com/watch?v=nERXS3ssntw]).
+
+**Quarto:** a document publishing system, created by Posit as a successor to RMarkdown, the key difference being that Quarto supports multiple languages.
 
 ## R
 
