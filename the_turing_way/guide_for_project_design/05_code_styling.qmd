@@ -1,0 +1,14 @@
+---
+title: "Code Styling"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Linting is "code hygiene".
+
+"Comments have been described as “Love letters to your future self” by 
+Jon Peirce, creator of PsychoPy."
+
+For lines of text, they advise to write every sentence on a different line,
+rather than conforming to the 80 character limit.

@@ -1,0 +1,12 @@
+---
+title: "Continuous Integration"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Continuous integration means regular merging or regular combining of work.
+
+CI works best when it is automated - rather than having individual people remember to run tests every time they make a commit, you can set up GitHub to automatically do this.
+
+CI encourages people to make small changes and merge branches quickly - this ensures everyone is working on the same thing, without different branches diverging too far to be merged.
