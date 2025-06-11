@@ -1,0 +1,90 @@
+---
+title: "Quarto"
+author: "Joe Shaw"
+format:
+  pdf: default
+editor: visual
+---
+
+```{r}
+#| include: FALSE
+#| warning: FALSE
+
+library(tidyverse)
+
+```
+
+# Notes from [Quarto documentation](https://quarto.org/docs/)
+
+You can include links without square brackets.
+Example <https://quarto.org>.
+
+You can embed videos.
+
+# Code blocks, divs and spans
+
+A code block is marked with \`\`\`
+
+```{r}
+# include: TRUE
+
+apple <- 1
+
+1 + apple
+
+```
+
+The three-colon ::: symbol marks a fenced division (fenced div).
+
+::: border
+This is a div styled with a border
+:::
+
+Square brackets are used to define a span (which is a term from HMTL).
+
+[This is a span containing]{.class key="val"}*some italic text.*
+
+Divs are special entities which allow you to control the formatting of a **region** of a document.
+Spans are special entities which allow you to control the formatting of a section of **text**.
+
+# Figures
+
+```{r}
+#| echo: false
+#| label: fig-plot
+#| cap-location: top
+#| fig-cap: "This is my caption at the top of my figure"
+
+ggplot(mtcars, aes(mpg, cyl)) +
+  geom_point() +
+  labs(title = "This is my figure title in R")
+
+```
+
+# Using RStudio visual editor
+
+In the visual editor you can highlight text and format it with keyboard shortcuts, and then the source code will automatically update.
+
+**bold using control B**
+
+*italics using control I*
+
+[Link](href) using control K
+
+You can also cross reference like this (@fig-plot) using the visual editor.
+
+The visual editor is a GUI which feels more like Word - it means you don't have to constantly write MarkDown code - the editor translates what you want things to look like back into MarkDown automatically.
+This is known as "What You See Is What You Get" (WYSIWYG).
+
+```{r}
+# Here is an R code block generated using the editor
+```
+
+There is a spell checker in the visual editor.
+
+You can add comments in the visual editor as you would in Word.
+This could be a way to get non-R coders to review Quarto documents.
+
+You can even add emojis which is nice 😄
+
+A really useful shortcut is using the forward slash to insert anything.
