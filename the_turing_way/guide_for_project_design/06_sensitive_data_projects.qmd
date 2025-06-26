@@ -1,0 +1,59 @@
+---
+title: "Sensitive Data Projects"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Inner source is the use of open source software development best practices (open collboration, open communication and peer review practices) and the establishment of an open source-like culture within an organisation for the development of a non-open source output."
+
+"Researchers who are part of sensitive data projects may think that the nature of their data prohibits them from working in an open and reproducible manner. We want to show that, while it may require a bit of extra thinking and management, **working openly with sensitive data is possible and should be encouraged**."
+
+Sensitive data: any data were access needs to be restricted.
+
+Personal data: data which can identify a person; names, identification numbers, health records etc.
+
+Confidential data: passwords, trade secrets, intellectual property etc.
+
+"All of the information in our medical records that does not personally identify us would also be considered confidential, such as the notes doctors make when we visit them or test results."
+
+Some datasets could have both personal and confidential data.
+
+Health data is considered sensitive under GDPR.
+
+Sensitive data can still be FAIR. 
+The actual data doesn't need to be open, but the metadata does.
+
+"Even when data may not seem sensitive, it can become sensitive through triangulation or data linkage.
+
+In triangulation, pieces of information within the same dataset are not identifiable on their own, but become identifiable when combined with other data."
+
+"In data linkage, two or more anonymised datasets containing the same individuals are combined, which in turn increases the risk of identification."
+
+# Sharing data
+
+"An increasing number of journals now request, or even require, access to underlying research data as part of the article submission process."
+
+You can anonymise sensitive data, then make it accessible in a controlled way: instead of just posting it on the internet, you can put it in a publicly accessible repository which requires users to request access and describe what they will use the data for.
+
+# Practical Tips for Ethical Data Sharing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

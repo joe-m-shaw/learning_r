@@ -1,0 +1,10 @@
+---
+title: "Working on Sensitive Data Projects"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+Trusted Research Environment: "Typically TREs offer researchers collaborating on a project involving sensitive data a computing environment with restrictions on the ingress and egress of code, data and other research outputs appropriate to the level of sensitivity of the data in question."
+
+"TREs set up for researchers to work on particularly sensitive data will likely lack internet access, in order to prevent a data breach or the accidental disclosure of sensitive data outside the TRE."
