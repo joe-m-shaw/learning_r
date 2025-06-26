@@ -1,0 +1,32 @@
+---
+title: "The GoldAcre Report"
+author: "Joe Shaw"
+format: html
+---
+# Foreword
+
+"At present the system relies on multiple small data projects that do not join up, distributing large volumes of the same patient records to an uncountable range of very different sites for different projects and teams."
+
+## Recommendations
+
+Create and promote Trusted Research Environments (TRE).
+
+"Promote and resource ‘Reproducible Analytical Pathways’"
+
+"Recognise software development as a central feature of all good work with data."
+
+"Bridge the gap between health research and software development: train academic researchers and NHS analysts in contemporary computational data science techniques, using RAP where appropriate"
+
+"Create an NHS Analyst Service modelled on the Government Economic Service and Statistical Service"
+
+"Use people with technical skills to manage complex technical problems – create very senior strategic leadership roles for developers, data architects and data scientists"
+
+## Summary
+
+"Currently the large NHS analyst community contains a wide range of highly skilled individuals, and numerous outstanding and impressive pockets of world-class excellence. *However this workforce has become dispersed and isolated over the preceding decades, and now lacks a supportive professionalised structure.*"
+
+"There is a pervasive sense of a profession with great potential that is waiting to be unleashed."
+
+
+
+
