@@ -4,19 +4,21 @@ This repo is a centralised location for my learning resources for R and coding i
 
 ## Textbooks
 
-**"R for Data Science" by Hadley Wickham** - 2nd Edition - [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+**"R for Data Science" by Hadley Wickham** - 2nd Edition - [https://r4ds.hadley.nz/]()
 
-**"Advanced R" by Hadley Wickham** - 2nd Edition - [https://adv-r.hadley.nz](https://adv-r.hadley.nz) 
+**"Advanced R" by Hadley Wickham** - 2nd Edition - [https://adv-r.hadley.nz]() 
 
-**"R Packages" by Hadley Wickham and Jennifer Bryan** - 2nd Edition - [https://r-pkgs.org/](https://r-pkgs.org/) 
+**"R Packages" by Hadley Wickham and Jennifer Bryan** - 2nd Edition - [https://r-pkgs.org/]() 
 
-**"Mastering Shiny" by Hadley Wickham** - 1st Edition - [https://mastering-shiny.org/](https://mastering-shiny.org/)
+**"Mastering Shiny" by Hadley Wickham** - 1st Edition - [https://mastering-shiny.org/]()
 
 **"The Pragmatic Programmer" by Andrew Hunt and David Thomas** - 2nd edition
 
-**"Think Python" by Allen B. Downey** - 3rd Edition - [https://allendowney.github.io/ThinkPython/index.html#](https://allendowney.github.io/ThinkPython/index.html#)
+**"Think Python" by Allen B. Downey** - 3rd Edition - [https://allendowney.github.io/ThinkPython/index.html#]()
 
-**The Turing Way** 
+**"The Turing Way"** by The Turing Way Community - [https://book.the-turing-way.org]()
+
+**"Data Feminism"** by Catherine D'Ignazio and Lauren F. Klein
 
 ## Courses
 
