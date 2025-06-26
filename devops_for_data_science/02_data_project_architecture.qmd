@@ -1,0 +1,14 @@
+---
+title: "Data Project Architecture"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+The three layers of an app (or data science project):
+
+1. Presentation layer ("front end") - final report
+
+2. Processing layer ("back end") - the data analysis
+
+3. Data layer ("back end") - the data you work with

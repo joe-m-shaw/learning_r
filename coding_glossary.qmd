@@ -216,6 +216,8 @@ this, but you can for now", rather than "you can't use this".
 
 **DevOps:** development and operations.
 
+**Dimension table:** a type of table which contains descriptive data about a process, in contrast to fact tables which contain mainly numeric data.
+
 **Distribution:** a shell that sits around the kernel of an operating system. 
 Example: Ubuntu and Debian are shells that sit around the Linux kernel.
 
@@ -275,6 +277,8 @@ Word plug-in is an extension which adds a specific functionality (adding
 formatted references) to an existing piece of software (Microsoft Word).
 
 ## F
+
+**Fact table:** in the star schema data model, fact tables hold the measurements of a particular process. Fact tables include numeric values because they take up less storage space, this is in contrast to dimension tables which include longer text strings such as descriptions and attributes. One example would be a fact table with a "lab" column which has one row with value 1, which links out to a dimension table which specific that a value of 1 refers to "North West GLH".
 
 **Firefox:** a web browser. The name “firefox” came from changing the original 
 name (“Phoenix”) to “Fire Bird”, which was then changed to “Firefox” because 
@@ -651,6 +655,8 @@ loop), then you get a “stack overflow”. Wikipedia: "also known as an executi
 stack, program stack, control stack, run-time stack, or machine stack, and is 
 often shortened to simply "the stack"."
 
+**Star schema:** a data model for data warehouses based on a structure of fact tables surrounded by multiple dimension tables (the dimension tables are like the points of a star).
+
 **Symlinking:** a “symlink” or “symbolic link” is a text string which provides 
 a path to a specific file. Symlinking can be useful because it provides a way 
 for the Genesis scripts to access FASTQ files stored on a separate directory 
@@ -672,6 +678,8 @@ had to be archived on magnetic tape. Often tar files are referred to as
 "tarballs". Tarballs are blobs of oil which wash up on beaches. Like an sticky 
 oil tarball, .tar files collect lots of things together.
 
+**TensorFlow:** an open-source library for machine learning.
+
 **Test coverage:** the percentage of a package's source code that is run when 
 the package's test are run. A test coverage of 100% means all the source code is 
 included in the tests.
@@ -681,6 +689,9 @@ the results of a new programme can be compared.
 
 **Traceback:** the sequence of function calls that led to an error (another word
 for "call stack").
+
+**TRE:** Trusted Research Environment. TREs are a computing environment for the storage and analysis of sensitive data, like electronic health records. 
+Sometimes TREs are referred to as "secure research environments" or "data safe havens" (definition from [The Turing Way](https://book.the-turing-way.org/project-design/sdpw/trew)).
 
 **Type:** a set of values, plus the operations which can be performed on them 
 (i.e. integer and floating point types).

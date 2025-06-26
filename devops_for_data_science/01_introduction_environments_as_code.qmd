@@ -1,0 +1,28 @@
+---
+title: "Introduction"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Introduction
+
+"DevOps is a squishy concept, much like the closely related Agile software development process."
+
+"It took a little while for the field to be formalized, with the term DevOps coming into common usage around 2010."
+
+"While most data scientists have ways to share code, sharing environments isn’t always standard practice, but it should be."
+
+# Environments as Code
+
+3 layers of an environment:
+
+1. Hardware: the actual machine the code is running on
+
+2. System: the operating system and essential libraries (like R)
+ 
+3. Package: the R packages your code needs
+
+"In Python, there are many different options for virtual environment tooling. I recommend {virtualenv}/{venv} and related tools for production data science.
+
+In R, there’s really only one game in town: the {renv} package."
