@@ -1,0 +1,20 @@
+---
+title: "Server Resources and Scaling"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"The mind-bending part is that everything your computer does – every single cooking video, Jupyter Notebook, and internet personality quiz – is accomplished solely by adding these integers"
+
+"That means a helpful mental model for a computer is a factory for doing addition problems. Everything you ask your computer to do is turned into an addition problem, then processed and returned, with the results interpreted as meaningful."
+
+Factory analogy of a computer: imagine a computer as a factory where numbers are added together.
+
+Core: a conveyor belt in a production line in the factory.
+A factory with more lines can process more work in a quicker time.
+The speed of a core is how fast the conveyor belt moves.
+
+Random access memory: the space next to the conveyor belts, where new numbers to be added are temporarily stored.
+
+Storage: the warehouse next to the factory where things are stored long-term.

@@ -1,0 +1,37 @@
+---
+title: "The Command Line and Linux"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Command Line
+
+"Windows didn’t support SSH out of the box for a long time, so SSH-ing from Windows required a separate utility called PuTTY."
+
+# Linux
+
+"Linux is the world’s predominant operating system (OS) outside of personal computers and phones. Almost all of the world’s embedded computers run Linux – in ATMs, cars, planes, TVs, smart thermostats, and most other gadgets and gizmos. Android is a version of Linux, as is ChromeOS. Almost all of the world’s supercomputers run Linux.
+
+Most importantly for our purposes, most of the world’s servers run on Linux."
+
+Formerly, hardware and software were intrinsically linked: software was made for specific hardware.
+
+Then, Bell Labs created Unix: an **operating system** that would sit between the software and the hardware.
+This meant that hardware could be designed to run Unix and software could be designed to run on Unix, which massively opened up what computers could do.
+People didn't want to pay for Unix, so they made "Unix clones" - things that were very like Unix but free and open-source.
+
+"In Windows, each physical or logical disk has its own filesystem with its own root. You’re probably familiar with C: as your main filesystem. Your machine may also have a D: drive. If you’ve got network share drives, they’re likely at M: or N: or P:."
+
+"Another difference is that Windows uses  to separate file path elements rather than /. This used to be a big deal, but newer versions of Windows accept file paths using /."
+
+"Be very careful with the rm command, especially with -rf.
+
+There’s no recycle bin.
+Things that are deleted are instantly deleted forever."
+
+"The R pipe, %\>%, operates very much like the Linux pipe. It was first introduced in the {magrittr} package in 2013 and is a popular part of the {tidyverse}.
+
+The {magrittr} pipe was itself inspired by pipe operators from Unix (Linux) and the F# programming language.
+
+Due to its popularity, the pipe \|\> was formally added to the base R language in R 4.1 in 2021."

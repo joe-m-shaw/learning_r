@@ -130,6 +130,8 @@ Integration and Deployment". CI is the process of continually integrating the
 contributions of multiple collaborators on a software project, with development 
 tasks automatically executed when certain events happen.
 
+**Cloud:** 
+
 **Colab:** a website which allows you to run Jupyter notebooks on the cloud, 
 so you don't need to install software onto your computer. Colab is free and 
 owned by Google.
@@ -610,6 +612,8 @@ a cloud computing platform or over the internet. The key thing is that the
 user does not buy the software and put it on their device, they instead buy
 access to the software.
 
+**SAS:** Statistical Analysis System. A software language used for statistics.
+
 **Scheme:** a dialect (version) of the LISP programming language. Scheme had a 
 big influence on the development of R.
 
@@ -645,6 +649,8 @@ program functions, which is written in a high-level, human-readable language.
 
 **SQL:** structured query language. A database language invented by IBM in the
 1970s.
+
+**SSH:** Secure Socket Shell is "is a tool for making a secure connection to another computer over an unsecured network" (DevOps for Data Science).
 
 **Stack (call stack):** an abstract data type in which data elements are 
 “stacked” on top of each other. What this means functionally is that elements 
@@ -697,6 +703,8 @@ Sometimes TREs are referred to as "secure research environments" or "data safe h
 (i.e. integer and floating point types).
 
 ## U
+
+**Ubuntu:** a distribution of Linux, named after the Nguni philosophy of humanity towards others (Wikipedia).
 
 **Uniform Access Principle:** a principle designed to provide “uniform access” 
 to something in an object-oriented programming language, regardless of whether 

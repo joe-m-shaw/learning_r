@@ -1,0 +1,17 @@
+---
+title: "The Cloud"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Unlike the Apple, Windows, or Android operating systems on your personal devices, most servers run the Linux operating system."
+
+"The cloud is rental servers"
+
+Server renting was started by Amazon in 2006.
+Cloud servers are an alternative to servers "on prem" ("on the premises").
+
+"When you rent a server from a cloud provider, you are usually not renting a whole server. Instead, you’re renting a virtualized server or a virtual machine (vm), usually called an instance. What you see as your server is probably just a part of a larger physical server you share with other cloud provider customers."
+
+Simple Storage Service: S3

@@ -1,0 +1,31 @@
+---
+title: "Computer Networks"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+URLs are composed of a protocol, a domain, a port and a path.
+
+Example: https://do4ds.com/chapters/sec2/2-6-networking.html
+
+"https://" - the protocol
+"/do4ds.com" - the domain
+"/chapters/sec2/2-6-networking.html" - the path
+
+# Domains and DNS
+
+"To make the internet a little more human-friendly, the creators of the internet built the domain name system (DNS) that translates between human-readable domains and the IP Addresses where the resources live."
+
+"When you create or launch a website, you’ll purchase (rent, really) a domain from a domain name registrar"
+
+# HTTPS
+
+"If you’re of a certain age, you may recall warnings that you shouldn’t use the WiFi at your neighborhood Starbucks. The issue was twofold.
+
+First, HTTP has no way to verify that the website you think you’re interacting with is, in fact, that website. A bad actor could put up a fake WiFi network that resolves
+to a look-alike website that captures your banking login. That’s called a man-in-the-middle attack.
+
+And even if they didn’t use that trick specifically, there were tools to read the unencrypted HTTP traffic going back and forth in what’s called a packet sniffing attack.
+
+In 2015, Google Chrome began the process of marking any site using plain HTTP as insecure, which led to the nearly complete adoption of HTTPS across the internet. Both man-in-the-middle and packet sniffing attacks have been neutered. It’s now safe to use any random WiFi network you want because of HTTPS."

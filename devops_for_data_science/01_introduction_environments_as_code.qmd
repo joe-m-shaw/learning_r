@@ -17,11 +17,11 @@ editor: visual
 
 3 layers of an environment:
 
-1. Hardware: the actual machine the code is running on
+1.  Hardware: the actual machine the code is running on
 
-2. System: the operating system and essential libraries (like R)
- 
-3. Package: the R packages your code needs
+2.  System: the operating system and essential libraries (like R)
+
+3.  Package: the R packages your code needs
 
 "In Python, there are many different options for virtual environment tooling. I recommend {virtualenv}/{venv} and related tools for production data science.
 
