@@ -7,8 +7,14 @@ editor: visual
 
 The three layers of an app (or data science project):
 
-1. Presentation layer ("front end") - final report
+1.  Presentation layer ("front end") - final report
 
-2. Processing layer ("back end") - the data analysis
+2.  Processing layer ("back end") - the data analysis
 
-3. Data layer ("back end") - the data you work with
+3.  Data layer ("back end") - the data you work with
+
+Key piece of advice:
+Do less in the presentation layer
+"The only code that belongs in the presentation layer is code that shows something to the user or that collects input from the user. Creating the things shown to the user or doing anything with the interactions shouldn’t be in the presentation layer. These should be deferred to the processing layer."
+
+DuckDB is a good option for storing data - it's free and open-source.

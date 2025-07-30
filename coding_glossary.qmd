@@ -85,6 +85,8 @@ interpret the information encoded within all the 0s and 1s, you need specific
 software and hardware, such as the operating system and microprocessors of the 
 computer.
 
+**Blob storage:** blob stands for "Binary Large OBject". Blob storage is a way of storing data in an unstructured way - it has gained popularity because it is easy to scale the ammount of data stored, which works well with cloud storage platforms (DevOps for Data Science, chapter 2).
+
 **Boilerplate:** boilerplate refers to standard language that is copied with 
 minimal change. In coding, certain packages may generate "boilerplate" content 
 which you only need to modify slightly. One example is the DESCRIPTION file 
@@ -124,6 +126,8 @@ the telephone.
 **C++:** a modified version of the C programming language, pronounced "C plus 
 plus". There is no "C+" because "++" is an operator in the C language, so "C++" 
 means "C with stuff added to it", not "C version 3".
+
+**Caboodle:** a commercial data-warehouse which is part of the Epic electronic health record.
 
 **CI:** Continuous Integration. Sometimes written as CI/CD for "Continuous 
 Integration and Deployment". CI is the process of continually integrating the 
@@ -258,6 +262,8 @@ a URL. An example of a DOI is 10.1000/182 (DOI Handbook).
 **DRY:** Don't Repeat Yourself. Standard advice in coding which supports the 
 creation of functions to repeat tasks, rather than repeating code which is 
 harder to maintain and fix.
+
+**DuckDB:** a free open-source database management tool, made as a spin-out from a university in the Netherlands.
 
 ## E
 
