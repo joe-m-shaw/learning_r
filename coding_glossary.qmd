@@ -380,7 +380,7 @@ see the webpage source code written in HTML.
 
 ## I
 
-**IDE:*** Integrated Development Environment. A piece of software that makes 
+**IDE:** Integrated Development Environment. A piece of software that makes 
 it easier to interact with a programming language using a GUI. Examples of IDEs 
 include RStudio, VSCode and IDLE.
 
@@ -392,8 +392,7 @@ unique numerical identifier which is given to every device (such as a laptop,
 printer or computer) which accesses the internet. IP addresses are needed 
 whenever you send information through a network, in order to identify the 
 device sending the message and the intended recipient. IP addresses are made
-up of four numbers separated by decimal points. For example, the IP address 
-of the Crick analysis server is 10.101.46.248. These four numbers are then 
+up of four numbers separated by decimal points. These four numbers are then 
 transmitted as a 32-digit code of ones and zeroes (32-bit).
 
 ## J
@@ -524,6 +523,7 @@ things change, the impact on the code is limited (the system is more resilient);
 the code is easier to maintain; if one module goes bad, the damage is minimised.
 
 ## P
+
 **Parse:** parse can be used in two main contexts. The first is to break down 
 something into it’s constituent parts, as in “parsing a text string”. The second
 is the process of a computer reading source code before it is compiled. Hadley 
@@ -572,7 +572,7 @@ Quarto and Jupyter are examples of literate programming.
 
 **Programming (reactive):** 
 
-**Prompt: three arrow symbols at the start of a line (>>>)**
+**Prompt:** three arrow symbols at the start of a line (>>>)
 
 **Provenance (data):** a way of describing the source and history of data used
 in an analysis. Provenance can be thought of like version control: which 
@@ -1322,14 +1322,24 @@ integer, coerces to double, coerces to character, coerces to list.
 
 # Python Terms
 
+## A
+
 **Anaconda:** a distribution of Python that is designed for data analysis. By 
 installing Anaconda, you get Python plus several useful data analysis packages 
 such as NumPy, matplotlib and pandas.
+
+## B
+
+## C
+
+**Conda:** a package and environment manager for multiple open-source lanaguages, including python. Conda is not the same as Anaconda.
 
 **Copy (shallow):** when you copy an object, but not the objects it contains.
 
 **Copy (deep):** when you copy and object, and also copy the objects that the
 object refers to.
+
+## D
 
 **Dead code:** code that can never be run. An example is given in 
 [chapter 6 of Think Python](https://allendowney.github.io/ThinkPython/chap06.html):
@@ -1370,9 +1380,33 @@ number_dict = {'zero': 0, 'one': 1, 'two': 2}
 
 **Dunder:** a double underscore __
 
+## E
+
+## F
+
+## G
+
+## H
+
 **Hash table:** the table which stores information in a Python dictionary. Hash 
 tables require keys to be non-mutable, and are very useful because searching a 
 hash table is very quick even when the table gets very large.
+
+## I
+
+## J
+
+## K
+
+## L
+
+## M
+
+**MATLAB:** "MATrix LABoratory" - a proprietary programming language for data 
+analysis. 
+
+**matplotlib:** a library for making plots in Python, originally developed in 
+2003 by John D. Hunter. The name is a portmanteau of "MATLAB plot library".
 
 **Method:** a function that is associated with an object, and separated by a 
 full stop.
@@ -1393,22 +1427,26 @@ name.lower()
 Modules in Python are the loose equivalents of packages in R. Examples of Python 
 modules include matplotlib, numpy and pandas.
 
+## N
+
 **NumPy:** (Numerical Python) an open-source Python library for working with 
 arrays, created in 2005 by Travis Oliphant.
 
-**MATLAB:** "MATrix LABoratory" - a proprietary programming language for data 
-analysis. 
+## O
 
-**matplotlib:** a library for making plots in Python, originally developed in 
-2003 by John D. Hunter. The name is a portmanteau of "MATLAB plot library".
+## P
 
 **Package:**
 
 **pandas:** an open-source Python library for data analysis, developed by Wes 
 McKinney in 2010. The name "pandas" is taken from "**pa**nel **da**ta".
 
+**pip:** a package management system written in Python. Pip is a recursive acronym for "Pip Installs Packages".
+
 **Plotly:** a Canadian company that makes tools for different programming 
 languages, including Python.
+
+**plotyly.py:** a python module for making plots, which was developed by Plotly.
 
 **Polymorphism:** the ability of different types to provide methods of the same
 name. See 
@@ -1419,11 +1457,19 @@ for details.
 
 **Pythonista:** a loyal fan of Python.
 
+## Q
+
+## R
+
 **reticulate:** an R package for translating R into Python and vice versa.
+
+## S
 
 **Scaffolding:** code that is useful when building and testing a function (such 
 as print statements to check intermediate variables) but which can be removed 
 when the function is finished.
+
+## T
 
 **Tuple:** a data structure in Python, similar to a list but immutable. Tuple is
 a general term for a number of elements in a sequence (like "quintuple" - the 
@@ -1440,6 +1486,16 @@ python_tuple = (0, 1, 2)
 **Turing complete:** "A language, or subset of a language, is Turing complete 
 if it can perform any computation that can be described by an algorithm." 
 ([Think Python chapter 6](https://allendowney.github.io/ThinkPython/chap06.html))
+
+## U
+
+## V
+
+## W
+
+## X
+
+## Z
 
 # Bioinformatics Terms
 
@@ -1533,37 +1589,3 @@ sequencing cycle.
 browser for manual genome annotations, and is based on the Ensembl browser. 
 As a result, it looks similar to Ensembl and can be used in the same way. Vega 
 was launched by the Wellcome Trust Sanger Institute in 2004.
-
-# History
-
-## Timeline of R
-
-- 1976: S was a language built at Bell Laboratories (New Jersey, USA) - the S 
-stood for "Statistics".
-
-- 1980: S distributed outside of Bell Laboratories.
-
-- 1988: the "new S language" S-PLUS released.
-
-- 1993: Ross Ihaka and Robert Gentleman develop R, based on S, to teach 
-statistics at the University of Auckland (New Zealand).
-
-- 1997: R becomes a GNU project - free, publicly accessible and built by mass
-collaboration.
-
-- 2000: first official version (R v1.0) released.
-
-- 2009: Rstudio (now called Posit) founded.
-
-- 2018: release of the tidyverse.
-
-# Questions
-
-**Are all programming languages based on English?**
-
-English is the common language of computing. Most of the early computers were 
-built in English-speaking countries, and so languages developed to use Latin 
-characters with English words. Even when non-English programmers develop 
-software (Guido Van Rossum, Python, Dutch; Linus Torvalds, Linux, Finnish) 
-they use English. So the majority of the world’s major programming languages 
-use English as a base, but new non-English languages are being invented.
