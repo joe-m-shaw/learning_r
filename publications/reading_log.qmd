@@ -546,8 +546,25 @@ Rocker container without having to upgrade their local installations first."
 and hosted on the Docker
 Hub, https://hub.docker.com/r/rocker."
 
+# NHS-R Seminar: "An Improved I Chart" by Jacob Anhoj
 
+13/08/2025
 
+SPC: statistical process control
+
+Control chart: measuring things over time
+
+Common cause variation: normal noise - nothing to worry about
+
+Special cause variation: non-random variation - something to worry about
+
+The control chart doesn’t tell you why something happened but it can flag what you should investigate.
+
+But where do you put the thresholds? How do you know when something is outside of normal limits?
+
+I-prime (I') chart: a chart with thresholds that adapt to the size of the data, rather than remaining static over time.
+
+Example: median glycated haemoglobin across Denmark seemed to spike in April 2020 when an I chart is plotted. But the spike is actually because there was less data that month: the country was in a Covid lockdown and fewer patients visited clinics. When you use an I-prime chart it shows that the variation is within the expected range.
 
 # References
 
