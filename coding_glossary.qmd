@@ -653,6 +653,8 @@ a Unix-like computer will be controlled using a Unix-like shell.
 **Source code:** the fundamental section of a program which declares how the 
 program functions, which is written in a high-level, human-readable language.
 
+**SPC:** statistical process control - using statistics to monitor processes, originally used in manufacturing but can also be used in healthcare.
+
 **SQL:** structured query language. A database language invented by IBM in the
 1970s.
 
@@ -1394,6 +1396,8 @@ hash table is very quick even when the table gets very large.
 
 ## I
 
+**IPython:** a command shell developed for python
+
 ## J
 
 ## K
@@ -1453,7 +1457,7 @@ name. See
 [Think Python chapter 16](https://allendowney.github.io/ThinkPython/chap16.html#polymorphism) 
 for details.
 
-**PyPI:** Python Package Index
+**PyPI:** Python Package Index. The online repository of Python packages, which are automatically downloaded using the pip package. PyPI is the Python equivalent of CRAN.
 
 **Pythonista:** a loyal fan of Python.
 
