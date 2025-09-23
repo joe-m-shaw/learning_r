@@ -1,0 +1,54 @@
+---
+title: "Introduction"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+# Introduction
+
+DRY: Don’t Repeat Yourself; WIT: Write IT down.
+
+"DRY WIT is not only the best type of humour, it is also the best way to write reproducible analytical pipelines."
+
+"is it code written in a proprietary program, like STATA, SAS or MATLAB? Then your project is not reproducible."
+
+The language needs to be open source
+
+The operating system needs to be open source
+
+Excel is by definition not reproducible - it is proprietary software and cannot be run non-interactively.
+
+nocode: a tool like Microsoft Excel
+
+"the concept of “scripts and/or data available upon request” belongs in the trash."
+
+"reproducibility is on a continuum, and depending on the constraints you face your project can be “not very reproducible” to “totally reproducible”. "
+
+# 2: Before we start
+
+REPL – Read-Eval-Print-Loop – environment
+
+"I also highly recommend that you strive to use relative paths in your scripts, and not absolute paths."
+
+# 3: Project start
+
+Description of a project looking at housing prices in Luxembourg.
+
+The first attempt is not reproducible.
+
+# 4: Version control with Git
+
+Github got bought by Microsoft in 2018.
+
+"It is generally not a good idea to code all day and then only push one single big fat commit at the end of the day, but that is what happens very often…"
+
+# 5: Trunk based development
+
+git blame tells you who changed the code.
+
+Main idea of trunk-based development: "Each contributor opens a new branch to develop a feature or fix a bug, and works alone on his or her own little branch"
+
+"The philosophy is that if merging fails, it should fail as early as possible. Early failures are easy to deal with."
+
+Merging back to the trunk "as soon as possible" could mean "as soon as we added some code that does not break the whole project, even if the feature we wanted to add is not done yet."

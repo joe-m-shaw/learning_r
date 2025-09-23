@@ -18,7 +18,7 @@ This repo is a centralised location for my learning resources for R and coding i
 
 **"The Turing Way"** by The Turing Way Community - [https://book.the-turing-way.org]()
 
-**"Data Feminism"** by Catherine D'Ignazio and Lauren F. Klein
+**"Building reproducible analytical pipelines with R" by Bruno Rodrigues** - [https://raps-with-r.dev/]()
 
 ## Courses
 

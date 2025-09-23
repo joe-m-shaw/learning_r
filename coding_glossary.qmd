@@ -293,6 +293,10 @@ name (“Phoenix”) to “Fire Bird”, which was then changed to “Firefox”
 “Fire Bird” was already taken by another company. “Firefox” is another term 
 for a red panda.
 
+**Flask:** a web framework for building apps, which is written in Python, similarly to Django.
+It was developed by Armin Ronacher in 2010. 
+The name is a pun on a previous web framework called bottle, which Ronacher says was ["probably a mistake"](https://web.archive.org/web/20160604162342/http://mitsuhiko.pocoo.org/flask-pycon-2011.pdf). 
+
 **Floating point:** a numeric type with decimal places.
 
 **Foobar:** foo and bar are words used as place-holder names for demonstrating 
@@ -347,6 +351,8 @@ with other systems.
 
 **Graphical user interface (GUI):** a method of interaction between a user and 
 a computer involving visual icons (also called a GUI).
+
+**Graphpad:** proprietary statistics software designed for use with Apple and Windows computers.
 
 ## H
 
@@ -618,7 +624,7 @@ a cloud computing platform or over the internet. The key thing is that the
 user does not buy the software and put it on their device, they instead buy
 access to the software.
 
-**SAS:** Statistical Analysis System. A software language used for statistics.
+**SAS:** Statistical Analysis System. A proprietary software language used for statistics.
 
 **Scheme:** a dialect (version) of the LISP programming language. Scheme had a 
 big influence on the development of R.
@@ -670,6 +676,8 @@ stack, program stack, control stack, run-time stack, or machine stack, and is
 often shortened to simply "the stack"."
 
 **Star schema:** a data model for data warehouses based on a structure of fact tables surrounded by multiple dimension tables (the dimension tables are like the points of a star).
+
+**Stata:** a proprietary statistical software package.
 
 **Symlinking:** a “symlink” or “symbolic link” is a text string which provides 
 a path to a specific file. Symlinking can be useful because it provides a way 
