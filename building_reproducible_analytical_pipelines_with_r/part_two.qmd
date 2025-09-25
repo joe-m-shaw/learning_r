@@ -13,6 +13,27 @@ Docker solves the issue of installing older packages.
 
 Turn scripts into markdown documents.
 
+Literate programming has the advantage over code comments in that it can include much more context and detail.
+
+The general format is:
+- Explain what you're doing
+- Write a function
+- Use that function
+
+knitr::knit_child creates a child document.
+
+This is really helpful if you want to have lots of code chunks which are formatted in the same way (a plot for dataset1, the same plot for dataset 2 etc).
+
+# 10: Freezing packages
+
+"At a minimum, {renv} ensures that a project’s library doesn’t interfere with another project’s library while you’re working on different projects."
+
+renv alone is not enough to ensure reproducibility - it gives a list of which versions of packages you used, but in practice it can be really hard to install old package versions and recreate the exact environment.
+
+# 11: Packaging your code
+
+The term fusen comes from origami - flat paper is inflated to create a box shape.
+
 
 
 
