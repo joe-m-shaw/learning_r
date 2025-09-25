@@ -16,7 +16,9 @@ This repo is a centralised location for my learning resources for R and coding i
 
 **"Think Python" by Allen B. Downey** - 3rd Edition - [https://allendowney.github.io/ThinkPython/index.html#]()
 
-**"The Turing Way"** by The Turing Way Community - [https://book.the-turing-way.org]()
+**"The Turing Way" by The Turing Way Community** - [https://book.the-turing-way.org]()
+
+**DevOps for Data Science:**
 
 **"Building reproducible analytical pipelines with R" by Bruno Rodrigues** - [https://raps-with-r.dev/]()
 

@@ -13,21 +13,17 @@ DRY: Don’t Repeat Yourself; WIT: Write IT down.
 
 "is it code written in a proprietary program, like STATA, SAS or MATLAB? Then your project is not reproducible."
 
-The language needs to be open source
+The language needs to be open source.
 
-The operating system needs to be open source
+The operating system needs to be open source.
 
 Excel is by definition not reproducible - it is proprietary software and cannot be run non-interactively.
-
-nocode: a tool like Microsoft Excel
 
 "the concept of “scripts and/or data available upon request” belongs in the trash."
 
 "reproducibility is on a continuum, and depending on the constraints you face your project can be “not very reproducible” to “totally reproducible”. "
 
 # 2: Before we start
-
-REPL – Read-Eval-Print-Loop – environment
 
 "I also highly recommend that you strive to use relative paths in your scripts, and not absolute paths."
 
@@ -52,3 +48,101 @@ Main idea of trunk-based development: "Each contributor opens a new branch to de
 "The philosophy is that if merging fails, it should fail as early as possible. Early failures are easy to deal with."
 
 Merging back to the trunk "as soon as possible" could mean "as soon as we added some code that does not break the whole project, even if the feature we wanted to add is not done yet."
+
+This means making a new branch every time you want to change the code, and it means that the main (trunk) branch always has functioning code.
+
+# 6: Functional programming
+
+State: "a box that holds everything that gets defined by the user and is accessible at any time."
+
+"Generally, we want to avoid using functions that change the state as much as possible because these functions are unpredictable, especially if randomness is involved."
+
+"A referentially transparent function is a function that does not use any variable that is not also one of its inputs"
+
+"pure functions are thus necessarily referentially transparent."
+
+"the first lesson in your functional programming journey that you have to remember is to only use pure functions."
+
+Functions should be assertive: they should make clear what inputs can and can't be used. This is to avoid anything unexpected happening.
+
+```{r}
+#| label: example
+#| include: TRUE
+
+# The nchar function gives two different answers depending on whether
+# 1000000 is formatted as a string or number
+nchar("1000000")
+
+nchar(1000000)
+
+# This is because large numbers get printed with scientific notation in R
+# And the scientific notation is 5 characters long
+print(1000000)
+
+```
+
+"This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface."
+
+Composition: the idea of splitting tasks into small functions which each do one thing and then are called in sequence.
+
+Functions should be able to handle lists, because lists are a universal interface.
+"R is lists all the way down".
+
+Recursive function: a function which calls itself within its own body.
+
+Recursive functions tend to be slower than iterative functions.
+
+```{r}
+#| label: recursive-functions
+#| include: TRUE
+
+recursive <- function(n) {
+  
+  if(n == 0 || n == 1){
+  result = 1
+  } else {
+    n * recursive(n-1)
+  }
+  
+}
+
+recursive(4)
+
+recursive(4) == 1*2*3*4
+
+```
+
+Trampolining: make functions deeply recursive (i.e. that bounce from function to function like multiple trampolines)
+
+Loops require of changing the state of a program multiple times.
+
+"This list-column based workflow is extremely powerful and I highly advise you to take the required time to master it."
+
+"whatever you end up using, you need to avoid copy and pasting at all costs."
+
+"R is what John Chambers called a functional OOP language (Chambers (2014))."
+
+"If there is only one thing that you should remember from this chapter, it would be pure functions."
+
+Key points from the chapter:
+
+- Use pure functions which do not alter the state (external environment) of the program
+- Design functions to handle lists as inputs
+- Break problems into multiple small functions which each do one thing, and then link them together
+
+# 7: Literate programming
+
+Brief history:
+2002: Sweave is made as a solution to the problem of copying and pasting outputs from R scripts into report documents.
+
+2012: knitr is released, which can handle code chunks from other languages.
+
+2022: Quarto is released.
+
+"Remember; we never, ever, want to have to repeat ourselves. Copy and pasting is forbidden. Striving for 0 copy and pasting will make our code much more robust and likely to be correct."
+
+You can write functions in RMarkdown to create new sections, rather than copying and pasting code.
+
+"Child documents are exactly what you think they are: they’re smaller documents that get knitted and then embedded into the parent document."
+
+"It is important not to succumb to the temptation of copy and pasting sections of your report, or parts of your script, instead of using these more advanced features provided by the language. It is tempting, especially under time pressure, to just copy and paste bits of code and get things done instead of writing what seems to be unnecessary code to finally achieve the same thing. The problem, however, is that in practice copy and pasting code to simply get things done will come bite you sooner rather than later."

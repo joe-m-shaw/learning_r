@@ -1,0 +1,20 @@
+---
+title: "Part Two"
+author: "Joe Shaw"
+format: html
+editor: visual
+---
+
+"Using the tools described in part two of this book, we can actually set up the project, right from the very beginning, in a way that it will be reproducible quite naturally. "
+
+Docker solves the issue of installing older packages.
+
+# 9: Rewriting our project
+
+Turn scripts into markdown documents.
+
+
+
+
+
+

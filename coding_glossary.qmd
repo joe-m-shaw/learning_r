@@ -495,6 +495,8 @@ to "Â£". “Mojibake” is Japanese for “character transform”.
 
 ## N
 
+**no-code:** a no-code tool is one that allows the user to do some sort of data analysis or app development without needing to write code. The most obvious example is Microsoft Excel.
+
 ## O
 
 **Object-oriented programming:** programming languages which are founded around 
@@ -714,6 +716,10 @@ for "call stack").
 
 **TRE:** Trusted Research Environment. TREs are a computing environment for the storage and analysis of sensitive data, like electronic health records. 
 Sometimes TREs are referred to as "secure research environments" or "data safe havens" (definition from [The Turing Way](https://book.the-turing-way.org/project-design/sdpw/trew)).
+
+**Trunk:** the "trunk" branch on Github is another term for the "main" or "master" branch.
+
+**Trunk-based development:** an approach to developing a project where anyone wanting to change the code creates a new branch, modifies the code and then (as soon as possible) merges the new branch back into the trunk (main branch). This makes sure that the trunk always has functioning code - "Reproducible analytical pipelines with R" chapter 5.
 
 **Type:** a set of values, plus the operations which can be performed on them 
 (i.e. integer and floating point types).
@@ -1026,6 +1032,28 @@ only on the inputs, and the function has no side effects outside the function's
 internal environment ([Advanced R chapter 9](https://adv-r.hadley.nz/fp.html)).
 Pure functions are also found in other languages, such as Python 
 ([Think Python chapter 6](https://allendowney.github.io/ThinkPython/chap06.html)).
+
+**Function (recursive):** a recusrive function is a function which calls itself within its own body (see "Reproducible analytical pipelines in R" - chapter 6).
+
+```{r}
+#| label: recursive-functions
+#| include: TRUE
+
+# Here is a function for calculating a factorial
+recursive <- function(n) {
+  
+  if(n == 0 || n == 1){
+  result = 1
+  } else {
+    # Function calls itself
+    n * recursive(n-1)
+  }
+  
+}
+
+recursive(4)
+
+```
 
 **Function (wrapper):** a wrapper function is a function whose purpose is to 
 call another function. In this way the functions "wraps around" another function.
