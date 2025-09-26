@@ -34,6 +34,25 @@ renv alone is not enough to ensure reproducibility - it gives a list of which ve
 
 The term fusen comes from origami - flat paper is inflated to create a box shape.
 
+"Write it down, write it down, write it down… you’re already documenting and testing things (most of the time in the console only), so why not just write it down once and for all, so you don’t have to rely on your ageing, mushy brain so much?"
+
+"My very personal take on licenses is that you should use copyleft licenses as much as possible (so licenses like the GPL) which ensure that if others take your code and change it, their changes also have to be republished to the public under the GPL – but only if they wish to publish their changes at all."
+
+"licenses like the MIT allow private companies to take open source and freely available code and incorporate it inside their own proprietary tools, without having to give back their modifications to the community."
+
+Example: Andrew S. Tanenbaum built an OS called MINIX and released it under a permissive licence. Intel then took MINIX, modified it, and sold it within their new chips - open-source code had been used to make a profit for a private company.
+
+"You can always access a “private” function by using ::: (three times the :), as in package:::private_function()."
+
+fusen uses devtools.
+
+# 12: Testing your code
+
+
+
+
+
+
 
 
 
