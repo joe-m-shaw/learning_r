@@ -48,13 +48,61 @@ fusen uses devtools.
 
 # 12: Testing your code
 
+Testing is far too important to rely on people to remember to run tests regularly - the testing process has to be automatic.
 
+Unit testing = function testing
 
+Unit testing is performed in the development stage (when the package is being built).
 
+Assertions are executed at run-time: when the function is called.
 
+Unit tests are stored within the tests folder, whilst assertions are within the bodies of functions.
 
+"Notice that I’ve used expect_equivalent() and not expect_equal() to check if expected_df is equal to the output of get_laspeyeres(input_df). This is because expected_df is of class data.frame, while get_laspeyeres() outputs a tibble. So if you use expect_equal() the test would not pass, because the classes of both objects are not strictly equal. Sometimes, this level of strictness is required, but not always, as is the case here."
 
+You can use stopifnot to print error messages.
 
+```{r}
+#| label: error-with-stopifnot
+#| include: TRUE
+#| echo: FALSE
+#| error: TRUE
 
+add_one <- function(x) {
+  
+  stopifnot("x must be a number" = 
+              is.numeric(x))
+  
+  x + 1
+  
+}
 
+add_one(2)
 
+add_one("2")
+
+```
+
+You can use inherits() to check the type and class of inputs.
+
+"There really is no other way to say this: you need to consider writing tests as an integral part of the project, and need to take the required time it takes to write them into account when planning projects."
+
+# 13: Build automation with targets
+
+"When using a build automation tool, what you end up doing is writing down a recipe that defines how the source code should be “cooked” into the software (or in our case, a report, a cleaned dataset or any data product)."
+
+"We want our pipeline to be a sequence of pure functions."
+
+"Even if you want to compile the document into another format, I advise you to develop using the .html format. This is because you can open the .html file in the web-browser, and keep working on the source. Each time you run the pipeline after you made some changes to the file, you simply need to refresh the web-browser to see your changes."
+
+"A good second reason to have output in the .html format is that HTML is a text-only format, and thus can be tracked with version control systems covered in Chapter 5. The MS Word format is binary, and tracking it in Git is always an undecipherable mess."
+
+I skim-read this chapter as it is beyond my current skill level.
+
+# 14: Docker
+
+"The authors relied on a hidden state (the order of the files) to program their script; in other words, their pipeline was not referentially transparent."
+
+"In very simple (and technically wrong) terms, Docker makes it easy to run a Linux virtual machine (VM) on your computer."
+
+Docker environments are Linux environments. Why Linux? Because reproducibility requires an open-source solution.

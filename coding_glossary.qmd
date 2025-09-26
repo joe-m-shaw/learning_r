@@ -566,6 +566,10 @@ Intelligence (BI).
 **Problem domain:** an area of expertise that needs to be understood in order 
 to solve a problem.
 
+**Programming (assertive):** a style of programming where code automatically checks that assertions are met, in order to fail quickly when they aren't. Assertions are commonly used to check the inputs for functions - if the wrong input is used, then the function should fail.
+
+**Programming (defensive):** another term for assertive programming.
+
 **Programming (functional):** a style of programming where complex problems are
 broken down into functions.
 
@@ -710,6 +714,8 @@ included in the tests.
 
 **Test oracle:** a trusted source (human analyst, older programme) against which
 the results of a new programme can be compared.
+
+**Test-driven development:** a paradigm of software development where you start by writing the tests for a function, then the function itself.
 
 **Traceback:** the sequence of function calls that led to an error (another word
 for "call stack").
