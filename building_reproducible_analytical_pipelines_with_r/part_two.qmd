@@ -106,3 +106,29 @@ I skim-read this chapter as it is beyond my current skill level.
 "In very simple (and technically wrong) terms, Docker makes it easy to run a Linux virtual machine (VM) on your computer."
 
 Docker environments are Linux environments. Why Linux? Because reproducibility requires an open-source solution.
+
+# 15 Continuous integration and continuous deployment
+
+GitOps is devops with Git.
+
+"If you work in research, but cannot push the data to GitHub, you could always work on the code and the infrastructure using synthetic data for instance."
+
+# 16: Conclusion to part two
+
+Docker images all run in Linux (Ubuntu) environments - but Linux can also be updated.
+
+"Is using Docker truly the best we can do? Is the pipeline truly reproducible? Well, strictly speaking, not quite. Indeed, the base operating system inside Docker also gets updated. So if you build an image based on Ubuntu 22.04 today, and then again in 6 months, the operating system is not the same anymore, because the software it ships got updated. So even if the R package library and R version remain fixed, the operating system does not."
+
+You can fix the Ubuntu version used in Docker by specifying a particular Docker digest.
+
+Docker digest: a unique identifier representing the contents of a Docker image.
+
+# 17: The end
+
+- Transparency
+
+- Sustainability
+
+- Scalability
+
+"It doesn’t matter if you’re working in research, for a public institution or a private sector company: the three points above are incredibly important and it’s impossible to perform data analysis without taking these into consideration, regardless of whether AIs take over some, or most, of the tasks you perform today."

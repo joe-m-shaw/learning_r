@@ -242,6 +242,8 @@ dockyards, which is typically done by dockworkers (dockers).
 **Docker container:** a docker container is a contained process, which should
 run consistently across different computers and operating systems.
 
+**Docker digest:** a unique identifier representing the contents of a Docker image.
+
 **Docker Engine:** the software for building docker containers.
 
 **Docker Hub:** an online repository of Docker images.
