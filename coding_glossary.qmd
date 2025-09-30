@@ -605,6 +605,8 @@ Van Rossum chose the name as a reference to the English comedy group Monty Pytho
 
 ## R
 
+**RAG:** Red Amber Green reporting - commonly used in process monitoring.
+
 **RAM:** random access memory.
 
 **README:** a README is a form of documentation in software development which 
@@ -1251,6 +1253,8 @@ which serves to illustrate an error.
 **rlang:** "a low-level package that’s used by just about every other package 
 in the tidyverse because it implements tidy evaluation (as well as many other 
 useful tools)".
+
+**rOpenSci:** a non-profit initiative which advocates for reproduciblity in research and open science. 
 
 **roxygen2**: an R package which helps you write function documentation. 
 roxygen2 was inspired by the Doxygen tool which was developed for C++. Doxygen 

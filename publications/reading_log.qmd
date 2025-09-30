@@ -566,6 +566,11 @@ I-prime (I') chart: a chart with thresholds that adapt to the size of the data, 
 
 Example: median glycated haemoglobin across Denmark seemed to spike in April 2020 when an I chart is plotted. But the spike is actually because there was less data that month: the country was in a Covid lockdown and fewer patients visited clinics. When you use an I-prime chart it shows that the variation is within the expected range.
 
+# Daniel Wieand
+
+We have lots of data.
+Projects lose momentum because the tools (Excel) require you to start from scratch every time you want to redo something.
+
 # References
 
 ::: {#refs}
