@@ -1,9 +1,12 @@
 ---
 title: "Coding Glossary"
 author: "Joe Shaw"
+date: today
+date-format: "DD-MM-YYYY"
 format: 
   html:
     toc: true
+    embed-resources: true
 ---
 
 ```{r}
@@ -16,8 +19,8 @@ library(tidyverse)
 
 # Introduction
 
-This document is intended to be a central repository for my understanding of 
-terms in data-science, computing, R and bioinformatics.
+This is my personal glossary for explaining terms in data-science, computing, R and bioinformatics.
+I update it on this [public Github repository](https://github.com/joe-m-shaw/learning_r/blob/main/coding_glossary.qmd).
 
 # General Terms
 
@@ -29,8 +32,8 @@ terms in data-science, computing, R and bioinformatics.
 how to perform a certain task.
 
 **Apache:** a free open-source web browser software. The name came from the 
-Apache Native American tribe, as the open-source developers likened themselves 
-to the Apache resisting the colonial empire (large private companies like 
+Apache Native American tribe, as the open-source developers [likened themselves 
+to the Apache](https://en.wikipedia.org/wiki/Apache_HTTP_Server) resisting the colonial empire (large private companies like 
 Microsoft). The name is also a pun because Apache relies heavily on patches, 
 hence is “a patchy” server.
 
@@ -75,7 +78,7 @@ replaces” – Wikipedia
 **BASIC:** Beginners' All-purpose Symbolic Instruction Code. Bill Gates learned 
 BASIC at school.
 
-**Bioconductor**: an online repository for packages relating to bioinformatics. 
+**Bioconductor:** an online repository for packages relating to bioinformatics. 
 Bioconductor is similar to CRAN, but smaller and more specific.
 
 **Binary file:** a file made up of 0s and 1s (binary). Binary files are 
@@ -85,7 +88,7 @@ interpret the information encoded within all the 0s and 1s, you need specific
 software and hardware, such as the operating system and microprocessors of the 
 computer.
 
-**Blob storage:** blob stands for "Binary Large OBject". Blob storage is a way of storing data in an unstructured way - it has gained popularity because it is easy to scale the ammount of data stored, which works well with cloud storage platforms (DevOps for Data Science, chapter 2).
+**Blob storage:** blob stands for "Binary Large OBject". Blob storage is a way of storing data in an unstructured way - it has gained popularity because it is easy to scale the ammount of data stored, which works well with cloud storage platforms ([DevOps for Data Science, chapter 2](https://do4ds.com/chapters/sec1/1-2-proj-arch.html)).
 
 **Boilerplate:** boilerplate refers to standard language that is copied with 
 minimal change. In coding, certain packages may generate "boilerplate" content 
@@ -134,8 +137,6 @@ Integration and Deployment". CI is the process of continually integrating the
 contributions of multiple collaborators on a software project, with development 
 tasks automatically executed when certain events happen.
 
-**Cloud:** 
-
 **Colab:** a website which allows you to run Jupyter notebooks on the cloud, 
 so you don't need to install software onto your computer. Colab is free and 
 owned by Google.
@@ -149,8 +150,7 @@ been mainly supplanted by graphical user interfaces in modern computing for
 casual or non-expert users. This is because graphical interfaces are more 
 intuitive to use.
 
-**Commit:** “In version control systems, a commit adds the latest changes to 
-[part of] the source code to the repository”.
+**Commit:** in a version control system (like Git) a "commit" is the process of adding changes to the source code. "Commit" in this sense can be used both as a verb ("I am going to **commit** some code") and a noun ("Here is the change in my latest **commit**").
 
 **Compendium:** from Latin "that which is weighed together". A summary. A 
 research compendium is "a collection of all digital parts of a 
@@ -185,7 +185,7 @@ is also vital for DNA and protein sequences.
 
 **CSS:** Cascading Style Sheets. CSS is "a tool for defining the visual styling 
 of HTML documents. CSS includes a miniature language for selecting elements on 
-a page called CSS selectors." ("R for Data Science 2nd edition, [chapter 24](https://r4ds.hadley.nz/webscraping)).
+a page called CSS selectors." (["R for Data Science" 2nd edition, chapter 24](https://r4ds.hadley.nz/webscraping)).
 
 **CSV file:** a comma-separated value file is a file type which tabulates data 
 using commas to separate different fields. A CSV file can be opened in a text 
@@ -212,9 +212,6 @@ Definitions from Coursera.
 **Debian:** a distribution of Linux, first developed by Ian Murdock. He named
 it by mixing his first name and his girlfriend's first name, Debra, together.
 
-**Defensive programming:** a style of programming which assumes that errors 
-will occur, and aims to identify them when they do.
-
 **Deprecate:** when a function or piece of software is "deprecated", it remains 
 in the software but raises a warning to let the user know it is not supported 
 any more and will be removed at some point. Deprecated means "you shouldn't use 
@@ -227,7 +224,7 @@ this, but you can for now", rather than "you can't use this".
 **Distribution:** a shell that sits around the kernel of an operating system. 
 Example: Ubuntu and Debian are shells that sit around the Linux kernel.
 
-**Django:** a web-framework based for building web databases (such as Gel2MDT) 
+**Django:** a web-framework based for building web databases
 which is based on the Python programming language, and named after the musician,
 Django Reinhardt.
 
@@ -259,7 +256,7 @@ on top of to create a Docker container for your R project.
 **DOI:** a Digital Object Identifier is a permanent way of identifying a 
 digital object. DOIs are generated by the DOI Foundation, a non-profit
 company. A DOI is permanently linked to metadata about a digital object, like
-a URL. An example of a DOI is 10.1000/182 (DOI Handbook).
+a URL. An example of a DOI is 10.1000/182 ([DOI Handbook](https://www.doi.org/the-identifier/resources/handbook)).
 
 **DRY:** Don't Repeat Yourself. Standard advice in coding which supports the 
 creation of functions to repeat tasks, rather than repeating code which is 
@@ -280,7 +277,7 @@ fail-safes adding to the source code to manage them.
 
 **ETL:** Extract, Transform, Load. An acronym used to describe data engineering pipelines.
 
-**Extension**: an extension is a software component that adds a specific 
+**Extension:** an extension is a software component that adds a specific 
 functionality to an existing program. Extensions can also be called plug-ins or 
 add-ons. An R package is an example of an extension. For example, the EndNote 
 Word plug-in is an extension which adds a specific functionality (adding 
@@ -326,9 +323,6 @@ example is a graphical user interface.
 
 ## G
 
-**Genome browser:** a graphical interface for visualising genomic data. Examples 
-include Alamut, UCSC browser and Ensembl.
-
 **Git:** a version-control system which allows multiple users to work on 
 development of the same files. The function of Git is to track the changes which
 have been made, and by whom, and to update the file so that everyone is working 
@@ -342,8 +336,7 @@ open-source projects. Github is a private company that facilitates open-source
 usage of the Git version-control system.
 
 **Gitlab:** an online Git repository which provides a private environment for 
-software development. The Genesis pipeline has its own Gitlab page where edits 
-to the code can be viewed.
+software development.
 
 **GNU:** a free open-source operating system. The recursive acronym “GNU’s Not 
 Unix” can be used to explain the name, but the creator Richard Stallman also 
@@ -367,7 +360,7 @@ everything behaves as expected. When designing software, it's better not to only
 have the happy path in mind. Instead, it is better to consider all the things 
 that could go wrong. *"The Happy Path is the scenario where all the inputs make sense and are exactly how things “should be”. The Unhappy Path is everything else (objects of length or dimension zero, objects with missing data or dimensions or attributes, objects that don’t exist, etc.)"* (from [R packages](https://r-pkgs.org/dependencies-mindset-background.html#fn1)).
 
-**Haskell**: a programming language named after the mathematician Haskell Curry.
+**Haskell:** a programming language named after the mathematician Haskell Curry.
 
 **Heap:** the section of computer memory which stores all the values which are 
 created during function execution.
@@ -436,12 +429,7 @@ i.e. Kubernetes steers the ship for you.
 
 ## L
 
-**LaTeX:** pronounced "lay-tech". 
-
-**Lazy evaluation:** when Python is given an ‘and’ statement, it evaluates the 
-first condition before moving on to the second. This way, if the first condition
-evaluates to ‘False’, it can stop before it evaluates the second condition 
-(because there is no point).
+**LaTeX:** pronounced "lay-tech".
 
 **Linux:** a free, open-source operating system which was originally released in
 1991. Its name derives from Linus Torvalds, the principle software engineer of 
@@ -538,7 +526,7 @@ the code is easier to maintain; if one module goes bad, the damage is minimised.
 something into it’s constituent parts, as in “parsing a text string”. The second
 is the process of a computer reading source code before it is compiled. Hadley 
 Wickham defines parsing as the "process by which a computer language takes a 
-string and constructs an expression" (["Advanced R" chapter 18(https://adv-r.hadley.nz/expressions.html)]).
+string and constructs an expression" (["Advanced R" chapter 18](https://adv-r.hadley.nz/expressions.html)).
 
 **Patch:** a change or update to code which aims to fix bugs or security issues.
 A patch may also be called a “bugfix”.
@@ -557,7 +545,7 @@ which makes  software for data science. The word "posit" more generally means
 to put an idea forward. Posit has made loads of free data science tools over the
 years, including RStudio, tidyverse, Shiny and Quarto. Posit is a certified
 B-corporation and a Public Benefit Corporation, and they provide open-source
-tools for free. They make money from selling versions of some tools to 
+tools for free.
 
 **Pothole case:** the naming convention of using lower case letters and 
 underscores.
@@ -570,10 +558,17 @@ to solve a problem.
 
 **Programming (assertive):** a style of programming where code automatically checks that assertions are met, in order to fail quickly when they aren't. Assertions are commonly used to check the inputs for functions - if the wrong input is used, then the function should fail.
 
-**Programming (defensive):** another term for assertive programming.
+**Programming (declarative):** "you express higher-level goals or describe 
+important constraints, and rely on someone else to decide how and/or when to 
+translate that into action." ([Mastering Shiny](https://mastering-shiny.org/)). Example: a Shiny app.
+
+**Programming (defensive):** another term for assertive programming. The philosophy of defensive programming assumes that errors will occur, and aims to identify them when they do.
 
 **Programming (functional):** a style of programming where complex problems are
 broken down into functions.
+
+**Programming (imperative):** "you issue a specific command and it’s carried out
+immediately." ([Mastering Shiny](https://mastering-shiny.org/)) Example: an R script.
 
 **Programming (object-oriented):** a style of programming where complex problems
 are broken down into objects.
@@ -583,10 +578,6 @@ explanation of how it works in a natural language (like English). This means
 that anyone who speaks the natural language can understand what the program is 
 doing, even if they don't understand the code underneath ([Wikipedia](https://en.wikipedia.org/wiki/Literate_programming)). RMarkdown, 
 Quarto and Jupyter are examples of literate programming.
-
-**Programming (reactive):** 
-
-**Prompt:** three arrow symbols at the start of a line (>>>)
 
 **Provenance (data):** a way of describing the source and history of data used
 in an analysis. Provenance can be thought of like version control: which 
@@ -626,7 +617,7 @@ Two options for names were "coral" and "ruby". Matsumoto said ["I guess Ruby is 
 
 ## S
 
-**S**: the precursor language to R. S was named to stand for "Statistics" and 
+**S:** the precursor language to R. S was named to stand for "Statistics" and 
 was developed at Bell Laboratories.
 
 **SaaS:** Software as a Service, when software is provided as a service via
@@ -640,7 +631,7 @@ access to the software.
 big influence on the development of R.
 
 **Script:** a programme which automates a defined series of tasks which could 
-be performed by a human operator. For example, the Genesis pipeline scripts 
+be performed by a human operator. For example, in a bioinformatics pipeline scripts 
 allow the automatic processing of data through several steps which could 
 alternatively be performed by a human, although using a script is much more 
 efficient. A corresponding principle in a laboratory environment would be using
@@ -674,7 +665,7 @@ program functions, which is written in a high-level, human-readable language.
 **SQL:** structured query language. A database language invented by IBM in the
 1970s.
 
-**SSH:** Secure Socket Shell is "is a tool for making a secure connection to another computer over an unsecured network" (DevOps for Data Science).
+**SSH:** Secure Socket Shell is "is a tool for making a secure connection to another computer over an unsecured network" ([DevOps for Data Science](https://do4ds.com/)).
 
 **Stack (call stack):** an abstract data type in which data elements are 
 “stacked” on top of each other. What this means functionally is that elements 
@@ -690,9 +681,7 @@ often shortened to simply "the stack"."
 **Stata:** a proprietary statistical software package.
 
 **Symlinking:** a “symlink” or “symbolic link” is a text string which provides 
-a path to a specific file. Symlinking can be useful because it provides a way 
-for the Genesis scripts to access FASTQ files stored on a separate directory 
-without copying and pasting, which saves storage space.
+a path to a specific file.
 
 **Syntax:** the set of rules which specifies which combination of symbols are 
 allowed.
@@ -704,7 +693,7 @@ aimed to make the code easier to read by humans.
 
 **Tab:** from ‘tabulator’ (i.e. ‘table’).
 
-**.tar**: a file format which consists of multiple files collected into a single 
+**.tar:** a file format which consists of multiple files collected into a single 
 archive file. The name comes from "Tape ARchive" as very early computer programs 
 had to be archived on magnetic tape. Often tar files are referred to as 
 "tarballs". Tarballs are blobs of oil which wash up on beaches. Like an sticky 
@@ -729,7 +718,7 @@ Sometimes TREs are referred to as "secure research environments" or "data safe h
 
 **Trunk:** the "trunk" branch on Github is another term for the "main" or "master" branch.
 
-**Trunk-based development:** an approach to developing a project where anyone wanting to change the code creates a new branch, modifies the code and then (as soon as possible) merges the new branch back into the trunk (main branch). This makes sure that the trunk always has functioning code - "Reproducible analytical pipelines with R" chapter 5.
+**Trunk-based development:** an approach to developing a project where anyone wanting to change the code creates a new branch, modifies the code and then (as soon as possible) merges the new branch back into the trunk (main branch). This makes sure that the trunk always has functioning code (["Reproducible analytical pipelines with R" chapter 5](https://raps-with-r.dev/github.html)).
 
 **Type:** a set of values, plus the operations which can be performed on them 
 (i.e. integer and floating point types).
@@ -759,11 +748,7 @@ Multics.
 
 **Variable:** a named location in computer memory.
 
-**Variant Call Format (VCF):** a text based file format for compressing and 
-storing information about DNA variation, originally created by the 100 Genomes 
-Project.
-
-**Vignette**: a vignette is a long-form markdown document included within a 
+**Vignette:** a vignette is a long-form markdown document included within a 
 package to show how the package works and describe its features. The term 
 "vignette" normally refers to a brief literary narrative. "Vignette" actually 
 comes from an old French word for "vine" because vignette was used to mean an 
@@ -806,11 +791,11 @@ their data. A DOI is given to every submission.
 
 ## A
 
-**Assignment**: the act of binding a name to a value.
+**Assignment:** the act of binding a name to a value.
 
-**Atomic vector**: a vector where all the elements are the same type.
+**Atomic vector:** a vector where all the elements are the same type.
 
-**Attribute**: metadata that is paired to an object. Class is an example of an 
+**Attribute:** metadata that is paired to an object. Class is an example of an 
 attribute. 
 
 ## B
@@ -853,13 +838,13 @@ print(y)
 
 ```
 
-**CRAN**: the Comprehensive R Archive Network. CRAN is an online repository 
+**CRAN:** the Comprehensive R Archive Network. CRAN is an online repository 
 started in 1997. It includes all versions of R and R packages which have been 
 contributed by developers and can be freely used.
 
 ## D
 
-**data.frame**: a class of data in R. A dataframe is a list of atomic vectors 
+**data.frame:** a class of data in R. A dataframe is a list of atomic vectors 
 (i.e. a vector of vectors).
 
 **Data masking:** "Data-masking is a distinctive feature of R whereby 
@@ -894,7 +879,7 @@ called "data munging".
 **Dependency:** a dependency is when one package uses a functionality from 
 other package or external tool.
 
-**Dependency (recursive)**: a recursive dependency is when your package depends 
+**Dependency (recursive):** a recursive dependency is when your package depends 
 on a package which itself depends on other packages.
 
 **Dependency (reverse):** a reverse dependency is a package that depends on your
@@ -954,9 +939,9 @@ h01(x = stop("This is an error!"))
 **Evaluation (eager):** an alternate to lazy evaluation. In eager evaluation, 
 the arguments provided to a function call are evaluated before the function body
 is evaluated. The Scheme language uses eager evaluation, whilst the S language 
-uses lazy evaluation. R inherited lazy evaluation from S [@ihaka1996].
+uses lazy evaluation. R inherited lazy evaluation from S ([Ihaka and Gentleman, 1996](http://www.jstor.org/stable/1390807).
 
-**Evaluation (non-standard) (NSE)**: a type of evaluation which can be used in R 
+**Evaluation (non-standard) (NSE):** a type of evaluation which can be used in R 
 for evaluating the arguments supplied to functions. NSE is not a great term as 
 it isn't very descriptive, so it makes more sense when you understand it within
 specific contexts, like tidy evaluation 
@@ -1024,7 +1009,7 @@ mean_quoting(df, x)
 **Function:** my definition of a function is that it is a tool - a piece of 
 code that you use to do something. The more formal definition is that a 
 function is a "callable unit" of computation, with defined inputs and outputs 
-that can be called multiple times (Wikipedia[https://en.wikipedia.org/wiki/Function_(computer_programming)]).
+that can be called multiple times ([Wikipedia](https://en.wikipedia.org/wiki/Function_(computer_programming))).
 
 **Function (anonymous):** a function without a name.
 
@@ -1076,20 +1061,18 @@ purrr::map().
 
 **Function factory:** a function that makes functions.
 
-**Function operator:** 
-
 ## G
 
 **geom:** a geometrical object that is added as a layer to a plot to represent 
 data.
 
-**ggplot2**: a package for creating plots, which is part of the tidyverse. The 
+**ggplot2:** a package for creating plots, which is part of the tidyverse. The 
 name comes from "Grammar of Graphics". The extra 2 is apparently because Hadley
 Wickham wanted to change the ggplot package from using nested function calls to 
 using the + symbol to add plot layers - this was such a dramatic change that he 
 had to release an entirely new package, which he called ggplot2 (source - [this blogpost](https://www.njtierney.com/post/2018/06/20/naming-things/)).
 
-**Global string pool**: "each unique string is only stored in memory once, and 
+**Global string pool:** "each unique string is only stored in memory once, and 
 every use of the string points to that representation." (R For Data Science).
 
 ## H
@@ -1116,22 +1099,22 @@ specifying a column in a dataframe by supplying a string to function call.
 
 ## K
 
-**Key**: the variable used to connect a pair of dataframes together in a join.
+**Key:** the variable used to connect a pair of dataframes together in a join.
 
-**Key (primary)**: a variable or set of variables that uniquely identifies each 
+**Key (primary):** a variable or set of variables that uniquely identifies each 
 observation (each row if the data is tidy) in the original table.
 
-**Key (foreign)**: a variable or set of variables that corresponds to a primary 
+**Key (foreign):** a variable or set of variables that corresponds to a primary 
 key in another table.
 
-**Key (compound)**: when there is more than one variable in a key.
+**Key (compound):** when there is more than one variable in a key.
 
-**Key (surrogate)**: a new variable added to act as a primary key (such as 
+**Key (surrogate):** a new variable added to act as a primary key (such as 
 row number).
 
 ## L
 
-**Library**: a directory containing installed packages.
+**Library:** a directory containing installed packages.
 
 **List:** a vector where the elements can be different types, including lists.
 
@@ -1205,7 +1188,7 @@ performed. In schools this is taught as "BODMAS": Brackets, Orders, Division or 
 
 ## P
 
-**Package**: an R package is an extension to the R language. It contains code, 
+**Package:** an R package is an extension to the R language. It contains code, 
 data and documentation and acts as a series of additional tools that you can use
 in R. A useful metaphor is that R packages are like special tools that you can 
 add to the main toolbox of R.
@@ -1216,24 +1199,17 @@ meta-packages are tidyverse (which contains several packages including dplyr,
 ggplot2 and readr) and devtools (which contains several packages including 
 roxygen2 and testthat).
 
-**Posit**: a company, formerly called RStudio, which makes publicly available 
+**Posit:** a company, formerly called RStudio, which makes publicly available 
 software for using R.
 
 **POSIX:** Portable Operating System Interface. A family of standards to 
 maintain compatibility between operating systems.
 
-**POSIXct**: the time class in R for calendar time.
+**POSIXct:** the time class in R for calendar time.
 
-**POSIXlt**: the time class in R for local time.
+**POSIXlt:** the time class in R for local time.
 
-**POSIXt**: a "super class" of ct and lt together.
-
-**Programming (declarative):** "you express higher-level goals or describe 
-important constraints, and rely on someone else to decide how and/or when to 
-translate that into action." (Mastering Shiny). Example: a Shiny app.
-
-**Programming (imperative):** "you issue a specific command and it’s carried out
-immediately." (Mastering Shiny) Example: an R script.
+**POSIXt:** a "super class" of ct and lt together.
 
 ## Q
 
@@ -1241,28 +1217,28 @@ immediately." (Mastering Shiny) Example: an R script.
 environment for it to be evaluated in. Quosures were developed as part of tidy 
 evaluation in rlang, and the word is a portmanteau of "closure" (i.e. function)
 and "quotation" 
-("Tidy evaluation in 5 minutes"[https://www.youtube.com/watch?v=nERXS3ssntw]).
+(["Tidy evaluation in 5 minutes"](https://www.youtube.com/watch?v=nERXS3ssntw).
 
 **Quarto:** a document publishing system, created by Posit as a successor to RMarkdown, the key difference being that Quarto supports multiple languages.
 
 ## R
 
-**reprex**: a *repr*oducible *ex*ample. A reprex is a minimal piece of code 
+**reprex:** a *repr*oducible *ex*ample. A reprex is a minimal piece of code 
 which serves to illustrate an error.
 
 **rlang:** "a low-level package that’s used by just about every other package 
 in the tidyverse because it implements tidy evaluation (as well as many other 
-useful tools)".
+useful tools)" (["R for Data Science" 2nd edition chapter 25"](https://r4ds.hadley.nz/functions.html).
 
 **rOpenSci:** a non-profit initiative which advocates for reproduciblity in research and open science. 
 
-**roxygen2**: an R package which helps you write function documentation. 
+**roxygen2:** an R package which helps you write function documentation. 
 roxygen2 was inspired by the Doxygen tool which was developed for C++. Doxygen 
 gets its name from "documents generator" (docs-gen, docs-y-gen, doxygen).
 
 ## S
 
-**scaling:** the process of mapping aesthetic values (colour, shape, size) to 
+**Scaling:** the process of mapping aesthetic values (colour, shape, size) to 
 variables in the data.
 
 **Scoping:** the act of finding a value associated with a name.
@@ -1276,7 +1252,7 @@ bound to names based on how a function is defined rather than how it is called.
 vocabulary. It’s a technical computer science term that tells us that the 
 scoping rules use a parse-time, rather than a run-time structure ... The basic
 principle of lexical scoping is that names defined inside a function mask names
-defined outside a function." (Advanced R). Another name could be 
+defined outside a function." (["Advanced R"](https://adv-r.hadley.nz/)). Another name could be 
 "masked scoping".
 
 ```{r}
@@ -1337,26 +1313,26 @@ df |>
 
 **Shiny:** a package for creating small applications (called "shiny apps") in R.
 
-**stat:** an alternative way to build up layers on a plot, which adds new 
-variables (count, density etc)
+**stat:** an alternative way to build up layers on a ggplot2 plot, which adds new 
+variables (count, density etc),
 
 ## T
 
-**Tibble**: a version of the data.frame class developed as part of the tidyverse.
+**Tibble:** a version of the data.frame class developed as part of the tidyverse.
 
 **Tidy data:** each column is a variable, each row is an observation.
 
-**tidyverse**: a meta-package containing loads of packages which can be used for 
+**tidyverse:** a meta-package containing loads of packages which can be used for 
 data analysis. The tidyverse is an entire "universe" of tools organised along a 
 the philosophy of "tidy" data.
 
-**Type coercion**: the behaviour in which R automatically converts multiple 
+**Type coercion:** the behaviour in which R automatically converts multiple 
 objects with different data types to have the same type. Logical coerces to 
 integer, coerces to double, coerces to character, coerces to list.
 
 ## U
 
-**utils**: a package of useful functions for developing R packages.
+**utils:** a package of useful functions for developing R packages.
 
 ## V
 
@@ -1452,6 +1428,11 @@ hash table is very quick even when the table gets very large.
 
 ## L
 
+**Lazy evaluation:** when Python is given an ‘and’ statement, it evaluates the 
+first condition before moving on to the second. This way, if the first condition
+evaluates to ‘False’, it can stop before it evaluates the second condition 
+(because there is no point).
+
 ## M
 
 **MATLAB:** "MATrix LABoratory" - a proprietary programming language for data 
@@ -1488,8 +1469,6 @@ arrays, created in 2005 by Travis Oliphant.
 
 ## P
 
-**Package:**
-
 **pandas:** an open-source Python library for data analysis, developed by Wes 
 McKinney in 2010. The name "pandas" is taken from "**pa**nel **da**ta".
 
@@ -1504,6 +1483,8 @@ languages, including Python.
 name. See 
 [Think Python chapter 16](https://allendowney.github.io/ThinkPython/chap16.html#polymorphism) 
 for details.
+
+**Prompt:** three arrow symbols at the start of a line (>>>).
 
 **PyPI:** Python Package Index. The online repository of Python packages, which are automatically downloaded using the pip package. PyPI is the Python equivalent of CRAN.
 
@@ -1596,6 +1577,9 @@ and FAST-P (protein). A FASTA sequence begins with a ‘>’ and then the
 description of where the sequence comes from (accession number, species, type 
 of molecule etc).
 
+**Genome browser:** a graphical interface for visualising genomic data. Examples 
+include Alamut, UCSC browser and Ensembl.
+
 **HAVANA:** stands for ‘Human and Vertebrate Analysis and Annotation’, a specific
 form of manually curated gene annotations performed by the Wellcome Trust Sanger
 Institute. Genes which have been annotated by HAVANA can also be viewed on the 
@@ -1626,8 +1610,7 @@ part of the National Institute for Biotechnology Information. Sequences are
 attained via either automated annotation of genomes or manual curation.
 
 **SAM file:** a “Sequence Alignment/Map” file. SAM files are used to store 
-information when a generated DNA sequence is aligned to a reference sequence, 
-for example when a new sequencing read is aligned to hg19 in Genesis. The SAM 
+information when a generated DNA sequence is aligned to a reference sequence. The SAM 
 file format was created in 2009 at the Broad Institute by Heng Li. The SAM 
 format has a sister format, BAM. BAM files are more compressed versions of 
 SAM files, whilst SAM files can be read by a human.
@@ -1636,6 +1619,10 @@ SAM files, whilst SAM files can be read by a human.
 sequencer. A standard flow cell has 8 lanes, and each lane is imaged in 2 
 columns with 60 tiles in each column, giving 960 tiles per flow cell, per 
 sequencing cycle.
+
+**Variant Call Format (VCF):** a text based file format for compressing and 
+storing information about DNA variation, originally created by the 1000 Genomes 
+Project.
 
 **VEGA:** stands for ‘Vertebrate and Genome Annotation’. The Vega browser is a
 browser for manual genome annotations, and is based on the Ensembl browser. 

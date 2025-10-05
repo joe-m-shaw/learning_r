@@ -571,6 +571,9 @@ Example: median glycated haemoglobin across Denmark seemed to spike in April 202
 We have lots of data.
 Projects lose momentum because the tools (Excel) require you to start from scratch every time you want to redo something.
 
+revealjs for making slides
+
+
 # References
 
 ::: {#refs}
