@@ -3,10 +3,17 @@ title: "Coding Glossary"
 author: "Joe Shaw"
 date: today
 date-format: "DD-MM-YYYY"
-format: 
+format:
   html:
     toc: true
     embed-resources: true
+    other-links:
+      - text: My website
+        href: https://joe-m-shaw.github.io/professional_website/
+    code-links:
+      - text: Glossary code
+        icon: file-code
+        href: https://github.com/joe-m-shaw/learning_r/blob/main/coding_glossary.qmd
 ---
 
 ```{r}
@@ -26,7 +33,9 @@ I update it on this [public Github repository](https://github.com/joe-m-shaw/lea
 
 ## A
 
-**Absolute path:** the path to a node from the root of the entire directory.
+### Absolute path {#sec-absolute-path}
+
+The path to a node from the root of the entire directory.
 
 **Algorithm:** a set of defined steps written in a formal language to describe 
 how to perform a certain task.
@@ -787,8 +796,6 @@ their data. A DOI is given to every submission.
 
 # R Terms
 
-**!!:** the unquote operator, or injection operator, pronounced "bang-bang".
-
 ## A
 
 **Assignment:** the act of binding a name to a value.
@@ -799,6 +806,8 @@ their data. A DOI is given to every submission.
 attribute. 
 
 ## B
+
+**Bang-Bang (!!):** the unquote operator, or injection operator.
 
 ## C
 
@@ -888,7 +897,31 @@ package.
 **Double:** a numeric non-integer data-type. Example 1.0. The name derives from 
 the phrase "double-precision floating point type".
 
+### dplyr {#sec-dplyr}
+
+An R package for data manipulation which was launched in 2014 and authored by Hadley Wickham, Romain François, Lionel Henry, Kirill Müller and Davis Vaughan.
+`dplyr` built on the usage of the existing `plyr` package, but with a focus on dataframes.
+[According to Hadley Wickham](https://github.com/tidyverse/dplyr/issues/1857), this is why a "d" added to the name.
+
 ## E
+
+**Ellipsis:** the three-dots `...` which can be used in functions to allow multiple unspecified arguments.
+
+```{r}
+#| label: ellipsis
+#| include: TRUE
+
+my_select <- function(.data, ...) {
+  
+  .data |> 
+    select(...)
+  
+}
+
+mtcars |> 
+  my_select(mpg, cyl, disp)
+
+```
 
 **Environment:** a non-ordered list of name-value pairs. An environment is the 
 context in which code is evaluated - like a physical environment is the context 
@@ -1199,6 +1232,9 @@ meta-packages are tidyverse (which contains several packages including dplyr,
 ggplot2 and readr) and devtools (which contains several packages including 
 roxygen2 and testthat).
 
+**plyr:** an R package for data manipulation authored by Hadley Wickham. `plyr` is now retired as it's functionalities have been replaced with those of [dplyr](#sec-dplyr).
+The name "plyr" is a pun on a pair of pliers (a tool for manipulating things) and also the common verb "apply" which is used in base R.
+
 **Posit:** a company, formerly called RStudio, which makes publicly available 
 software for using R.
 
@@ -1322,9 +1358,9 @@ variables (count, density etc),
 
 **Tidy data:** each column is a variable, each row is an observation.
 
-**tidyverse:** a meta-package containing loads of packages which can be used for 
+**tidyverse:** a meta-package of packages which can be used for 
 data analysis. The tidyverse is an entire "universe" of tools organised along a 
-the philosophy of "tidy" data.
+the philosophy of "tidy" data. Currently, the "core" tidyverse comprises of 9 different packages: ggplot2, dplyr, tidyr, readr, purrr, stringr, tibble, forcats and lubridate ([Tidyverse website](https://www.tidyverse.org/packages/).
 
 **Type coercion:** the behaviour in which R automatically converts multiple 
 objects with different data types to have the same type. Logical coerces to 

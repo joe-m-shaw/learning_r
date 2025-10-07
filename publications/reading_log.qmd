@@ -573,6 +573,11 @@ Projects lose momentum because the tools (Excel) require you to start from scrat
 
 revealjs for making slides
 
+# [Vignette: Programming with dplyr](https://dplyr.tidyverse.org/articles/programming.html)
+
+"Data masking makes data manipulation faster because it requires less typing."
+
+"Underneath all functions that use tidy selection is the tidyselect package."
 
 # References
 
