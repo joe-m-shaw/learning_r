@@ -609,6 +609,10 @@ Van Rossum chose the name as a reference to the English comedy group Monty Pytho
 
 **RAM:** random access memory.
 
+### Reproducible Analytical Pipeline (RAP) {#sec-reproducible-analytical-pipeline}
+
+Reproducible Analytical Pipeline.
+
 **README:** a README is a form of documentation in software development which 
 gives key information about the software, and is titled in capitals to make it 
 more noticeable and prompt people to actually read it. According to Wikipedia, 
