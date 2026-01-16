@@ -579,6 +579,21 @@ revealjs for making slides
 
 "Underneath all functions that use tidy selection is the tidyselect package."
 
+
+# ["A personal history of the tidyverse"](https://hadley.github.io/25-tidyverse-history/)
+
+"Unlike our universe, the tidyverse didn’t start with a big bang, but rather emerged through a gradual accumulation of packages that eventually coalesced into something greater than the sum of its parts."
+
+"The hardest part of collaborative data analysis is not finding the correct statistical model, but getting the data into a form that you can actually work with."
+
+"During my time at Rice I had very little success with grants. The statistics section at the National Science Foundation (NSF) had a hard time understanding why my work was important,"
+
+"The design of dplyr was centred around verbs like filter(), mutate(), and summarise(), with names that evoked their desired purpose. Each verb did one thing well, and was designed to compose with other verbs in order to solve complex problems."
+
+"Overall, I’m still very happy with the name, but there’s one feature that I don’t like: it implies that everything outside the tidyverse is the messyverse."
+
+"As an interesting historical anecdote, there would have been no need for ggplot2 had I discovered the pipe earlier, as ggplot was based on function composition. I correctly identified that function composition was an unappealing user interface, but if I had discovered the pipe at that time, ggplot could have used it, rather than needing to switch to + in ggplot2."
+
 # References
 
 ::: {#refs}
