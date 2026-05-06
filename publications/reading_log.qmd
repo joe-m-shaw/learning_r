@@ -593,7 +593,7 @@ revealjs for making slides
 
 "As an interesting historical anecdote, there would have been no need for ggplot2 had I discovered the pipe earlier, as ggplot was based on function composition. I correctly identified that function composition was an unappealing user interface, but if I had discovered the pipe at that time, ggplot could have used it, rather than needing to switch to + in ggplot2."
 
-# Hadley Wickham - Claude Code for R [Youtube]
+# Hadley Wickham - Claude Code for R [Youtube](https://www.youtube.com/watch?v=dOEUdhHHfJY)
 
 He uses Claude Code for developing dbplyr and testthat.
 
@@ -636,6 +636,43 @@ He is steering the LLM - giving it hints, and disagreeing with it sometimes.
 "The relative value of writing code has decreased, whilst the relative value of reading code has increased."
 
 You can trick yourself into thinking that you are getting more done with an LLM, when actually it is slowing you down.
+
+# Davis Vaughan: [Existential crisis! Is my degree worthless?](https://www.youtube.com/watch?v=5kTxZMSB9oo)
+
+You need to use git with AI agents - you need to know what the AI changed, and the AI needs to know what you changed.
+
+Git allows you to quickly "undo" any stuff that the AI does.
+
+There are 2 ways to use AI for coding: juniors ask, seniors direct.
+
+AI works best in areas that you already understand deeply (i.e. where you are a senior) - you need foundational knowledge and to be engaged with the process (instead of telling the AI to "do it for me")
+
+Analogy of Mickey Mouse in the sorcerer's apprentice.
+
+Claude Code is now the industry standard, since December 2025.
+
+He was really spooked by Claude Code.
+
+The ability to say "no" to an AI is a very important skill.
+
+# Hadley Wickham: ["I wrote this talk with an LLM"](https://www.youtube.com/watch?v=rFE86rbBPw8)
+
+"I feel my identity as a software developer is under threat"
+
+Jagged edge - sudden change from being good to being bad
+
+LLMs don't admit doubt
+
+LLMs can't count the number of ns in words, or calculate big numbers
+
+LLM auto-coompletes have not taken off.
+
+Agentic coding: the LLM is an independent agent.
+
+LLMs are good for translations - like translating words into regular expressions.
+
+There is an issue with stochasticity - sometimes the LLMs do better and sometimes they do worse.
+
 
 # References
 
