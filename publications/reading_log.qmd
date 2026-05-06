@@ -579,7 +579,6 @@ revealjs for making slides
 
 "Underneath all functions that use tidy selection is the tidyselect package."
 
-
 # ["A personal history of the tidyverse"](https://hadley.github.io/25-tidyverse-history/)
 
 "Unlike our universe, the tidyverse didn’t start with a big bang, but rather emerged through a gradual accumulation of packages that eventually coalesced into something greater than the sum of its parts."
@@ -593,6 +592,50 @@ revealjs for making slides
 "Overall, I’m still very happy with the name, but there’s one feature that I don’t like: it implies that everything outside the tidyverse is the messyverse."
 
 "As an interesting historical anecdote, there would have been no need for ggplot2 had I discovered the pipe earlier, as ggplot was based on function composition. I correctly identified that function composition was an unappealing user interface, but if I had discovered the pipe at that time, ggplot could have used it, rather than needing to switch to + in ggplot2."
+
+# Hadley Wickham - Claude Code for R [Youtube]
+
+He uses Claude Code for developing dbplyr and testthat.
+
+"Claude Code is as important as git for high-quality software engineering."
+
+"Claude Code is often better than me for writing functions."
+
+He thinks Claude has the lead on other AI coding agents.
+
+"Software engineering has changed irrevocably ... There is no going back."
+
+"The good news is that this has not taken any of the joy away from programming."
+
+It's no longer him directly writing the code - he is having ideas and then getting Claude Code to write them into R.
+
+People are amassing crowds of agents to do the work for them.
+
+Having high test coverage is now even more important.
+
+We want to focus on increasing quality, not quantity.
+
+Important point: "It's still your code. It's your responsibility."
+
+Claude Code is a "robotic amanuensis"
+
+The AI agent can get you where you want to go, but it can't pick the destination.
+
+"There are a lot of big feelings around this."
+
+"The bad old days" before RMarkdown and Quarto involved lots of copying and pasting.
+
+Copying and pasting is always a bad idea.
+
+"Claude Code isn't brilliant, but it is dogged" - it will grind away until it finds the solution.
+
+He is steering the LLM - giving it hints, and disagreeing with it sometimes.
+
+"Software engineering has changed irrevocably - regardless of how you feel about that, you have to figure out what to do."
+
+"The relative value of writing code has decreased, whilst the relative value of reading code has increased."
+
+You can trick yourself into thinking that you are getting more done with an LLM, when actually it is slowing you down.
 
 # References
 
