@@ -673,7 +673,6 @@ LLMs are good for translations - like translating words into regular expressions
 
 There is an issue with stochasticity - sometimes the LLMs do better and sometimes they do worse.
 
-
 # References
 
 ::: {#refs}
