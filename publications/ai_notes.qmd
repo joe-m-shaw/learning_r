@@ -15,3 +15,18 @@ This is weird because it is a different mindset to debugging.
 With debugging, the error always stems from the difference between your mental model of what is happening and what is actually happening in the computer.
 Whereas with agentic AI, the AI model can give incorrect information.
 
+
+# Glossary
+
+**Anthropic:** an AI company, but the word "anthropic" existed before Anthropic was founded.
+It means "relating to humans".
+
+**Jailbreaking:** tricking an AI model to do things it has been trained not to do, such as provide instructions for making bioweapons.
+
+**Prompt injection:** 
+
+**Prompt leaking:**
+
+
+
+
