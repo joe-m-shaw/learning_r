@@ -16,10 +16,66 @@ With debugging, the error always stems from the difference between your mental m
 Whereas with agentic AI, the AI model can give incorrect information.
 
 
+
+# Microsoft Copilot
+
+NHS signed a £774 million deal with Microsoft in 2023.
+
+This built on the roll-out of Teams in March 2020.
+
+20th March 2020 - Microsoft gives out Teams for free to the NHS - this leads to dependency and addiction to the system.
+
+Risk of getting locked in.
+
+Does it have access to my email? No.
+
+Is Copilot an agent?
+
+How was it trained?
+
+Is it being trained on NHS data?
+
+What happens if I put patient information into Copilot?
+
+Where is the Copilot model stored?
+
+When did Copilot start?
+
+In 2023, it replaced Cortana (which no-one used)
+
+What is the model based on?
+
+Copilot is based on OpenAI's GPT models, which mean they are regulated by US law.
+
+This means the data is technically under US jurisdiction.
+
+Things to consider:
+
+- Geography: where is the data physically being stored?
+
+- Laws: what laws are people governed by? Microsoft and OpenAI are US companies.
+Data residency vs data sovereignty. GDPR and the US CLOUD Act may contradict each other.
+
+- Access: who has access to the data?
+
+So we have a situation where large tech companies based in the US (Microsoft, Amazon, Meta, Google, OpenAI, Anthropic) are defining how things get done.
+
+Google Bard got renamed to Google Gemini
+
+Github Copilot and Microsoft Copilot are different AI assistants, both based on OpenAI models and both run by Microsoft.
+
 # Glossary
 
 **Anthropic:** an AI company, but the word "anthropic" existed before Anthropic was founded.
 It means "relating to humans".
+
+**Azure:**
+
+**Data sovereignty:** the control of data. I 
+
+**Microsoft Copilot:**
+
+Hyperscaler: a large-scale data centre. Companies which use hyperscale data centres are referred to as "hyperscalers".
 
 **Jailbreaking:** tricking an AI model to do things it has been trained not to do, such as provide instructions for making bioweapons.
 
@@ -27,6 +83,6 @@ It means "relating to humans".
 
 **Prompt leaking:**
 
-
+**Microsoft Copilot:** 
 
 
