@@ -1,0 +1,32 @@
+---
+title: "AI Notes"
+format: html
+---
+
+# 25/05/2026
+
+I asked Claude Code for feedback on labno2.
+
+Claude Code claimed a function did not have a roxygen @export tag, when it did. It could not explain why it made the mistake.
+
+It picked up a typo but got the line number wrong. I asked it about another specific line and it got the number wrong.
+
+This is weird because it is a different mindset to debugging.
+With debugging, the error always stems from the difference between your mental model of what is happening and what is actually happening in the computer.
+Whereas with agentic AI, the AI model can give incorrect information.
+
+
+# Glossary
+
+**Anthropic:** an AI company, but the word "anthropic" existed before Anthropic was founded.
+It means "relating to humans".
+
+**Jailbreaking:** tricking an AI model to do things it has been trained not to do, such as provide instructions for making bioweapons.
+
+**Prompt injection:** 
+
+**Prompt leaking:**
+
+
+
+
