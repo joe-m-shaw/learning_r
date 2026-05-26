@@ -1,0 +1,35 @@
+---
+title: "Data collation with Python"
+format: html
+editor: visual
+---
+
+Notes from bioinformatician script for collating PanSolid data.
+
+No defensive programming
+Code repetition
+No unit tests
+
+```{python}
+
+# os: operating system
+import os
+
+import pandas as pd
+
+filename = "WS123456_12345678_name"
+
+filename.split('_')[-2]
+
+help(os.listdir)
+
+# pandas.melt is used in the same way as dplyr::pivot_longer
+
+# seaborn: module built on matplotlib
+
+help(join)
+
+# pd.merge used for joining data
+
+```
+
