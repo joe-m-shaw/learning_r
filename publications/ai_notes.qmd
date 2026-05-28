@@ -15,7 +15,14 @@ This is weird because it is a different mindset to debugging.
 With debugging, the error always stems from the difference between your mental model of what is happening and what is actually happening in the computer.
 Whereas with agentic AI, the AI model can give incorrect information.
 
+# 28/05/2026 
 
+I asked Copilot to analyse stdev data.
+It gave a good summary, but didn't comment on the slight rise in average stdev noise
+which was caused by the missing primers.
+
+Looks like nationally there has been confusion about the rules regarding Copilot and
+patient information.
 
 # Microsoft Copilot
 
