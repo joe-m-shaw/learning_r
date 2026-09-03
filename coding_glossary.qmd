@@ -329,6 +329,8 @@ computer language, you could see that as “formal language processing”.
 **Fortran:** a programming language developed by IBM in the 1950s and still used
 today. The name derives from “formula translation”.
 
+**FOSS:** Free and Open Source Software
+
 **Front end:** the aspects of software that the user interacts with. A good 
 example is a graphical user interface.
 
@@ -1378,7 +1380,8 @@ integer, coerces to double, coerces to character, coerces to list.
 
 ## U
 
-**utils:** a package of useful functions for developing R packages.
+**utils:** a package of useful functions for developing R packages, made initially
+in 2005.
 
 ## V
 

@@ -1,0 +1,102 @@
+---
+title: "Useful R Functions"
+author: "Joe Shaw"
+toc: true
+date: today
+date-format: "DD-MM-YYYY"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+
+There are thousands of functions you can use in R - but where to start?
+
+Here is a quick list of key functions that you can do loads of data analysis
+with.
+
+For each one I've put the function name, and then a footnote showing the package
+that the function comes from in the format "package::function".
+
+I've done it this way because if you already have the package loaded into your 
+session, you can just write the function name. 
+
+Example: if you have run `library(dplyr)` then you can just run `filter`, you 
+don't need to run `dplyr::filter()`. Packages like `utils` and `base` are 
+automatically installed with R.
+
+# Loading packages
+
+`install.packages()`[^install]: download a package from the internet onto your computer (you
+only need to do this once).
+
+`library()`[^library]: load the package into your session (you need to do this every time
+you want to use the package).
+
+# Reading data
+
+`read_csv()`[^read_csv]: read a comma-separated value (CSV) file.
+
+`write_csv()`[^write_csv]: write a CSV file. This means you can take a table you've made
+in RStudio and export it as a CSV that you can open in Excel. Note: `readr::write_csv()`
+(with an underscore) is similar, but different, to `utils::write.csv` (with a point).
+
+`read_excel()`[^read_excel]: read an Excel file.
+
+# Manipulating data
+
+`filter()`[^filter]: filter a table, like you would in Excel.
+
+`mutate()`[^mutate]: create a new column for a table.
+
+`select()`[^select]: select specific columns from a table.
+
+`rename()`[^rename]: rename a column in a table.
+
+`group_by()`[^group_by]: group data together before doing something to it. This can be
+used with `count` below.
+
+`count`[^count]: count the number of rows in a group. 
+
+`arrange()`[^arrange]: arrange the rows in a table. This is useful for summary
+tables if you want the group with the highest numbers at the top.
+
+`view()`[^view]: look at a table in the interactive panel of RStudio. This is 
+really helpful for looking at large tables.
+
+# Getting help
+
+`?`: brings up the instructions on how to use a function (i.e. `?mutate()`).
+
+# Other useful functions
+
+`colnames()`[^colnames]: get the column names for a table.
+
+`nrow()`[^nrow]: check how many rows a table has.
+
+`is.na()`[^isna]: check whether something is an NA value or not.
+
+`clean_names()`[^clean_names]: this function changes all the column names in a table
+so they are easier to code with (i.e. removing spaces, capital letters, weird
+symbols etc) - it saves me so much time!
+
+`adorn_totals()`[^adorn_totals]: add a row of totals to a table. 
+
+[^install]: `utils::install_packages`
+[^library]: `base::library`
+[^read_csv]: `readr::read_csv`
+[^write_csv]: `readr::write_csv`
+[^read_excel]: `readxl::read_excel`
+[^filter]: `dplyr::filter`
+[^mutate]: `dplyr::mutate`
+[^select]: `dplyr::select`
+[^rename]: `dplyr::rename`
+[^group_by]: `dplyr::group_by`
+[^count]: `dplyr::count`
+[^arrange]: `dplyr::arrange`
+[^view]: `tibble::view`
+[^colnames]: `base::colnames`
+[^nrow]: `base::nrow`
+[^isna]: `base::is.na`
+[^clean_names]: `janitor::clean_names`
+[^adorn_totals]: `janitor::adorn_totals`
